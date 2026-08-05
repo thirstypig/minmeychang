@@ -45,8 +45,11 @@ export const timeline: TimelineEvent[] = [
   },
   {
     id: 'i20',
-    year: 1990,
-    yearDisplay: { en: 'Year unknown', zhHant: '年份待確認' },
+    // 1985 is a mid-decade sort key, deliberately not 1980 — "1980s" must not
+    // contain the raw year, or the placeholder becomes indistinguishable from
+    // a real date if the display value is ever dropped.
+    year: 1985,
+    yearDisplay: { en: '1980s', zhHant: '1980年代' },
     en: 'Persuades the school district to approve I-20 forms, letting students remain in the United States to continue their studies.',
     zhHant: '說服學區核准 I-20 入學許可，使學生得以留在美國繼續就學。',
     factId: 'i20',

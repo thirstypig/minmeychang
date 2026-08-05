@@ -88,7 +88,7 @@ export const confirmedFacts: Fact[] = [
     zhHant: '說服亞凱迪亞聯合學區核准 I-20 入學許可，使學生得以留在美國繼續就學。',
     status: 'family',
     source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'An I-20 is the form a school issues so a student can obtain or maintain F-1 status. This was the bracketed blank in the original draft and is arguably the most concrete institutional achievement in her record. Year still unknown.',
+    note: 'An I-20 is the form a school issues so a student can obtain or maintain F-1 status. This was the bracketed blank in the original draft and is arguably the most concrete institutional achievement in her record. Dated to the 1980s by the family, 2026-08-05; exact year still open.',
   },
   {
     id: 'teachers-association',
