@@ -43,6 +43,12 @@ export const ui = {
     archiveAwaiting: 'Not yet supplied',
     mediaHeading: 'Elsewhere',
     backToStory: 'Back to her story',
+    talksHeading: 'Talks',
+    talksIntro:
+      'She still teaches. Her talks on health and wellbeing have reached hundreds of thousands of viewers.',
+    viewsLabel: 'views',
+    onChannelOf: 'on the channel of',
+    allTalks: 'All talks',
   },
   'zh-hant': {
     siteName: '張馬敏妹',
@@ -56,6 +62,11 @@ export const ui = {
     archiveAwaiting: '尚未提供',
     mediaHeading: '其他平台',
     backToStory: '返回她的故事',
+    talksHeading: '講座',
+    talksIntro: '她至今仍在傳授。她的養生講座已累積數十萬次觀看。',
+    viewsLabel: '次觀看',
+    onChannelOf: '影片發布於',
+    allTalks: '全部講座',
   },
 } as const
 

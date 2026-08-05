@@ -1,0 +1,53 @@
+---
+import { videosByReach, watchUrl } from '../data/videos'
+import { getTranslation, type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+  /** How many to show. Omit for all. */
+  limit?: number
+}
+
+const { locale, limit } = Astro.props
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+
+const shown = limit ? videosByReach.slice(0, limit) : videosByReach
+
+// Views are a snapshot, not live. Format compactly rather than implying
+// precision the site cannot maintain.
+const fmt = (n: number) =>
+  new Intl.NumberFormat(locale === 'en' ? 'en-US' : 'zh-Hant', {
+    notation: 'compact',
+    maximumFractionDigits: 1,
+  }).format(n)
+---
+
+<ul class="mt-5 space-y-5 list-none p-0">
+  {
+    shown.map((video) => (
+      <li>
+        <a
+          href={watchUrl(video)}
+          rel="noopener"
+          class="underline underline-offset-4"
+          style="color: var(--brand)"
+        >
+          {/* The titles are Chinese on both locales because that is how she
+              titled them. Marking the language keeps screen readers correct on
+              the English page. */}
+          <span lang="zh-Hant">{video.title}</span>
+        </a>
+        <p class="mt-1 text-sm" style="color: var(--text-soft)">
+          <span class="tabular-nums">{fmt(video.views)}</span>{' '}
+          {t('viewsLabel')}
+          {!video.ownChannel && video.hostChannel && (
+            <>
+              {' · '}
+              {t('onChannelOf')} <span lang="zh-Hant">{video.hostChannel}</span>
+            </>
+          )}
+        </p>
+      </li>
+    ))
+  }
+</ul>

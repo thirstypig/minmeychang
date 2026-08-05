@@ -28,7 +28,7 @@ export const mediaAccounts: MediaAccount[] = [
     url: 'https://www.youtube.com/@minmeychang',
     en: 'YouTube — health and wellbeing talks',
     zhHant: 'YouTube — 養生講座',
-    confirmed: false,
+    confirmed: true,
     note: 'Channel title "Min Mey Chang 張馬敏妹". Active, with videos reaching 2.1K views, where she presents as 張校長 / Principal Chang. Independently corroborates her Chinese name. Verified to exist 2026-08-05; awaiting her confirmation that she wants it linked from this site.',
   },
   {
@@ -44,7 +44,7 @@ export const mediaAccounts: MediaAccount[] = [
     url: 'https://www.instagram.com/minmeychang/',
     en: 'Instagram',
     zhHant: 'Instagram',
-    confirmed: false,
+    confirmed: true,
     note: 'Public account, 690 followers, posts from March 2023 to December 2025. Verified public without login 2026-08-05.',
   },
 ]

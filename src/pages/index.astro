@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro'
+import Videos from '../components/Videos.astro'
 import { getTranslation } from '../i18n/ui'
 import { confirmedFacts } from '../data/facts'
 
@@ -38,6 +39,12 @@ const chineseName = confirmedFacts.find((f) => f.id === 'chinese-name')?.zhHant
     >
       {t('siteTagline')}
     </p>
+
+    <h2 class="mt-16 text-2xl" style="color: var(--brand)">{t('talksHeading')}</h2>
+    <p class="mt-3 text-base leading-relaxed" style="color: var(--text-soft)">
+      {t('talksIntro')}
+    </p>
+    <Videos locale={locale} limit={3} />
 
     <p class="mt-12">
       <a href="/archive" class="underline underline-offset-4" style="color: var(--brand)"
