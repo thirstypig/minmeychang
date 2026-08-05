@@ -26,8 +26,10 @@ Award.
 
 Elected President of the Chinese Teacher Association for two years, she took
 teachers, school board members and district staff to Taiwan and China three
-times, so that the people teaching Chinese American children would understand
-where those children came from.
+times.
+
+> So that the people teaching Chinese American children would understand where
+> those children came from.
 
 She served as President of the local chapter of the Shih Chien University
 Alumni Association, and is today President of the national association. She

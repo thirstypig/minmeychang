@@ -1,0 +1,38 @@
+---
+interface Props {
+  /** Rendered size in pixels. */
+  size?: number
+  /** Character carried by the seal. Defaults to her surname. */
+  character?: string
+  class?: string
+}
+
+const { size = 40, character = '張', class: className = '' } = Astro.props
+---
+
+{/* A 印泥 chop — the cinnabar seal stamped on Chinese calligraphy, and the
+    source of this site's brand colour. Traditional 朱文 form: red ground with
+    reserved (white) characters.
+
+    Inline SVG rather than an image file so it inherits --brand and flips with
+    the theme. aria-hidden because it is ornament; the surname is already in
+    the page text, and announcing "張" between sections would be noise. */}
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 64 64"
+  class={className}
+  aria-hidden="true"
+  focusable="false"
+>
+  <rect width="64" height="64" rx="7" fill="var(--brand)"></rect>
+  <text
+    x="32"
+    y="34"
+    fill="var(--brand-contrast)"
+    font-family="var(--font-serif-tc)"
+    font-size="42"
+    text-anchor="middle"
+    dominant-baseline="central">{character}</text
+  >
+</svg>
