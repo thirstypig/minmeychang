@@ -167,12 +167,12 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'family',
-    en: 'She and Dr. Sheng Chang are the parents of three sons — James, Peter and Richard — and grandparents of three grandchildren.',
+    en: 'She and Dr. Sheng Chang are the parents of three sons — James, Peter and Richard — and grandparents of three grandchildren: Tobin, Jarren and Rhys.',
     zhHant:
-      '與夫婿張勝雄醫師育有三子 James、Peter、Richard，並有三名孫輩。',
+      '與夫婿張勝雄醫師育有三子 James、Peter、Richard，並有三名孫輩 Tobin、Jarren、Rhys。',
     status: 'family',
     source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'Names published at the family\'s direction; James is the eldest. Ages were supplied but are deliberately NOT published — they go stale the moment they are written, and a living private person\'s age adds nothing a tribute page needs. The grandchildren are given as a count, not by name: they were not named, and several are likely minors.',
+    note: 'Names published at the family\'s direction; James is the eldest. The grandchildren were named on 2026-08-05 when their own sites were linked from the footer — naming them there while withholding the names here would have been incoherent, and each of tobinchang.com / jarrenchang.com / rhyschang.com already publishes the name as its domain and title. Ages were supplied but are deliberately NOT published — they go stale the moment they are written, and a living private person\'s age adds nothing a tribute page needs. The grandchildren are given as a count, not by name: they were not named, and several are likely minors.',
   },
   {
     id: 'chinese-school-outcome',

@@ -62,6 +62,7 @@ export const ui = {
       'Educator, community leader and cultural advocate in Arcadia, California. Published by her family.',
     husbandLead: 'Her husband',
     husbandName: 'Sheng Chang, M.D.',
+    grandchildrenLead: 'Her grandchildren',
     descHome:
       'The life and work of Min Mey Chang (張馬敏妹) — founder of the Arcadia Chinese School, co-founder of the Arcadia Chinese Association, and a public member of the California Acupuncture Board.',
     descStory:
@@ -112,6 +113,7 @@ export const ui = {
     homeIntro: '加州亞凱迪亞的教育家、社區領袖與文化推廣者。本網站由家人建置。',
     husbandLead: '夫婿',
     husbandName: '張勝雄醫師',
+    grandchildrenLead: '孫輩',
     descHome:
       '張馬敏妹女士的生平與志業——亞凱迪亞中文學校創辦人、亞凱迪亞華人協會共同創辦人，並曾任加州針灸委員會公眾委員。',
     descStory:
