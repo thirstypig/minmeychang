@@ -45,13 +45,20 @@ const person: Record<string, unknown> = {
   },
 }
 
-if (has('family') === false) {
-  // Her marriage is confirmed; the children are not cleared for publication.
-  person.spouse = {
+person.spouse = {
+  '@type': 'Person',
+  name: 'Sheng Chang, M.D.',
+  url: 'https://shengchangmd.com',
+}
+
+if (has('family')) {
+  // Names only. Ages were supplied and are deliberately omitted — they go
+  // stale immediately. The grandchildren stay a count: they were not named,
+  // and several are likely minors.
+  person.children = ['James Chang', 'Peter Chang', 'Richard Chang'].map((name) => ({
     '@type': 'Person',
-    name: 'Sheng Chang, M.D.',
-    url: 'https://shengchangmd.com',
-  }
+    name,
+  }))
 }
 
 if (has('shih-chien')) {

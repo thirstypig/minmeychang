@@ -58,7 +58,7 @@ export const timeline: TimelineEvent[] = [
     id: 'acupuncture-board',
     year: 2001,
     en: 'Appointed a public member of the California Acupuncture Board by the Speaker of the State Assembly.',
-    zhHant: '經加州眾議會議長任命為加州針灸委員會公眾委員。',
+    zhHant: '經加州眾議院議長任命為加州針灸委員會公眾委員。',
     factId: 'acupuncture-board',
   },
   {
