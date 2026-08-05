@@ -1,0 +1,38 @@
+---
+import { figures } from '../data/figures'
+import { renderableFacts } from '../data/facts'
+import { type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+
+// A figure whose backing fact is not renderable would be an uncited claim
+// wearing a large font. Filter at render as well as testing at build — the
+// figure disappears rather than outliving its source.
+const renderableIds = new Set(renderableFacts.map((f) => f.id))
+const shown = figures.filter((f) => renderableIds.has(f.factId))
+---
+
+{
+  shown.length > 0 && (
+    <dl class="mt-12 grid grid-cols-2 gap-x-6 gap-y-9 sm:grid-cols-3">
+      {shown.map((figure) => (
+        <div>
+          <dt
+            class="text-3xl sm:text-4xl leading-none tracking-tight tabular-nums"
+            style="color: var(--brand)"
+            lang={locale === 'en' ? undefined : 'zh-Hant'}
+          >
+            {locale === 'en' ? figure.value : figure.valueZhHant}
+          </dt>
+          <dd class="mt-2 text-sm leading-snug" style="color: var(--text-soft)">
+            {locale === 'en' ? figure.en : figure.zhHant}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  )
+}

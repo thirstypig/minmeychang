@@ -122,6 +122,32 @@ html[lang^='zh'] {
 }
 
 /* --------------------------------------------------------------------------
+ * PULL QUOTES
+ *
+ * A blockquote inside the story content is set as a pull quote — larger, in
+ * the brand colour, with a rule rather than quotation marks. These are lifted
+ * from the site's own prose, not attributed to her: we have no recorded quotes
+ * from her yet, and inventing one would be the worst failure this project
+ * could have.
+ * ------------------------------------------------------------------------ */
+.prose-story blockquote {
+  margin: 2.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--brand);
+  font-size: 1.35em;
+  line-height: 1.5;
+  color: var(--brand);
+}
+
+.prose-story blockquote p {
+  margin: 0;
+}
+
+html[lang^='zh'] .prose-story blockquote {
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
  * ACCESSIBILITY
  * ------------------------------------------------------------------------ */
 .skip-link {

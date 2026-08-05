@@ -2,6 +2,8 @@
 import { readingOrder, routePath } from '../i18n/routes'
 import { confirmedFacts } from '../data/facts'
 import { getTranslation, type Locale } from '../i18n/ui'
+import Figures from './Figures.astro'
+import Seal from './Seal.astro'
 
 interface Props {
   locale: Locale
@@ -17,6 +19,10 @@ const englishName = getTranslation('en', 'siteName')
 ---
 
 <div class="pt-6 sm:pt-10">
+  {/* The chop that gives the site its colour, at the size it would actually be
+      stamped. */}
+  <Seal size={44} class="mb-7" />
+
   <h1 class="text-4xl sm:text-6xl tracking-tight" style="color: var(--brand)">
     {t('siteName')}
     {
@@ -53,9 +59,11 @@ const englishName = getTranslation('en', 'siteName')
     {t('homeIntro')}
   </p>
 
+  <Figures locale={locale} />
+
   {/* Large, plainly-labelled destinations rather than a menu bar alone.
       Senior-UX guidance: big targets, one function per link, no sublevels. */}
-  <ul class="mt-12 grid gap-px list-none p-0" style="background: var(--rule)">
+  <ul class="mt-14 grid gap-px list-none p-0" style="background: var(--rule)">
     {
       readingOrder.map((route) => (
         <li style="background: var(--surface)">
