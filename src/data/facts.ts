@@ -142,6 +142,16 @@ export const confirmedFacts: Fact[] = [
     note: 'Still no photograph of her calligraphy. It remains the most visually distinctive thing in her record and the archive has an empty frame waiting for it.',
   },
   {
+    id: 'arcadia-beautiful',
+    en: 'The City of Arcadia twice honoured the garden she made at their home: the Anita Baldwin Award in 1982, and the Mayor\'s Award in 1984, both under the Arcadia Beautiful Award.',
+    zhHant:
+      '她親手打理的家園庭院兩度獲亞凱迪亞市表彰：1982年獲安妮塔・鮑德溫獎，1984年獲市長獎，皆屬「亞凱迪亞美化獎」。',
+    status: 'confirmed',
+    source:
+      'The two framed certificates themselves, photographed by the family 2026-08-05. 1982: category "The Anita Baldwin Award", Mayor Donald D. Pellegrino. 1984: category "Mayor\'s Award", Mayor David S. Hannah. Both signed by the chairs of the Arcadia Beautiful Commission and Arcadia Beautiful Awards. Scans in public/archive/.',
+    note: 'Two details worth knowing. (1) The 1982 certificate spells the surname "Cheng"; the 1984 one spells it "Chang". The family confirms Chang is correct, so the site uses Chang throughout — the 1982 spelling is a property of the artefact, not a fact about them. (2) Both certificates print a former home address, and the family confirms both were their homes; they moved between 1982 and 1984. Both addresses are redacted in the published scans by scripts/build-award-scans.mjs. Never publish an unredacted version.',
+  },
+  {
     id: 'family',
     en: 'She and Dr. Sheng Chang are the parents of three sons — James, Peter and Richard — and grandparents of three grandchildren.',
     zhHant:

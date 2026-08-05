@@ -12,7 +12,8 @@
     "typecheck": "astro check",
     "test": "vitest run",
     "test:watch": "vitest",
-    "fonts": "node scripts/build-font.mjs"
+    "fonts": "node scripts/build-font.mjs",
+    "awards": "node scripts/build-award-scans.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

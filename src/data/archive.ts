@@ -54,6 +54,22 @@ export const archive: ArchiveItem[] = [
     },
   },
   {
+    id: 'arcadia-beautiful-1982',
+    kind: 'document',
+    decade: 1980,
+    en: 'Arcadia Beautiful Award — the Anita Baldwin Award, 1982',
+    zhHant: '亞凱迪亞美化獎——安妮塔・鮑德溫獎，1982年',
+    asset: '/archive/arcadia-beautiful-1982.jpg',
+  },
+  {
+    id: 'arcadia-beautiful-1984',
+    kind: 'document',
+    decade: 1980,
+    en: "Arcadia Beautiful Award — the Mayor's Award, 1984",
+    zhHant: '亞凱迪亞美化獎——市長獎，1984年',
+    asset: '/archive/arcadia-beautiful-1984.jpg',
+  },
+  {
     id: 'school-programmes',
     kind: 'document',
     decade: 1980,
