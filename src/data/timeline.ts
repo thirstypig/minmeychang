@@ -30,6 +30,28 @@ export const timeline: TimelineEvent[] = [
     factId: 'immigration-arrival',
   },
   {
+    id: 'aca-founded',
+    year: 1982,
+    en: 'Co-founds the Arcadia Chinese Association with Dr. Sheng Chang.',
+    zhHant: '與張勝雄醫師共同創辦亞凱迪亞華人協會。',
+    factId: 'aca-founded',
+  },
+  {
+    id: 'school-founded',
+    year: 1982,
+    en: 'Founds the Arcadia Chinese School, and becomes its principal for the next thirty years.',
+    zhHant: '創辦亞凱迪亞中文學校，並於其後三十年擔任校長。',
+    factId: 'chinese-school-founded',
+  },
+  {
+    id: 'i20',
+    year: 1990,
+    yearDisplay: { en: 'Year unknown', zhHant: '年份待確認' },
+    en: 'Persuades the school district to approve I-20 forms, letting students remain in the United States to continue their studies.',
+    zhHant: '說服學區核准 I-20 入學許可，使學生得以留在美國繼續就學。',
+    factId: 'i20',
+  },
+  {
     id: 'acupuncture-board',
     year: 2001,
     en: 'Appointed a public member of the California Acupuncture Board by the Speaker of the State Assembly.',
