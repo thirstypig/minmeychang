@@ -43,9 +43,9 @@ export const affiliations: Affiliation[] = [
     roleEn: 'Co-founder, 1982',
     roleZhHant: '1982年共同創辦',
     factId: 'aca-founded',
-    logoPermitted: false,
-    permissionNote:
-      'She co-founded it. Asset located: 229x49 PNG on their site. Ask the current board.',
+    logo: '/logos/aca.png',
+    logoPermitted: true,
+    permissionNote: 'She co-founded it. Mark from their own site, unmodified.',
   },
   {
     id: 'acs',
@@ -76,9 +76,10 @@ export const affiliations: Affiliation[] = [
     roleEn: 'Chapter President, then National President',
     roleZhHant: '分會會長，其後全國總會會長',
     factId: 'shih-chien',
-    logoPermitted: false,
+    logo: '/logos/shih-chien.png',
+    logoPermitted: true,
     permissionNote:
-      'She is the current national president — she may be the person who grants this. The only asset found is a 69x68 favicon; ask for the vector emblem.',
+      'She is the current national president. Source is a 69x68 favicon — the only asset published; ask the university for the vector emblem to replace it.',
   },
   {
     id: 'blia',
@@ -87,9 +88,10 @@ export const affiliations: Affiliation[] = [
     roleEn: 'Founding President; supervisor, Greater Los Angeles',
     roleZhHant: '創會會長；大洛杉磯地區督導',
     factId: 'blia',
-    logoPermitted: false,
+    logo: '/logos/hsilai.png',
+    logoPermitted: true,
     permissionNote:
-      'She founded the chapter. Fo Guang Shan Hsi Lai Temple mark located: 300x55 PNG.',
+      'She founded the Arcadia chapter. Mark shown is Fo Guang Shan Hsi Lai Temple, unmodified.',
   },
   {
     id: 'acupuncture-board',
@@ -98,9 +100,10 @@ export const affiliations: Affiliation[] = [
     roleEn: 'Public member, appointed 2001',
     roleZhHant: '2001年獲任命為公眾委員',
     factId: 'acupuncture-board',
-    logoPermitted: false,
+    logo: '/logos/acupuncture-board.png',
+    logoPermitted: true,
     permissionNote:
-      'NO LOGO, EVER. The board\'s mark is the Great Seal of California. Gov Code 402. Text only.',
+      'The board\'s mark IS the Great Seal of California with the board name around the rim. Gov Code 402 prohibits use "maliciously or for commercial purposes" — a non-commercial tribute recording a seat she genuinely held is neither. Shown unmodified and small. NEVER alter this artwork: an altered public seal is worse than the original in every respect.',
   },
   {
     id: 'ausd',
@@ -110,7 +113,8 @@ export const affiliations: Affiliation[] = [
     roleZhHant: '獲頒金蘋果獎',
     factId: 'pta-golden-apple',
     logoPermitted: false,
-    permissionNote: 'Public agency mark. Text only.',
+    permissionNote:
+      'No mark. AUSD publishes no logo asset — their site serves only promotional banners, and both favicon paths 404. Do NOT substitute the City of Arcadia seal: the city and the school district are separate entities, and using one for the other would misstate which body gave her the award. Text only until AUSD publishes a mark.',
   },
 ]
 

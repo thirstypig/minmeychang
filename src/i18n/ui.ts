@@ -69,6 +69,8 @@ export const ui = {
     husbandLead: 'Her husband',
     husbandName: 'Sheng Chang, M.D.',
     affiliationsHeading: 'Institutions',
+    marksNotice:
+      'Institutional names and marks belong to their respective owners and are shown to identify the organisations Min Mey Chang served. This site is published by her family and is not affiliated with, sponsored by, or endorsed by any of them.',
     achievementsHeading: 'What she built',
     storyHeading: 'Her story',
     timelineHeading: 'Timeline',
@@ -114,6 +116,8 @@ export const ui = {
     husbandLead: '夫婿',
     husbandName: '張勝雄醫師',
     affiliationsHeading: '所屬機構',
+    marksNotice:
+      '各機構名稱與標誌均屬其所有者所有，此處僅用以識別張馬敏妹女士曾服務之組織。本網站由其家人建置，與上述任何機構均無隸屬、贊助或背書關係。',
     achievementsHeading: '她的建樹',
     storyHeading: '她的故事',
     timelineHeading: '年表',
