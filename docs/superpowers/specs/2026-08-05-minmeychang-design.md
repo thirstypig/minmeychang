@@ -21,6 +21,7 @@ owner: James Chang
 > | "Her Chinese name is unknown and must not be guessed" | **張馬敏妹**, confirmed 2026-08-05 | 冠夫姓 form: 張 + her maiden surname 馬 + 敏妹. The guess `張敏梅` was wrong in two independent ways |
 > | "Four facts currently render… Indexing is off" | Indexing **on**; many facts confirmed, several from independent sources | `ALLOW_INDEXING: 'true'` in the workflow. `reviewed['zh-hant']` is now `true` |
 > | Nothing about marks, figures, press, theming or SEO | Institutions list with four institutional marks, typographic figures, a Coverage section, light/dark, print styles, sitemap, JSON-LD | Added after the spec was approved |
+> | Nothing about linking family | A footer on all 12 routes links her husband and her three grandchildren — `shengchangmd.com`, `tobinchang.com`, `jarrenchang.com`, `rhyschang.com` | `src/data/family.ts`, with two rules: names never ages, and only link a site that already publishes the person's name |
 >
 > **Still accurate and still binding:** the purpose and audience, the provenance
 > ladder (`confirmed` / `family` / `unverified` with a render gate), the colour
