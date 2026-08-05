@@ -38,8 +38,8 @@ const pick = (v: { en: string; zhHant: string }) =>
                    any scanning has happened, so gaps are visible rather than
                    silently absent. */
                 <div
-                  class="flex aspect-[4/3] items-center justify-center rounded border border-dashed p-5 text-center text-sm"
-                  style="border-color: var(--text-soft); color: var(--text-soft)"
+                  class="placeholder-frame flex aspect-[4/3] items-center justify-center rounded border border-dashed p-5 text-center text-sm"
+                  style="border-color: var(--rule); color: var(--text-soft)"
                 >
                   <span>{item.needs ? pick(item.needs) : t('archiveAwaiting')}</span>
                 </div>

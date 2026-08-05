@@ -1,0 +1,57 @@
+---
+import { getTranslation, type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+
+// Jump links, not separate pages. Keeps the life story continuous — which is
+// the point of it — while stopping anyone having to thumb past six paragraphs
+// to reach the videos.
+const sections = [
+  { id: 'story', label: t('storyHeading') },
+  { id: 'timeline', label: t('timelineHeading') },
+  { id: 'service', label: t('factsHeading') },
+  { id: 'talks', label: t('talksHeading') },
+] as const
+
+const archiveHref = locale === 'en' ? '/archive' : '/zh-hant/archive'
+---
+
+<nav
+  aria-label={t('navLabel')}
+  class="no-print sticky top-0 z-30 -mx-6 mb-2 border-b px-6 py-2 backdrop-blur"
+  style="border-color: var(--rule); background: color-mix(in srgb, var(--surface) 88%, transparent)"
+>
+  {/* Scrolls horizontally on narrow screens rather than wrapping to three
+      cramped rows or forcing a hamburger menu — five short links fit a swipe. */}
+  <ul
+    class="flex snap-x gap-5 overflow-x-auto text-sm list-none p-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+  >
+    {
+      sections.map((section) => (
+        <li class="snap-start shrink-0">
+          <a
+            href={`#${section.id}`}
+            class="tap-target whitespace-nowrap underline-offset-4 hover:underline"
+            style="color: var(--text-soft)"
+          >
+            {section.label}
+          </a>
+        </li>
+      ))
+    }
+    <li class="snap-start shrink-0">
+      <a
+        href={archiveHref}
+        class="tap-target whitespace-nowrap underline-offset-4 hover:underline"
+        style="color: var(--text-soft)"
+      >
+        {t('archiveTitle')}
+      </a>
+    </li>
+  </ul>
+</nav>
