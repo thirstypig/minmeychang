@@ -1,27 +1,30 @@
 ---
 import Base from '../layouts/Base.astro'
 import Videos from '../components/Videos.astro'
+import Timeline from '../components/Timeline.astro'
+import FactList from '../components/FactList.astro'
 import { getTranslation } from '../i18n/ui'
 import { confirmedFacts } from '../data/facts'
+import { getEntry, render } from 'astro:content'
 
 const locale = 'en' as const
 const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
 
 // Sourced from facts.ts rather than duplicated into ui.ts — her name lives in
-// exactly one place, and it renders here only because it is confirmed. If the
-// fact were ever downgraded to 'unverified', this disappears automatically.
+// exactly one place, and it renders here only because it is confirmed.
 const chineseName = confirmedFacts.find((f) => f.id === 'chinese-name')?.zhHant
+
+const entry = await getEntry('story', 'en')
+if (!entry) throw new Error('Missing story content: src/content/story/en.md')
+const { Content } = await render(entry)
 ---
 
 <Base locale={locale}>
-  <div class="mx-auto max-w-2xl px-6 py-16 sm:py-28">
+  <div class="mx-auto max-w-[68ch] px-6 py-16 sm:py-24">
     <h1 class="text-4xl sm:text-6xl tracking-tight" style="color: var(--brand)">
       {t('siteName')}
       {
         chineseName && (
-          /* lang is load-bearing, not decoration: it tells screen readers to
-             switch to Chinese pronunciation mid-heading, and it selects the
-             Chinese typeface via the [lang^='zh'] rule. */
           <span
             lang="zh-Hant"
             class="mt-3 block text-2xl sm:text-3xl font-normal tracking-normal"
@@ -33,12 +36,23 @@ const chineseName = confirmedFacts.find((f) => f.id === 'chinese-name')?.zhHant
       }
     </h1>
 
-    <p
-      class="mt-8 text-xl sm:text-2xl leading-relaxed"
-      style="color: var(--text-strong)"
-    >
+    <p class="mt-8 text-xl sm:text-2xl leading-relaxed" style="color: var(--text-strong)">
       {t('siteTagline')}
     </p>
+
+    <h2 class="mt-16 text-2xl" style="color: var(--brand)">{t('storyHeading')}</h2>
+    <div
+      class="mt-5 space-y-5 text-lg leading-relaxed"
+      style="color: var(--text-strong)"
+    >
+      <Content />
+    </div>
+
+    <h2 class="mt-16 text-2xl" style="color: var(--brand)">{t('timelineHeading')}</h2>
+    <Timeline locale={locale} />
+
+    <h2 class="mt-16 text-2xl" style="color: var(--brand)">{t('factsHeading')}</h2>
+    <FactList locale={locale} />
 
     <h2 class="mt-16 text-2xl" style="color: var(--brand)">{t('talksHeading')}</h2>
     <p class="mt-3 text-base leading-relaxed" style="color: var(--text-soft)">
@@ -46,13 +60,13 @@ const chineseName = confirmedFacts.find((f) => f.id === 'chinese-name')?.zhHant
     </p>
     <Videos locale={locale} limit={3} />
 
-    <p class="mt-12">
+    <p class="mt-14">
       <a href="/archive" class="underline underline-offset-4" style="color: var(--brand)"
         >{t('archiveTitle')}</a
       >
     </p>
 
-    <p class="mt-12 text-base" style="color: var(--text-soft)">
+    <p class="mt-14 text-base" style="color: var(--text-soft)">
       {t('holdingNotice')}
     </p>
   </div>

@@ -1,0 +1,27 @@
+---
+import { renderableFacts } from '../data/facts'
+import { type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+
+// Her name and the narrative facts are rendered in the heading and the story
+// prose; this list is for discrete honours and appointments.
+const excluded = new Set(['chinese-name', 'immigration-arrival', 'chinese-school-outcome'])
+const facts = renderableFacts.filter((f) => !excluded.has(f.id))
+---
+
+<ul class="mt-6 space-y-5 list-none p-0">
+  {
+    facts.map((fact) => (
+      <li class="border-l-2 pl-5" style="border-color: var(--brand)">
+        <p style="color: var(--text-strong)">
+          {locale === 'en' ? fact.en : fact.zhHant}
+        </p>
+      </li>
+    ))
+  }
+</ul>
