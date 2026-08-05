@@ -1,6 +1,7 @@
 ---
 import Page from '../layouts/Page.astro'
 import Videos from '../components/Videos.astro'
+import Press from '../components/Press.astro'
 import { getTranslation } from '../i18n/ui'
 
 const locale = 'en' as const
@@ -9,4 +10,5 @@ const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, 
 
 <Page locale={locale} current="talks" heading={t('talksHeading')} lede={t('talksIntro')}>
   <Videos locale={locale} />
+  <Press locale={locale} />
 </Page>

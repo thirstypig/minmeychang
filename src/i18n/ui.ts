@@ -74,6 +74,9 @@ export const ui = {
       'Min Mey Chang — Principal Chang — on 養生之道: the benefits, principles and application of massage and reflexology. Her talks have reached more than 830,000 viewers.',
     descArchive:
       'Photographs and documents from six decades of Min Mey Chang\'s work in Arcadia, California.',
+    pressHeading: 'Coverage',
+    pressIntro:
+      'Independent accounts of her work in Chinese-language community media. Each one below is also a source for a fact on this site.',
     affiliationsHeading: 'Institutions',
     marksNotice:
       'Institutional names and marks belong to their respective owners and are shown to identify the organisations Min Mey Chang served. This site is published by her family and is not affiliated with, sponsored by, or endorsed by any of them.',
@@ -120,6 +123,8 @@ export const ui = {
     descTalks:
       '張馬敏妹——張校長——主講養生之道：按摩與足部反射療法的功效、原理與應用。講座觀看人次已逾八十三萬。',
     descArchive: '橫跨六十年，張馬敏妹在加州亞凱迪亞的照片與文件紀錄。',
+    pressHeading: '媒體報導',
+    pressIntro: '華文社區媒體對她工作的獨立報導。以下每則同時也是本網站事實的出處。',
     affiliationsHeading: '所屬機構',
     marksNotice:
       '各機構名稱與標誌均屬其所有者所有，此處僅用以識別張馬敏妹女士曾服務之組織。本網站由其家人建置，與上述任何機構均無隸屬、贊助或背書關係。',

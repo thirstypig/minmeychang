@@ -55,11 +55,26 @@ export const timeline: TimelineEvent[] = [
     factId: 'i20',
   },
   {
+    id: 'blia-founded',
+    year: 1994,
+    en: "Founds the Arcadia chapter of Buddha's Light International Association, inaugurated by Venerable Master Hsing Yun.",
+    zhHant: '創辦國際佛光會亞凱迪亞分會，由星雲大師親臨主持成立。',
+    factId: 'blia',
+  },
+  {
     id: 'acupuncture-board',
     year: 2001,
     en: 'Appointed a public member of the California Acupuncture Board by the Speaker of the State Assembly.',
     zhHant: '經加州眾議院議長任命為加州針灸委員會公眾委員。',
     factId: 'acupuncture-board',
+  },
+  {
+    id: 'shih-chien-president',
+    year: 2016,
+    yearDisplay: { en: '2016–17', zhHant: '2016–17年' },
+    en: 'President of the Shih Chien University Alumni Association of Southern California; later President for North America.',
+    zhHant: '任實踐大學南加州校友會會長，其後任北美總會長。',
+    factId: 'shih-chien',
   },
   {
     id: 'health-talk',

@@ -1,0 +1,53 @@
+---
+import { press } from '../data/press'
+import { getTranslation, type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+
+// Newest first: the 2024 items show she is still active, which is the point
+// the draft bio most badly understated.
+const items = [...press].sort((a, b) => b.date.localeCompare(a.date))
+---
+
+<section class="mt-16">
+  <h2 class="text-2xl" style="color: var(--brand)">{t('pressHeading')}</h2>
+  <p class="mt-3 text-base leading-relaxed" style="color: var(--text-soft)">
+    {t('pressIntro')}
+  </p>
+
+  <ul class="mt-7 list-none p-0">
+    {
+      items.map((item) => (
+        <li class="border-t py-5" style="border-color: var(--rule)">
+          <a
+            href={item.url}
+            rel="noopener"
+            class="underline-offset-4 hover:underline"
+            style="color: var(--brand)"
+          >
+            {/* Headlines stay in the language they were published in — that is
+                what someone would search for. */}
+            <span lang={/[一-鿿]/.test(item.title) ? 'zh-Hant' : 'en'}>
+              {item.title}
+            </span>
+          </a>
+          <p class="mt-1 text-sm" style="color: var(--text-soft)">
+            <span lang={/[一-鿿]/.test(item.outlet) ? 'zh-Hant' : 'en'}>
+              {item.outlet}
+            </span>
+            {' · '}
+            <span class="tabular-nums">{item.date.slice(0, 4)}</span>
+          </p>
+          <p class="mt-2 text-base leading-relaxed" style="color: var(--text-strong)">
+            {locale === 'en' ? item.en : item.zhHant}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+</section>

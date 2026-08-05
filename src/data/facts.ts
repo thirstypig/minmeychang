@@ -57,8 +57,9 @@ export const confirmedFacts: Fact[] = [
     id: 'chinese-school-founded',
     en: 'Founded the Arcadia Chinese School in 1982 and served as its principal for more than thirty years.',
     zhHant: '1982年創辦亞凱迪亞中文學校，擔任校長逾三十年。',
-    status: 'family',
-    source: 'confirmed by James Chang (son), 2026-08-05',
+    status: 'confirmed',
+    source:
+      'Family, 2026-08-05, for the founding year and tenure. The principalship is independently attested by Merit Times 人間通訊社: "並曾任亞凱迪亞市中華學校校長" — https://www.lnanews.com/news/150416',
   },
   {
     id: 'afternoon-classes',
@@ -109,19 +110,23 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'shih-chien',
-    en: 'President of the local chapter of the Shih Chien University Alumni Association, and currently President of the national association.',
-    zhHant: '曾任實踐大學校友會分會會長，現任全國總會會長。',
-    status: 'family',
-    source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'Spelling confirmed as Shih Chien (實踐), not "She Chien". The national presidency is a CURRENT role — present tense. Years still unknown.',
+    en: 'President of the Shih Chien University Alumni Association of Southern California in 2016–17, and President of the North America association.',
+    zhHant:
+      '2016至2017年任實踐大學南加州校友會會長，並任北美總會長。',
+    status: 'confirmed',
+    source:
+      'Southern California chapter presidency 2016-17: Taiwanese American Archives, "Shih Chien University Alumni Association of Southern California 實踐大學南加州校友會", listing "2016-17 會長 張馬敏妹 Minmey Chang" — https://taiwaneseamericanhistory.org/shih-chien-university-alumni-association-of-southern-california/ | North America presidency: 大紀元/Epoch Times, 2024-07-03, naming her 北美總會長張馬敏妹 at the Northern California chapter handover — https://sf.epochtimes.com/2024/07/03/30561.html',
+    note: 'CORRECTED. The draft said "national association"; the sources say 北美總會 — North America, not one country. Also note the archive renders her English name as one word, "Minmey Chang".',
   },
   {
     id: 'blia',
-    en: "Founded the Arcadia chapter of Buddha's Light International Association and served as its founding President, later becoming supervisor for the Greater Los Angeles area.",
-    zhHant: '創辦國際佛光會亞凱迪亞分會並任創會會長，其後擔任大洛杉磯地區督導。',
-    status: 'family',
-    source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'The Greater LA role is "supervisor" — 督導 in BLIA usage. Founding year still unknown.',
+    en: "Founding President of the Arcadia chapter of Buddha's Light International Association, established in 1994 at a ceremony led by Venerable Master Hsing Yun, and later supervisor for the Los Angeles association.",
+    zhHant:
+      '國際佛光會亞凱迪亞分會創會會長。該分會於1994年由開山祖師星雲大師親臨主持成立，她其後出任洛杉磯協會督導。',
+    status: 'confirmed',
+    source:
+      'BLIA Los Angeles, 2024-09-22: "亞市分會是在1994年由開山祖師星雲大師親臨佈達主持成立儀式… 創會會長張馬敏妹督導" — https://la.blia.org/2024/09/22/092224/ | Also Merit Times 人間通訊社: "張馬敏妹為國際佛光會洛杉磯協會亞市分會創會會長" — https://www.lnanews.com/news/150416',
+    note: 'RESOLVED the founding year: 1994, and the ceremony was led by 星雲大師 himself. 督導 was the right guess for the supervisor title. The 2024 chapter election was held at their home.',
   },
   {
     id: 'reflexology',
@@ -140,6 +145,15 @@ export const confirmedFacts: Fact[] = [
     status: 'family',
     source: 'confirmed by James Chang (son), 2026-08-05',
     note: 'Still no photograph of her calligraphy. It remains the most visually distinctive thing in her record and the archive has an empty frame waiting for it.',
+  },
+  {
+    id: 'sheng-chang-mayor',
+    en: 'Her husband, Dr. Sheng Chang, served as Mayor of Arcadia for two terms — eight years.',
+    zhHant: '夫婿張勝雄醫師曾任亞凱迪亞市市長，兩任共八年。',
+    status: 'confirmed',
+    source:
+      'Merit Times 人間通訊社: "張勝雄曾任亞凱迪亞市市長兩任8年" — https://www.lnanews.com/news/150416. Also referred to as 亞凱迪亞前市長 in an AMTV broadcast, 2022 — https://youtu.be/cqdyWDGSTnw',
+    note: 'ABSENT FROM THE DRAFT BIO ENTIRELY, and absent from shengchangmd.com, which describes him only as a family physician. Worth telling that project. Included here because it is the context in which much of her civic work happened — she was co-founding associations and running a school while her husband led the city. Years of the two terms still unknown.',
   },
   {
     id: 'arcadia-beautiful',
