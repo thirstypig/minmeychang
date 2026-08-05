@@ -1,6 +1,7 @@
 ---
 import Page from '../layouts/Page.astro'
 import FactList from '../components/FactList.astro'
+import Affiliations from '../components/Affiliations.astro'
 import { getTranslation } from '../i18n/ui'
 
 const locale = 'en' as const
@@ -9,4 +10,5 @@ const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, 
 
 <Page locale={locale} current="service" heading={t('factsHeading')}>
   <FactList locale={locale} />
+  <Affiliations locale={locale} />
 </Page>
