@@ -57,6 +57,8 @@ export const ui = {
     previousLabel: 'Back',
     homeIntro:
       'Educator, community leader and cultural advocate in Arcadia, California. Published by her family.',
+    husbandLead: 'Her husband',
+    husbandName: 'Sheng Chang, M.D.',
     storyHeading: 'Her story',
     timelineHeading: 'Timeline',
     factsHeading: 'Service and recognition',
@@ -92,6 +94,8 @@ export const ui = {
     nextLabel: '下一頁',
     previousLabel: '上一頁',
     homeIntro: '加州亞凱迪亞的教育家、社區領袖與文化推廣者。本網站由家人建置。',
+    husbandLead: '夫婿',
+    husbandName: '張勝雄醫師',
     storyHeading: '她的故事',
     timelineHeading: '年表',
     factsHeading: '服務與榮譽',
