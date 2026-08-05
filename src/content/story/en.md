@@ -11,11 +11,11 @@ newly arrived immigrants and to open a line between the Chinese American
 community, the city, and the schools. That same year she founded the Arcadia
 Chinese School, and served as its principal for more than thirty years.
 
-She built the school into something larger than a language class. She
-established its afternoon classes and its extracurricular programmes — the
-first of their kind in the country. Over three decades the school educated
-thousands of students, who have since gone into professions of every kind and
-have children of their own.
+She built the school into something larger than a language class. A trailblazer
+among Chinese schools, she established its afternoon classes and its
+extracurricular programmes. Over three decades the school educated thousands of
+students, who have since gone into professions of every kind and have children
+of their own.
 
 Much of that work happened through the Arcadia Unified School District, where
 she built a relationship patient enough to solve real problems for real

@@ -62,11 +62,11 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'afternoon-classes',
-    en: 'Established the school\'s afternoon classes and extracurricular programmes — the first of their kind in the country.',
-    zhHant: '首創該校課後中文班與課外活動課程，為全美首例。',
+    en: 'A trailblazer among Chinese schools, she established the school\'s afternoon classes and its extracurricular programmes.',
+    zhHant: '她在中文學校教育上勇於開創，率先設立該校的課後中文班與課外活動課程。',
     status: 'family',
     source: 'confirmed by James Chang (son), 2026-08-05',
-    note: '"First in the nation" is a strong claim and is not externally verified — no public record found either way. Stated by the family. Consider softening to "among the first" if she is not certain.',
+    note: 'Reworded 2026-08-05 at the family\'s request. Previously read "the first of their kind in the country" — an unverifiable nationwide superlative, and the only claim on the site a stranger could arrive to correct. What she established is concrete and family-attested; "trailblazer" characterises rather than asserts a record. Do not reintroduce the superlative without a source.',
   },
   {
     id: 'students-taught',
