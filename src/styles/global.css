@@ -53,8 +53,15 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-html[lang^='zh'] {
+/* Matches any element carrying a Chinese lang attribute, not just <html> — so
+ * a Chinese name embedded in an English page gets the right typeface. Without
+ * this the characters render in the Latin serif's CJK fallback, which is
+ * usually a mismatched system font. */
+[lang^='zh'] {
   font-family: var(--font-serif-tc);
+}
+
+html[lang^='zh'] {
   line-height: 1.9;
 }
 
