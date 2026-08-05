@@ -1,0 +1,121 @@
+---
+import { getTranslation, type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+---
+
+<div class="flex items-center gap-4 text-sm no-print">
+  {/* Text size. Her peers are largely in their seventies — this is not
+      decorative. Scales the root font size, so every rem on the page moves
+      together rather than only the body copy. */}
+  <div
+    class="flex items-center gap-1"
+    role="group"
+    aria-label={t('textSizeLabel')}
+  >
+    <button
+      type="button"
+      data-type-scale="down"
+      class="tap-target px-2 py-1 leading-none"
+      style="color: var(--text-soft)"
+      aria-label={t('textSmaller')}
+      title={t('textSmaller')}>A<span class="sr-only">−</span></button
+    >
+    <button
+      type="button"
+      data-type-scale="up"
+      class="tap-target px-2 py-1 text-lg leading-none"
+      style="color: var(--text-soft)"
+      aria-label={t('textLarger')}
+      title={t('textLarger')}>A<span class="sr-only">+</span></button
+    >
+  </div>
+
+  <span aria-hidden="true" style="color: var(--rule)">|</span>
+
+  {/* Appearance. Three states, not two: "system" is the default and must stay
+      reachable, otherwise a visitor who tries the toggle can never get back to
+      following their OS. */}
+  <div class="flex items-center gap-1" role="group" aria-label={t('themeLabel')}>
+    <button
+      type="button"
+      data-theme-set="light"
+      class="tap-target px-2 py-1"
+      style="color: var(--text-soft)"
+      aria-label={t('themeLight')}
+      title={t('themeLight')}>☀</button
+    >
+    <button
+      type="button"
+      data-theme-set="dark"
+      class="tap-target px-2 py-1"
+      style="color: var(--text-soft)"
+      aria-label={t('themeDark')}
+      title={t('themeDark')}>☾</button
+    >
+    <button
+      type="button"
+      data-theme-set="system"
+      class="tap-target px-2 py-1 text-xs"
+      style="color: var(--text-soft)"
+      aria-label={t('themeSystem')}
+      title={t('themeSystem')}>{t('themeSystem')}</button
+    >
+  </div>
+</div>
+
+{/* is:inline keeps Astro from bundling this. It is the only JavaScript on the
+    site, and it is deliberately tiny. */}
+<script is:inline>
+  ;(function () {
+    var root = document.documentElement
+    var MIN = 0.9
+    var MAX = 1.6
+
+    function markActive() {
+      var current = root.dataset.theme || 'system'
+      document.querySelectorAll('[data-theme-set]').forEach(function (button) {
+        var active = button.getAttribute('data-theme-set') === current
+        button.setAttribute('aria-pressed', String(active))
+        button.style.color = active ? 'var(--brand)' : 'var(--text-soft)'
+      })
+    }
+
+    document.querySelectorAll('[data-theme-set]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var choice = button.getAttribute('data-theme-set')
+        try {
+          if (choice === 'system') {
+            localStorage.removeItem('theme')
+            delete root.dataset.theme
+          } else {
+            localStorage.setItem('theme', choice)
+            root.dataset.theme = choice
+          }
+        } catch (e) {}
+        markActive()
+      })
+    })
+
+    document.querySelectorAll('[data-type-scale]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var step = button.getAttribute('data-type-scale') === 'up' ? 0.1 : -0.1
+        var current = parseFloat(
+          getComputedStyle(root).getPropertyValue('--type-scale') || '1'
+        )
+        var next = Math.min(MAX, Math.max(MIN, Math.round((current + step) * 10) / 10))
+        root.style.setProperty('--type-scale', String(next))
+        try {
+          localStorage.setItem('type-scale', String(next))
+        } catch (e) {}
+      })
+    })
+
+    markActive()
+  })()
+</script>

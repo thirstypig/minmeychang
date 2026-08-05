@@ -1,0 +1,66 @@
+---
+// Source for public/og.png, the image shown when the site is shared in
+// WhatsApp, WeChat, iMessage or Facebook.
+//
+// Rendered at exactly 1200x630 and screenshotted rather than generated with
+// satori/resvg, which would add two dependencies and a second font pipeline to
+// produce the same picture. Regenerate with:
+//
+//   npm run dev
+//   # screenshot http://localhost:3170/og-card at 1200x630 → public/og.png
+//
+// noindex like every other page; it is not linked from anywhere.
+import '../styles/global.css'
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <title>og-card</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="width:1200px;height:630px;display:flex;flex-direction:column;justify-content:center;padding:0 96px;box-sizing:border-box;background:var(--surface);position:relative;overflow:hidden"
+    >
+      <!-- The seal, bled off the right edge the way a chop sits in a corner. -->
+      <div
+        style="position:absolute;right:-40px;top:-40px;width:340px;height:340px;border-radius:38px;background:var(--brand);opacity:0.10"
+      >
+      </div>
+
+      <div
+        style="width:96px;height:6px;background:var(--brand);margin-bottom:44px"
+      >
+      </div>
+
+      <div
+        style="font-family:var(--font-serif-en);font-size:96px;line-height:1;color:var(--brand);letter-spacing:-0.02em"
+      >
+        Min Mey Chang
+      </div>
+
+      <div
+        lang="zh-Hant"
+        style="font-family:var(--font-serif-tc);font-size:60px;line-height:1;color:var(--text-soft);margin-top:24px"
+      >
+        張馬敏妹
+      </div>
+
+      <div
+        style="font-family:var(--font-serif-en);font-size:30px;line-height:1.45;color:var(--text-strong);margin-top:52px;max-width:840px"
+      >
+        Four decades of education, cultural preservation, and community service
+        in Arcadia, California.
+      </div>
+    </div>
+  </body>
+</html>

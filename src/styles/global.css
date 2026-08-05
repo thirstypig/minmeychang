@@ -1,13 +1,12 @@
 @import 'tailwindcss';
 
-/* Noto Serif TC, subset by scripts/build-font.mjs to the ~430 glyphs this site
- * actually uses: 152KB instead of 7.6MB. Regenerate with `npm run fonts` after
- * adding Chinese copy; tests/fonts/coverage.test.ts fails if you forget.
+/* Noto Serif TC, subset by scripts/build-font.mjs to the glyphs this site
+ * actually uses: ~176KB instead of 7.6MB. Regenerate with `npm run fonts`
+ * after adding Chinese copy; tests/fonts/coverage.test.ts fails if you forget.
  *
  * unicode-range confines the download to pages containing CJK. font-display:
- * swap means text is readable in the fallback immediately rather than
- * invisible while 152KB arrives — which matters most for her name in the
- * heading, the one string on the page nobody should have to wait for.
+ * swap keeps text readable in the fallback rather than invisible while 176KB
+ * arrives — which matters most for her name in the heading.
  *
  * SIL Open Font License 1.1 — see public/fonts/OFL.txt.
  */
@@ -22,61 +21,98 @@
 }
 
 /* The red is 印泥 — the cinnabar seal paste used to stamp a chop on Chinese
- * calligraphy. Chosen because she performs calligraphy, so the colour comes
- * from her own practice rather than from a generic festive red. Approved
- * 2026-08-05.
+ * calligraphy. Chosen because she practises calligraphy, so the colour comes
+ * from her own hand rather than from a generic festive red.
  *
  * COLOUR RULE (inherited from shengchangmd, where breaking it caused two real
- * bugs): never hardcode #000/#fff or any fixed text colour on a branded
+ * bugs): never hardcode black/white or any fixed text colour on a branded
  * surface. Set the surface's own `color` to --brand-contrast and let
  * descendants inherit. Headings stay `color: inherit` on purpose.
  */
 @theme {
-  --color-brand: #b02a1f;
-  --color-brand-contrast: #fdf6f2;
-  --color-ink: #1a1614;
-  --color-ink-soft: #5c534e;
-  --color-paper: #fdfbf8;
-
   --font-serif-en: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
-  /* The subset webfont leads so the site renders identically everywhere; the
-   * system stack follows as fallback for the swap period and for any glyph the
-   * subset somehow misses. */
   --font-serif-tc: 'Noto Serif TC Subset', 'Songti TC', 'PingFang TC',
     'Microsoft JhengHei', serif;
 }
 
+/* ---------------------------------------------------------------------------
+ * THEMING
+ *
+ * Three states, in precedence order:
+ *   1. :root                       — light, the default
+ *   2. @media (prefers-color-scheme: dark) — follows the OS when unset
+ *   3. [data-theme="…"]            — an explicit choice, always wins
+ *
+ * The explicit selectors must come last and must override the media query in
+ * BOTH directions, so a visitor on a dark OS can still choose light. An
+ * inline script in Base.astro stamps data-theme before first paint; without
+ * it, choosing light means a dark flash on every navigation.
+ * ------------------------------------------------------------------------- */
 :root {
-  --brand: var(--color-brand);
-  --brand-contrast: var(--color-brand-contrast);
-  --text-strong: var(--color-ink);
-  --text-soft: var(--color-ink-soft);
-  --surface: var(--color-paper);
+  --brand: #b02a1f;
+  --brand-contrast: #fdf6f2;
+  --text-strong: #1a1614;
+  --text-soft: #5c534e;
+  --surface: #fdfbf8;
+  --rule: #e4dbd2;
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    /* Red stays the brand in both themes but lifts in luminance so it reads on
-     * a dark surface. --brand-contrast flips with it. */
+  :root:not([data-theme='light']) {
     --brand: #e8837c;
     --brand-contrast: #241615;
     --text-strong: #f2ece7;
     --text-soft: #b3a9a2;
     --surface: #141110;
+    --rule: #2e2624;
+    color-scheme: dark;
   }
 }
 
+:root[data-theme='dark'] {
+  --brand: #e8837c;
+  --brand-contrast: #241615;
+  --text-strong: #f2ece7;
+  --text-soft: #b3a9a2;
+  --surface: #141110;
+  --rule: #2e2624;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --brand: #b02a1f;
+  --brand-contrast: #fdf6f2;
+  --text-strong: #1a1614;
+  --text-soft: #5c534e;
+  --surface: #fdfbf8;
+  --rule: #e4dbd2;
+  color-scheme: light;
+}
+
+/* ---------------------------------------------------------------------------
+ * TYPE SCALE
+ *
+ * --type-scale is set by the text-size control and multiplies the root font
+ * size, so every rem-based size on the page scales together. Her peers are
+ * largely in their seventies; this is not a decorative feature.
+ * ------------------------------------------------------------------------- */
+:root {
+  --type-scale: 1;
+}
+
 html {
+  font-size: calc(100% * var(--type-scale));
   background: var(--surface);
   color: var(--text-strong);
   font-family: var(--font-serif-en);
   -webkit-font-smoothing: antialiased;
+  /* Stops iOS Safari inflating text in landscape and breaking the measure. */
+  -webkit-text-size-adjust: 100%;
 }
 
-/* Matches any element carrying a Chinese lang attribute, not just <html> — so
- * a Chinese name embedded in an English page gets the right typeface. Without
- * this the characters render in the Latin serif's CJK fallback, which is
- * usually a mismatched system font. */
+/* Matches any element carrying a Chinese lang attribute, not just <html>, so a
+ * Chinese name embedded in an English page gets the right typeface. */
 [lang^='zh'] {
   font-family: var(--font-serif-tc);
 }
@@ -85,6 +121,9 @@ html[lang^='zh'] {
   line-height: 1.9;
 }
 
+/* --------------------------------------------------------------------------
+ * ACCESSIBILITY
+ * ------------------------------------------------------------------------ */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -96,4 +135,107 @@ html[lang^='zh'] {
   background: var(--brand);
   color: var(--brand-contrast);
   padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+/* A visible focus ring on every interactive element. Browsers' defaults are
+ * inconsistent and often invisible against a dark surface. */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Tap targets. 44px is Apple's minimum and roughly the width of an adult
+ * fingertip; the default line-height on an inline link is about half that. */
+@media (pointer: coarse) {
+  nav a,
+  nav button,
+  .tap-target {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Anchored headings must not hide under the sticky section nav. */
+:target {
+  scroll-margin-top: 5rem;
+}
+
+/* --------------------------------------------------------------------------
+ * PRINT
+ *
+ * People will print this — for her, for relatives who don't use the web, to
+ * bring to a gathering. Defaults would print a dark background and a set of
+ * navigation links that mean nothing on paper.
+ * ------------------------------------------------------------------------ */
+@media print {
+  :root {
+    --brand: #7a1d15;
+    --brand-contrast: #ffffff;
+    --text-strong: #000000;
+    --text-soft: #333333;
+    --surface: #ffffff;
+    --rule: #cccccc;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  /* Navigation, controls and the language toggle are meaningless on paper. */
+  nav,
+  .no-print,
+  .skip-link {
+    display: none !important;
+  }
+
+  main {
+    max-width: none !important;
+  }
+
+  /* Print the destination after each link, so a printed page stays useful. */
+  main a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 9pt;
+    color: #555;
+    word-break: break-all;
+  }
+
+  /* Never break a heading from the text it introduces, or split a timeline
+     entry across two sheets. */
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  li,
+  img {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* The empty archive frames are placeholders for material that does not yet
+     exist. On paper they read as printing errors. */
+  .placeholder-frame {
+    display: none !important;
+  }
 }
