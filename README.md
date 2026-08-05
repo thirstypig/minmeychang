@@ -56,6 +56,50 @@ may carry home addresses, signatures and phone numbers. Only derived,
 reviewed, web-sized assets in `public/` are committed. If originals ever need
 version control, make the repo private first.
 
+## Tests
+
+`npm test` — **78 tests across 10 files.** CI runs them, and the typecheck,
+before the build, so a regression blocks the deploy rather than shipping.
+
+| File | Guards |
+|---|---|
+| `tests/i18n/locale-coverage.test.ts` | key parity between locales; no untranslated value |
+| `tests/i18n/route-coverage.test.ts` | a page file exists in **both** locales for every route; unbroken reading order |
+| `tests/data/facts.test.ts` | nothing `unverified` renders; every rendered fact cites a source |
+| `tests/data/timeline.test.ts` | ordering; placeholder years never reach the page |
+| `tests/data/figures.test.ts` | every figure cites a renderable fact; no Western numerals on Chinese pages |
+| `tests/data/media.test.ts` | **the family video channel is not linked** |
+| `tests/data/affiliations.test.ts` | logo permission gate; AUSD never borrows another body's mark |
+| `tests/data/videos.test.ts` | third-party uploads keep their attribution |
+| `tests/data/archive.test.ts` | placeholders say what is missing; no originals under `public/` |
+| `tests/fonts/coverage.test.ts` | every CJK character in source is in the committed subset |
+
+The suite is verified to pass **with and without** the gitignored
+`src/data/facts.pending.ts`, which is absent in CI.
+
+### Every guard is negative-tested
+
+A guard nobody has watched fail is a hypothesis. Each of these was proven by
+deliberately breaking it:
+
+| Guard | Sabotage | Result |
+|---|---|---|
+| `scripts/verify-css.mjs` | empty the compiled stylesheet | exit 1 |
+| fact provenance | filter to `() => true` | 3 tests fail |
+| font coverage | drop a glyph from the manifest | 2 tests fail, names the glyph |
+| CI typecheck | remove `@astrojs/check` | step fails on missing `Result (` |
+| media consent | set the family channel `confirmed: true` | 2 tests fail |
+| logo gating | give AUSD the City of Arcadia seal | 2 tests fail |
+| video attribution | drop `hostChannel` from the 833K video | 1 test fails |
+| archive placeholders | remove an item's `needs` | 1 test fails |
+
+Re-run any of these before trusting the suite. See
+[`docs/solutions/build-errors/verification-that-verifies-nothing.md`](docs/solutions/build-errors/verification-that-verifies-nothing.md)
+for why: on this project, nine separate tools have reported success for work
+they never performed — including a CI typecheck that ran unverified for
+fourteen consecutive deploys, and a provenance test that was logically
+incapable of failing.
+
 ## Build guard
 
 `scripts/verify-css.mjs` runs as `postbuild` and fails the build if Tailwind
