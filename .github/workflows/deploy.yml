@@ -1,0 +1,54 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # A typecheck or locale regression blocks the deploy rather than shipping.
+      - name: Typecheck
+        run: npx astro check --minimumSeverity error
+
+      - name: Build
+        env:
+          SITE_URL: https://minmeychang.com
+          # Crawlers stay blocked until Min Mey Chang has reviewed every fact,
+          # photograph and her own name. Uncomment ONLY after she signs off.
+          # ALLOW_INDEXING: 'true'
+        run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

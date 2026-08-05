@@ -1,0 +1,71 @@
+---
+import '../styles/global.css'
+import {
+  type Locale,
+  getTranslation,
+  htmlLang,
+  localeNames,
+  alternatePath,
+  reviewed,
+} from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+  title?: string
+  description?: string
+}
+
+const { locale, title, description } = Astro.props
+
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+
+const pageTitle = title ?? t('siteName')
+const pageDescription = description ?? t('siteTagline')
+
+const path = Astro.url.pathname
+const otherLocale: Locale = locale === 'en' ? 'zh-hant' : 'en'
+const otherPath = alternatePath(locale, path)
+
+const canonical = new URL(path, Astro.site)
+const enHref = new URL(locale === 'en' ? path : otherPath, Astro.site)
+const zhHref = new URL(locale === 'en' ? otherPath : path, Astro.site)
+
+// Crawlers are blocked unless explicitly allowed AND this locale's copy has
+// been reviewed by a fluent reader. Both conditions, not either.
+const allowIndexing = process.env.ALLOW_INDEXING === 'true'
+const indexable = allowIndexing && reviewed[locale]
+---
+
+<!doctype html>
+<html lang={htmlLang[locale]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonical.href} />
+    <link rel="alternate" hreflang="en" href={enHref.href} />
+    <link rel="alternate" hreflang="zh-Hant" href={zhHref.href} />
+    <link rel="alternate" hreflang="x-default" href={enHref.href} />
+    {!indexable && <meta name="robots" content="noindex, nofollow" />}
+  </head>
+  <body class="min-h-screen">
+    <a class="skip-link" href="#main">{t('skipToContent')}</a>
+
+    <nav class="flex justify-end p-6 text-sm">
+      <a
+        href={otherPath}
+        hreflang={htmlLang[otherLocale]}
+        aria-label={t('switchLanguage')}
+        class="underline underline-offset-4 decoration-1"
+        style="color: var(--brand)"
+      >
+        {localeNames[otherLocale]}
+      </a>
+    </nav>
+
+    <main id="main">
+      <slot />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+/* PROVISIONAL PALETTE — pending design approval.
+ *
+ * The red is drawn from 印泥, the cinnabar seal paste used to stamp a chop on
+ * Chinese calligraphy — chosen because she performs calligraphy, rather than
+ * reaching for a generic festive red.
+ *
+ * COLOUR RULE (inherited from shengchangmd, where breaking it caused two real
+ * bugs): never hardcode #000/#fff or any fixed text colour on a branded
+ * surface. Set the surface's own `color` to --brand-contrast and let
+ * descendants inherit. Headings stay `color: inherit` on purpose.
+ */
+@theme {
+  --color-brand: #8e1b1b;
+  --color-brand-contrast: #fdf6f2;
+  --color-ink: #1a1614;
+  --color-ink-soft: #5c534e;
+  --color-paper: #fdfbf8;
+
+  --font-serif-en: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  /* System Traditional Chinese stack. Deliberately NOT a webfont yet: a full
+   * Noto Serif TC is ~10MB. Because this site is static with finite copy, the
+   * plan is build-time subsetting to only the glyphs actually used. Until that
+   * exists, system fonts render correctly at zero cost. */
+  --font-serif-tc: 'PingFang TC', 'Songti TC', 'Microsoft JhengHei',
+    'Noto Serif TC', serif;
+}
+
+:root {
+  --brand: var(--color-brand);
+  --brand-contrast: var(--color-brand-contrast);
+  --text-strong: var(--color-ink);
+  --text-soft: var(--color-ink-soft);
+  --surface: var(--color-paper);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Red stays the brand in both themes but lifts in luminance so it reads on
+     * a dark surface. --brand-contrast flips with it. */
+    --brand: #e0837c;
+    --brand-contrast: #241615;
+    --text-strong: #f2ece7;
+    --text-soft: #b3a9a2;
+    --surface: #141110;
+  }
+}
+
+html {
+  background: var(--surface);
+  color: var(--text-strong);
+  font-family: var(--font-serif-en);
+  -webkit-font-smoothing: antialiased;
+}
+
+html[lang^='zh'] {
+  font-family: var(--font-serif-tc);
+  line-height: 1.9;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 50;
+  background: var(--brand);
+  color: var(--brand-contrast);
+  padding: 0.5rem 1rem;
+}

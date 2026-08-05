@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro'
+import { getTranslation } from '../../i18n/ui'
+
+// NOTE: her name renders in Latin script here on purpose. Her Chinese name is
+// unknown and MUST NOT be guessed — see facts.ts, id 'chinese-name'. Her
+// husband is 張勝雄, but her given name and whether she uses a maiden surname
+// are both unconfirmed. Replace only once she has confirmed it herself.
+const locale = 'zh-hant' as const
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+---
+
+<Base locale={locale}>
+  <div class="mx-auto max-w-2xl px-6 py-16 sm:py-28">
+    <h1
+      class="text-4xl sm:text-6xl tracking-tight"
+      style="color: var(--brand)"
+    >
+      {t('siteName')}
+    </h1>
+
+    <p
+      class="mt-8 text-xl sm:text-2xl leading-relaxed"
+      style="color: var(--text-strong)"
+    >
+      {t('siteTagline')}
+    </p>
+
+    <p class="mt-12 text-base" style="color: var(--text-soft)">
+      {t('holdingNotice')}
+    </p>
+  </div>
+</Base>

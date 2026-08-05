@@ -1,0 +1,27 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# original photographs and scanned documents — NEVER commit
+# This repo is public. Originals include full-resolution personal photographs
+# and scanned documents (award letters, appointment letters) that may carry
+# home addresses, signatures and phone numbers. Only derived, reviewed,
+# web-sized assets in public/ are committed.
+src-photos/
+src-documents/
+
+# Drafted claims she has not yet reviewed, plus working notes.
+# The noindex gate covers the rendered site; it does NOT cover this repo,
+# which GitHub serves and indexes publicly. Keep unreviewed assertions about
+# a living private person out of version control until she confirms them.
+src/data/facts.pending.ts
+
+# environment
+.env
+.env.production
+
+# macOS
+.DS_Store
