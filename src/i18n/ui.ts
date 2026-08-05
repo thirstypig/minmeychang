@@ -37,6 +37,12 @@ export const ui = {
     skipToContent: 'Skip to content',
     switchLanguage: 'Switch language',
     publishedBy: 'Published by her family',
+    archiveTitle: 'Archive',
+    archiveIntro:
+      'Photographs and documents from six decades. Empty frames mark material still being gathered.',
+    archiveAwaiting: 'Not yet supplied',
+    mediaHeading: 'Elsewhere',
+    backToStory: 'Back to her story',
   },
   'zh-hant': {
     siteName: '張馬敏妹',
@@ -45,6 +51,11 @@ export const ui = {
     skipToContent: '跳至主要內容',
     switchLanguage: '切換語言',
     publishedBy: '由家人建置',
+    archiveTitle: '影像檔案',
+    archiveIntro: '橫跨六十年的照片與文件。空白處為仍在蒐集中的資料。',
+    archiveAwaiting: '尚未提供',
+    mediaHeading: '其他平台',
+    backToStory: '返回她的故事',
   },
 } as const
 

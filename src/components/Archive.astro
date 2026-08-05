@@ -1,0 +1,79 @@
+---
+import { archive, archiveDecades } from '../data/archive'
+import { linkableAccounts } from '../data/media'
+import { getTranslation, type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+const pick = (v: { en: string; zhHant: string }) =>
+  locale === 'en' ? v.en : v.zhHant
+---
+
+{
+  archiveDecades.map((decade) => (
+    <section class="mt-14">
+      <h3 class="text-lg tabular-nums" style="color: var(--brand)">
+        {decade}s
+      </h3>
+
+      <ul class="mt-5 grid gap-5 sm:grid-cols-2 list-none p-0">
+        {archive
+          .filter((item) => item.decade === decade)
+          .map((item) => (
+            <li>
+              {item.asset ? (
+                <img
+                  src={item.asset}
+                  alt={pick({ en: item.en, zhHant: item.zhHant })}
+                  class="w-full rounded"
+                  loading="lazy"
+                />
+              ) : (
+                /* Placeholder state: the archive's shape is reviewable before
+                   any scanning has happened, so gaps are visible rather than
+                   silently absent. */
+                <div
+                  class="flex aspect-[4/3] items-center justify-center rounded border border-dashed p-5 text-center text-sm"
+                  style="border-color: var(--text-soft); color: var(--text-soft)"
+                >
+                  <span>{item.needs ? pick(item.needs) : t('archiveAwaiting')}</span>
+                </div>
+              )}
+
+              <p class="mt-2 text-sm" style="color: var(--text-strong)">
+                {pick({ en: item.en, zhHant: item.zhHant })}
+              </p>
+            </li>
+          ))}
+      </ul>
+    </section>
+  ))
+}
+
+{
+  linkableAccounts.length > 0 && (
+    <section class="mt-16">
+      <h3 class="text-lg" style="color: var(--brand)">
+        {t('mediaHeading')}
+      </h3>
+      <ul class="mt-4 space-y-2 list-none p-0">
+        {linkableAccounts.map((account) => (
+          <li>
+            <a
+              href={account.url}
+              rel="noopener me"
+              class="underline underline-offset-4"
+              style="color: var(--brand)"
+            >
+              {pick({ en: account.en, zhHant: account.zhHant })}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

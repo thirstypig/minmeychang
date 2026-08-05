@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro'
+import Archive from '../components/Archive.astro'
+import { getTranslation } from '../i18n/ui'
+
+const locale = 'en' as const
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+---
+
+<Base locale={locale} title={`${t('archiveTitle')} — ${t('siteName')}`}>
+  <div class="mx-auto max-w-[68ch] px-6 py-16 sm:py-24">
+    <h1 class="text-3xl sm:text-5xl tracking-tight" style="color: var(--brand)">
+      {t('archiveTitle')}
+    </h1>
+
+    <p class="mt-6 text-lg leading-relaxed" style="color: var(--text-soft)">
+      {t('archiveIntro')}
+    </p>
+
+    <Archive locale={locale} />
+
+    <p class="mt-16">
+      <a
+        href="/"
+        class="underline underline-offset-4"
+        style="color: var(--brand)">{t('backToStory')}</a
+      >
+    </p>
+  </div>
+</Base>
