@@ -9,11 +9,16 @@
     "build": "astro build",
     "postbuild": "node scripts/verify-css.mjs",
     "preview": "astro preview --port 3170",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.6",
     "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.10"
   }
 }

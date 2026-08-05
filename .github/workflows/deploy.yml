@@ -31,6 +31,12 @@ jobs:
       - name: Typecheck
         run: npx astro check --minimumSeverity error
 
+      # facts.pending.ts is gitignored, so CI runs with zero pending facts
+      # while a local checkout has eleven. The suite is verified to pass in
+      # both states.
+      - name: Test
+        run: npm test
+
       - name: Build
         env:
           SITE_URL: https://minmeychang.com

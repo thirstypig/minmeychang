@@ -88,8 +88,17 @@ const loadedPending: Fact[] = Object.values(pendingModules).flatMap(
 /** Drafted but unchecked. Never rendered. Empty unless facts.pending.ts exists locally. */
 export const pendingFacts: Fact[] = loadedPending
 
-/** The only facts any page may render. */
-export const renderableFacts: Fact[] = confirmedFacts.filter(
+/** The only facts any page may render.
+ *
+ * Derived from ALL facts, not just `confirmedFacts`. Filtering `confirmedFacts`
+ * alone would make the guard vacuous — that array contains no unverified facts
+ * by construction, so the filter could never remove anything and the test
+ * asserting "nothing unverified renders" could never fail. Deriving from the
+ * union means the status field is what actually decides, which is the point.
+ * A fact mislabelled 'confirmed' in either file is then caught by
+ * `every renderable fact cites a source`.
+ */
+export const renderableFacts: Fact[] = [...confirmedFacts, ...pendingFacts].filter(
   (f) => f.status !== 'unverified'
 )
 
