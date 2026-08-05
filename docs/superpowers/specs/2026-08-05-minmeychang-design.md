@@ -1,11 +1,34 @@
 ---
 date: 2026-08-05
-status: approved
+status: partially-superseded
+superseded_on: 2026-08-05
 component: minmeychang — static bilingual tribute site
 owner: James Chang
 ---
 
 # minmeychang — design
+
+> ## ⚠ Amendments — read before relying on anything below
+>
+> This spec records the design **as approved**, and is kept unedited so the
+> decision history survives. Twenty-eight commits later, five of its decisions
+> have been reversed or overtaken. The body below is otherwise still accurate.
+>
+> | Spec says | Actually shipped | Why |
+> |---|---|---|
+> | "Two pages per locale, four routes total"; a six-page site "was rejected" | **Six pages per locale, twelve routes** | Reversed on evidence. NN/g's senior-UX research recommends avoiding long scrolls and favours shallow navigation; her peers are the audience, not the author. `src/i18n/routes.ts` is the source of truth, and `tests/i18n/route-coverage.test.ts` answers the locale-drift objection the spec raised |
+> | "Currently built: the holding page only" | Story, timeline, service, talks, archive — all live | — |
+> | "Her Chinese name is unknown and must not be guessed" | **張馬敏妹**, confirmed 2026-08-05 | 冠夫姓 form: 張 + her maiden surname 馬 + 敏妹. The guess `張敏梅` was wrong in two independent ways |
+> | "Four facts currently render… Indexing is off" | Indexing **on**; many facts confirmed, several from independent sources | `ALLOW_INDEXING: 'true'` in the workflow. `reviewed['zh-hant']` is now `true` |
+> | Nothing about marks, figures, press, theming or SEO | Institutions list with four institutional marks, typographic figures, a Coverage section, light/dark, print styles, sitemap, JSON-LD | Added after the spec was approved |
+>
+> **Still accurate and still binding:** the purpose and audience, the provenance
+> ladder (`confirmed` / `family` / `unverified` with a render gate), the colour
+> rule, the photograph and document handling, the verification discipline, and
+> the deployment notes including the Squarespace `HTTPS`-record trap.
+>
+> For what the privacy and provenance decisions became in practice, see
+> [`docs/solutions/security-issues/publishing-about-a-living-person.md`](../../solutions/security-issues/publishing-about-a-living-person.md).
 
 A static bilingual site honouring **Min Mey Chang**, published by her family.
 English and Traditional Chinese at full parity. Astro + Tailwind v4, deployed to

@@ -29,9 +29,31 @@ calligraphy, and there is no photograph of her brushwork to earn it.
 
 ```bash
 npm install
-npm run dev      # http://localhost:3170
-npm run build    # postbuild runs scripts/verify-css.mjs
+npm run dev        # http://localhost:3170
+npm run build      # postbuild runs scripts/verify-css.mjs
+npm test           # 89 tests
+npm run typecheck  # astro check — 61 files
 ```
+
+## Asset scripts
+
+None of these run automatically. Each one exists because its output is
+committed and can therefore drift from its source.
+
+| Command | What it does | Run it when |
+|---|---|---|
+| `npm run fonts` | Subsets Noto Serif TC to the glyphs actually used — 7.6MB → ~200KB | **Any time Chinese copy changes.** `tests/fonts/coverage.test.ts` fails until you do, naming the missing characters |
+| `npm run photos` | Ingests `src-photos/incoming/` → `public/archive/`: bakes in EXIF orientation, resizes, strips metadata, then **asserts** no exif/gps/xmp survived | New photographs arrive |
+| `npm run awards` | Rebuilds the two award certificate scans, applying the address redactions | The redaction coordinates or source files change |
+
+`scripts/build-logos.mjs` normalises the institutional marks to one height; it
+is run by hand, since the marks change roughly never.
+
+> **`npm run photos` strips metadata. It cannot see a home address printed on a
+> certificate, a phone number on a school programme, or a face whose owner has
+> not agreed to appear.** Those need eyes, and redactions belong in
+> `scripts/build-award-scans.mjs`, which takes explicit coordinates and is
+> verified by looking at the output.
 
 ## Facts must come from source, never memory
 

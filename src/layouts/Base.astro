@@ -10,6 +10,7 @@ import {
   reviewed,
 } from '../i18n/ui'
 import { type RouteId } from '../i18n/routes'
+import { spouse, grandchildren } from '../data/family'
 
 interface Props {
   locale: Locale
@@ -113,24 +114,54 @@ const indexable = allowIndexing && reviewed[locale]
       <slot />
     </main>
 
-    {/* Verified live 2026-08-05: shengchangmd.com resolves to GitHub Pages and
-        serves the practice site. The apex migration described as "planned but
-        not started" in that repo's runbook has in fact completed — the old
-        shengchangmd.bahtzang.com subdomain now 404s. Link the apex. */}
+    {/* All four destinations verified reachable 2026-08-05 — see the `verified`
+        field in src/data/family.ts. Each domain is the person's own name and
+        each site titles itself with it, so linking exposes no name that was not
+        already public. */}
     <footer class="mt-8 border-t" style="border-color: var(--rule)">
       <div class="mx-auto max-w-[68ch] px-6 py-8 text-base">
-        <p style="color: var(--text-soft)">
-          {t('husbandLead')}:{' '}
-          <a
-            href="https://shengchangmd.com"
-            rel="noopener"
-            class="tap-target underline underline-offset-4"
-            style="color: var(--brand)"
-          >
-            <span lang={locale === 'en' ? 'en' : 'zh-Hant'}>{t('husbandName')}</span>
-          </a>
-        </p>
-        <p class="mt-3 no-print" style="color: var(--text-soft)">
+        {
+          spouse && (
+            <p style="color: var(--text-soft)">
+              {t('husbandLead')}:{' '}
+              <a
+                href={spouse.url}
+                rel="noopener"
+                class="tap-target underline underline-offset-4"
+                style="color: var(--brand)"
+              >
+                <span lang={locale === 'en' ? 'en' : 'zh-Hant'}>
+                  {locale === 'en' ? spouse.name : (spouse.nameZhHant ?? spouse.name)}
+                </span>
+              </a>
+            </p>
+          )
+        }
+
+        {
+          grandchildren.length > 0 && (
+            <p class="mt-2" style="color: var(--text-soft)">
+              {t('grandchildrenLead')}:{' '}
+              {grandchildren.map((member, index) => (
+                <>
+                  {index > 0 && <span aria-hidden="true">{' · '}</span>}
+                  <a
+                    href={member.url}
+                    rel="noopener"
+                    class="tap-target underline underline-offset-4"
+                    style="color: var(--brand)"
+                  >
+                    {/* No nameZhHant for any of them, and none is invented —
+                        their sites publish Latin names only. */}
+                    <span lang="en">{member.name}</span>
+                  </a>
+                </>
+              ))}
+            </p>
+          )
+        }
+
+        <p class="mt-4 no-print" style="color: var(--text-soft)">
           {t('publishedBy')}
         </p>
       </div>

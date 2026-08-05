@@ -1,5 +1,33 @@
 # minmeychang — Narrative Page & Timeline Implementation Plan
 
+> ## ✅ Executed 2026-08-05 — all four tasks complete
+>
+> Kept as a record. **Do not re-run it**; the code it describes exists and has
+> since moved on.
+>
+> | Task | Outcome |
+> |---|---|
+> | 1 — Vitest + locale coverage | Done. The suite is now **89 tests across 11 files** |
+> | 2 — Fact provenance tests | Done, and the guard it added turned out to be **vacuous** — it filtered an array that could not contain the thing it tested for. Fixed; see [`verification-that-verifies-nothing`](../../solutions/build-errors/verification-that-verifies-nothing.md) |
+> | 3 — Story content collection + narrative page | Done, then **restructured** — the single narrative page became six pages per locale |
+> | 4 — Timeline | Done. Eight entries, every one sourced |
+>
+> **Deferred items have since been resolved:**
+>
+> - *"The photo and document archive… no assets have been supplied"* — two
+>   Arcadia Beautiful Award certificates are published; seven frames remain
+>   empty. `scripts/ingest-photos.mjs` and `scripts/build-award-scans.mjs`
+>   handle metadata stripping and redaction.
+> - *"Chinese webfont subsetting… a pure optimisation"* — shipped. Noto Serif TC
+>   subset from 7.6MB to ~200KB, with `tests/fonts/coverage.test.ts` failing the
+>   build if a glyph is missing.
+>
+> One correction to the plan as written: **Task 3's `max-w-[44ch]` for Chinese
+> was wrong.** The `ch` unit is the advance width of "0" in the current font —
+> about half an em in a Latin serif — so it yielded ~22 Han characters, not 44,
+> and the Chinese timeline wrapped at about nine characters per line. The
+> measure is now `36em`.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace the holding page with a long-form narrative page in both locales, backed by a test suite that makes unverified facts and locale drift impossible to ship.
