@@ -1,0 +1,43 @@
+---
+import { routes, routePath, type RouteId } from '../i18n/routes'
+import { getTranslation, type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+  current: RouteId
+}
+
+const { locale, current } = Astro.props
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+---
+
+{/* Persistent on every page, flat, no sublevels, home always first. Senior-UX
+    guidance is consistent on this: minimise sublevels, one function per link,
+    and keep home reachable as a safe point. */}
+<nav aria-label={t('navLabel')} class="no-print border-b" style="border-color: var(--rule)">
+  <ul
+    class="mx-auto flex max-w-[68ch] snap-x gap-x-6 gap-y-1 overflow-x-auto px-6 py-3 text-base list-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+  >
+    {
+      routes.map((route) => {
+        const active = route.id === current
+        return (
+          <li class="snap-start shrink-0">
+            <a
+              href={routePath(locale, route.id)}
+              aria-current={active ? 'page' : undefined}
+              class="tap-target whitespace-nowrap underline-offset-4 hover:underline"
+              style={
+                active
+                  ? 'color: var(--brand); text-decoration: underline; text-underline-offset: 4px'
+                  : 'color: var(--text-soft)'
+              }
+            >
+              {t(route.labelKey)}
+            </a>
+          </li>
+        )
+      })
+    }
+  </ul>
+</nav>
