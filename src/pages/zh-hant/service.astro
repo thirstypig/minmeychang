@@ -9,6 +9,6 @@ const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, 
 ---
 
 <Page locale={locale} current="service" heading={t('factsHeading')}>
-  <FactList locale={locale} />
   <Affiliations locale={locale} />
+  <FactList locale={locale} />
 </Page>
