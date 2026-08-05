@@ -16,9 +16,9 @@ const pick = (v: { en: string; zhHant: string }) =>
 {
   archiveDecades.map((decade) => (
     <section class="mt-14">
-      <h3 class="text-lg tabular-nums" style="color: var(--brand)">
+      <h2 class="text-lg tabular-nums" style="color: var(--brand)">
         {decade}s
-      </h3>
+      </h2>
 
       <ul class="mt-5 grid gap-5 sm:grid-cols-2 list-none p-0">
         {archive
@@ -57,9 +57,9 @@ const pick = (v: { en: string; zhHant: string }) =>
 {
   linkableAccounts.length > 0 && (
     <section class="mt-16">
-      <h3 class="text-lg" style="color: var(--brand)">
+      <h2 class="text-lg" style="color: var(--brand)">
         {t('mediaHeading')}
-      </h3>
+      </h2>
       <ul class="mt-4 space-y-2 list-none p-0">
         {linkableAccounts.map((account) => (
           <li>

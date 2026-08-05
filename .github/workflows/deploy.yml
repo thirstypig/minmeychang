@@ -28,8 +28,21 @@ jobs:
       - run: npm ci
 
       # A typecheck or locale regression blocks the deploy rather than shipping.
+      #
+      # The grep is not belt-and-braces. Until @astrojs/check and typescript
+      # were added as devDependencies, this step printed "packages cannot be
+      # installed automatically in CI environments" and EXITED 0 — so every
+      # deploy reported a green typecheck while performing none. astro check
+      # only prints "Result (N files)" when it actually ran, so asserting on
+      # that line is what makes the step honest.
       - name: Typecheck
-        run: npx astro check --minimumSeverity error
+        run: |
+          set -o pipefail
+          npx astro check --minimumSeverity error 2>&1 | tee /tmp/astro-check.log
+          grep -q 'Result (' /tmp/astro-check.log || {
+            echo "::error::astro check did not run — see log above"
+            exit 1
+          }
 
       # facts.pending.ts is gitignored, so CI runs with zero pending facts
       # while a local checkout has eleven. The suite is verified to pass in
