@@ -23,32 +23,55 @@ export type Route = {
   id: RouteId
   /** Path segment after the locale prefix. Empty string is the home page. */
   segment: string
-  /** Key in ui.ts supplying this page's label, in both locales. */
+  /** Full label, used for page headings and previous/next links. */
   labelKey: UiKey
+  /** Short label for the top bar, which must also hold the controls. */
+  navLabelKey: UiKey
   /** Home is the hub; it is not part of the previous/next reading order. */
   inReadingOrder: boolean
 }
 
 export const routes: Route[] = [
-  { id: 'home', segment: '', labelKey: 'navHome', inReadingOrder: false },
-  { id: 'story', segment: '/story', labelKey: 'storyHeading', inReadingOrder: true },
+  {
+    id: 'home',
+    segment: '',
+    labelKey: 'navHome',
+    navLabelKey: 'navHome',
+    inReadingOrder: false,
+  },
+  {
+    id: 'story',
+    segment: '/story',
+    labelKey: 'storyHeading',
+    navLabelKey: 'navStory',
+    inReadingOrder: true,
+  },
   {
     id: 'timeline',
     segment: '/timeline',
     labelKey: 'timelineHeading',
+    navLabelKey: 'navTimeline',
     inReadingOrder: true,
   },
   {
     id: 'service',
     segment: '/service',
     labelKey: 'factsHeading',
+    navLabelKey: 'navService',
     inReadingOrder: true,
   },
-  { id: 'talks', segment: '/talks', labelKey: 'talksHeading', inReadingOrder: true },
+  {
+    id: 'talks',
+    segment: '/talks',
+    labelKey: 'talksHeading',
+    navLabelKey: 'navTalks',
+    inReadingOrder: true,
+  },
   {
     id: 'archive',
     segment: '/archive',
     labelKey: 'archiveTitle',
+    navLabelKey: 'navArchive',
     inReadingOrder: true,
   },
 ]

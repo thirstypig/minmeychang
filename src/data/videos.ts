@@ -87,3 +87,18 @@ export const videos: Video[] = [
 export const videosByReach = [...videos].sort((a, b) => b.views - a.views)
 
 export const watchUrl = (v: Video) => `https://www.youtube.com/watch?v=${v.youtubeId}`
+
+/** Thumbnail, served by YouTube.
+ *
+ * Hotlinked rather than copied into public/. Two reasons: copying the
+ * thumbnail of a video on someone else's channel reproduces their content,
+ * and a hotlinked thumbnail stays correct if the uploader changes it.
+ *
+ * The cost is a third-party request to Google — the only one on this site.
+ * Mitigated with referrerpolicy="no-referrer" at the img tag, so Google
+ * learns that a thumbnail was fetched but not which page fetched it.
+ *
+ * hqdefault always exists for every video; maxresdefault frequently 404s.
+ */
+export const thumbnailUrl = (v: Video) =>
+  `https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`

@@ -53,6 +53,15 @@ export const ui = {
     textReset: 'Reset text size',
     navLabel: 'Pages',
     navHome: 'Home',
+    // Short forms for the top bar. Page headings keep the full wording —
+    // "Service and recognition" is right at the top of a page and far too long
+    // in a nav row that must also hold the controls.
+    navStory: 'Story',
+    navTimeline: 'Timeline',
+    navService: 'Service',
+    navTalks: 'Talks',
+    navArchive: 'Archive',
+    themeToggle: 'Switch between light and dark',
     nextLabel: 'Next',
     previousLabel: 'Back',
     homeIntro:
@@ -91,6 +100,12 @@ export const ui = {
     textReset: '恢復預設字級',
     navLabel: '頁面',
     navHome: '首頁',
+    navStory: '故事',
+    navTimeline: '年表',
+    navService: '榮譽',
+    navTalks: '講座',
+    navArchive: '檔案',
+    themeToggle: '切換深淺色',
     nextLabel: '下一頁',
     previousLabel: '上一頁',
     homeIntro: '加州亞凱迪亞的教育家、社區領袖與文化推廣者。本網站由家人建置。',
