@@ -25,3 +25,7 @@ src/data/facts.pending.ts
 
 # macOS
 .DS_Store
+
+# Interview notes and question sheets — unreviewed material about a living
+# private person. Same reasoning as facts.pending.ts: this repo is public.
+docs/interview/
