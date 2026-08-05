@@ -1,12 +1,12 @@
 ---
 import Page from '../layouts/Page.astro'
-import Archive from '../components/Archive.astro'
+import Story from '../components/Story.astro'
 import { getTranslation } from '../i18n/ui'
 
 const locale = 'en' as const
 const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
 ---
 
-<Page locale={locale} current="archive" heading={t('archiveTitle')} lede={t('archiveIntro')}>
-  <Archive locale={locale} />
+<Page locale={locale} current="story" heading={t('storyHeading')}>
+  <Story locale={locale} />
 </Page>

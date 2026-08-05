@@ -1,0 +1,55 @@
+---
+import Base from './Base.astro'
+import SiteNav from '../components/SiteNav.astro'
+import PageNav from '../components/PageNav.astro'
+import { getTranslation, type Locale } from '../i18n/ui'
+import { type RouteId } from '../i18n/routes'
+
+interface Props {
+  locale: Locale
+  current: RouteId
+  /** Page heading. Omit on home, which supplies its own hero. */
+  heading?: string
+  lede?: string
+}
+
+const { locale, current, heading, lede } = Astro.props
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+
+// Chinese uses `em`, not `ch`. The `ch` unit is the advance width of "0" in
+// the CURRENT font — roughly half an em in a Latin serif — so `44ch` yields
+// about 22 Han characters per line, not 44. That shipped: the Chinese timeline
+// was wrapping at ~9 characters per line.
+//
+// A Han character is one em wide, so 36em ≈ 36 characters, inside the 35-40
+// range that reads comfortably. English keeps `ch`, where the unit means what
+// it appears to mean.
+const measure = locale === 'en' ? 'max-w-[68ch]' : 'max-w-[36em]'
+
+const pageTitle = heading ? `${heading} — ${t('siteName')}` : t('siteName')
+---
+
+<Base locale={locale} title={pageTitle}>
+  <SiteNav locale={locale} current={current} />
+
+  <div class={`mx-auto ${measure} px-6 pb-20 pt-10 sm:pt-14`}>
+    {
+      heading && (
+        <h1 class="text-3xl sm:text-5xl tracking-tight" style="color: var(--brand)">
+          {heading}
+        </h1>
+      )
+    }
+    {
+      lede && (
+        <p class="mt-5 text-lg leading-relaxed" style="color: var(--text-soft)">
+          {lede}
+        </p>
+      )
+    }
+
+    <slot />
+
+    <PageNav locale={locale} current={current} />
+  </div>
+</Base>
