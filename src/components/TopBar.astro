@@ -1,0 +1,155 @@
+---
+import { routes, routePath, type RouteId } from '../i18n/routes'
+import {
+  getTranslation,
+  htmlLang,
+  localeNames,
+  alternatePath,
+  type Locale,
+} from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+  current: RouteId
+}
+
+const { locale, current } = Astro.props
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+
+const otherLocale: Locale = locale === 'en' ? 'zh-hant' : 'en'
+const otherPath = alternatePath(locale, Astro.url.pathname)
+---
+
+{/* Everything on one row: page links left, controls right. The links scroll
+    horizontally when they run out of room; the controls are shrink-0 so they
+    stay reachable at any width rather than wrapping to a second line. */}
+<nav
+  class="no-print border-b"
+  style="border-color: var(--rule)"
+  aria-label={t('navLabel')}
+>
+  <div class="mx-auto flex max-w-[72ch] items-center gap-4 px-6 py-2">
+    <ul
+      class="flex min-w-0 flex-1 snap-x gap-4 overflow-x-auto text-base list-none p-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+    >
+      {
+        routes.map((route) => {
+          const active = route.id === current
+          return (
+            <li class="snap-start shrink-0">
+              <a
+                href={routePath(locale, route.id)}
+                aria-current={active ? 'page' : undefined}
+                class="tap-target whitespace-nowrap underline-offset-4 hover:underline"
+                style={
+                  active
+                    ? 'color: var(--brand); text-decoration: underline; text-underline-offset: 4px'
+                    : 'color: var(--text-soft)'
+                }
+              >
+                {t(route.navLabelKey)}
+              </a>
+            </li>
+          )
+        })
+      }
+    </ul>
+
+    <div class="flex shrink-0 items-center gap-1 text-sm">
+      <button
+        type="button"
+        data-type-scale="down"
+        class="tap-target px-1.5 leading-none"
+        style="color: var(--text-soft)"
+        aria-label={t('textSmaller')}
+        title={t('textSmaller')}>A</button
+      >
+      <button
+        type="button"
+        data-type-scale="up"
+        class="tap-target px-1.5 text-lg leading-none"
+        style="color: var(--text-soft)"
+        aria-label={t('textLarger')}
+        title={t('textLarger')}>A</button
+      >
+
+      {/* One button, not three. The previous light/dark/system trio spent a
+          permanent word ("System") on a state most visitors never change. This
+          toggles between light and dark; until it is pressed the site still
+          follows the OS, so system remains the default without occupying the
+          bar. */}
+      <button
+        type="button"
+        data-theme-toggle
+        class="tap-target px-1.5"
+        style="color: var(--text-soft)"
+        aria-label={t('themeToggle')}
+        title={t('themeToggle')}><span data-theme-icon>☾</span></button
+      >
+
+      <a
+        href={otherPath}
+        hreflang={htmlLang[otherLocale]}
+        lang={htmlLang[otherLocale]}
+        class="tap-target whitespace-nowrap pl-1 underline underline-offset-4 decoration-1"
+        style="color: var(--brand)"
+      >
+        {localeNames[otherLocale]}
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  ;(function () {
+    var root = document.documentElement
+    var MIN = 0.9
+    var MAX = 1.6
+
+    function effectiveTheme() {
+      if (root.dataset.theme) return root.dataset.theme
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+    }
+
+    function paintIcon() {
+      // Show the state you would switch TO, which is the convention people
+      // read fastest on a single-button toggle.
+      var next = effectiveTheme() === 'dark' ? 'light' : 'dark'
+      document.querySelectorAll('[data-theme-icon]').forEach(function (icon) {
+        icon.textContent = next === 'dark' ? '☾' : '☀'
+      })
+    }
+
+    document.querySelectorAll('[data-theme-toggle]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var next = effectiveTheme() === 'dark' ? 'light' : 'dark'
+        root.dataset.theme = next
+        try {
+          localStorage.setItem('theme', next)
+        } catch (e) {}
+        paintIcon()
+      })
+    })
+
+    document.querySelectorAll('[data-type-scale]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var step = button.getAttribute('data-type-scale') === 'up' ? 0.1 : -0.1
+        var current = parseFloat(
+          getComputedStyle(root).getPropertyValue('--type-scale') || '1'
+        )
+        var next = Math.min(MAX, Math.max(MIN, Math.round((current + step) * 10) / 10))
+        root.style.setProperty('--type-scale', String(next))
+        try {
+          localStorage.setItem('type-scale', String(next))
+        } catch (e) {}
+      })
+    })
+
+    paintIcon()
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', paintIcon)
+  })()
+</script>

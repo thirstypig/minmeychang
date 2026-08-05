@@ -1,22 +1,23 @@
 ---
 import '../styles/global.css'
-import SiteControls from '../components/SiteControls.astro'
+import TopBar from '../components/TopBar.astro'
 import {
   type Locale,
   getTranslation,
   htmlLang,
-  localeNames,
   alternatePath,
   reviewed,
 } from '../i18n/ui'
+import { type RouteId } from '../i18n/routes'
 
 interface Props {
   locale: Locale
+  current: RouteId
   title?: string
   description?: string
 }
 
-const { locale, title, description } = Astro.props
+const { locale, current, title, description } = Astro.props
 
 const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
 
@@ -96,23 +97,7 @@ const indexable = allowIndexing && reviewed[locale]
   <body class="min-h-screen">
     <a class="skip-link" href="#main">{t('skipToContent')}</a>
 
-    <div class="mx-auto max-w-[68ch] px-6">
-      <nav
-        class="no-print flex flex-wrap items-center justify-between gap-3 py-3"
-        aria-label={t('switchLanguage')}
-      >
-        <SiteControls locale={locale} />
-        <a
-          href={otherPath}
-          hreflang={htmlLang[otherLocale]}
-          lang={htmlLang[otherLocale]}
-          class="tap-target text-sm underline underline-offset-4 decoration-1"
-          style="color: var(--brand)"
-        >
-          {localeNames[otherLocale]}
-        </a>
-      </nav>
-    </div>
+    <TopBar locale={locale} current={current} />
 
     <main id="main">
       <slot />

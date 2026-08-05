@@ -3,7 +3,6 @@ import { readingOrder, routePath } from '../i18n/routes'
 import { confirmedFacts } from '../data/facts'
 import { getTranslation, type Locale } from '../i18n/ui'
 import Figures from './Figures.astro'
-import Seal from './Seal.astro'
 
 interface Props {
   locale: Locale
@@ -19,10 +18,9 @@ const englishName = getTranslation('en', 'siteName')
 ---
 
 <div class="pt-6 sm:pt-10">
-  {/* The chop that gives the site its colour, at the size it would actually be
-      stamped. */}
-  <Seal size={44} class="mb-7" />
-
+  {/* Her name IS the mark. No separate logo: a seal carrying only 張 named her
+      husband's family rather than her, and 張馬敏妹 is the whole point — the
+      冠夫姓 form carries her own maiden surname 馬 inside it. */}
   <h1 class="text-4xl sm:text-6xl tracking-tight" style="color: var(--brand)">
     {t('siteName')}
     {
