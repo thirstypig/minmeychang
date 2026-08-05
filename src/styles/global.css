@@ -1,5 +1,26 @@
 @import 'tailwindcss';
 
+/* Noto Serif TC, subset by scripts/build-font.mjs to the ~430 glyphs this site
+ * actually uses: 152KB instead of 7.6MB. Regenerate with `npm run fonts` after
+ * adding Chinese copy; tests/fonts/coverage.test.ts fails if you forget.
+ *
+ * unicode-range confines the download to pages containing CJK. font-display:
+ * swap means text is readable in the fallback immediately rather than
+ * invisible while 152KB arrives — which matters most for her name in the
+ * heading, the one string on the page nobody should have to wait for.
+ *
+ * SIL Open Font License 1.1 — see public/fonts/OFL.txt.
+ */
+@font-face {
+  font-family: 'Noto Serif TC Subset';
+  src: url('/fonts/noto-serif-tc-subset.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF,
+    U+FE30-FE4F, U+FF00-FFEF;
+}
+
 /* The red is 印泥 — the cinnabar seal paste used to stamp a chop on Chinese
  * calligraphy. Chosen because she performs calligraphy, so the colour comes
  * from her own practice rather than from a generic festive red. Approved
@@ -18,12 +39,11 @@
   --color-paper: #fdfbf8;
 
   --font-serif-en: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
-  /* System Traditional Chinese stack. Deliberately NOT a webfont yet: a full
-   * Noto Serif TC is ~10MB. Because this site is static with finite copy, the
-   * plan is build-time subsetting to only the glyphs actually used. Until that
-   * exists, system fonts render correctly at zero cost. */
-  --font-serif-tc: 'PingFang TC', 'Songti TC', 'Microsoft JhengHei',
-    'Noto Serif TC', serif;
+  /* The subset webfont leads so the site renders identically everywhere; the
+   * system stack follows as fallback for the swap period and for any glyph the
+   * subset somehow misses. */
+  --font-serif-tc: 'Noto Serif TC Subset', 'Songti TC', 'PingFang TC',
+    'Microsoft JhengHei', serif;
 }
 
 :root {
