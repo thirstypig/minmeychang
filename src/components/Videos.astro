@@ -31,19 +31,24 @@ const fmt = (n: number) =>
             class="relative overflow-hidden rounded"
             style="background: var(--rule)"
           >
+            {/*
+              aspect-video + object-cover: hqdefault is 4:3 with letterboxing,
+              so cropping to 16:9 removes the black bars rather than framing
+              them.
+
+              loading: the first thumbnail is usually above the fold; the rest
+              are not, and each one is a third-party request.
+
+              referrerpolicy: Google sees that a thumbnail was fetched, but not
+              which page fetched it.
+            */}
             <img
               src={thumbnailUrl(video)}
               alt=""
               width="480"
               height="360"
-              /* hqdefault is 4:3 with letterboxing; cropping to 16:9 removes
-                 the black bars rather than framing them. */
               class="aspect-video w-full object-cover"
-              /* The first thumbnail is usually above the fold; the rest are
-                 not, and each is a third-party request. */
               loading={index === 0 ? 'eager' : 'lazy'}
-              /* Google sees that a thumbnail was fetched, but not from which
-                 page. */
               referrerpolicy="no-referrer"
             />
             <span
