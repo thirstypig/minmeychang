@@ -8,12 +8,22 @@ to GitHub Pages at **minmeychang.com**.
 
 ## Status
 
-Holding page only. The narrative page, timeline and photo/document archive are
-not built yet.
+Live and indexed. Six pages per locale — home, story, timeline, service,
+talks, archive — in English and Traditional Chinese.
 
-**Crawlers are blocked.** The build emits `noindex` unless `ALLOW_INDEXING=true`,
-which the workflow leaves commented out. Do not enable it until Min Mey Chang
-has reviewed every fact, every photograph, and her own name.
+**Indexing is ON.** `ALLOW_INDEXING: 'true'` in the deploy workflow; set it to
+`'false'` to pull the site back out of the index. `robots.txt` is generated
+from the same flag as the per-page `robots` meta, so the two cannot disagree.
+
+**The Chinese copy has never been read end-to-end by a native speaker.** Four
+real errors were corrected on 2026-08-05 — including 加州眾議**會**議長, which
+is not a body — but that was self-review, not proofreading. It is the locale
+most of her community will actually read.
+
+The archive is the visible gap: two award certificates are published, seven
+frames are still empty. Her calligraphy is the highest-value missing image —
+the site's entire palette is 印泥, the seal paste used to stamp a chop on
+calligraphy, and there is no photograph of her brushwork to earn it.
 
 ## Setup
 
@@ -34,19 +44,26 @@ Each fact carries a `status`:
 | `family` | stated directly by Min Mey Chang or Sheng Chang, dated |
 | `unverified` | drafted but unchecked — **does not render** |
 
-Only one fact is currently `confirmed`: the 2001 California Acupuncture Board
-appointment, verified against the Board's own Sunset Report roster.
+`confirmed` means a primary source or independent attestation — the Acupuncture
+Board's own Sunset Report roster, the award certificates themselves, or
+Chinese-language community media. `family` means testimony, attributed and
+dated. Tests enforce the distinction, because it is invisible to a reader.
 
-**Her Chinese name is unknown and must not be guessed.** `張敏梅` is the obvious
-guess and returns no matching results anywhere online. Her husband is 張勝雄, but
-her given name — and whether she uses a maiden surname — are unconfirmed. The
-Chinese pages render her name in Latin script until she confirms it herself.
-The sibling project `shengchangmd` shipped an invented Chinese name once; that
-is why this rule exists.
+**Her Chinese name is 張馬敏妹** — 冠夫姓: husband's surname 張, her own maiden
+surname 馬, given name 敏妹. The obvious guess, `張敏梅`, was wrong in two
+independent ways: wrong given name *and* missing the maiden surname entirely.
+That middle character is not recoverable from "Min Mey Chang" by any amount of
+searching. The sibling project `shengchangmd` shipped an invented Chinese name
+once; that is why the rule is never guess, always ask.
 
-Several drafted claims are also contradicted by public sources — notably whether
-the Arcadia Chinese School closed, was sold, or is still operating. See the
-`note` field on each fact.
+**She is effectively invisible to web search even under her correct name.**
+`張馬敏妹` returns Hong Kong actresses named 張敏; `"Minmey Chang"` returns
+nothing relevant. Every source on this site came from the family. Do not treat
+an empty search as evidence that the record is thin.
+
+Six questions remain open in the gitignored `src/data/facts.pending.ts` — mostly
+years, plus one consent question. See
+[`docs/solutions/security-issues/publishing-about-a-living-person.md`](docs/solutions/security-issues/publishing-about-a-living-person.md).
 
 ## Photographs and documents
 
