@@ -1,10 +1,9 @@
 @import 'tailwindcss';
 
-/* PROVISIONAL PALETTE — pending design approval.
- *
- * The red is drawn from 印泥, the cinnabar seal paste used to stamp a chop on
- * Chinese calligraphy — chosen because she performs calligraphy, rather than
- * reaching for a generic festive red.
+/* The red is 印泥 — the cinnabar seal paste used to stamp a chop on Chinese
+ * calligraphy. Chosen because she performs calligraphy, so the colour comes
+ * from her own practice rather than from a generic festive red. Approved
+ * 2026-08-05.
  *
  * COLOUR RULE (inherited from shengchangmd, where breaking it caused two real
  * bugs): never hardcode #000/#fff or any fixed text colour on a branded
@@ -12,7 +11,7 @@
  * descendants inherit. Headings stay `color: inherit` on purpose.
  */
 @theme {
-  --color-brand: #8e1b1b;
+  --color-brand: #b02a1f;
   --color-brand-contrast: #fdf6f2;
   --color-ink: #1a1614;
   --color-ink-soft: #5c534e;
@@ -39,7 +38,7 @@
   :root {
     /* Red stays the brand in both themes but lifts in luminance so it reads on
      * a dark surface. --brand-contrast flips with it. */
-    --brand: #e0837c;
+    --brand: #e8837c;
     --brand-contrast: #241615;
     --text-strong: #f2ece7;
     --text-soft: #b3a9a2;
