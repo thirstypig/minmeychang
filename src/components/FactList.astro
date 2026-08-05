@@ -1,27 +1,50 @@
 ---
 import { renderableFacts } from '../data/facts'
-import { type Locale } from '../i18n/ui'
+import { factsCoveredByAffiliations } from '../data/affiliations'
+import { getTranslation, type Locale } from '../i18n/ui'
 
 interface Props {
   locale: Locale
 }
 
 const { locale } = Astro.props
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
 
-// Her name and the narrative facts are rendered in the heading and the story
-// prose; this list is for discrete honours and appointments.
-const excluded = new Set(['chinese-name', 'immigration-arrival', 'chinese-school-outcome'])
-const facts = renderableFacts.filter((f) => !excluded.has(f.id))
+// Told elsewhere: her name is the page heading, and the arrival and the
+// school's closure belong to the narrative.
+const toldElsewhere = new Set([
+  'chinese-name',
+  'immigration-arrival',
+  'chinese-school-outcome',
+])
+
+// What is left after the Institutions list takes the organisational roles:
+// the things she did, rather than the bodies she belonged to.
+const facts = renderableFacts.filter(
+  (f) => !toldElsewhere.has(f.id) && !factsCoveredByAffiliations.has(f.id)
+)
 ---
 
-<ul class="mt-6 space-y-5 list-none p-0">
-  {
-    facts.map((fact) => (
-      <li class="border-l-2 pl-5" style="border-color: var(--brand)">
-        <p style="color: var(--text-strong)">
-          {locale === 'en' ? fact.en : fact.zhHant}
-        </p>
-      </li>
-    ))
-  }
-</ul>
+{
+  facts.length > 0 && (
+    <section class="mt-16">
+      <h2 class="text-2xl" style="color: var(--brand)">
+        {t('achievementsHeading')}
+      </h2>
+
+      {/* Same row rhythm as the Institutions list — a hairline above each
+          entry rather than a heavy rule beside it. Repeated thirteen times, a
+          left bar reads as decoration; a hairline reads as a list. */}
+      <ul class="mt-7 list-none p-0">
+        {facts.map((fact) => (
+          <li
+            class="border-t py-5 text-lg leading-relaxed"
+            style="border-color: var(--rule); color: var(--text-strong)"
+          >
+            {locale === 'en' ? fact.en : fact.zhHant}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

@@ -116,3 +116,14 @@ export const affiliations: Affiliation[] = [
 
 /** Marks cleared for display. Empty until permission is on file. */
 export const permittedLogos = affiliations.filter((a) => a.logoPermitted && a.logo)
+
+/** Facts already told by the Institutions list.
+ *
+ * Without this the Service page says everything twice — "Appointed... to the
+ * California Acupuncture Board, May 2001" as prose, then "California
+ * Acupuncture Board / Public member, appointed 2001" as a row. The Institutions
+ * list owns the organisational roles; the achievements list owns everything
+ * that is not a membership. */
+export const factsCoveredByAffiliations = new Set(
+  affiliations.map((a) => a.factId)
+)
