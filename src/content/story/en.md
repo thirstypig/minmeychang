@@ -46,3 +46,6 @@ Arboretum in Arcadia, and at Hsi Lai Temple.
 She is still teaching. A believer in reflexology, she publishes talks on the
 benefits, principles and application of massage. They have reached more than
 830,000 viewers.
+
+She and Dr. Sheng Chang are the parents of three sons — James, Peter and
+Richard — and grandparents of three grandchildren.

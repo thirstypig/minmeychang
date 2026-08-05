@@ -127,7 +127,7 @@ export const confirmedFacts: Fact[] = [
     id: 'reflexology',
     en: 'A believer in reflexology, she publishes talks on the benefits, principles and application of massage, which have reached more than 830,000 viewers.',
     zhHant:
-      '深信足部反射療法，並發表關於按摩之功效、原理與應用的講座，觀看人次已逾八十三萬。',
+      '深信足部反射療法，並發表關於按摩功效、原理與應用的講座，觀看人次已逾八十三萬。',
     status: 'family',
     source: 'confirmed by James Chang (son), 2026-08-05',
     note: 'This is the subject of the 833,538-view lecture. Described by the family as a podcast; in practice the material is published as video. Wording on the site says "talks" to cover both.',
@@ -136,10 +136,19 @@ export const confirmedFacts: Fact[] = [
     id: 'calligraphy',
     en: 'For several years she has performed Chinese calligraphy at Lunar New Year celebrations at the Huntington Library and Gardens, the Los Angeles County Arboretum in Arcadia, and Hsi Lai Temple.',
     zhHant:
-      '連續多年於農曆新年期間，在杭廷頓圖書館與花園、亞凱迪亞洛杉磯郡植物園及西來寺揮毫展演。',
+      '連續多年於農曆新年期間，在杭廷頓圖書館與花園、位於亞凱迪亞的洛杉磯郡植物園及西來寺揮毫展演。',
     status: 'family',
     source: 'confirmed by James Chang (son), 2026-08-05',
     note: 'Still no photograph of her calligraphy. It remains the most visually distinctive thing in her record and the archive has an empty frame waiting for it.',
+  },
+  {
+    id: 'family',
+    en: 'She and Dr. Sheng Chang are the parents of three sons — James, Peter and Richard — and grandparents of three grandchildren.',
+    zhHant:
+      '與夫婿張勝雄醫師育有三子 James、Peter、Richard，並有三名孫輩。',
+    status: 'family',
+    source: 'confirmed by James Chang (son), 2026-08-05',
+    note: 'Names published at the family\'s direction; James is the eldest. Ages were supplied but are deliberately NOT published — they go stale the moment they are written, and a living private person\'s age adds nothing a tribute page needs. The grandchildren are given as a count, not by name: they were not named, and several are likely minors.',
   },
   {
     id: 'chinese-school-outcome',
@@ -161,7 +170,7 @@ export const confirmedFacts: Fact[] = [
     id: 'acupuncture-board',
     en: 'Appointed by California State Assembly Speaker Robert M. Hertzberg as a public member of the California Acupuncture Board, May 2001, for a term expiring July 2004.',
     zhHant:
-      '2001年5月經加州眾議會議長 Robert M. Hertzberg 任命為加州針灸委員會公眾委員，任期至2004年7月。',
+      '2001年5月經加州眾議院議長 Robert M. Hertzberg 任命為加州針灸委員會公眾委員，任期至2004年7月。',
     status: 'confirmed',
     source:
       'California Acupuncture Board Sunset Report, roster: "MIN M. CHANG (Public Member) July 2004 / Appointed by the Speaker of the Assembly, May 2001" — https://www.acupuncture.ca.gov/pubs_forms/sunset_report.pdf',
