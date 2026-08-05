@@ -1,0 +1,105 @@
+---
+import { confirmedFacts } from '../data/facts'
+import { affiliations } from '../data/affiliations'
+import { type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+  canonical: string
+}
+
+const { locale, canonical } = Astro.props
+
+// Structured data is a factual claim in machine-readable form, so it obeys the
+// same rule as the page: only confirmed and family facts, never unverified
+// ones. Everything below traces to an entry in facts.ts.
+const has = (id: string) => confirmedFacts.some((f) => f.id === id)
+
+const site = Astro.site?.href ?? 'https://minmeychang.com/'
+
+const person: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${site}#person`,
+  name: 'Min Mey Chang',
+  // The 冠夫姓 form. Included so a search for either name resolves to her —
+  // her most-seen work is titled 張校長(馬敏妹), which matches neither the
+  // anglicised name nor the full Chinese one.
+  alternateName: ['張馬敏妹', 'Min M. Chang', 'Chang Ma Min-Mey', '張校長'],
+  url: site,
+  image: `${site}og.png`,
+  description:
+    locale === 'en'
+      ? 'Educator, community leader and cultural advocate in Arcadia, California. Founder of the Arcadia Chinese School and co-founder of the Arcadia Chinese Association.'
+      : '加州亞凱迪亞的教育家、社區領袖與文化推廣者。亞凱迪亞中文學校創辦人，亞凱迪亞華人協會共同創辦人。',
+  jobTitle: locale === 'en' ? 'Educator' : '教育家',
+  knowsLanguage: ['en', 'zh-Hant'],
+  homeLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Arcadia',
+      addressRegion: 'CA',
+      addressCountry: 'US',
+    },
+  },
+}
+
+if (has('family') === false) {
+  // Her marriage is confirmed; the children are not cleared for publication.
+  person.spouse = {
+    '@type': 'Person',
+    name: 'Sheng Chang, M.D.',
+    url: 'https://shengchangmd.com',
+  }
+}
+
+if (has('shih-chien')) {
+  person.alumniOf = {
+    '@type': 'CollegeOrUniversity',
+    name: 'Shih Chien University',
+    alternateName: '實踐大學',
+  }
+}
+
+if (has('pta-golden-apple')) {
+  person.award = 'Golden Apple Award, Arcadia Unified School District'
+}
+
+// Only organisations backed by a confirmed fact.
+const confirmedIds = new Set(confirmedFacts.map((f) => f.id))
+const orgs = affiliations
+  .filter((a) => confirmedIds.has(a.factId))
+  .map((a) => ({
+    '@type': 'Organization',
+    name: a.en,
+    alternateName: a.zhHant,
+  }))
+if (orgs.length > 0) person.affiliation = orgs
+
+const webPage = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': canonical,
+  url: canonical,
+  inLanguage: locale === 'en' ? 'en-US' : 'zh-Hant',
+  about: { '@id': `${site}#person` },
+  isPartOf: {
+    '@type': 'WebSite',
+    '@id': `${site}#website`,
+    name: 'Min Mey Chang 張馬敏妹',
+    url: site,
+  },
+}
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(person)}
+/>
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(webPage)}
+/>

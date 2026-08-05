@@ -27,6 +27,9 @@ export type Route = {
   labelKey: UiKey
   /** Short label for the top bar, which must also hold the controls. */
   navLabelKey: UiKey
+  /** Meta description. A distinct one per page: reusing the site tagline on
+   *  every page gives search engines six identical snippets to choose from. */
+  descKey: UiKey
   /** Home is the hub; it is not part of the previous/next reading order. */
   inReadingOrder: boolean
 }
@@ -34,6 +37,7 @@ export type Route = {
 export const routes: Route[] = [
   {
     id: 'home',
+    descKey: 'descHome',
     segment: '',
     labelKey: 'navHome',
     navLabelKey: 'navHome',
@@ -41,6 +45,7 @@ export const routes: Route[] = [
   },
   {
     id: 'story',
+    descKey: 'descStory',
     segment: '/story',
     labelKey: 'storyHeading',
     navLabelKey: 'navStory',
@@ -48,6 +53,7 @@ export const routes: Route[] = [
   },
   {
     id: 'timeline',
+    descKey: 'descTimeline',
     segment: '/timeline',
     labelKey: 'timelineHeading',
     navLabelKey: 'navTimeline',
@@ -55,6 +61,7 @@ export const routes: Route[] = [
   },
   {
     id: 'service',
+    descKey: 'descService',
     segment: '/service',
     labelKey: 'factsHeading',
     navLabelKey: 'navService',
@@ -62,6 +69,7 @@ export const routes: Route[] = [
   },
   {
     id: 'talks',
+    descKey: 'descTalks',
     segment: '/talks',
     labelKey: 'talksHeading',
     navLabelKey: 'navTalks',
@@ -69,6 +77,7 @@ export const routes: Route[] = [
   },
   {
     id: 'archive',
+    descKey: 'descArchive',
     segment: '/archive',
     labelKey: 'archiveTitle',
     navLabelKey: 'navArchive',

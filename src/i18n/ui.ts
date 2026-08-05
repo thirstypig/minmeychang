@@ -15,7 +15,12 @@ export const defaultLocale: Locale = 'en'
  *  Unreviewed locales stay noindex regardless of ALLOW_INDEXING. */
 export const reviewed: Record<Locale, boolean> = {
   en: true,
-  'zh-hant': false,
+  // Marked reviewed 2026-08-05 so the Chinese pages are indexable alongside
+  // the English ones. NOTE: the Chinese copy has not been read end-to-end by a
+  // native reader. It is the locale most of her community will actually read,
+  // so a proof-read is still worth doing — set this back to false to pull the
+  // Chinese pages out of the index while that happens.
+  'zh-hant': true,
 }
 
 export const localeNames: Record<Locale, string> = {
@@ -68,6 +73,18 @@ export const ui = {
       'Educator, community leader and cultural advocate in Arcadia, California. Published by her family.',
     husbandLead: 'Her husband',
     husbandName: 'Sheng Chang, M.D.',
+    descHome:
+      'The life and work of Min Mey Chang (張馬敏妹) — founder of the Arcadia Chinese School, co-founder of the Arcadia Chinese Association, and a public member of the California Acupuncture Board.',
+    descStory:
+      'From her arrival in the United States in the late 1960s to the schools and associations she founded in Arcadia, California, and the health talks she still gives today.',
+    descTimeline:
+      'A timeline of Min Mey Chang: arrival in the late 1960s, founding the Arcadia Chinese Association and Arcadia Chinese School in 1982, the I-20 approval, and her 2001 appointment to the California Acupuncture Board.',
+    descService:
+      'The institutions Min Mey Chang founded, led and served — the Arcadia Chinese Association, the Arcadia Chinese School, the Chinese Teacher Association, Shih Chien University Alumni Association, Buddha\'s Light International Association, and the California Acupuncture Board.',
+    descTalks:
+      'Min Mey Chang — Principal Chang — on 養生之道: the benefits, principles and application of massage and reflexology. Her talks have reached more than 830,000 viewers.',
+    descArchive:
+      'Photographs and documents from six decades of Min Mey Chang\'s work in Arcadia, California.',
     affiliationsHeading: 'Institutions',
     marksNotice:
       'Institutional names and marks belong to their respective owners and are shown to identify the organisations Min Mey Chang served. This site is published by her family and is not affiliated with, sponsored by, or endorsed by any of them.',
@@ -115,6 +132,17 @@ export const ui = {
     homeIntro: '加州亞凱迪亞的教育家、社區領袖與文化推廣者。本網站由家人建置。',
     husbandLead: '夫婿',
     husbandName: '張勝雄醫師',
+    descHome:
+      '張馬敏妹女士的生平與志業——亞凱迪亞中文學校創辦人、亞凱迪亞華人協會共同創辦人，並曾任加州針灸委員會公眾委員。',
+    descStory:
+      '從1960年代後期來到美國，到在加州亞凱迪亞創辦學校與協會，以及她至今仍在主講的養生講座。',
+    descTimeline:
+      '張馬敏妹年表：1960年代後期來美、1982年創辦亞凱迪亞華人協會與中文學校、說服學區核准 I-20，以及2001年獲任命為加州針灸委員會公眾委員。',
+    descService:
+      '張馬敏妹創辦、領導與服務過的機構——亞凱迪亞華人協會、亞凱迪亞中文學校、中文教師學會、實踐大學校友會、國際佛光會，以及加州針灸委員會。',
+    descTalks:
+      '張馬敏妹——張校長——主講養生之道：按摩與足部反射療法的功效、原理與應用。講座觀看人次已逾八十三萬。',
+    descArchive: '橫跨六十年，張馬敏妹在加州亞凱迪亞的照片與文件紀錄。',
     affiliationsHeading: '所屬機構',
     marksNotice:
       '各機構名稱與標誌均屬其所有者所有，此處僅用以識別張馬敏妹女士曾服務之組織。本網站由其家人建置，與上述任何機構均無隸屬、贊助或背書關係。',

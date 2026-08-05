@@ -2,7 +2,7 @@
 import Base from './Base.astro'
 import PageNav from '../components/PageNav.astro'
 import { getTranslation, type Locale } from '../i18n/ui'
-import { type RouteId } from '../i18n/routes'
+import { type RouteId, routes } from '../i18n/routes'
 
 interface Props {
   locale: Locale
@@ -26,9 +26,19 @@ const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, 
 const measure = locale === 'en' ? 'max-w-[68ch]' : 'max-w-[36em]'
 
 const pageTitle = heading ? `${heading} — ${t('siteName')}` : t('siteName')
+
+// A distinct description per page. Reusing the site tagline on all six gives
+// search engines six identical snippets and nothing to distinguish the pages.
+const route = routes.find((r) => r.id === current)
+const pageDescription = route ? t(route.descKey) : t('siteTagline')
 ---
 
-<Base locale={locale} current={current} title={pageTitle}>
+<Base
+  locale={locale}
+  current={current}
+  title={pageTitle}
+  description={pageDescription}
+>
   <div class={`mx-auto ${measure} px-6 pb-20 pt-10 sm:pt-14`}>
     {
       heading && (

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import TopBar from '../components/TopBar.astro'
+import StructuredData from '../components/StructuredData.astro'
 import {
   type Locale,
   getTranslation,
@@ -51,6 +52,15 @@ const indexable = allowIndexing && reviewed[locale]
     <link rel="alternate" hreflang="zh-Hant" href={zhHref.href} />
     <link rel="alternate" hreflang="x-default" href={enHref.href} />
     {!indexable && <meta name="robots" content="noindex, nofollow" />}
+    {
+      indexable && (
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1"
+        />
+      )
+    }
+    <StructuredData locale={locale} canonical={canonical.href} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 

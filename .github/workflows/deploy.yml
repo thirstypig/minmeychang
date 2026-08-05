@@ -40,9 +40,9 @@ jobs:
       - name: Build
         env:
           SITE_URL: https://minmeychang.com
-          # Crawlers stay blocked until Min Mey Chang has reviewed every fact,
-          # photograph and her own name. Uncomment ONLY after she signs off.
-          # ALLOW_INDEXING: 'true'
+          # Opened to search engines 2026-08-05 at the owner's direction.
+          # Set to 'false' to pull the site back out of the index.
+          ALLOW_INDEXING: 'true'
         run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
