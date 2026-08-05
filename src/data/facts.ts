@@ -38,6 +38,30 @@ export type Fact = {
 /** Verified claims. Safe to render, safe to publish. */
 export const confirmedFacts: Fact[] = [
   {
+    id: 'chinese-name',
+    en: 'Chang Ma Min-Mey',
+    zhHant: '張馬敏妹',
+    status: 'family',
+    source: 'confirmed by James Chang (son), 2026-08-05',
+    note: 'Four-character 冠夫姓 form: husband\'s surname 張 + her maiden surname 馬 + given name 敏妹. The 馬 is not recoverable from the anglicized "Min Mey Chang", which is why this could never have been searched out or guessed.',
+  },
+  {
+    id: 'chinese-school-outcome',
+    en: 'The school she founded was later transferred to new leadership, and is no longer running.',
+    zhHant: '她所創辦的學校後來移交他人經營，現已停辦。',
+    status: 'family',
+    source: 'confirmed by James Chang (son), 2026-08-05',
+    note: 'Resolves the contradiction in public sources. The PrivateSchoolReview listing at 823 S. First Ave showing an open "Arcadia Chinese School" with 184 students is either stale or a different entity — it is not the school under her tenure. Do not cite that listing.',
+  },
+  {
+    id: 'immigration-arrival',
+    en: 'Came to the United States in the late 1960s with her husband, Dr. Sheng Chang.',
+    zhHant: '1960年代後期與夫婿張勝雄醫師一同來到美國。',
+    status: 'family',
+    source: 'confirmed by James Chang (son), 2026-08-05',
+    note: 'Exact year, port of arrival and route still open — flagged for the in-depth interview. "Late 1960s" is safe to publish as written.',
+  },
+  {
     id: 'acupuncture-board',
     en: 'Appointed by California State Assembly Speaker Robert M. Hertzberg as a public member of the California Acupuncture Board, May 2001, for a term expiring July 2004.',
     zhHant:

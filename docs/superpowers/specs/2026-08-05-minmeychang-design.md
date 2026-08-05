@@ -72,10 +72,17 @@ The design goal is that **the failure mode is an incomplete page, never a wrong
 one.** An unanswered question renders as absence. This makes the site
 publishable at any level of completeness.
 
-Exactly one fact is currently `confirmed`: the May 2001 California Acupuncture
-Board appointment, verified against the Board's own Sunset Report roster
-(`MIN M. CHANG (Public Member) July 2004 / Appointed by the Speaker of the
-Assembly, May 2001`).
+Four facts currently render. One is `confirmed` from a primary source: the May
+2001 California Acupuncture Board appointment, verified against the Board's own
+Sunset Report roster (`MIN M. CHANG (Public Member) July 2004 / Appointed by the
+Speaker of the Assembly, May 2001`). Three are `family`, confirmed by James
+Chang on 2026-08-05: her Chinese name; that the school she founded was
+transferred to new leadership and is no longer running; and that she came to the
+United States in the late 1960s with Dr. Sheng Chang.
+
+The school answer resolves a contradiction in public sources. The
+PrivateSchoolReview listing at 823 S. First Ave showing an open "Arcadia Chinese
+School" with 184 students is stale or a different entity, and must not be cited.
 
 Unverified claims live in `facts.pending.ts`, which is **gitignored**. This
 repository is public, and the `noindex` gate covers only the rendered site — not
@@ -93,12 +100,16 @@ toggle. Every string exists in both locales.
 fluent reader. `zh-hant` is `false`, so it stays `noindex` even when indexing is
 switched on globally.
 
-**Her Chinese name is unknown and must not be guessed.** `張敏梅` is the obvious
-guess and returns no matching results anywhere online. Her husband is 張勝雄,
-but her given name — and whether she uses a maiden surname — are unconfirmed.
-The Chinese pages render her name in Latin script with the honorific 女士 until
-she confirms it herself. The sibling project `shengchangmd` shipped an invented
-Chinese name once; that is the precedent this rule exists to prevent.
+**Her Chinese name is 張馬敏妹**, confirmed by James Chang (son) on 2026-08-05.
+Four-character 冠夫姓 form: husband's surname 張 + her maiden surname 馬 + given
+name 敏妹.
+
+This is the case for the no-guessing rule, not against it. The obvious guess was
+`張敏梅` — wrong given name (敏妹, not 敏梅) *and* structurally wrong, dropping
+the 馬 entirely. The maiden surname is not recoverable from the anglicized "Min
+Mey Chang" by any amount of searching. The sibling project `shengchangmd`
+shipped an invented Chinese name once; had this one been guessed, it would have
+been wrong in two independent ways on the page carrying his mother's name.
 
 ---
 

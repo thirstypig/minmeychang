@@ -39,7 +39,7 @@ export const ui = {
     publishedBy: 'Published by her family',
   },
   'zh-hant': {
-    siteName: 'Min Mey Chang 女士',
+    siteName: '張馬敏妹',
     siteTagline: '四十餘年來致力於教育、文化傳承與社區服務，深耕加州亞凱迪亞。',
     holdingNotice: '本網站由家人建置，記錄她的貢獻。建置中。',
     skipToContent: '跳至主要內容',
