@@ -58,7 +58,7 @@ version control, make the repo private first.
 
 ## Tests
 
-`npm test` — **78 tests across 10 files.** CI runs them, and the typecheck,
+`npm test` — **89 tests across 11 files.** CI runs them, and the typecheck,
 before the build, so a regression blocks the deploy rather than shipping.
 
 | File | Guards |
@@ -72,6 +72,7 @@ before the build, so a regression blocks the deploy rather than shipping.
 | `tests/data/affiliations.test.ts` | logo permission gate; AUSD never borrows another body's mark |
 | `tests/data/videos.test.ts` | third-party uploads keep their attribution |
 | `tests/data/archive.test.ts` | placeholders say what is missing; no originals under `public/` |
+| `tests/data/press.test.ts` | every cited source names a fact that renders and is `confirmed`; the confirmed/family distinction holds |
 | `tests/fonts/coverage.test.ts` | every CJK character in source is in the committed subset |
 
 The suite is verified to pass **with and without** the gitignored
@@ -92,6 +93,9 @@ deliberately breaking it:
 | logo gating | give AUSD the City of Arcadia seal | 2 tests fail |
 | video attribution | drop `hostChannel` from the 833K video | 1 test fails |
 | archive placeholders | remove an item's `needs` | 1 test fails |
+| press corroboration | cite a fact id that does not exist | 3 tests fail |
+| provenance ladder | mark a `family` fact `confirmed` | 2 tests fail |
+| press dates | write a date as `07/03/2024` | 1 test fails |
 
 Re-run any of these before trusting the suite. See
 [`docs/solutions/build-errors/verification-that-verifies-nothing.md`](docs/solutions/build-errors/verification-that-verifies-nothing.md)
