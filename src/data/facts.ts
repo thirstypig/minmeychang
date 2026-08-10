@@ -204,7 +204,7 @@ export const confirmedFacts: Fact[] = [
     id: 'methodist-hospital-board',
     en: 'Served on the board of Methodist Hospital of Southern California in Arcadia, now USC Arcadia Hospital.',
     zhHant:
-      '曾任亞凱迪亞南加州美以美醫院董事，該院現已更名為 USC Arcadia Hospital。',
+      '曾任位於亞凱迪亞的南加州美以美醫院董事，該院現已更名為 USC Arcadia Hospital。',
     status: 'family',
     source: 'stated by Min Mey Chang to James Chang (son), relayed 2026-08-10',
     note:
@@ -212,9 +212,9 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'methodist-asian-outreach',
-    en: "Served on the hospital's Asian Outreach committee, which advised on cultural matters and ran its annual Asian Health Fair.",
+    en: "Served on the hospital's Asian Outreach committee, which advised on cultural matters and helped plan its annual Asian Health Fair.",
     zhHant:
-      '曾任該院亞裔外展委員會委員；該委員會就文化事務提供諮詢，並主辦一年一度的亞裔健康博覽會。',
+      '曾任南加州美以美醫院亞裔外展委員會（Asian Outreach committee）委員；該委員會就文化事務提供諮詢，並協助籌辦該院一年一度的亞裔健康博覽會。',
     status: 'family',
     source:
       'Her service stated by Min Mey Chang to James Chang (son), relayed 2026-08-10. The committee itself and its remit are confirmed by the hospital: "this committee focuses its efforts on understanding the service needs of the Asian population… advise on cultural matters… plan and volunteer for the hospital\'s annual Asian Health fair" — https://web.archive.org/web/20190718123851/https://www.methodisthospital.org/Foundation/Partners-in-Health/Asian-Outreach.aspx',
