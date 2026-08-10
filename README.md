@@ -145,6 +145,13 @@ they never performed — including a CI typecheck that ran unverified for
 fourteen consecutive deploys, and a provenance test that was logically
 incapable of failing.
 
+The same failure has a research counterpart, written up in
+[`docs/solutions/research-issues/proving-a-negative-from-archives.md`](docs/solutions/research-issues/proving-a-negative-from-archives.md):
+tools that report *"nothing found"* when what happened was *"nothing looked."*
+Before recording that a source does not name her, search that same source for
+something you know it contains. On a page about a real person, an empty search
+and an unread page are not the same finding.
+
 ## Build guard
 
 `scripts/verify-css.mjs` runs as `postbuild` and fails the build if Tailwind
