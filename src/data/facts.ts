@@ -63,11 +63,11 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'afternoon-classes',
-    en: 'A trailblazer among Chinese schools, she established the school\'s afternoon classes and its extracurricular programmes.',
+    en: 'A trailblazer among Chinese schools, she established the school\'s afternoon classes and its extracurricular programs.',
     zhHant: '她在中文學校教育上勇於開創，率先設立該校的課後中文班與課外活動課程。',
     status: 'family',
     source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'Reworded 2026-08-05 at the family\'s request. Previously read "the first of their kind in the country" — an unverifiable nationwide superlative, and the only claim on the site a stranger could arrive to correct. What she established is concrete and family-attested; "trailblazer" characterises rather than asserts a record. Do not reintroduce the superlative without a source.',
+    note: 'Reworded 2026-08-05 at the family\'s request. Previously read "the first of their kind in the country" — an unverifiable nationwide superlative, and the only claim on the site a stranger could arrive to correct. What she established is concrete and family-attested; "trailblazer" characterizes rather than asserts a record. Do not reintroduce the superlative without a source.',
   },
   {
     id: 'students-taught',
@@ -98,7 +98,7 @@ export const confirmedFacts: Fact[] = [
       '獲選為中文教師學會會長，任期兩年，並三度率領教師、教育委員及學區職員前往台灣與中國參訪，增進其對中華文化的了解。',
     status: 'family',
     source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'The organisation was the bracketed [CONFIRM ORGANIZATION NAME] in the draft. Supplied as "the Chinese Teacher Association" — worth confirming the exact registered name and the years, as several similarly-named bodies exist in Southern California.',
+    note: 'The organization was the bracketed [CONFIRM ORGANIZATION NAME] in the draft. Supplied as "the Chinese Teacher Association" — worth confirming the exact registered name and the years, as several similarly-named bodies exist in Southern California.',
   },
   {
     id: 'pta-golden-apple',
@@ -157,13 +157,13 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'arcadia-beautiful',
-    en: 'The City of Arcadia twice honoured the garden she made at their home: the Anita Baldwin Award in 1982, and the Mayor\'s Award in 1984, both under the Arcadia Beautiful Award.',
+    en: 'The City of Arcadia twice honored the garden she made at their home: the Anita Baldwin Award in 1982, and the Mayor\'s Award in 1984, both under the Arcadia Beautiful Award.',
     zhHant:
       '她親手打理的家園庭院兩度獲亞凱迪亞市表彰：1982年獲安妮塔・鮑德溫獎，1984年獲市長獎，皆屬「亞凱迪亞美化獎」。',
     status: 'confirmed',
     source:
       'The two framed certificates themselves, photographed by the family 2026-08-05. 1982: category "The Anita Baldwin Award", Mayor Donald D. Pellegrino. 1984: category "Mayor\'s Award", Mayor David S. Hannah. Both signed by the chairs of the Arcadia Beautiful Commission and Arcadia Beautiful Awards. Scans in public/archive/.',
-    note: 'Two details worth knowing. (1) The 1982 certificate spells the surname "Cheng"; the 1984 one spells it "Chang". The family confirms Chang is correct, so the site uses Chang throughout — the 1982 spelling is a property of the artefact, not a fact about them. (2) Both certificates print a former home address, and the family confirms both were their homes; they moved between 1982 and 1984. Both addresses are redacted in the published scans by scripts/build-award-scans.mjs. Never publish an unredacted version.',
+    note: 'Two details worth knowing. (1) The 1982 certificate spells the surname "Cheng"; the 1984 one spells it "Chang". The family confirms Chang is correct, so the site uses Chang throughout — the 1982 spelling is a property of the artifact, not a fact about them. (2) Both certificates print a former home address, and the family confirms both were their homes; they moved between 1982 and 1984. Both addresses are redacted in the published scans by scripts/build-award-scans.mjs. Never publish an unredacted version.',
   },
   {
     id: 'family',
@@ -245,7 +245,7 @@ export const pendingFacts: Fact[] = loadedPending
  * by construction, so the filter could never remove anything and the test
  * asserting "nothing unverified renders" could never fail. Deriving from the
  * union means the status field is what actually decides, which is the point.
- * A fact mislabelled 'confirmed' in either file is then caught by
+ * A fact mislabeled 'confirmed' in either file is then caught by
  * `every renderable fact cites a source`.
  */
 export const renderableFacts: Fact[] = [...confirmedFacts, ...pendingFacts].filter(

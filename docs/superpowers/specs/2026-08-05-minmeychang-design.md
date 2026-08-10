@@ -31,7 +31,7 @@ owner: James Chang
 > For what the privacy and provenance decisions became in practice, see
 > [`docs/solutions/security-issues/publishing-about-a-living-person.md`](../../solutions/security-issues/publishing-about-a-living-person.md).
 
-A static bilingual site honouring **Min Mey Chang**, published by her family.
+A static bilingual site honoring **Min Mey Chang**, published by her family.
 English and Traditional Chinese at full parity. Astro + Tailwind v4, deployed to
 GitHub Pages at `minmeychang.com`.
 
@@ -139,7 +139,7 @@ been wrong in two independent ways on the page carrying his mother's name.
 
 ## Visual direction
 
-**Colour.** The red is 印泥, the cinnabar seal paste used to stamp a chop on
+**Color.** The red is 印泥, the cinnabar seal paste used to stamp a chop on
 Chinese calligraphy — drawn from her own practice rather than a generic festive
 red.
 
@@ -154,8 +154,8 @@ red.
 All eight foreground/background pairs verified at **AA or better in both
 themes** (brand on paper 6.36:1; brand on dark surface 7.13:1).
 
-**Colour rule, inherited from `shengchangmd` where breaking it caused two real
-bugs:** never hardcode `#000`/`#fff` or any fixed text colour on a branded
+**Color rule, inherited from `shengchangmd` where breaking it caused two real
+bugs:** never hardcode `#000`/`#fff` or any fixed text color on a branded
 surface. Set the surface's own `color` to `--brand-contrast` and let descendants
 inherit. Headings stay `color: inherit` on purpose.
 

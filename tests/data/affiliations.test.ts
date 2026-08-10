@@ -82,7 +82,7 @@ describe('logo gating', () => {
     for (const a of affiliations) {
       expect(
         a.logo ?? '',
-        `'${a.id}' uses arcadia-city.png; the city is not any of these organisations`
+        `'${a.id}' uses arcadia-city.png; the city is not any of these organizations`
       ).not.toContain('arcadia-city')
     }
   })

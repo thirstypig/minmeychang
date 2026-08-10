@@ -18,7 +18,7 @@ const toldElsewhere = new Set([
   'chinese-school-outcome',
 ])
 
-// What is left after the Institutions list takes the organisational roles:
+// What is left after the Institutions list takes the organizational roles:
 // the things she did, rather than the bodies she belonged to.
 const facts = renderableFacts.filter(
   (f) => !toldElsewhere.has(f.id) && !factsCoveredByAffiliations.has(f.id)

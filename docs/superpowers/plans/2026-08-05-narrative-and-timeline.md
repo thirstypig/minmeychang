@@ -227,7 +227,7 @@ describe('alternatePath', () => {
 
 Run: `npm test`
 
-Expected: all tests PASS. `ui.ts` already satisfies these invariants — this suite locks in behaviour that currently works, so a later edit cannot silently break it.
+Expected: all tests PASS. `ui.ts` already satisfies these invariants — this suite locks in behavior that currently works, so a later edit cannot silently break it.
 
 If any test FAILS, fix `src/i18n/ui.ts`, not the test.
 
@@ -465,7 +465,7 @@ public member of the California Acupuncture Board, where she served a term
 expiring in July 2004.
 ```
 
-**Do not add** founding years, organisation names, awards, or family details.
+**Do not add** founding years, organization names, awards, or family details.
 Those facts are `unverified` and awaiting her confirmation.
 
 - [ ] **Step 5: Write the Traditional Chinese narrative**
@@ -936,7 +936,7 @@ covering the EXIF assertion and the signature/address redaction gate from the
 spec.
 
 **Chinese webfont subsetting.** Noto Serif TC at ~10MB subset down to the glyphs
-actually used. A pure optimisation — the system font stack renders correctly
+actually used. A pure optimization — the system font stack renders correctly
 today.
 
 **The eight unverified facts.** Blocked on her interview, not on engineering.

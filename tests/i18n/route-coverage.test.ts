@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { existsSync } from 'node:fs'
-import { routes, readingOrder, routePath, neighbours } from '../../src/i18n/routes'
+import { routes, readingOrder, routePath, neighbors } from '../../src/i18n/routes'
 import { locales, ui, getTranslation, type UiKey } from '../../src/i18n/ui'
 
 // Splitting the site from 4 routes to 12 tripled the surface where English can
@@ -73,7 +73,7 @@ describe('route coverage', () => {
     let current = readingOrder[0]!
     for (let guard = 0; guard < 50; guard++) {
       visited.push(current.id)
-      const { next } = neighbours(current.id)
+      const { next } = neighbors(current.id)
       if (!next) break
       current = next
     }
@@ -81,8 +81,8 @@ describe('route coverage', () => {
   })
 
   it('the first page has no previous and the last has no next', () => {
-    expect(neighbours(readingOrder[0]!.id).previous).toBeNull()
-    expect(neighbours(readingOrder[readingOrder.length - 1]!.id).next).toBeNull()
+    expect(neighbors(readingOrder[0]!.id).previous).toBeNull()
+    expect(neighbors(readingOrder[readingOrder.length - 1]!.id).next).toBeNull()
   })
 
   it('home is reachable from the nav but sits outside the reading order', () => {

@@ -109,7 +109,7 @@ Streaming the IRS 990 e-file index for each year and grepping for the two EINs:
 2017: 1 rows
 ```
 
-The clean reading is "these organisations did not e-file before 2017." The
+The clean reading is "these organizations did not e-file before 2017." The
 actual reading:
 
 ```
@@ -192,7 +192,7 @@ concluding the source is unavailable.
 
 One cheap habit defeats every instance above:
 
-> **Before trusting an absence, search the same artefact for something you know
+> **Before trusting an absence, search the same artifact for something you know
 > is there.**
 
 On each roster, after finding no `Chang`, grep for a name the page must contain:
@@ -266,7 +266,7 @@ this in five years gets the evidence without redoing the afternoon.
 ## Prevention
 
 ### 1. Run a positive control before reporting an absence
-Grep the same artefact for a name you know it contains. Three seconds, defeats
+Grep the same artifact for a name you know it contains. Three seconds, defeats
 instances 3 and 4 outright.
 
 ### 2. Compare sizes across a batch, not hashes
@@ -278,7 +278,7 @@ they do not defeat the size distribution.
 Assert `size_download > 0` before letting a stream reach `grep`.
 
 ### 4. Grade the evidence, and write the grade down
-"A model summarised the page" and "I read the roster" are different findings.
+"A model summarized the page" and "I read the roster" are different findings.
 Record which one you have.
 
 ### 5. When a source refuses you, change fetcher before concluding
@@ -301,14 +301,14 @@ Absence of evidence for a *published roster* is not evidence of absence from an
 | Tag-stripped page shows no names | roster absent | grep a name that must be there |
 | `302` + empty file | no data | add `-L` |
 | `403` / `429` | source gone | try the other fetcher; try another endpoint |
-| Model summary says "not listed" | not listed | read the primary artefact |
+| Model summary says "not listed" | not listed | read the primary artifact |
 
 ## Cost
 
 Roughly two hours, of which about forty minutes went to the 990 route that never
 yielded a byte of data. Two conclusions were nearly recorded wrongly: "she was
 not on the 2019 board" from a page whose roster had not been read, and "these
-organisations did not e-file before 2017" from six zero-byte downloads.
+organizations did not e-file before 2017" from six zero-byte downloads.
 
 Both would have been stated confidently, and both would have been wrong in the
 same way — not false, exactly, but **empty**: true statements about a search

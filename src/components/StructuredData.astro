@@ -24,7 +24,7 @@ const person: Record<string, unknown> = {
   name: 'Min Mey Chang',
   // The 冠夫姓 form. Included so a search for either name resolves to her —
   // her most-seen work is titled 張校長(馬敏妹), which matches neither the
-  // anglicised name nor the full Chinese one.
+  // anglicized name nor the full Chinese one.
   alternateName: ['張馬敏妹', 'Min M. Chang', 'Chang Ma Min-Mey', '張校長'],
   url: site,
   image: `${site}og.png`,
@@ -73,7 +73,7 @@ if (has('pta-golden-apple')) {
   person.award = 'Golden Apple Award, Arcadia Unified School District'
 }
 
-// Only organisations backed by a confirmed fact.
+// Only organizations backed by a confirmed fact.
 const confirmedIds = new Set(confirmedFacts.map((f) => f.id))
 const orgs = affiliations
   .filter((a) => confirmedIds.has(a.factId))

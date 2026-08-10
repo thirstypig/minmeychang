@@ -1,7 +1,7 @@
 // The photo and document archive.
 //
 // Entries may exist WITHOUT an asset. An entry whose `asset` is undefined
-// renders as a labelled placeholder tile, so the archive's shape is visible and
+// renders as a labeled placeholder tile, so the archive's shape is visible and
 // reviewable before any scanning or exporting has happened. This is deliberate:
 // it lets her and the family see what is being asked for, and point at gaps.
 //
@@ -70,13 +70,13 @@ export const archive: ArchiveItem[] = [
     asset: '/archive/arcadia-beautiful-1984.jpg',
   },
   {
-    id: 'school-programmes',
+    id: 'school-programs',
     kind: 'document',
     decade: 1980,
-    en: 'School programmes and yearbooks',
+    en: 'School programs and yearbooks',
     zhHant: '學校刊物與年刊',
     needs: {
-      en: 'Scans of programmes, yearbooks or graduation booklets.',
+      en: 'Scans of programs, yearbooks or graduation booklets.',
       zhHant: '節目單、年刊或畢業紀念冊掃描件。',
     },
   },

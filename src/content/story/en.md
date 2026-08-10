@@ -13,7 +13,7 @@ Chinese School, and served as its principal for more than thirty years.
 
 She built the school into something larger than a language class. A trailblazer
 among Chinese schools, she established its afternoon classes and its
-extracurricular programmes. Over three decades the school educated thousands of
+extracurricular programs. Over three decades the school educated thousands of
 students, who have since gone into professions of every kind and have children
 of their own.
 

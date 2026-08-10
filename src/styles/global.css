@@ -21,11 +21,11 @@
 }
 
 /* The red is 印泥 — the cinnabar seal paste used to stamp a chop on Chinese
- * calligraphy. Chosen because she practises calligraphy, so the colour comes
+ * calligraphy. Chosen because she practices calligraphy, so the color comes
  * from her own hand rather than from a generic festive red.
  *
- * COLOUR RULE (inherited from shengchangmd, where breaking it caused two real
- * bugs): never hardcode black/white or any fixed text colour on a branded
+ * COLOR RULE (inherited from shengchangmd, where breaking it caused two real
+ * bugs): never hardcode black/white or any fixed text color on a branded
  * surface. Set the surface's own `color` to --brand-contrast and let
  * descendants inherit. Headings stay `color: inherit` on purpose.
  */
@@ -125,7 +125,7 @@ html[lang^='zh'] {
  * PULL QUOTES
  *
  * A blockquote inside the story content is set as a pull quote — larger, in
- * the brand colour, with a rule rather than quotation marks. These are lifted
+ * the brand color, with a rule rather than quotation marks. These are lifted
  * from the site's own prose, not attributed to her: we have no recorded quotes
  * from her yet, and inventing one would be the worst failure this project
  * could have.

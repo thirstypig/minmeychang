@@ -13,7 +13,7 @@
 // unprocessed publishes wherever it was taken.
 //
 // WHAT THIS DOES NOT DO. It cannot see a home address printed on a certificate,
-// a phone number on a school programme, or a face whose owner has not agreed to
+// a phone number on a school program, or a face whose owner has not agreed to
 // appear. Those need eyes. Redactions belong in scripts/build-award-scans.mjs,
 // which takes explicit coordinates and is verified by looking at the output.
 //
@@ -106,7 +106,7 @@ for (const file of files) {
 console.log(
   `\ningest-photos: ${files.length - failures}/${files.length} processed into ${OUT_DIR}.\n` +
     `\nBEFORE COMMITTING, LOOK AT EACH ONE. This script strips metadata; it cannot\n` +
-    `see a home address on a certificate, a phone number on a programme, or a\n` +
+    `see a home address on a certificate, a phone number on a program, or a\n` +
     `face whose owner has not agreed to appear. Redact those with\n` +
     `scripts/build-award-scans.mjs, which takes explicit coordinates.\n`
 )

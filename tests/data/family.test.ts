@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { family, spouse, grandchildren } from '../../src/data/family'
 
 // These are links to people, which makes them the highest-consequence links on
-// the site. Everything else points at an organisation, a video or a document.
+// the site. Everything else points at an organization, a video or a document.
 
 describe('family links', () => {
   it('has unique ids and unique urls', () => {
@@ -58,9 +58,9 @@ describe('family links', () => {
   // rule applies here, and a numeric field would be the way it crept back in.
   it('no member record carries an age or a birth year', () => {
     for (const member of family) {
-      const serialised = JSON.stringify(member)
+      const serialized = JSON.stringify(member)
       expect(
-        /"(age|born|birth|dob|birthYear)"/i.test(serialised),
+        /"(age|born|birth|dob|birthYear)"/i.test(serialized),
         `'${member.id}' records an age or birth date — never publish either`
       ).toBe(false)
     }

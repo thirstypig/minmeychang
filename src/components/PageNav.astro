@@ -1,5 +1,5 @@
 ---
-import { neighbours, routePath, type RouteId } from '../i18n/routes'
+import { neighbors, routePath, type RouteId } from '../i18n/routes'
 import { getTranslation, type Locale } from '../i18n/ui'
 
 interface Props {
@@ -13,7 +13,7 @@ const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, 
 // Splitting the site into pages risks losing the arc of a life story. These
 // links restore the reading order, so someone can go start to finish without
 // returning to a menu between every page.
-const { previous, next } = neighbours(current)
+const { previous, next } = neighbors(current)
 ---
 
 {

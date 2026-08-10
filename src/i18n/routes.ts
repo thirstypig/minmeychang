@@ -96,7 +96,7 @@ export function routePath(locale: Locale, id: RouteId): string {
 }
 
 /** The page before and after this one in the reading order. */
-export function neighbours(id: RouteId): {
+export function neighbors(id: RouteId): {
   previous: Route | null
   next: Route | null
 } {

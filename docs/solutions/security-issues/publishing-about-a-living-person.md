@@ -64,7 +64,7 @@ Chang" is `張敏梅`. That guess is wrong in two independent ways:
 
 The four-character form is **冠夫姓**: husband's surname 張, then **her own
 maiden surname 馬**, then the given name. That middle character is **not
-recoverable from the anglicised name by any amount of searching**, and it is
+recoverable from the anglicized name by any amount of searching**, and it is
 common for Taiwanese women of that generation.
 
 ### What this cost
@@ -75,7 +75,7 @@ results about other people rather than an error.
 
 ### The rule
 
-> **Never guess a Chinese name. Ask.** An anglicised name is lossy in a way
+> **Never guess a Chinese name. Ask.** An anglicized name is lossy in a way
 > that cannot be reversed, and a wrong character on a page about a person is
 > the worst class of error a biographical site can make.
 
@@ -172,7 +172,7 @@ const meta = await sharp(out).metadata()
 if (meta.exif || meta.gps || meta.xmp) { /* fail loudly */ }
 ```
 
-### Addresses printed on the artefact itself
+### Addresses printed on the artifact itself
 
 Both certificates print a former home address in calligraphy — **two different
 addresses, because the family moved between the awards.** No metadata strip
@@ -226,7 +226,7 @@ paralysis or infringement.
 | Material | Position |
 |---|---|
 | **Her own videos, photos, writing** | Free to use. Link or host as preferred |
-| **Marks of organisations she led** | Nominative fair use: truthful, no more of the mark than needed, no implied endorsement. Say so explicitly on the page |
+| **Marks of organizations she led** | Nominative fair use: truthful, no more of the mark than needed, no implied endorsement. Say so explicitly on the page |
 | **Government seals** | Read the statute rather than assuming. Cal. Gov Code §402 prohibits use *"maliciously or for commercial purposes"* — a non-commercial family tribute is neither. **Modifying a seal makes it worse, not better** |
 | **Other people's photographs** | Theirs. Ask; do not take. This is the one case where the person harmed is from the subject's own community |
 
@@ -245,7 +245,7 @@ Before publishing anything about a living private person:
 - [ ] Every claim carries a status; **unverified claims do not render**
 - [ ] Unreviewed claims live **outside version control** if the repo is public
 - [ ] Photographs: strip metadata, then **assert** it is gone
-- [ ] Documents: check the artefact itself for addresses, phone numbers, signatures
+- [ ] Documents: check the artifact itself for addresses, phone numbers, signatures
 - [ ] Third-party faces: copyright ≠ consent. Surface the decision
 - [ ] Living relatives: names only with permission; **never ages**
 - [ ] No superlative without a source. "Trailblazer" beats "first in the nation"
