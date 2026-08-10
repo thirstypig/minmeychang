@@ -200,6 +200,27 @@ export const confirmedFacts: Fact[] = [
       'California Acupuncture Board Sunset Report, roster: "MIN M. CHANG (Public Member) July 2004 / Appointed by the Speaker of the Assembly, May 2001" — https://www.acupuncture.ca.gov/pubs_forms/sunset_report.pdf',
     note: 'Listed in the roster as "Min M. Chang". Decide which form of the name the site uses.',
   },
+  {
+    id: 'methodist-hospital-board',
+    en: 'Served on the board of Methodist Hospital of Southern California in Arcadia, now USC Arcadia Hospital.',
+    zhHant:
+      '曾任亞凱迪亞南加州美以美醫院董事，該院現已更名為 USC Arcadia Hospital。',
+    status: 'family',
+    source: 'stated by Min Mey Chang to James Chang (son), relayed 2026-08-10',
+    note:
+      'NO YEARS, deliberately — she did not give them and no roster confirms them. PUBLISHED AGAINST A CONTRARY SEARCH, at the family\'s direction, on the understanding that it can be revised. What was checked on 2026-08-09, each roster verified to contain names before the absence was treated as meaningful: the hospital Board of Directors for 1999, 2002, 2003, 2004, 2005 and 2010 (archived rosters) and 2019-2024 (Form 990 Part VII via ProPublica); the Foundation Board of Directors for 2002, 2003, 2004, 2005 and 2019, plus the 39 individual board-member bio pages published around 2010-11. She appears on none of them. Unchecked: pre-1999, 2006-2009, and 2012-2018. The definitive source is Form 990 Part VII for 2001-2024, which names every director — ProPublica blocks scripted downloads and the IRS now ships those XMLs only in bulk yearly zips, so it was not run. If this fact is ever challenged, run that before defending it. See also the sibling fact methodist-asian-outreach, which is the likelier body.',
+  },
+  {
+    id: 'methodist-asian-outreach',
+    en: "Served on the hospital's Asian Outreach committee, which advised on cultural matters and ran its annual Asian Health Fair.",
+    zhHant:
+      '曾任該院亞裔外展委員會委員；該委員會就文化事務提供諮詢，並主辦一年一度的亞裔健康博覽會。',
+    status: 'family',
+    source:
+      'Her service stated by Min Mey Chang to James Chang (son), relayed 2026-08-10. The committee itself and its remit are confirmed by the hospital: "this committee focuses its efforts on understanding the service needs of the Asian population… advise on cultural matters… plan and volunteer for the hospital\'s annual Asian Health fair" — https://web.archive.org/web/20190718123851/https://www.methodisthospital.org/Foundation/Partners-in-Health/Asian-Outreach.aspx',
+    note:
+      'The stronger of the two hospital claims, and the reason both are recorded. The committee demonstrably existed under the Methodist Hospital Foundation and its remit matches her record exactly, but its MEMBERSHIP WAS NEVER PUBLISHED in any year sampled — so unlike the board claim there is no roster to contradict her. A family memory of serving "the board" is well explained by a seat here. 亞裔外展委員會 is this project\'s rendering of "Asian Outreach committee"; the hospital\'s Chinese pages do not name the committee, so it is not an attested term. The hospital\'s own Chinese name IS attested: 南加州美以美醫院, used throughout its Chinese-language site — NOT 衛理醫院, which is the obvious wrong guess.',
+  },
 ]
 
 // Loaded via import.meta.glob rather than a static import: the file is
