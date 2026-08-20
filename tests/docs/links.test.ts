@@ -29,7 +29,7 @@ function markdownFiles(): string[] {
 /** `[text](path)` where path is neither absolute-http nor a bare anchor. */
 const LINK = /\[[^\]]*\]\(([^)\s]+)\)/g
 /** A `related:` list entry that is a repo path rather than a URL. */
-const RELATED = /^\s*-\s+((?:docs|src|scripts|tests)\/[^\s]+)\s*$/gm
+const RELATED = /^\s*-\s+(?!https?:|mailto:)([^\s]+\.md)\s*$/gm
 
 type Link = { file: string; target: string }
 

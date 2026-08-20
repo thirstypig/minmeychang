@@ -31,7 +31,7 @@ calligraphy, and there is no photograph of her brushwork to earn it.
 npm install
 npm run dev        # http://localhost:3170
 npm run build      # postbuild runs scripts/verify-css.mjs
-npm test           # 106 tests
+npm test
 npm run typecheck  # astro check — 66 files
 ```
 
@@ -117,6 +117,10 @@ version control, make the repo private first.
 `npm test` — **106 tests across 15 files.** CI runs them, and the typecheck,
 before the build, so a regression blocks the deploy rather than shipping.
 
+**They do not yet run on a pull request.** `.github/workflows/deploy.yml`
+triggers only on push to `main`, so the suite executes after a merge, not
+before one — see `todos/001-pending-p2-ci-does-not-gate-the-pr.md`.
+
 | File | Guards |
 |---|---|
 | `tests/i18n/locale-coverage.test.ts` | key parity between locales; no untranslated value |
@@ -154,7 +158,7 @@ deliberately breaking it:
 | video attribution | drop `hostChannel` from the 833K video | 1 test fails |
 | archive placeholders | remove an item's `needs` | 1 test fails |
 | press corroboration | cite a fact id that does not exist | 3 tests fail |
-| provenance ladder | mark a `family` fact `confirmed` | 2 tests fail |
+| provenance ladder | mark a `family` fact `confirmed` | 3 tests fail |
 | press dates | write a date as `07/03/2024` | 1 test fails |
 | family names | invent a Chinese name for a grandchild | 3 tests fail |
 | 正體 characters | write 亞凱迪亞 as 亚凱迪亞 | 1 test fails, names the character |
@@ -163,9 +167,10 @@ deliberately breaking it:
 | attested proper nouns | rename the hospital 衛理醫院 | 1 test fails |
 | Chinese collector | point any reader at `.en`, or drop one entirely | 1 test fails, names the source |
 | testimony phrasing | promote either hospital fact to `confirmed` | 1-2 tests fail |
-| doc links | typo a path in README or a `related:` entry | 1 test fails, names the link |
+| doc links | typo a path in README, or either form of a `related:` entry | 1 test fails, names the link |
 | American spelling | write "honoured" or "programmes" in a fact | 1 test fails, names the word |
-| English collector | point a reader at the Chinese locale | 1 test fails, names the source |
+| English collector | point **any** of the eight readers at the Chinese locale | 1 test fails, names the source |
+| attribution phrasing | attribute a `confirmed` fact to "Dr. Sheng Chang (husband)" | 2 tests fail |
 
 Re-run any of these before trusting the suite. See
 [`docs/solutions/build-errors/verification-that-verifies-nothing.md`](docs/solutions/build-errors/verification-that-verifies-nothing.md)

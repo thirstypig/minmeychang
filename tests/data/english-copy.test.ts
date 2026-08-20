@@ -65,6 +65,17 @@ function renderedEnglish(): Str[] {
 
 const strings = renderedEnglish()
 
+/** Han ideographs only — deliberately NOT shared with chinese-copy.test.ts or
+ *  tests/fonts/coverage.test.ts, which define their own. The three exist for
+ *  different reasons and must be able to fail independently; a shared helper
+ *  would let one wrong edit void all three at once, which is the exact failure
+ *  this file guards against. The font one is intentionally wider (it includes
+ *  full-width punctuation, because it is about glyph coverage). */
+const isCjk = (ch: string) => {
+  const cp = ch.codePointAt(0)!
+  return (cp >= 0x3400 && cp <= 0x4dbf) || (cp >= 0x4e00 && cp <= 0x9fff)
+}
+
 /** British form → American form. British-only spellings: nothing here is
  *  ambiguous, and nothing here is also a correct American word. `practise`
  *  is included because American English uses `practice` for both noun and
@@ -110,11 +121,24 @@ describe('American English copy', () => {
   // Guards the guard, per source. A total-count floor is not enough — proved
   // in chinese-copy.test.ts, where a floor of 40 survived the collector being
   // rewired to the wrong locale.
+  //
+  // The floor must be on ENGLISH strings, not on strings. The first version of
+  // this file counted `length > 0` per source, which any string satisfies —
+  // including a Chinese one. Sabotage, 2026-08-20: pointing the facts reader
+  // at `.zhHant` passed 2/2, silently removing every rendered fact from the
+  // spelling sweep. Only `ui` was anchored. Seven of eight sources were
+  // unguarded while README claimed otherwise.
+  //
+  // Some English strings legitimately contain CJK — the meta description
+  // carries 張馬敏妹 — so the test is "has Latin and no CJK", per string.
   it('actually collected the rendered English, from every source', () => {
     expect(strings.length).toBeGreaterThan(40)
     for (const source of SOURCES) {
+      const english = strings.filter(
+        (s) => s.source === source && /[A-Za-z]/.test(s.text) && ![...s.text].some(isCjk)
+      )
       expect(
-        strings.filter((s) => s.source === source).length,
+        english.length,
         `no English collected from '${source}' — that reader is pointed at the wrong field`
       ).toBeGreaterThan(0)
     }

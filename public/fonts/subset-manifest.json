@@ -1,7 +1,7 @@
 {
   "generated": "run `npm run fonts` to regenerate",
   "source": "Noto Serif TC Regular, SIL OFL 1.1",
-  "glyphCount": 610,
+  "glyphCount": 611,
   "codepoints": [
     12288,
     12289,
@@ -138,6 +138,7 @@
     22336,
     22343,
     22521,
+    22522,
     22577,
     22612,
     22686,

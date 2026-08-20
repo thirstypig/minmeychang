@@ -144,7 +144,7 @@ describe('the confirmed/family distinction', () => {
   // attested the claim itself, you would cite the document for the claim rather
   // than record who told you.
   it('no confirmed fact attributes its claim to a family member, however phrased', () => {
-    const attribution = /\b(stated|confirmed|told|recalled|supplied|relayed)\b[^.]{0,80}\((son|daughter|family|husband|wife)\)/i
+    const attribution = /\b(stated|confirmed|told|recalled|supplied|relayed)\b[^\n]{0,120}\((son|daughter|family|husband|wife)\)/i
 
     for (const fact of confirmedFacts) {
       if (fact.status !== 'confirmed') continue
