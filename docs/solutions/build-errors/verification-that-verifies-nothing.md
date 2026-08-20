@@ -54,7 +54,7 @@ The unifying shape:
 > the answer to the question that was.**
 
 This document exists because the individual fixes are cheap and the pattern is
-expensive. Recognising the shape is what compounds.
+expensive. Recognizing the shape is what compounds.
 
 ---
 
@@ -183,7 +183,7 @@ minmeychang.com. 14400 IN A 185.199.111.153
 
 macOS ships BIND **9.10.6**, which predates RFC 9460. Given an unknown type it
 **silently downgrades to `A`** and answers confidently. The output looked like a
-positive finding; it was an artefact of the tool.
+positive finding; it was an artifact of the tool.
 
 **Fix — query by numeric type, which old dig handles correctly:**
 

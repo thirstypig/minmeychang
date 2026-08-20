@@ -5,7 +5,7 @@
 // embeds are ever wanted, use a click-to-load facade against
 // youtube-nocookie.com rather than a bare iframe.
 //
-// View counts are a snapshot, not live data — labelled with `viewsAsOf` so the
+// View counts are a snapshot, not live data — labeled with `viewsAsOf` so the
 // site never implies a freshness it does not have. Re-check before quoting them
 // anywhere that matters.
 //

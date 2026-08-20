@@ -80,7 +80,7 @@ export const ui = {
       'Independent accounts of her work in Chinese-language community media. Each one below is also a source for a fact on this site.',
     affiliationsHeading: 'Institutions',
     marksNotice:
-      'Institutional names and marks belong to their respective owners and are shown to identify the organisations Min Mey Chang served. This site is published by her family and is not affiliated with, sponsored by, or endorsed by any of them.',
+      'Institutional names and marks belong to their respective owners and are shown to identify the organizations Min Mey Chang served. This site is published by her family and is not affiliated with, sponsored by, or endorsed by any of them.',
     achievementsHeading: 'What she built',
     storyHeading: 'Her story',
     timelineHeading: 'Timeline',

@@ -63,11 +63,11 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'afternoon-classes',
-    en: 'A trailblazer among Chinese schools, she established the school\'s afternoon classes and its extracurricular programmes.',
+    en: 'A trailblazer among Chinese schools, she established the school\'s afternoon classes and its extracurricular programs.',
     zhHant: '她在中文學校教育上勇於開創，率先設立該校的課後中文班與課外活動課程。',
     status: 'family',
     source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'Reworded 2026-08-05 at the family\'s request. Previously read "the first of their kind in the country" — an unverifiable nationwide superlative, and the only claim on the site a stranger could arrive to correct. What she established is concrete and family-attested; "trailblazer" characterises rather than asserts a record. Do not reintroduce the superlative without a source.',
+    note: 'Reworded 2026-08-05 at the family\'s request. Previously read "the first of their kind in the country" — an unverifiable nationwide superlative, and the only claim on the site a stranger could arrive to correct. What she established is concrete and family-attested; "trailblazer" characterizes rather than asserts a record. Do not reintroduce the superlative without a source.',
   },
   {
     id: 'students-taught',
@@ -98,7 +98,7 @@ export const confirmedFacts: Fact[] = [
       '獲選為中文教師學會會長，任期兩年，並三度率領教師、教育委員及學區職員前往台灣與中國參訪，增進其對中華文化的了解。',
     status: 'family',
     source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'The organisation was the bracketed [CONFIRM ORGANIZATION NAME] in the draft. Supplied as "the Chinese Teacher Association" — worth confirming the exact registered name and the years, as several similarly-named bodies exist in Southern California.',
+    note: 'The organization was the bracketed [CONFIRM ORGANIZATION NAME] in the draft. Supplied as "the Chinese Teacher Association" — worth confirming the exact registered name and the years, as several similarly-named bodies exist in Southern California.',
   },
   {
     id: 'pta-golden-apple',
@@ -157,13 +157,13 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'arcadia-beautiful',
-    en: 'The City of Arcadia twice honoured the garden she made at their home: the Anita Baldwin Award in 1982, and the Mayor\'s Award in 1984, both under the Arcadia Beautiful Award.',
+    en: 'The City of Arcadia twice honored the garden she made at their home: the Anita Baldwin Award in 1982, and the Mayor\'s Award in 1984, both under the Arcadia Beautiful Award.',
     zhHant:
       '她親手打理的家園庭院兩度獲亞凱迪亞市表彰：1982年獲安妮塔・鮑德溫獎，1984年獲市長獎，皆屬「亞凱迪亞美化獎」。',
     status: 'confirmed',
     source:
       'The two framed certificates themselves, photographed by the family 2026-08-05. 1982: category "The Anita Baldwin Award", Mayor Donald D. Pellegrino. 1984: category "Mayor\'s Award", Mayor David S. Hannah. Both signed by the chairs of the Arcadia Beautiful Commission and Arcadia Beautiful Awards. Scans in public/archive/.',
-    note: 'Two details worth knowing. (1) The 1982 certificate spells the surname "Cheng"; the 1984 one spells it "Chang". The family confirms Chang is correct, so the site uses Chang throughout — the 1982 spelling is a property of the artefact, not a fact about them. (2) Both certificates print a former home address, and the family confirms both were their homes; they moved between 1982 and 1984. Both addresses are redacted in the published scans by scripts/build-award-scans.mjs. Never publish an unredacted version.',
+    note: 'Two details worth knowing. (1) The 1982 certificate spells the surname "Cheng"; the 1984 one spells it "Chang". The family confirms Chang is correct, so the site uses Chang throughout — the 1982 spelling is a property of the artifact, not a fact about them. (2) Both certificates print a former home address, and the family confirms both were their homes; they moved between 1982 and 1984. Both addresses are redacted in the published scans by scripts/build-award-scans.mjs. Never publish an unredacted version.',
   },
   {
     id: 'family',
@@ -200,6 +200,28 @@ export const confirmedFacts: Fact[] = [
       'California Acupuncture Board Sunset Report, roster: "MIN M. CHANG (Public Member) July 2004 / Appointed by the Speaker of the Assembly, May 2001" — https://www.acupuncture.ca.gov/pubs_forms/sunset_report.pdf',
     note: 'Listed in the roster as "Min M. Chang". Decide which form of the name the site uses.',
   },
+  {
+    id: 'methodist-hospital-board',
+    en: 'Served on the Foundation Board of Methodist Hospital of Southern California in Arcadia, now USC Arcadia Hospital.',
+    zhHant:
+      '曾任位於亞凱迪亞的南加州美以美醫院基金會董事，該院現已更名為 USC Arcadia Hospital。',
+    status: 'family',
+    source:
+      'Stated by Min Mey Chang to James Chang (son), relayed 2026-08-10 as "the board". Narrowed to the Foundation Board by the family\'s written biography, supplied 2026-08-20: "Served on the Foundation Board of the USC Arcadia Hospital (formerly the Arcadia Methodist Hospital)."',
+    note:
+      'NO YEARS, deliberately — she did not give them and no roster confirms them. PUBLISHED AGAINST A CONTRARY SEARCH, at the family\'s direction, on the understanding that it can be revised. Originally recorded as the hospital board; narrowed to the FOUNDATION board on 2026-08-20, when the family supplied a written biography naming that body specifically. That is a more precise claim from the same source, not a new one, and it does not escape the contrary search — the Foundation roster was among those read. What was checked on 2026-08-09, each roster verified to contain names before the absence was treated as meaningful: the hospital Board of Directors for 1999, 2002, 2003, 2004, 2005 and 2010 (archived rosters) and 2019-2024 (Form 990 Part VII via ProPublica); the Foundation Board of Directors for 2002, 2003, 2004, 2005 and 2019, plus the 39 individual board-member bio pages published around 2010-11. She appears on none of them. Unchecked: pre-1999, 2006-2009, and 2012-2018 — and note the Foundation years read are the thinner set, so the years most likely to carry her are among those never sampled. The definitive source is Form 990 Part VII for 2001-2024, which names every director — ProPublica blocks scripted downloads and the IRS now ships those XMLs only in bulk yearly zips, so it was not run. If this fact is ever challenged, run that before defending it. See also the sibling fact methodist-asian-outreach.',
+  },
+  {
+    id: 'methodist-asian-outreach',
+    en: "Served on the hospital's Asian Outreach committee, which advised on cultural matters and helped plan its annual Asian Health Fair.",
+    zhHant:
+      '曾任南加州美以美醫院亞裔外展委員會（Asian Outreach committee）委員；該委員會就文化事務提供諮詢，並協助籌辦該院一年一度的亞裔健康博覽會。',
+    status: 'family',
+    source:
+      'Her service stated by Min Mey Chang to James Chang (son), relayed 2026-08-10. The committee itself and its remit are confirmed by the hospital: "this committee focuses its efforts on understanding the service needs of the Asian population… advise on cultural matters… plan and volunteer for the hospital\'s annual Asian Health fair" — https://web.archive.org/web/20190718123851/https://www.methodisthospital.org/Foundation/Partners-in-Health/Asian-Outreach.aspx',
+    note:
+      'The stronger of the two hospital claims, and the reason both are recorded. The committee demonstrably existed under the Methodist Hospital Foundation and its remit matches her record exactly, but its MEMBERSHIP WAS NEVER PUBLISHED in any year sampled — so unlike the board claim there is no roster to contradict her. A family memory of serving "the board" is well explained by a seat here. Note that both claims now name FOUNDATION bodies: the sibling fact was narrowed to the Foundation Board on 2026-08-20. That makes them coherent rather than competing — the same institution, one governing and one advisory — and it is entirely possible she held both, or that one memory is the other. 亞裔外展委員會 is this project\'s rendering of "Asian Outreach committee"; the hospital\'s Chinese pages do not name the committee, so it is not an attested term. The hospital\'s own Chinese name IS attested: 南加州美以美醫院, used throughout its Chinese-language site — NOT 衛理醫院, which is the obvious wrong guess.',
+  },
 ]
 
 // Loaded via import.meta.glob rather than a static import: the file is
@@ -224,7 +246,7 @@ export const pendingFacts: Fact[] = loadedPending
  * by construction, so the filter could never remove anything and the test
  * asserting "nothing unverified renders" could never fail. Deriving from the
  * union means the status field is what actually decides, which is the point.
- * A fact mislabelled 'confirmed' in either file is then caught by
+ * A fact mislabeled 'confirmed' in either file is then caught by
  * `every renderable fact cites a source`.
  */
 export const renderableFacts: Fact[] = [...confirmedFacts, ...pendingFacts].filter(

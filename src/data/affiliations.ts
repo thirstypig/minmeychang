@@ -5,7 +5,7 @@
 //
 // 1. DESIGN. The available marks are a green-and-gold peacock, a green
 //    university roundel, a black wordmark, a bilingual temple mark and a
-//    blue-grey state seal — five palettes and aspect ratios from 69x68 to
+//    blue-gray state seal — five palettes and aspect ratios from 69x68 to
 //    398x720, none in conversation with this site's 印泥 red. Side by side they
 //    read as a conference sponsor strip, not as a record of a life.
 //
@@ -16,7 +16,7 @@
 // The California Acupuncture Board and City of Arcadia marks are deliberately
 // absent from this file entirely. The Board's "logo" is the Great Seal of the
 // State of California with the board name around the rim; Gov Code 402 makes
-// unauthorised use a misdemeanour, and modifying an official seal compounds
+// unauthorized use a misdemeanor, and modifying an official seal compounds
 // the problem rather than solving it. Do not add them.
 
 export type Affiliation = {
@@ -126,7 +126,7 @@ export const permittedLogos = affiliations.filter((a) => a.logoPermitted && a.lo
  * Without this the Service page says everything twice — "Appointed... to the
  * California Acupuncture Board, May 2001" as prose, then "California
  * Acupuncture Board / Public member, appointed 2001" as a row. The Institutions
- * list owns the organisational roles; the achievements list owns everything
+ * list owns the organizational roles; the achievements list owns everything
  * that is not a membership. */
 export const factsCoveredByAffiliations = new Set(
   affiliations.map((a) => a.factId)

@@ -12,7 +12,7 @@
 // Chinese copy — tests/fonts/coverage.test.ts fails if you forget.
 //
 // Noto Serif TC is SIL Open Font License 1.1: redistributable, and subsetting
-// is explicitly permitted. Licence is committed alongside the font.
+// is explicitly permitted. License is committed alongside the font.
 
 import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from 'node:fs'
 import { join, extname } from 'node:path'

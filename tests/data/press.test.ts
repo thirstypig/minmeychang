@@ -121,6 +121,40 @@ describe('the confirmed/family distinction', () => {
     }
   })
 
+  // The test above is anchored to one phrasing: `^confirmed by X (son)$`. That
+  // held while every family fact was worded identically. The hospital facts
+  // are not — they read "stated by Min Mey Chang to James Chang (son), relayed
+  // …", because she is the one who said it, and the relay matters.
+  //
+  // Both facts could therefore be promoted to 'confirmed' with the anchored
+  // test none the wiser. Verified by sabotage, and it is worse than it sounds:
+  //
+  //   methodist-hospital-board  → 'confirmed'  = 1 test failed (the documentary
+  //                                              one), not the 2 the README
+  //                                              claimed
+  //   methodist-asian-outreach  → 'confirmed'  = ZERO tests failed
+  //
+  // The second is the dangerous one. Its source cites a real URL — but that URL
+  // attests that the COMMITTEE existed and what it did, not that SHE sat on it.
+  // Her membership is testimony and nothing else. A documentary-URL check
+  // cannot tell those apart, so it waved the promotion through.
+  //
+  // The invariant this restores: if the source says a person stated the claim,
+  // the claim is testimony, whatever else the source also cites. Had a document
+  // attested the claim itself, you would cite the document for the claim rather
+  // than record who told you.
+  it('no confirmed fact attributes its claim to a family member, however phrased', () => {
+    const attribution = /\b(stated|confirmed|told|recalled|supplied|relayed)\b[^\n]{0,120}\((son|daughter|family|husband|wife)\)/i
+
+    for (const fact of confirmedFacts) {
+      if (fact.status !== 'confirmed') continue
+      expect(
+        attribution.test(fact.source ?? ''),
+        `fact '${fact.id}' is 'confirmed' but its source attributes the claim to a family member — that is 'family'. Source: ${fact.source}`
+      ).toBe(false)
+    }
+  })
+
   it('every family fact records who said so and when', () => {
     for (const fact of confirmedFacts) {
       if (fact.status !== 'family') continue
