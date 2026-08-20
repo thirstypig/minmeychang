@@ -63,11 +63,11 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'afternoon-classes',
-    en: 'A trailblazer among Chinese schools, she established the school\'s afternoon classes and its extracurricular programs.',
-    zhHant: '她在中文學校教育上勇於開創，率先設立該校的課後中文班與課外活動課程。',
+    en: 'A trailblazer among Chinese schools, she established the school\'s afternoon classes and its summer and extracurricular programs.',
+    zhHant: '她在中文學校教育上勇於開創，率先設立該校的課後中文班、暑期班與課外活動課程。',
     status: 'family',
-    source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'Reworded 2026-08-05 at the family\'s request. Previously read "the first of their kind in the country" — an unverifiable nationwide superlative, and the only claim on the site a stranger could arrive to correct. What she established is concrete and family-attested; "trailblazer" characterizes rather than asserts a record. Do not reintroduce the superlative without a source.',
+    source: 'Confirmed by James Chang (son), 2026-08-05. Summer programs added 2026-08-20 from the family\'s written biography ("afternoon classes and summer programs for Chinese language and cultural education"), and independently described in an undated newspaper profile of the school — see the archive item school-profile.',
+    note: 'Reworded 2026-08-05 at the family\'s request. Previously read "the first of their kind in the country" — an unverifiable nationwide superlative, and the only claim on the site a stranger could arrive to correct. What she established is concrete and family-attested; "trailblazer" characterizes rather than asserts a record. NOTE FOR WHOEVER REVISITS THIS: a clipping supplied 2026-08-20 does make the nationwide claim — 「這是張校長在全美的首創」, "Principal Chang\'s first in the nation" — for the after-school classes. That is the school\'s own profile placed in a newspaper, so it is the same claim in a louder voice, not independent corroboration. It has NOT been reintroduced. Do not treat a promotional profile as a source for a national first.',
   },
   {
     id: 'students-taught',
@@ -93,12 +93,12 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'teachers-association',
-    en: 'Elected President of the Chinese Teacher Association for two years, leading three delegations of teachers, school board members and district staff to Taiwan and China to deepen their understanding of Chinese culture.',
+    en: 'Served two years as President of the Southern California Chinese school association, leading three educational visits to Taiwan and China with teachers, school board members and district staff to deepen their understanding of Chinese language, culture and education.',
     zhHant:
-      '獲選為中文教師學會會長，任期兩年，並三度率領教師、教育委員及學區職員前往台灣與中國參訪，增進其對中華文化的了解。',
+      '曾任南加州中文學校聯合會會長，任期兩年，並三度率領教師、教育委員及學區職員赴臺灣與中國教育參訪，增進其對中華語言、文化與教育的了解。',
     status: 'family',
-    source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'The organization was the bracketed [CONFIRM ORGANIZATION NAME] in the draft. Supplied as "the Chinese Teacher Association" — worth confirming the exact registered name and the years, as several similarly-named bodies exist in Southern California.',
+    source: 'Confirmed by James Chang (son), 2026-08-05, and restated in the family\'s written biography supplied 2026-08-20: "Served as President of the Southern California Chinese school association for two years and organized three educational visits to Taiwan and China involving teachers, school board members, and school district staff."',
+    note: 'The organization was the bracketed [CONFIRM ORGANIZATION NAME] in the draft. First supplied as "the Chinese Teacher Association"; corrected 2026-08-20 to the Southern California Chinese school association, on the family\'s written biography and their explicit confirmation. THE EXACT REGISTERED NAME IS STILL OPEN — several similarly-named bodies operate in Southern California, and 南加州中文學校聯合會 is this project\'s rendering, not an attested Chinese name. Get the registered name before this is quoted anywhere that matters.',
   },
   {
     id: 'pta-golden-apple',

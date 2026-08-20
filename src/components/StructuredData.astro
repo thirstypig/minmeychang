@@ -25,7 +25,24 @@ const person: Record<string, unknown> = {
   // The 冠夫姓 form. Included so a search for either name resolves to her —
   // her most-seen work is titled 張校長(馬敏妹), which matches neither the
   // anglicized name nor the full Chinese one.
-  alternateName: ['張馬敏妹', 'Min M. Chang', 'Chang Ma Min-Mey', '張校長'],
+  //
+  // 張馬盈宇 added 2026-08-20. Two newspaper clippings supplied by the family
+  // name her that way and not 張馬敏妹: one headlines 「張馬盈宇校長接受表揚狀」
+  // and captions her 亞凱迪亞中文學校校長張馬盈宇; the other credits the school's
+  // founding to 張馬盈宇女士. Two different papers, agreeing with each other and
+  // disagreeing with her own chop, which reads 張馬敏妹.
+  //
+  // The site keeps 張馬敏妹 everywhere at the family's direction. This entry
+  // exists so that someone who read those articles, or who holds a clipping,
+  // still arrives at the right person. It is a search key, not a claim about
+  // which name is correct — that question is open and only she can close it.
+  alternateName: [
+    '張馬敏妹',
+    '張馬盈宇',
+    'Min M. Chang',
+    'Chang Ma Min-Mey',
+    '張校長',
+  ],
   url: site,
   image: `${site}og.png`,
   description:

@@ -14,7 +14,8 @@
     "test:watch": "vitest",
     "fonts": "node scripts/build-font.mjs",
     "awards": "node scripts/build-award-scans.mjs",
-    "photos": "node scripts/ingest-photos.mjs"
+    "photos": "node scripts/ingest-photos.mjs",
+    "seal": "node scripts/build-name-seal.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

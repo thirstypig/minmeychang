@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 priority: p1
 issue_id: 007
 tags: [code-review, privacy, working-tree]
@@ -74,3 +74,12 @@ _(blank — for triage)_
 ## Work Log
 
 - 2026-08-20 — Found during `/ce:review` when the files appeared mid-session.
+
+- 2026-08-20 — RESOLVED. Originals moved to `src-photos/` and `src-logos/`,
+  both gitignored; confirmed with `git check-ignore`. Twelve were run through
+  `npm run photos`; only the stripped derivatives under `public/archive/` are
+  committed. Verified the two GPS-bearing files independently with `mdls`
+  rather than trusting the script's own check, using the untouched originals
+  as a positive control to prove `mdls` reads these files at all. Two clippings
+  showing children's faces and names were held back entirely — see the open
+  question in the PR.
