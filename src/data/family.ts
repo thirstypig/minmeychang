@@ -13,10 +13,14 @@
 //    family connection — which is the family's decision to make, and was made
 //    on 2026-08-05.
 //
-// Her three sons are named in the story but have no sites here; do not invent
-// URLs for them.
+// 3. A SON WITHOUT A SITE IS STILL LISTED. `url` is optional as of 2026-08-20,
+//    when the sons were added at the family's direction. James has a site;
+//    Peter and Richard do not, and their names render as plain text rather
+//    than being omitted or pointed at a guessed domain. Listing two brothers
+//    and silently dropping the third would be worse than listing none.
+//    Do not invent URLs for them.
 
-export type Relation = 'spouse' | 'grandchild'
+export type Relation = 'spouse' | 'child' | 'grandchild'
 
 export type FamilyMember = {
   id: string
@@ -24,9 +28,10 @@ export type FamilyMember = {
   /** Only where it is confirmed. Never transliterate a name to fill this in. */
   nameZhHant?: string
   relation: Relation
-  url: string
-  /** Verified reachable on this date. */
-  verified: string
+  /** Absent where the person has no site of their own. Never guessed. */
+  url?: string
+  /** Verified reachable on this date. Absent when there is no url. */
+  verified?: string
 }
 
 export const family: FamilyMember[] = [
@@ -37,6 +42,26 @@ export const family: FamilyMember[] = [
     relation: 'spouse',
     url: 'https://shengchangmd.com',
     verified: '2026-08-05',
+  },
+  // Birth order: James, Peter, Richard — as given in facts.ts and the family's
+  // own biography. Kept in that order deliberately; it is not alphabetical and
+  // must not be re-sorted.
+  {
+    id: 'james-chang',
+    name: 'James Chang',
+    relation: 'child',
+    url: 'https://jameschang.co/now/',
+    verified: '2026-08-20',
+  },
+  {
+    id: 'peter-chang',
+    name: 'Peter Chang',
+    relation: 'child',
+  },
+  {
+    id: 'richard-chang',
+    name: 'Richard Chang',
+    relation: 'child',
   },
   {
     id: 'tobin-chang',
@@ -62,4 +87,10 @@ export const family: FamilyMember[] = [
 ]
 
 export const spouse = family.find((m) => m.relation === 'spouse')
+export const children = family.filter((m) => m.relation === 'child')
 export const grandchildren = family.filter((m) => m.relation === 'grandchild')
+
+/** Everyone with a site, for the link check in tests/data/family.test.ts. */
+export const linkedFamily = family.filter(
+  (m): m is FamilyMember & { url: string; verified: string } => Boolean(m.url)
+)

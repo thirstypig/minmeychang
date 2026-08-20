@@ -10,7 +10,8 @@ import {
   reviewed,
 } from '../i18n/ui'
 import { type RouteId } from '../i18n/routes'
-import { spouse, grandchildren } from '../data/family'
+import { spouse, children, grandchildren } from '../data/family'
+import NameSeal from '../components/NameSeal.astro'
 
 interface Props {
   locale: Locale
@@ -114,12 +115,18 @@ const indexable = allowIndexing && reviewed[locale]
       <slot />
     </main>
 
-    {/* All four destinations verified reachable 2026-08-05 — see the `verified`
-        field in src/data/family.ts. Each domain is the person's own name and
-        each site titles itself with it, so linking exposes no name that was not
-        already public. */}
+    {/* All five linked destinations verified reachable — four on 2026-08-05,
+        jameschang.co/now on 2026-08-20; see the `verified` field in
+        src/data/family.ts. Each site titles itself with the person's own name,
+        so linking exposes no name that was not already public. Peter and
+        Richard appear as plain text: they have no site, and a name with no
+        link publishes strictly less than one with. */}
     <footer class="mt-8 border-t" style="border-color: var(--rule)">
       <div class="mx-auto max-w-[68ch] px-6 py-8 text-base">
+        {/* Her chop closes every page, as a seal closes a piece of
+            calligraphy. Small here — the home page carries the large one. */}
+        <NameSeal size={40} class="mb-5" />
+
         {
           spouse && (
             <p style="color: var(--text-soft)">
@@ -134,6 +141,33 @@ const indexable = allowIndexing && reviewed[locale]
                   {locale === 'en' ? spouse.name : (spouse.nameZhHant ?? spouse.name)}
                 </span>
               </a>
+            </p>
+          )
+        }
+
+        {
+          children.length > 0 && (
+            <p class="mt-2" style="color: var(--text-soft)">
+              {t('sonsLead')}:{' '}
+              {children.map((member, index) => (
+                <>
+                  {index > 0 && <span aria-hidden="true">{' · '}</span>}
+                  {/* Peter and Richard have no sites. Their names render as
+                      plain text rather than being dropped — see family.ts. */}
+                  {member.url ? (
+                    <a
+                      href={member.url}
+                      rel="noopener"
+                      class="tap-target underline underline-offset-4"
+                      style="color: var(--brand)"
+                    >
+                      <span lang="en">{member.name}</span>
+                    </a>
+                  ) : (
+                    <span lang="en">{member.name}</span>
+                  )}
+                </>
+              ))}
             </p>
           )
         }

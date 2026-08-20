@@ -24,7 +24,8 @@ could remain in the United States to continue their studies. She was active in
 the district's parent and school activities, and received its Golden Apple
 Award.
 
-Elected President of the Chinese Teacher Association for two years, she took
+Elected President of the Southern California Chinese school association for
+two years, she took
 teachers, school board members and district staff to Taiwan and China three
 times.
 

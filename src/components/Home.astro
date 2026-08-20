@@ -19,10 +19,13 @@ const englishName = getTranslation('en', 'siteName')
 ---
 
 <div class="pt-6 sm:pt-10">
-  <NameSeal size={56} class="mb-7" />
-  {/* Her name IS the mark. No separate logo: a seal carrying only 張 named her
-      husband's family rather than her, and 張馬敏妹 is the whole point — the
-      冠夫姓 form carries her own maiden surname 馬 inside it. */}
+  {/* Her name IS the mark, and this is her actual chop rather than a drawn
+      one. Large here: it is the first thing on the site, it is the source of
+      the site's red, and it is the only artifact on any page made by her own
+      hand. A seal carrying only 張 would name her husband's family rather than
+      her — 張馬敏妹 is the whole point, the 冠夫姓 form carrying her own maiden
+      surname 馬 inside it. */}
+  <NameSeal size={168} priority class="mb-8 -ml-2" />
   <h1 class="text-4xl sm:text-6xl tracking-tight" style="color: var(--brand)">
     {t('siteName')}
     {

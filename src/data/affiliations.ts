@@ -60,8 +60,8 @@ export const affiliations: Affiliation[] = [
   },
   {
     id: 'cta',
-    en: 'Chinese Teacher Association',
-    zhHant: '中文教師學會',
+    en: 'Southern California Chinese school association',
+    zhHant: '南加州中文學校聯合會',
     roleEn: 'President, two years',
     roleZhHant: '會長，任期兩年',
     factId: 'teachers-association',
