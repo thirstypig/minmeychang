@@ -137,9 +137,9 @@ export const archive: ArchiveItem[] = [
     zhHant: '亞凱迪亞社區服務中心開幕',
     asset: '/archive/community-service-center-clipping.jpg',
     caption: {
-      en: 'A newspaper report on the opening of the Arcadia Community Service Center, formed by the Chinese school with a San Gabriel Valley family counseling service. Representatives of Congressman David Dreier and Assemblymember Bob Margett, with two Arcadia council members, presented commendations. Margett sat in the Assembly from 1995 to 2000, which places the clipping in that span. It headlines her 張馬盈宇 — see the note on her name.',
+      en: 'A newspaper report on the opening of the Arcadia Community Service Center, formed by the Chinese school with a San Gabriel Valley family counseling service. Representatives of Congressman David Dreier and Assemblymember Bob Margett, with two Arcadia council members, presented commendations. Margett sat in the Assembly from 1995 to 2000, which places the clipping in that span. The headline names her 張馬盈宇; her name is 張馬敏妹, as her own seal reads.',
       zhHant:
-        '報導亞凱迪亞社區服務中心開幕：該中心由中文學校與聖蓋博谷一家庭輔導服務社合辦。聯邦眾議員大衛・德萊爾與加州眾議員巴伯・馬格的代表，偕兩位亞市市議員頒贈表揚狀。馬格於1995至2000年間任加州眾議員，可據以推定剪報年代。標題稱她為「張馬盈宇」，另見姓名說明。',
+        '報導亞凱迪亞社區服務中心開幕：該中心由中文學校與聖蓋博谷一家庭輔導服務社合辦。聯邦眾議員大衛・德萊爾與加州眾議員巴伯・馬格的代表，偕兩位亞市市議員頒贈表揚狀。馬格於1995至2000年間任加州眾議員，可據以推定剪報年代。標題稱她為「張馬盈宇」；她的名字是張馬敏妹，一如其印章所刻。',
     },
   },
   {
@@ -196,9 +196,35 @@ export const archive: ArchiveItem[] = [
     zhHant: '中文學校簡介',
     asset: '/archive/school-profile-clipping.jpg',
     caption: {
-      en: 'A newspaper profile of the Arcadia Chinese School describing its daily and after-school classes across three campuses, its Saturday classes, and a summer program teaching Chinese, English, Spanish and mathematics alongside kung fu, dance, handicrafts and diabolo, with teachers invited from Taiwan. The school was in its twenty-sixth year, which places this around 2008. It names her 張馬盈宇 — see the note on her name.',
+      en: 'A newspaper profile of the Arcadia Chinese School describing its daily and after-school classes across three campuses, its Saturday classes, and a summer program teaching Chinese, English, Spanish and mathematics alongside kung fu, dance, handicrafts and diabolo, with teachers invited from Taiwan. The school was in its twenty-sixth year, which places this around 2008. The article names her 張馬盈宇; her name is 張馬敏妹, as her own seal reads.',
       zhHant:
-        '報紙刊載的亞凱迪亞中文學校簡介，記述該校於三處校區開設的每日班與課後班、週六班，以及暑期班——除中文、英文、西班牙文與數學外，另設功夫、舞蹈、手工藝等才藝課，並自臺灣聘請教師教授扯鈴。文中稱該校已創辦二十六年，可推定約為2008年。文中稱她為「張馬盈宇」，另見姓名說明。',
+        '報紙刊載的亞凱迪亞中文學校簡介，記述該校於三處校區開設的每日班與課後班、週六班，以及暑期班——除中文、英文、西班牙文與數學外，另設功夫、舞蹈、手工藝等才藝課，並自臺灣聘請教師教授扯鈴。文中稱該校已創辦二十六年，可推定約為2008年。文中稱她為「張馬盈宇」；她的名字是張馬敏妹，一如其印章所刻。',
+    },
+  },
+  {
+    id: 'school-special-section-recital',
+    kind: 'document',
+    decade: 2000,
+    en: 'A newspaper section on the school',
+    zhHant: '報紙中文學校專版',
+    asset: '/archive/school-special-section-recital.jpg',
+    caption: {
+      en: 'A 國際日報 special section given over to the Arcadia Chinese School — a recital, classroom and summer-program photographs, and an essay on the work of teaching. The banner behind the stage carries 2004.',
+      zhHant:
+        '國際日報以整版篇幅報導亞凱迪亞中文學校，刊有匯演、課堂與暑期班照片，並附一篇談教學甘苦的文章。舞台後方橫幅上載有2004年字樣。',
+    },
+  },
+  {
+    id: 'school-special-section-2007',
+    kind: 'document',
+    decade: 2000,
+    en: 'The school section of 6 July 2007',
+    zhHant: '2007年7月6日中文學校專版',
+    asset: '/archive/school-special-section-2007.jpg',
+    caption: {
+      en: 'A 國際日報 special section built entirely from her students\' own writing and drawing — a spring break, a Saturday in the park, three days on Catalina, Lunar New Year. The page prints its own date. The students\' names and ages are redacted here: they were children, they are not family, and nobody asked them.',
+      zhHant:
+        '國際日報專版，整版皆為該校學生的作文與繪畫——春假、公園裡的星期六、卡塔林那島三日遊、過年。日期載於報頭。學生姓名與年齡已於此遮蔽：他們當時是孩童，並非家族成員，且未經徵詢同意。',
     },
   },
   {

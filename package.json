@@ -15,7 +15,8 @@
     "fonts": "node scripts/build-font.mjs",
     "awards": "node scripts/build-award-scans.mjs",
     "photos": "node scripts/ingest-photos.mjs",
-    "seal": "node scripts/build-name-seal.mjs"
+    "seal": "node scripts/build-name-seal.mjs",
+    "clippings": "node scripts/build-clipping-scans.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
