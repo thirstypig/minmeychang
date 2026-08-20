@@ -47,6 +47,17 @@ const pick = (v: { en: string; zhHant: string }) =>
               <p class="mt-2 text-sm" style="color: var(--text-strong)">
                 {pick({ en: item.en, zhHant: item.zhHant })}
               </p>
+
+              {/* The label names the thing; the caption explains it to someone
+                  who recognises nobody in the photograph. Kept out of `alt`,
+                  which stays the short label — a screen reader announcing a
+                  four-line provenance note before every image would be worse
+                  than useless. */}
+              {item.caption && (
+                <p class="mt-1 text-sm leading-relaxed" style="color: var(--text-soft)">
+                  {pick(item.caption)}
+                </p>
+              )}
             </li>
           ))}
       </ul>

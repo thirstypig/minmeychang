@@ -51,6 +51,7 @@ function renderedChinese(): Str[] {
   for (const i of archive) {
     add('archive', `archive '${i.id}'`, i.zhHant)
     add('archive', `archive '${i.id}' needs`, i.needs?.zhHant)
+    add('archive', `archive '${i.id}' caption`, i.caption?.zhHant)
   }
   for (const f of figures) add('figure', `figure '${f.id}'`, f.zhHant)
   for (const a of mediaAccounts) add('media', `media '${a.id}'`, a.zhHant)

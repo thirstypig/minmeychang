@@ -48,6 +48,7 @@ function renderedEnglish(): Str[] {
   for (const i of archive) {
     add('archive', `archive '${i.id}'`, i.en)
     add('archive', `archive '${i.id}' needs`, i.needs?.en)
+    add('archive', `archive '${i.id}' caption`, i.caption?.en)
   }
   for (const f of figures) add('figure', `figure '${f.id}'`, f.en)
   for (const a of mediaAccounts) add('media', `media '${a.id}'`, a.en)
