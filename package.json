@@ -16,6 +16,7 @@
     "awards": "node scripts/build-award-scans.mjs",
     "photos": "node scripts/ingest-photos.mjs",
     "seal": "node scripts/build-name-seal.mjs",
+    "favicon": "node scripts/build-favicon.mjs",
     "clippings": "node scripts/build-clipping-scans.mjs"
   },
   "dependencies": {
