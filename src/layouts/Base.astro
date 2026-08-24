@@ -31,6 +31,16 @@ const faviconHash = createHash('md5')
   .digest('hex')
   .slice(0, 8)
 
+// <link rel="icon"> is not what "Add to Home Screen" uses — iOS reads
+// apple-touch-icon, Android reads a manifest's icons. Without them, both
+// platforms fell back to a screenshot of the page instead of her chop.
+// See scripts/build-touch-icons.mjs. iOS caches this exactly as stubbornly
+// as the favicon, so it gets the same content-hash treatment.
+const appleTouchIconHash = createHash('md5')
+  .update(readFileSync(join(process.cwd(), 'public/apple-touch-icon.png')))
+  .digest('hex')
+  .slice(0, 8)
+
 interface Props {
   locale: Locale
   current: RouteId
@@ -84,6 +94,15 @@ const indexable = allowIndexing && reviewed[locale]
 
     {/* Her actual chop, not a typeset placeholder — see scripts/build-favicon.mjs. */}
     <link rel="icon" href={`/favicon.png?v=${faviconHash}`} type="image/png" />
+
+    {/* The actual icons "Add to Home Screen" uses — see
+        scripts/build-touch-icons.mjs and the comment above. */}
+    <link
+      rel="apple-touch-icon"
+      href={`/apple-touch-icon.png?v=${appleTouchIconHash}`}
+    />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#b02a1f" />
 
     {/* Without this, "Add to Home Screen" falls back to document.title —
         fine on the homepage, but a page like About would install as

@@ -17,6 +17,7 @@
     "photos": "node scripts/ingest-photos.mjs",
     "seal": "node scripts/build-name-seal.mjs",
     "favicon": "node scripts/build-favicon.mjs",
+    "touch-icons": "node scripts/build-touch-icons.mjs",
     "clippings": "node scripts/build-clipping-scans.mjs"
   },
   "dependencies": {
