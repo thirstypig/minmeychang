@@ -69,9 +69,10 @@ const indexable = allowIndexing && reviewed[locale]
 
     {/* Without this, "Add to Home Screen" falls back to document.title —
         fine on the homepage, but a page like About would install as
-        "About | Min Mey Chang", truncated under the icon. siteName is short
-        in both locales (13 chars / 4 chars) and reads cleanly either way. */}
-    <meta name="apple-mobile-web-app-title" content={t('siteName')} />
+        "About | Min Mey Chang", truncated under the icon. Her chop is
+        already the icon, so her chop's own four characters are the label,
+        in both locales — not the transliteration. */}
+    <meta name="apple-mobile-web-app-title" content="張馬敏妹" />
 
     {/* Share previews. Without these, sending this link in WhatsApp, WeChat or
         iMessage shows a bare gray URL — which is exactly how her community
