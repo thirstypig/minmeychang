@@ -64,7 +64,8 @@ const indexable = allowIndexing && reviewed[locale]
     }
     <StructuredData locale={locale} canonical={canonical.href} />
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {/* Her actual chop, not a typeset placeholder — see scripts/build-favicon.mjs. */}
+    <link rel="icon" href="/favicon.png" type="image/png" />
 
     {/* Share previews. Without these, sending this link in WhatsApp, WeChat or
         iMessage shows a bare gray URL — which is exactly how her community
