@@ -17,6 +17,15 @@ const SRC = 'src-logos/minmeychangfaviconchop.png'
 const OUT = 'public/favicon.png'
 const SIZE = 128 // 2x the largest rendered size, for high-DPI screens
 
+// The source scan crops almost to the red border itself — under ~10% margin
+// on each side. That reads fine at 128px, but a browser tab renders this at
+// 16-32px, where a ~1px margin anti-aliases away and the border can vanish
+// into the tab bar. Shrinking the mark within the canvas keeps a real margin
+// at every render size, so the red outline stays visible where it matters.
+const MARGIN = 0.18 // fraction of SIZE reserved as white margin on each side
+const MARK_SIZE = Math.round(SIZE * (1 - MARGIN * 2))
+const PAD = Math.round((SIZE - MARK_SIZE) / 2)
+
 if (!existsSync(SRC)) {
   console.error(`build-favicon: ${SRC} not found. The original chop scan belongs there.`)
   process.exit(1)
@@ -34,7 +43,14 @@ await sharp(SRC)
     width: cropSize,
     height: cropSize,
   })
-  .resize(SIZE, SIZE)
+  .resize(MARK_SIZE, MARK_SIZE)
+  .extend({
+    top: PAD,
+    bottom: SIZE - MARK_SIZE - PAD,
+    left: PAD,
+    right: SIZE - MARK_SIZE - PAD,
+    background: 'white',
+  })
   .png({ compressionLevel: 9 })
   .toFile(OUT)
 

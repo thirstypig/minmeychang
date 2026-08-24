@@ -67,6 +67,12 @@ const indexable = allowIndexing && reviewed[locale]
     {/* Her actual chop, not a typeset placeholder — see scripts/build-favicon.mjs. */}
     <link rel="icon" href="/favicon.png" type="image/png" />
 
+    {/* Without this, "Add to Home Screen" falls back to document.title —
+        fine on the homepage, but a page like About would install as
+        "About | Min Mey Chang", truncated under the icon. siteName is short
+        in both locales (13 chars / 4 chars) and reads cleanly either way. */}
+    <meta name="apple-mobile-web-app-title" content={t('siteName')} />
+
     {/* Share previews. Without these, sending this link in WhatsApp, WeChat or
         iMessage shows a bare gray URL — which is exactly how her community
         will receive the site. */}
