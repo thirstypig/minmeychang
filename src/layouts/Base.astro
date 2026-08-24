@@ -12,6 +12,24 @@ import {
 import { type RouteId } from '../i18n/routes'
 import { spouse, children, grandchildren } from '../data/family'
 import NameSeal from '../components/NameSeal.astro'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { createHash } from 'node:crypto'
+
+// Browsers cache favicons far more stubbornly than ordinary pages — Chrome in
+// particular can keep serving a favicon from months ago through hard reloads
+// and even a cleared HTTP cache. A content-derived query string changes the
+// URL itself whenever favicon.png changes, which is the one thing that
+// reliably busts it. See the 2026-08-24 session: readers were still seeing
+// the very first typeset placeholder two chop-swaps later.
+//
+// process.cwd(), not import.meta.url: Astro relocates this file into
+// dist/.prerender/chunks at build time, so a path relative to the source
+// file's own location stops resolving once bundled.
+const faviconHash = createHash('md5')
+  .update(readFileSync(join(process.cwd(), 'public/favicon.png')))
+  .digest('hex')
+  .slice(0, 8)
 
 interface Props {
   locale: Locale
@@ -65,7 +83,7 @@ const indexable = allowIndexing && reviewed[locale]
     <StructuredData locale={locale} canonical={canonical.href} />
 
     {/* Her actual chop, not a typeset placeholder — see scripts/build-favicon.mjs. */}
-    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href={`/favicon.png?v=${faviconHash}`} type="image/png" />
 
     {/* Without this, "Add to Home Screen" falls back to document.title —
         fine on the homepage, but a page like About would install as
