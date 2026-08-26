@@ -20,10 +20,13 @@ real errors were corrected on 2026-08-05 — including 加州眾議**會**議長
 is not a body — but that was self-review, not proofreading. It is the locale
 most of her community will actually read.
 
-The archive is the visible gap: two award certificates are published, seven
-frames are still empty. Her calligraphy is the highest-value missing image —
-the site's entire palette is 印泥, the seal paste used to stamp a chop on
-calligraphy, and there is no photograph of her brushwork to earn it.
+The archive holds 143 entries — 122 photographs and 21 documents — organized
+into five categories (Family, The Arcadia Chinese School, Community & Civic
+Life, Buddha's Light International Association, Travel), each grouped by
+decade within it. One frame remains empty: a scan of the May 2001
+Acupuncture Board appointment letter, still to be found and redacted. Her
+calligraphy is no longer missing — several photographs of her brushwork are
+published, matching the site's 印泥 palette.
 
 ## Setup
 
@@ -32,7 +35,7 @@ npm install
 npm run dev        # http://localhost:3170
 npm run build      # postbuild runs scripts/verify-css.mjs
 npm test
-npm run typecheck  # astro check — 66 files
+npm run typecheck  # astro check — 71 files
 ```
 
 ## Asset scripts
@@ -114,7 +117,7 @@ version control, make the repo private first.
 
 ## Tests
 
-`npm test` — **106 tests across 15 files.** CI runs them, and the typecheck,
+`npm test` — **117 tests across 16 files.** CI runs them, and the typecheck,
 before the build, so a regression blocks the deploy rather than shipping.
 
 **They do not yet run on a pull request.** `.github/workflows/deploy.yml`
@@ -131,7 +134,8 @@ before one — see `todos/001-pending-p2-ci-does-not-gate-the-pr.md`.
 | `tests/data/media.test.ts` | **the family video channel is not linked** |
 | `tests/data/affiliations.test.ts` | logo permission gate; AUSD never borrows another body's mark |
 | `tests/data/videos.test.ts` | third-party uploads keep their attribution |
-| `tests/data/archive.test.ts` | placeholders say what is missing; no originals under `public/` |
+| `tests/data/archive.test.ts` | placeholders say what is missing; no originals under `public/`; every item has a category from the defined set; every category has a bilingual label and at least one item |
+| `tests/data/archive-sections.test.ts` | the category/decade grouping shown on the archive page — category order, decade dedup and sort, no empty-category sections, every item lands in exactly one section |
 | `tests/data/press.test.ts` | every cited source names a fact that renders and is `confirmed`; the confirmed/family distinction holds |
 | `tests/data/family.test.ts` | **no Chinese name is invented for a family member**; no record carries an age |
 | `tests/fonts/coverage.test.ts` | every CJK character in source is in the committed subset |
@@ -157,6 +161,8 @@ deliberately breaking it:
 | logo gating | give AUSD the City of Arcadia seal | 2 tests fail |
 | video attribution | drop `hostChannel` from the 833K video | 1 test fails |
 | archive placeholders | remove an item's `needs` | 1 test fails |
+| archive categories | assign an item an unknown category | 1 test fails |
+| archive section grouping | stop sorting decades in `buildArchiveSections` | 1 test fails |
 | press corroboration | cite a fact id that does not exist | 3 tests fail |
 | provenance ladder | mark a `family` fact `confirmed` | 3 tests fail |
 | press dates | write a date as `07/03/2024` | 1 test fails |
@@ -185,6 +191,13 @@ tools that report *"nothing found"* when what happened was *"nothing looked."*
 Before recording that a source does not name her, search that same source for
 something you know it contains. On a page about a real person, an empty search
 and an unread page are not the same finding.
+
+A third variant, specific to processing photo batches, is written up in
+[`docs/solutions/verification-issues/batched-image-reads-misattribute-content.md`](docs/solutions/verification-issues/batched-image-reads-misattribute-content.md):
+reading multiple images in one batched call and narrating the result from
+memory silently swaps which filename goes with which photo's content — even
+at a batch size of 4-5. Verify file identity one image at a time whenever it
+carries a consequence (redaction targets, consent, attribution).
 
 ## Build guard
 
