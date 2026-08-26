@@ -37,6 +37,7 @@ tags:
   - toolchain-lies
 related:
   - https://github.com/thirstypig/shengchangmd/blob/main/docs/solutions/integration-issues/tailwind-v4-astro-silently-uncompiled.md
+  - ../verification-issues/batched-image-reads-misattribute-content.md
 ---
 
 # Verification that verifies nothing

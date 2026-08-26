@@ -1,5 +1,5 @@
 ---
-import { archive, archiveDecades } from '../data/archive'
+import { archiveCategoryLabels, buildArchiveSections } from '../data/archive'
 import { linkableAccounts } from '../data/media'
 import { getTranslation, type Locale } from '../i18n/ui'
 
@@ -11,56 +11,74 @@ const { locale } = Astro.props
 const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
 const pick = (v: { en: string; zhHant: string }) =>
   locale === 'en' ? v.en : v.zhHant
+
+const sections = buildArchiveSections()
 ---
 
+<nav class="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm" aria-label={t('archiveJumpNav')}>
+  {sections.map((s) => (
+    <a href={`#${s.category}`} class="underline underline-offset-4" style="color: var(--brand)">
+      {pick(archiveCategoryLabels[s.category])}
+    </a>
+  ))}
+</nav>
+
 {
-  archiveDecades.map((decade) => (
-    <section class="mt-14">
-      <h2 class="text-lg tabular-nums" style="color: var(--brand)">
-        {decade}s
+  sections.map((s) => (
+    <section class="mt-14" id={s.category}>
+      <h2 class="text-2xl" style="color: var(--brand)">
+        {pick(archiveCategoryLabels[s.category])}
       </h2>
 
-      <ul class="mt-5 grid gap-5 sm:grid-cols-2 list-none p-0">
-        {archive
-          .filter((item) => item.decade === decade)
-          .map((item) => (
-            <li>
-              {item.asset ? (
-                <img
-                  src={item.asset}
-                  alt={pick({ en: item.en, zhHant: item.zhHant })}
-                  class="w-full rounded"
-                  loading="lazy"
-                />
-              ) : (
-                /* Placeholder state: the archive's shape is reviewable before
-                   any scanning has happened, so gaps are visible rather than
-                   silently absent. */
-                <div
-                  class="placeholder-frame flex aspect-[4/3] items-center justify-center rounded border border-dashed p-5 text-center text-sm"
-                  style="border-color: var(--rule); color: var(--text-soft)"
-                >
-                  <span>{item.needs ? pick(item.needs) : t('archiveAwaiting')}</span>
-                </div>
-              )}
+      {s.decades.map((decade) => (
+        <div class="mt-8">
+          <h3 class="text-lg tabular-nums" style="color: var(--text-strong)">
+            {decade}s
+          </h3>
 
-              <p class="mt-2 text-sm" style="color: var(--text-strong)">
-                {pick({ en: item.en, zhHant: item.zhHant })}
-              </p>
+          <ul class="mt-5 grid gap-5 sm:grid-cols-2 list-none p-0">
+            {s.items
+              .filter((item) => item.decade === decade)
+              .map((item) => (
+                <li>
+                  {item.asset ? (
+                    <img
+                      src={item.asset}
+                      alt={pick({ en: item.en, zhHant: item.zhHant })}
+                      class="w-full rounded"
+                      loading="lazy"
+                    />
+                  ) : (
+                    /* Placeholder state: the archive's shape is reviewable before
+                       any scanning has happened, so gaps are visible rather than
+                       silently absent. */
+                    <div
+                      class="placeholder-frame flex aspect-[4/3] items-center justify-center rounded border border-dashed p-5 text-center text-sm"
+                      style="border-color: var(--rule); color: var(--text-soft)"
+                    >
+                      <span>{item.needs ? pick(item.needs) : t('archiveAwaiting')}</span>
+                    </div>
+                  )}
 
-              {/* The label names the thing; the caption explains it to someone
-                  who recognises nobody in the photograph. Kept out of `alt`,
-                  which stays the short label — a screen reader announcing a
-                  four-line provenance note before every image would be worse
-                  than useless. */}
-              {item.caption && (
-                <p class="mt-1 text-sm leading-relaxed" style="color: var(--text-soft)">
-                  {pick(item.caption)}
-                </p>
-              )}
-            </li>
-          ))}
-      </ul>
+                  <p class="mt-2 text-sm" style="color: var(--text-strong)">
+                    {pick({ en: item.en, zhHant: item.zhHant })}
+                  </p>
+
+                  {/* The label names the thing; the caption explains it to someone
+                      who recognises nobody in the photograph. Kept out of `alt`,
+                      which stays the short label — a screen reader announcing a
+                      four-line provenance note before every image would be worse
+                      than useless. */}
+                  {item.caption && (
+                    <p class="mt-1 text-sm leading-relaxed" style="color: var(--text-soft)">
+                      {pick(item.caption)}
+                    </p>
+                  )}
+                </li>
+              ))}
+          </ul>
+        </div>
+      ))}
     </section>
   ))
 }

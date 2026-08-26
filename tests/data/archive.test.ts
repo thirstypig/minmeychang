@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest'
 import {
   archive,
   archiveDecades,
+  archiveCategoryOrder,
+  archiveCategoryLabels,
   suppliedItems,
   placeholderItems,
 } from '../../src/data/archive'
@@ -75,6 +77,26 @@ describe('archive', () => {
   it('kinds are limited to photo and document', () => {
     for (const item of archive) {
       expect(['photo', 'document'], `'${item.id}'`).toContain(item.kind)
+    }
+  })
+
+  it('every item has a category from the defined set', () => {
+    for (const item of archive) {
+      expect(archiveCategoryOrder, `'${item.id}' has an unknown category '${item.category}'`).toContain(
+        item.category
+      )
+    }
+  })
+
+  it('every category in the order list has a bilingual label and at least one item', () => {
+    for (const category of archiveCategoryOrder) {
+      expect(archiveCategoryLabels[category], category).toBeTruthy()
+      expect(archiveCategoryLabels[category].en.length, category).toBeGreaterThan(0)
+      expect(archiveCategoryLabels[category].zhHant.length, category).toBeGreaterThan(0)
+      expect(
+        archive.some((i) => i.category === category),
+        `category '${category}' has no items — dead section`
+      ).toBe(true)
     }
   })
 })

@@ -44,6 +44,7 @@ export const ui = {
     archiveIntro:
       'Photographs and documents from six decades. Empty frames mark material still being gathered.',
     archiveAwaiting: 'Not yet supplied',
+    archiveJumpNav: 'Jump to a section',
     mediaHeading: 'Elsewhere',
     textSmaller: 'Smaller text',
     textLarger: 'Larger text',
@@ -100,6 +101,7 @@ export const ui = {
     archiveTitle: '影像紀錄',
     archiveIntro: '橫跨六十年的照片與文件。空白處為仍在蒐集中的資料。',
     archiveAwaiting: '尚未提供',
+    archiveJumpNav: '跳至各分類',
     mediaHeading: '其他平台',
     textSmaller: '縮小字級',
     textLarger: '放大字級',
