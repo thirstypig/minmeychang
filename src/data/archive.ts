@@ -131,6 +131,20 @@ export const archive: ArchiveItem[] = [
     },
   },
   {
+    id: 'arcadia-chinese-school-group-banner',
+    kind: 'photo',
+    decade: 1990,
+    category: 'chinese-school',
+    en: 'With a larger group of students at the school banner',
+    zhHant: '與更多學童合影於校旗前',
+    asset: '/archive/arcadia-chinese-school-group-banner.jpg',
+    caption: {
+      en: 'With two other teachers and a group of students, several in matching red "Arcadia Chinese School" t-shirts printed with the school\'s peacock emblem, in front of a banner reading "Arcadia Chinese School" — 亞凱迪亞中文學校.',
+      zhHant:
+        '與另外兩位老師及一群學童合影，數名孩童身穿印有校徽孔雀圖案的紅色「Arcadia Chinese School」T恤，身後橫幅寫著「亞凱迪亞中文學校」。',
+    },
+  },
+  {
     id: 'arcadia-beautiful-1982',
     kind: 'document',
     decade: 1980,
