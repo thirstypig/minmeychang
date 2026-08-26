@@ -1350,19 +1350,6 @@ export const archive: ArchiveItem[] = [
     },
   },
   {
-    id: 'vintage-campus-walk',
-    kind: 'photo',
-    decade: 1960,
-    category: 'family',
-    en: 'On a walkway',
-    zhHant: '步道合影',
-    asset: '/archive/vintage-campus-walk.jpg',
-    caption: {
-      en: 'A young couple on a tree-lined walkway.',
-      zhHant: '一對年輕夫婦攝於林蔭步道上。',
-    },
-  },
-  {
     id: 'vintage-yellow-dress',
     kind: 'photo',
     decade: 1970,
@@ -1386,45 +1373,6 @@ export const archive: ArchiveItem[] = [
     caption: {
       en: 'A couple crouching beside a toddler on a tricycle in front of a brick apartment building. A photo-lab date stamp in the corner reads April 1979.',
       zhHant: '一對夫婦蹲身於磚造公寓前，身旁一名學步兒騎著三輪車。相片角落沖印日期戳記為1979年4月。',
-    },
-  },
-  {
-    id: 'footbridge-with-infant-2',
-    kind: 'photo',
-    decade: 1970,
-    category: 'family',
-    en: 'On a footbridge, with an infant',
-    zhHant: '木橋上，抱著嬰兒',
-    asset: '/archive/footbridge-with-infant-2.jpg',
-    caption: {
-      en: 'Another photograph from the same footbridge outing, the infant held close.',
-      zhHant: '同一次木橋出遊所攝的另一張照片，嬰兒被緊緊抱在懷中。',
-    },
-  },
-  {
-    id: 'crab-fishing-2',
-    kind: 'photo',
-    decade: 1970,
-    category: 'family',
-    en: 'Crab fishing, a second photograph',
-    zhHant: '捕蟹，另一張',
-    asset: '/archive/crab-fishing-2.jpg',
-    caption: {
-      en: 'Another photograph from the same crab-fishing outing, holding the landing net together with a catch inside.',
-      zhHant: '同一次捕蟹出遊所攝的另一張照片，兩人共同提著撈網，網內已有漁獲。',
-    },
-  },
-  {
-    id: 'pavilion-boardwalk-2',
-    kind: 'photo',
-    decade: 1970,
-    category: 'family',
-    en: 'At the pavilion, a second photograph',
-    zhHant: '涼亭前，另一張',
-    asset: '/archive/pavilion-boardwalk-2.jpg',
-    caption: {
-      en: 'Another photograph from the same pavilion boardwalk, in different dress.',
-      zhHant: '同一處涼亭木棧道所攝的另一張照片，兩人換了一身裝扮。',
     },
   },
   {

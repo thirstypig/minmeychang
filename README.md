@@ -20,7 +20,7 @@ real errors were corrected on 2026-08-05 — including 加州眾議**會**議長
 is not a body — but that was self-review, not proofreading. It is the locale
 most of her community will actually read.
 
-The archive holds 143 entries — 122 photographs and 21 documents — organized
+The archive holds 139 entries — 118 photographs and 21 documents — organized
 into five categories (Family, The Arcadia Chinese School, Community & Civic
 Life, Buddha's Light International Association, Travel), each grouped by
 decade within it. One frame remains empty: a scan of the May 2001
