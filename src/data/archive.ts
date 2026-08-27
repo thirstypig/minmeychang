@@ -419,16 +419,16 @@ export const archive: ArchiveItem[] = [
     },
   },
   {
-    id: 'chang-couple-recent',
+    id: 'recent-portrait-banquet-panel',
     kind: 'photo',
     decade: 2020,
     category: 'family',
-    en: 'Min Mey Chang and Dr. Sheng Chang',
-    zhHant: '張馬敏妹與張勝雄醫師',
-    asset: '/archive/min-mey-and-sheng-chang.jpg',
+    en: 'A recent portrait',
+    zhHant: '近年合影',
+    asset: '/archive/recent-portrait-banquet-panel.jpg',
     caption: {
-      en: 'Together at an evening event.',
-      zhHant: '兩人攝於一場晚間活動。',
+      en: 'With Dr. Chang at a banquet, in front of an ornate wall panel.',
+      zhHant: '與張勝雄醫師攝於一場晚宴，身後為雕花牆板。',
     },
   },
   {
