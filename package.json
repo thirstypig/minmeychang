@@ -18,7 +18,8 @@
     "seal": "node scripts/build-name-seal.mjs",
     "favicon": "node scripts/build-favicon.mjs",
     "touch-icons": "node scripts/build-touch-icons.mjs",
-    "clippings": "node scripts/build-clipping-scans.mjs"
+    "clippings": "node scripts/build-clipping-scans.mjs",
+    "admin": "node scripts/admin-server.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
