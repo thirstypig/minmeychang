@@ -35,7 +35,7 @@ npm install
 npm run dev        # http://localhost:3170
 npm run build      # postbuild runs scripts/verify-css.mjs
 npm test
-npm run typecheck  # astro check — 71 files
+npm run typecheck  # astro check — 74 files
 ```
 
 ## Asset scripts
@@ -57,6 +57,32 @@ is run by hand, since the marks change roughly never.
 > not agreed to appear.** Those need eyes, and redactions belong in
 > `scripts/build-award-scans.mjs`, which takes explicit coordinates and is
 > verified by looking at the output.
+
+## Local archive editor
+
+`npm run admin` starts a local-only editor at `http://127.0.0.1:4170/` for
+`src/data/archive.ts` — fix a caption, change an entry's category or decade,
+reorder within a section, or delete an entry, without going through code.
+
+It is local-only on purpose: this site is a static export with no production
+server, so a hosted version of this tool would need a GitHub access token
+sitting in a browser to write anything back — a real exposure if that page's
+URL ever leaked. Binding to `127.0.0.1` means a save is just a normal
+filesystem edit, reviewed with `git diff` and pushed through the usual
+branch → PR → merge flow like any other change.
+
+It reads the file by transpiling it with the real TypeScript compiler and
+importing the result (`scripts/admin/archive-io.mjs`), not by regexing it, so
+the editor always shows the exact values the site renders. A save only
+regenerates the specific entries whose fields changed; everything else is
+copied through byte-for-byte, so a one-caption fix stays a one-entry diff.
+Deleting an entry never deletes its image file unless that's explicitly
+checked — they're separate actions.
+
+It does not add new photos. A new photograph still needs `npm run photos`
+(EXIF/GPS strip) and a human looking for a home address, a phone number or an
+unconsented face before it can be referenced from `archive.ts` — not
+something safe to automate from a browser.
 
 ## Facts must come from source, never memory
 
