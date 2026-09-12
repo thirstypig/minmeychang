@@ -137,7 +137,13 @@ export const permittedLogos = affiliations.filter((a) => a.logoPermitted && a.lo
  * California Acupuncture Board, May 2001" as prose, then "California
  * Acupuncture Board / Public member, appointed 2001" as a row. The Institutions
  * list owns the organizational roles; the achievements list owns everything
- * that is not a membership. */
+ * that is not a membership.
+ *
+ * The WHOLE fact is hidden, not just the role. Anything else folded into a fact
+ * named here disappears from the Service page. That is what happened to her three
+ * delegations: they sat inside `teachers-association` and never rendered in the
+ * achievements list from 2026-08-05 to 2026-09-12. One claim per fact; give
+ * non-membership claims their own id. */
 export const factsCoveredByAffiliations = new Set(
   affiliations.map((a) => a.factId)
 )
