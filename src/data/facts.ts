@@ -92,13 +92,40 @@ export const confirmedFacts: Fact[] = [
     note: 'An I-20 is the form a school issues so a student can obtain or maintain F-1 status. This was the bracketed blank in the original draft and is arguably the most concrete institutional achievement in her record. Dated to the 1980s by the family, 2026-08-05; exact year still open.',
   },
   {
+    // id kept from when this was "the Chinese Teacher Association": the
+    // Institutions row and the delegations figure's history both point here.
     id: 'teachers-association',
-    en: 'Served two years as President of the Southern California Chinese school association, leading three educational visits to Taiwan and China with teachers, school board members and district staff to deepen their understanding of Chinese language, culture and education.',
-    zhHant:
-      '曾任南加州中文學校聯合會會長，任期兩年，並三度率領教師、教育委員及學區職員赴臺灣與中國教育參訪，增進其對中華語言、文化與教育的了解。',
+    en: 'President of the Southern California Council of Chinese Schools in 1986, a post she held for two years.',
+    zhHant: '1986年任南加州中文學校聯合會會長，任期兩年。',
     status: 'family',
-    source: 'Confirmed by James Chang (son), 2026-08-05, and restated in the family\'s written biography supplied 2026-08-20: "Served as President of the Southern California Chinese school association for two years and organized three educational visits to Taiwan and China involving teachers, school board members, and school district staff."',
-    note: 'The organization was the bracketed [CONFIRM ORGANIZATION NAME] in the draft. First supplied as "the Chinese Teacher Association"; corrected 2026-08-20 to the Southern California Chinese school association, on the family\'s written biography and their explicit confirmation. THE EXACT REGISTERED NAME IS STILL OPEN — several similarly-named bodies operate in Southern California, and 南加州中文學校聯合會 is this project\'s rendering, not an attested Chinese name. Get the registered name before this is quoted anywhere that matters.',
+    source: 'Two-year presidency confirmed by James Chang (son), 2026-08-05, and in the family\'s written biography, 2026-08-20. The year 1986 stated by Min Mey Chang, relayed by James Chang, 2026-09-12. The organization\'s name, in both languages, is printed on its own Certificate of Appreciation to her dated April 30, 2006: "南加州中文學校聯合會 / SOUTHERN CALIFORNIA COUNCIL OF CHINESE SCHOOLS" — archive item sccs-certificate-2006.',
+    note: 'NAME RESOLVED 2026-09-12. First supplied as "the Chinese Teacher Association", then as "the Southern California Chinese school association" (2026-08-20), with the registered name left open. The 2006 certificate prints the registered name in English and Chinese, and a 1990s AAUW clipping (archive item aauw-features-chinese-leader) uses the same English name. That clipping calls her the council\'s ADVISOR, not president — consistent with a 1986 presidency followed by an advisory role, not a conflict. The two years are family testimony; whether they were 1985–86 or 1986–87 is not known, which is why the copy says "in 1986" rather than giving a range. The three educational delegations used to be recorded in this fact; they moved to their own fact, ausd-delegations, on 2026-09-12, when the family placed them with the Arcadia Unified School District rather than the council.',
+  },
+  {
+    id: 'ausd-delegations',
+    en: 'Led three delegations of Arcadia Unified School District educators — including the superintendent, school board members and principals — to Taiwan, Hong Kong and China, to deepen their understanding of Chinese language, culture and education.',
+    zhHant:
+      '三度率領亞凱迪亞聯合學區教育人員赴臺灣、香港與中國參訪，成員包括學區總監、教育委員及校長，增進其對中華語言、文化與教育的了解。',
+    status: 'family',
+    source: 'Three visits to Taiwan and China confirmed by James Chang (son), 2026-08-05, and in the family\'s written biography, 2026-08-20. Hong Kong, the superintendent and principals, and the Arcadia Unified School District as the educators\' district, stated by Min Mey Chang, relayed by James Chang, 2026-09-12: "I brought the K-12 school educators including superintendent, board member and school principal to visit Taiwan, Hong Kong and China."',
+    note: 'Previously folded into teachers-association, where the Institutions list hid it — so from 2026-08-05 to 2026-09-12 the delegations rendered only as a figure and in the Story, never in the achievements list. The count of three predates the 2026-09-12 account, which did not restate it; it has not been contradicted. Years still open. The superintendent is not named. 學區總監 is the usual Taiwanese-American rendering of a school district superintendent. Archive item delegations shows one of the visits.',
+  },
+  {
+    id: 'capta-president',
+    en: 'President of the Chinese American Parents and Teachers Association of Southern California, installed in 1989.',
+    zhHant: '1989年就任南加州華裔家長教師協會會長。',
+    status: 'confirmed',
+    source: 'Sierra Madre News, March 2, 1989, "Min May Chang becomes Chinese American PTA prexy": "Min Mey Chang was installed as president of the Chinese American Parents and Teachers Association of Southern California" — archive item pta-prexy-clipping-1989. Also in the AAUW clipping, archive item aauw-features-chinese-leader.',
+    note: 'The family says she was president TWICE (Min Mey Chang, relayed by James Chang, 2026-09-12). Only the 1989 term is documented and the other year is unknown, so at the family\'s direction the site records one term. Add the second when its year turns up. The clipping describes a 400-member organization founded about ten years earlier; a podium banner in archive item capta-podium reads "C.A.P.T.A. Founded 1979". Chinese name from the banner in archive item capta-parent-training-session, which reads 南加州華裔家長教師協 before the photo\'s edge cuts off the last character; 協會 is the completion. The clipping\'s headline misspells her name "Min May"; its body spells it correctly.',
+  },
+  {
+    id: 'culture-festivals',
+    en: 'With the Arcadia Chinese Association, organized two-day Chinese cultural festivals at the Los Angeles County Arboretum in Arcadia in 1987 and at the Huntington Library and Gardens in 1988.',
+    zhHant:
+      '與亞凱迪亞華人協會先後於1987年在位於亞凱迪亞的洛杉磯郡植物園、1988年在杭廷頓圖書館與花園，主辦為期兩天的中華文化活動節。',
+    status: 'family',
+    source: 'Stated by Min Mey Chang, relayed by James Chang (son), 2026-09-12: "I held a two-day Chinese culture activities festival in Huntington library botanical garden in 1988. Also in 1987 in the county arboretum garden." Both two days, and both under the Arcadia Chinese Association, confirmed by James Chang the same day.',
+    note: 'Not the same claim as the calligraphy fact: that one is her performing at Lunar New Year events held by these gardens; this is her organizing a festival there. No program, flyer or press found yet. The festival\'s own name is not known, so "Chinese cultural festival" / 中華文化活動節 describes it rather than naming it.',
   },
   {
     id: 'pta-golden-apple',

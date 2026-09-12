@@ -52,9 +52,9 @@ export const figures: Figure[] = [
     id: 'delegations',
     value: 'Three',
     valueZhHant: '三',
-    en: 'Delegations led to Taiwan and China',
-    zhHant: '度率團赴台灣與中國參訪',
-    factId: 'teachers-association',
+    en: 'Delegations led to Taiwan, Hong Kong and China',
+    zhHant: '度率團赴台灣、香港與中國參訪',
+    factId: 'ausd-delegations',
   },
   {
     id: 'views',
