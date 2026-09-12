@@ -15,6 +15,7 @@ symptoms:
   - 'git push exits without pushing and prints only a hint'
   - 'gh run watch exits 0 for a deploy that has not started'
   - 'grep -c reports 1 where the true count is 6'
+  - 'a zsh glob aborts grep before it runs, and wc -l reports a clean 0'
   - 'a build emits CSS and passes its own guard with zero compiled utilities'
 stack:
   - Astro 7
@@ -288,6 +289,29 @@ The same class caught a second time: `grep '@font-face{...\[lang^="zh"\]'`
 found nothing because the minifier had stripped the quotes to `[lang^=zh]`. The
 CSS was correct; the check was not.
 
+A third, caught twice on 2026-09-12 — and this one produces a **zero** that
+looks like a clean result:
+
+```zsh
+echo "british: $(grep -rhoiE 'organis|honour' dist --include=*.html | wc -l)"
+# (eval):1: no matches found: --include=*.html
+# british: 0
+```
+
+zsh treats the unquoted `*.html` as a filename glob, finds no file literally
+named `--include=something.html`, and **aborts the command before `grep` runs**.
+The `$(…)` substitution is left with no input, `wc -l` counts it as `0`, and the
+error scrolls past above an answer that reads like a clean sweep. The same thing
+happened again with `grep … README.md docs/*.md`: one glob with no matches killed
+the whole grep, including the half aimed at a file that did exist, and it printed
+nothing at all.
+
+What caught it was a positive control run beside the check: counting a word
+known to be in the build. It also came back `0`, which is impossible.
+
+**Fix:** quote the glob (`--include='*.html'`), and pair every "found nothing"
+check with a search that must find something.
+
 ---
 
 ### 9. The green build with zero CSS (prior art)
@@ -368,6 +392,9 @@ gh run list --limit 10 --json databaseId,headSha \
 
 # Count occurrences, not lines
 grep -o 'PATTERN' file | wc -l
+
+# A zero only counts if the same search can find something (zsh: quote globs)
+grep -rhoi 'KNOWN-PRESENT' dist --include='*.html' | wc -l   # must be > 0
 ```
 
 ---
