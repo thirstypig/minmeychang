@@ -22,15 +22,21 @@ she built a relationship patient enough to solve real problems for real
 students. She persuaded the district to approve I-20 forms, so that students
 could remain in the United States to continue their studies. She was active in
 the district's parent and school activities, and received its Golden Apple
-Award.
+Award in 1988.
 
-Elected President of the Southern California Chinese school association for
-two years, she took
-teachers, school board members and district staff to Taiwan and China three
-times.
+She led three delegations of Arcadia Unified educators — the superintendent,
+school board members and principals among them — to Taiwan, Hong Kong and
+China.
 
 > So that the people teaching Chinese American children would understand where
 > those children came from.
+
+In 1986 she became President of the Southern California Council of Chinese
+Schools, and held the post for two years. In 1989 she was installed as President
+of the Chinese American Parents and Teachers Association of Southern California.
+With the Arcadia Chinese Association she organized two-day Chinese cultural
+festivals, at the Los Angeles County Arboretum in 1987 and at the Huntington
+Library and Gardens in 1988.
 
 She served as President of the local chapter of the Shih Chien University
 Alumni Association, and is today President of the national association. She

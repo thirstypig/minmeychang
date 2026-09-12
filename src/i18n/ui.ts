@@ -72,7 +72,7 @@ export const ui = {
     descTimeline:
       'A timeline of Min Mey Chang: arrival in the late 1960s, founding the Arcadia Chinese Association and Arcadia Chinese School in 1982, the I-20 approval, and her 2001 appointment to the California Acupuncture Board.',
     descService:
-      'The institutions Min Mey Chang founded, led and served — the Arcadia Chinese Association, the Arcadia Chinese School, the Southern California Chinese school association, Shih Chien University Alumni Association, Buddha\'s Light International Association, and the California Acupuncture Board.',
+      'The institutions Min Mey Chang founded, led and served — the Arcadia Chinese Association, the Arcadia Chinese School, the Southern California Council of Chinese Schools, the Chinese American Parents and Teachers Association of Southern California, Shih Chien University Alumni Association, Buddha\'s Light International Association, and the California Acupuncture Board.',
     descTalks:
       'Min Mey Chang — Principal Chang — on 養生之道: the benefits, principles and application of massage and reflexology. Her talks have reached more than 830,000 viewers.',
     descArchive:
@@ -125,7 +125,7 @@ export const ui = {
     descTimeline:
       '張馬敏妹年表：1960年代後期來美、1982年創辦亞凱迪亞華人協會與中文學校、說服學區核准 I-20，以及2001年獲任命為加州針灸委員會公眾委員。',
     descService:
-      '張馬敏妹創辦、領導與服務過的機構——亞凱迪亞華人協會、亞凱迪亞中文學校、南加州中文學校聯合會、實踐大學校友會、國際佛光會，以及加州針灸委員會。',
+      '張馬敏妹創辦、領導與服務過的機構——亞凱迪亞華人協會、亞凱迪亞中文學校、南加州中文學校聯合會、南加州華裔家長教師協會、實踐大學校友會、國際佛光會，以及加州針灸委員會。',
     descTalks:
       '張馬敏妹——張校長——主講養生之道：按摩與足部反射療法的功效、原理與應用。講座觀看人次已逾八十三萬。',
     descArchive: '橫跨六十年，張馬敏妹在加州亞凱迪亞的照片與文件紀錄。',

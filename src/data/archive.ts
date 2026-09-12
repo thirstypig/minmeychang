@@ -618,11 +618,11 @@ export const archive: ArchiveItem[] = [
     kind: 'document',
     decade: 1980,
     category: 'chinese-school',
-    en: "10th anniversary of the Southern California Chinese Schools Association",
+    en: "10th anniversary of the Southern California Council of Chinese Schools",
     zhHant: '南加州中文學校聯合會成立十週年',
     asset: '/archive/chinese-schools-assoc-10th-anniversary.jpg',
     caption: {
-      en: 'A newspaper clipping on the 10th anniversary celebration of the Southern California Chinese Schools Association, showing an award group photo and Min Mey Chang touring a wall of student artwork.',
+      en: 'A newspaper clipping on the 10th anniversary celebration of the Southern California Council of Chinese Schools, showing an award group photo and Min Mey Chang touring a wall of student artwork.',
       zhHant:
         '報導南加州中文學校聯合會成立十週年慶祝活動的剪報，刊有頒獎合影，以及張馬敏妹參觀學生壁報展的照片。',
     },
