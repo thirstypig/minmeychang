@@ -99,7 +99,7 @@ export const confirmedFacts: Fact[] = [
     zhHant: '1986年任南加州中文學校聯合會會長，任期兩年。',
     status: 'family',
     source: 'Two-year presidency confirmed by James Chang (son), 2026-08-05, and in the family\'s written biography, 2026-08-20. The year 1986 stated by Min Mey Chang, relayed by James Chang, 2026-09-12. The organization\'s name, in both languages, is printed on its own Certificate of Appreciation to her dated April 30, 2006: "南加州中文學校聯合會 / SOUTHERN CALIFORNIA COUNCIL OF CHINESE SCHOOLS" — archive item sccs-certificate-2006.',
-    note: 'NAME RESOLVED 2026-09-12. First supplied as "the Chinese Teacher Association", then as "the Southern California Chinese school association" (2026-08-20), with the registered name left open. The 2006 certificate prints the registered name in English and Chinese, and a 1990s AAUW clipping (archive item aauw-features-chinese-leader) uses the same English name. That clipping calls her the council\'s ADVISOR, not president — consistent with a 1986 presidency followed by an advisory role, not a conflict. The two years are family testimony; whether they were 1985–86 or 1986–87 is not known, which is why the copy says "in 1986" rather than giving a range. The three educational delegations used to be recorded in this fact; they moved to their own fact, ausd-delegations, on 2026-09-12, when the family placed them with the Arcadia Unified School District rather than the council.',
+    note: 'NAME RESOLVED 2026-09-12. First supplied as "the Chinese Teacher Association", then as "the Southern California Chinese school association" (2026-08-20), with the registered name left open. The 2006 certificate prints the registered name in English and Chinese, and a 1990s AAUW clipping (archive item aauw-features-chinese-leader-clipping) uses the same English name. That clipping calls her the council\'s ADVISOR, not president — consistent with a 1986 presidency followed by an advisory role, not a conflict. The two years are family testimony; whether they were 1985–86 or 1986–87 is not known, which is why the copy says "in 1986" rather than giving a range. The three educational delegations used to be recorded in this fact; they moved to their own fact, ausd-delegations, on 2026-09-12, when the family placed them with the Arcadia Unified School District rather than the council.',
   },
   {
     id: 'ausd-delegations',
@@ -115,7 +115,7 @@ export const confirmedFacts: Fact[] = [
     en: 'President of the Chinese American Parents and Teachers Association of Southern California, installed in 1989.',
     zhHant: '1989年就任南加州華裔家長教師協會會長。',
     status: 'confirmed',
-    source: 'Sierra Madre News, March 2, 1989, "Min May Chang becomes Chinese American PTA prexy": "Min Mey Chang was installed as president of the Chinese American Parents and Teachers Association of Southern California" — archive item pta-prexy-clipping-1989. Also in the AAUW clipping, archive item aauw-features-chinese-leader.',
+    source: 'Sierra Madre News, March 2, 1989, "Min May Chang becomes Chinese American PTA prexy": "Min Mey Chang was installed as president of the Chinese American Parents and Teachers Association of Southern California" — archive item pta-prexy-clipping-1989. Also in the AAUW clipping, archive item aauw-features-chinese-leader-clipping.',
     note: 'The family says she was president TWICE (Min Mey Chang, relayed by James Chang, 2026-09-12). Only the 1989 term is documented and the other year is unknown, so at the family\'s direction the site records one term. Add the second when its year turns up. The clipping describes a 400-member organization founded about ten years earlier; a podium banner in archive item capta-podium reads "C.A.P.T.A. Founded 1979". Chinese name from the banner in archive item capta-parent-training-session, which reads 南加州華裔家長教師協 before the photo\'s edge cuts off the last character; 協會 is the completion. The clipping\'s headline misspells her name "Min May"; its body spells it correctly.',
   },
   {
@@ -129,11 +129,11 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'pta-golden-apple',
-    en: 'Active in Arcadia Unified School District parent and school activities, and received the Golden Apple Award for her contributions.',
-    zhHant: '積極參與亞凱迪亞聯合學區的家長與學校活動，並獲頒金蘋果獎。',
-    status: 'family',
-    source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'Year still unknown; no public record names her. A scan of the certificate would settle it.',
+    en: 'Active in Arcadia Unified School District parent and school activities, and received the district\'s Golden Apple Award in 1988 for her contributions.',
+    zhHant: '積極參與亞凱迪亞聯合學區的家長與學校活動，並於1988年獲頒該學區金蘋果獎。',
+    status: 'confirmed',
+    source: 'Two clippings in the archive, both naming the award and dating it to 1988: the AAUW clipping, "Awarded the Arcadia Unified School District\'s Golden Apple award in 1988 for her \'tireless energy, ability to involve others, organizational efforts and material donations which have had a major impact on the quality of schools and community\'" — archive item aauw-features-chinese-leader-clipping; and Sierra Madre News, March 2, 1989, "Arcadia Unified School District presented Chang with the Golden Apple Award last year" — archive item pta-prexy-clipping-1989.',
+    note: 'First recorded 2026-08-05 on the family\'s word, with no year. YEAR RESOLVED 2026-09-12. It had been open since 2026-08-05, while both clippings that settle it were already sitting in the archive — they were captioned, but never read back against this fact. The certificate itself is still not scanned. The AAUW clipping\'s citation is the only published description of why she received it.',
   },
   {
     id: 'shih-chien',

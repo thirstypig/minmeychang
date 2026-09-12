@@ -119,8 +119,8 @@ export const affiliations: Affiliation[] = [
     id: 'ausd',
     en: 'Arcadia Unified School District',
     zhHant: '亞凱迪亞聯合學區',
-    roleEn: 'Golden Apple Award',
-    roleZhHant: '獲頒金蘋果獎',
+    roleEn: 'Golden Apple Award, 1988',
+    roleZhHant: '1988年獲頒金蘋果獎',
     factId: 'pta-golden-apple',
     logoPermitted: false,
     permissionNote:

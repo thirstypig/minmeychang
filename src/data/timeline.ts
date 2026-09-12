@@ -69,6 +69,13 @@ export const timeline: TimelineEvent[] = [
     factId: 'culture-festivals',
   },
   {
+    id: 'golden-apple',
+    year: 1988,
+    en: 'Receives the Arcadia Unified School District\'s Golden Apple Award.',
+    zhHant: '獲頒亞凱迪亞聯合學區金蘋果獎。',
+    factId: 'pta-golden-apple',
+  },
+  {
     id: 'festival-huntington',
     year: 1988,
     en: 'With the Arcadia Chinese Association, organizes a two-day Chinese cultural festival at the Huntington Library and Gardens.',

@@ -22,7 +22,7 @@ she built a relationship patient enough to solve real problems for real
 students. She persuaded the district to approve I-20 forms, so that students
 could remain in the United States to continue their studies. She was active in
 the district's parent and school activities, and received its Golden Apple
-Award.
+Award in 1988.
 
 She led three delegations of Arcadia Unified educators — the superintendent,
 school board members and principals among them — to Taiwan, Hong Kong and
