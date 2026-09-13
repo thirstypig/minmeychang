@@ -14,6 +14,7 @@ symptoms:
   - 'git push --force reports success while deleting nothing'
   - 'git push exits without pushing and prints only a hint'
   - 'gh run watch exits 0 for a deploy that has not started'
+  - 'a PR shows no checks because its CI runs have not registered yet'
   - 'grep -c reports 1 where the true count is 6'
   - 'a zsh glob aborts grep before it runs, and wc -l reports a clean 0'
   - 'a build emits CSS and passes its own guard with zero compiled utilities'
@@ -267,6 +268,18 @@ gh run watch "$RUN" --exit-status
 
 > **Generalisable rule:** never identify an async job by "most recent". Race the
 > creation and you verify the wrong thing.
+
+The same race has a second form, caught twice on 2026-09-12 while merging 31
+cross-repo PRs. `gh pr view --json statusCheckRollup` returned an **empty list**
+for `thejudgetool` right after the PR was opened, and it was merged as "no CI".
+It did have CI: `.github/workflows/test.yml` runs on every pull request. Its
+runs simply had not registered yet, and they then failed. (That failure was a
+broken workflow file dating back to at least 2026-08-07, not the PR, but the
+merge decision never saw it.)
+
+**An empty check list means "nothing yet", not "no CI".** Before treating a repo
+as having no checks, confirm it has no workflows: `git ls-tree --name-only
+origin/main .github/workflows/`. If it has any, wait until the runs appear.
 
 ---
 
