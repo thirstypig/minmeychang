@@ -70,7 +70,8 @@ describe('recentlyAdded', () => {
     }
   })
 
-  it('the real archive currently leads with the 2026 Historymakers gala', () => {
-    expect(recentlyAdded()[0].id).toMatch(/^historymakers-2026-/)
+  it('the real archive still shows all five 2026 Historymakers gala photos', () => {
+    const ids = recentlyAdded().map((i) => i.id)
+    expect(ids.filter((id) => id.startsWith('historymakers-2026-'))).toHaveLength(5)
   })
 })
