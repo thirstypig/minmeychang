@@ -35,9 +35,9 @@ export const press: PressItem[] = [
     outlet: '人間通訊社 Merit Times',
     title: '洛杉磯亞市前市長張勝雄　感念大師特來致意',
     date: '2016',
-    en: 'On meeting the abbot of Fo Guang Shan. Records her as founding president of the BLIA Arcadia chapter and former principal of the Arcadia Chinese School — and her husband as Mayor of Arcadia for two terms.',
+    en: 'On meeting the abbot of Fo Guang Shan. Records her as founding president of the BLIA Arcadia chapter and former principal of the Arcadia Chinese School — and refers to her husband as a former mayor of Arcadia.',
     zhHant:
-      '記述與佛光山住持會面。文中載明她為國際佛光會亞市分會創會會長、曾任亞凱迪亞中文學校校長，並記錄夫婿曾任亞市市長兩任八年。',
+      '記述與佛光山住持會面。文中載明她為國際佛光會亞市分會創會會長、曾任亞凱迪亞中文學校校長，並稱夫婿為亞市前市長。',
     corroborates: 'blia',
   },
   {

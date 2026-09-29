@@ -185,12 +185,13 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'sheng-chang-mayor',
-    en: 'Her husband, Dr. Sheng Chang, served as Mayor of Arcadia for two terms — eight years.',
-    zhHant: '夫婿張勝雄醫師曾任亞凱迪亞市市長，兩任共八年。',
+    en: 'Her husband, Dr. Sheng Chang, served two terms on the Arcadia City Council, 1994–98 and 2000–04, and was mayor in 2003, the city\'s centennial year.',
+    zhHant:
+      '夫婿張勝雄醫師曾任兩屆亞凱迪亞市議員（1994至1998年、2000至2004年），並於2003年亞凱迪亞建市百週年之際擔任市長。',
     status: 'confirmed',
     source:
-      'Merit Times 人間通訊社: "張勝雄曾任亞凱迪亞市市長兩任8年" — https://www.lnanews.com/news/150416. Also referred to as 亞凱迪亞前市長 in an AMTV broadcast, 2022 — https://youtu.be/cqdyWDGSTnw',
-    note: 'ABSENT FROM THE DRAFT BIO ENTIRELY, and absent from shengchangmd.com, which describes him only as a family physician. Worth telling that project. Included here because it is the context in which much of her civic work happened — she was co-founding associations and running a school while her husband led the city. Years of the two terms still unknown.',
+      'Council election in 1994: World Journal 世界日報, 2026-09-16, "1994年成為亞凱迪亞首位亞裔市議員" — https://www.worldjournal.com/wj/story/121359/9757656 — and Sing Tao Daily 星島日報, 2026-09-12 — https://www.singtaousa.com/2026/09/12/news/usa/chinese-american-museum-honors/ | Mayor: Merit Times 人間通訊社 headline "洛杉磯亞市前市長張勝雄" — https://www.lnanews.com/news/150416 — and an AMTV broadcast titling him 亞凱迪亞前市長, 2022 — https://youtu.be/cqdyWDGSTnw | Term years and 2003: shengchangmd.com About page, which cites the Arcadia Weekly via the Arcadia Public Library\'s Arcadia History Collection (permalinks newspaper31226 and newspaper31744).',
+    note: 'CORRECTED 2026-09-28. This fact used to say he was "Mayor of Arcadia for two terms — eight years", taken from Merit Times ("張勝雄曾任亞凱迪亞市市長兩任8年"). That was wrong. The two terms and eight years were his COUNCIL service; he was mayor in 2003 only, the rotating mayoralty Arcadia gives council members. His own site had the correct record all along; the earlier note here claiming shengchangmd.com omitted the mayorship was never checked against it. The id is kept so links and references do not break. The Arcadia archive returns HTTP 403 to every scripted fetch tried on 2026-09-28, so the two permalinks were not re-read from here. Do NOT link that archive\'s search results for his name; shengchangmd\'s About page records why (owner decision, 2026-08-05). Included because much of her civic work happened alongside his: she was co-founding associations and running a school while he served on the council.',
   },
   {
     id: 'arcadia-beautiful',
