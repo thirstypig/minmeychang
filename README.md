@@ -20,13 +20,22 @@ real errors were corrected on 2026-08-05 — including 加州眾議**會**議長
 is not a body — but that was self-review, not proofreading. It is the locale
 most of her community will actually read.
 
-The archive holds 139 entries — 118 photographs and 21 documents — organized
+The archive holds 145 entries — 124 photographs and 21 documents — organized
 into five categories (Family, The Arcadia Chinese School, Community & Civic
 Life, Buddha's Light International Association, Travel), each grouped by
 decade within it. One frame remains empty: a scan of the May 2001
 Acupuncture Board appointment letter, still to be found and redacted. Her
 calligraphy is no longer missing — several photographs of her brushwork are
 published, matching the site's 印泥 palette.
+
+The archive page is a thumbnail gallery. A **Recently added** row comes first
+(driven by an optional `added` date on each entry), then a sticky bar to each
+section with its photo count, and decade links under each section heading.
+Tapping a photo opens a lightbox built on the browser's own `<dialog>`, with
+the full caption, arrows, swipe and Esc. Every photo has its own link:
+`/archive/#<entry id>` opens straight to it. Without JavaScript, each thumbnail
+is a plain link to the full image and every caption stays visible. Why it is
+built this way: [`docs/solutions/ui-bugs/published-but-unfindable-archive-photos.md`](docs/solutions/ui-bugs/published-but-unfindable-archive-photos.md).
 
 ## Setup
 
@@ -79,6 +88,13 @@ regenerates the specific entries whose fields changed; everything else is
 copied through byte-for-byte, so a one-caption fix stays a one-entry diff.
 Deleting an entry never deletes its image file unless that's explicitly
 checked — they're separate actions.
+
+**It drops comments between entries.** A save keeps only the text inside each
+`{ … },` block, so any comment sitting between two entries disappears the next
+time *any* entry is saved. Found 2026-09-29, when a save of one gala photo
+deleted the comment above the one before it. Until the editor preserves them,
+`archive.ts` carries a warning above the array: put context in a caption or in
+the backing fact's `note`, never between entries.
 
 It does not add new photos. A new photograph still needs `npm run photos`
 (EXIF/GPS strip) and a human looking for a home address, a phone number or an
@@ -163,6 +179,7 @@ before one — see `todos/001-pending-p2-ci-does-not-gate-the-pr.md`.
 | `tests/data/videos.test.ts` | third-party uploads keep their attribution |
 | `tests/data/archive.test.ts` | placeholders say what is missing; no originals under `public/`; every item has a category from the defined set; every category has a bilingual label and at least one item |
 | `tests/data/archive-sections.test.ts` | the category/decade grouping shown on the archive page — category order, decade dedup and sort, no empty-category sections, every item lands in exactly one section |
+| `tests/data/archive-thumbs.test.ts` | every published photo has a thumbnail of the same shape (a stale one fails); the Recently added row is newest first, capped, and never shows a placeholder |
 | `tests/data/press.test.ts` | every cited source names a fact that renders and is `confirmed`; the confirmed/family distinction holds |
 | `tests/data/family.test.ts` | **no Chinese name is invented for a family member**; no record carries an age |
 | `tests/fonts/coverage.test.ts` | every CJK character in source is in the committed subset |
@@ -190,6 +207,9 @@ deliberately breaking it:
 | archive placeholders | remove an item's `needs` | 1 test fails |
 | archive categories | assign an item an unknown category | 1 test fails |
 | archive section grouping | stop sorting decades in `buildArchiveSections` | 1 test fails |
+| archive thumbnails | delete one thumbnail | 2 tests fail |
+| stale thumbnail | replace a thumbnail with a re-cropped one | 1 test fails |
+| Recently added | drop the `asset` check from `recentlyAdded` | 1 test fails |
 | press corroboration | cite a fact id that does not exist | 3 tests fail |
 | provenance ladder | mark a `family` fact `confirmed` | 3 tests fail |
 | press dates | write a date as `07/03/2024` | 1 test fails |
