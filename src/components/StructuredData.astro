@@ -90,9 +90,14 @@ if (has('shih-chien')) {
   }
 }
 
-if (has('pta-golden-apple')) {
-  person.award = 'Golden Apple Award, Arcadia Unified School District'
-}
+// Always an array, newest first: schema.org accepts a one-item list, and a
+// fixed shape means adding a third award is one more line, not a refactor.
+const awards = [
+  has('historymakers-lifetime-achievement') &&
+    'Dr. Dan S. Louie Jr. Lifetime Achievement Award, Chinese American Museum',
+  has('pta-golden-apple') && 'Golden Apple Award, Arcadia Unified School District',
+].filter(Boolean)
+if (awards.length > 0) person.award = awards
 
 // Only organizations backed by a confirmed fact.
 const confirmedIds = new Set(confirmedFacts.map((f) => f.id))
