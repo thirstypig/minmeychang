@@ -15,6 +15,7 @@
     "fonts": "node scripts/build-font.mjs",
     "awards": "node scripts/build-award-scans.mjs",
     "photos": "node scripts/ingest-photos.mjs",
+    "thumbs": "node scripts/build-thumbs.mjs",
     "seal": "node scripts/build-name-seal.mjs",
     "favicon": "node scripts/build-favicon.mjs",
     "touch-icons": "node scripts/build-touch-icons.mjs",

@@ -99,6 +99,7 @@ function renderBlock(item) {
     `    zhHant: ${JSON.stringify(item.zhHant)},`,
   ]
   if (item.asset) lines.push(`    asset: ${JSON.stringify(item.asset)},`)
+  if (item.added) lines.push(`    added: ${JSON.stringify(item.added)},`)
   if (item.needs) {
     lines.push(
       '    needs: {',
@@ -119,7 +120,7 @@ function renderBlock(item) {
   return lines.join('\n')
 }
 
-const EDITABLE_KEYS = ['id', 'kind', 'category', 'decade', 'en', 'zhHant', 'asset', 'needs', 'caption']
+const EDITABLE_KEYS = ['id', 'kind', 'category', 'decade', 'en', 'zhHant', 'asset', 'added', 'needs', 'caption']
 
 function pick(item) {
   const out = {}

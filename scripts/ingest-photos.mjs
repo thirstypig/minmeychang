@@ -112,3 +112,4 @@ console.log(
 )
 
 if (failures > 0) process.exitCode = 1
+else execFileSync('node', ['scripts/build-thumbs.mjs'], { stdio: 'inherit' })
