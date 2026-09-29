@@ -1325,6 +1325,80 @@ export const archive: ArchiveItem[] = [
       zhHant: '與一位友人攝於書畫展覽會場——是本檔案中年代較近的照片之一。',
     },
   },
+  // The five below are from one evening: the Chinese American Museum's 30th
+  // Annual Historymakers Awards Gala, September 26, 2026. The date is not an
+  // inference — the podium sign names the 30th gala, the museum's own page
+  // dates it, and the phone timestamps agree. See the fact
+  // historymakers-lifetime-achievement. Guests other than the two honorees are
+  // deliberately not named.
+  {
+    id: 'historymakers-2026-medal',
+    kind: 'photo',
+    decade: 2020,
+    category: 'community',
+    en: 'An honoree\'s medallion',
+    zhHant: '佩掛受獎獎章',
+    asset: '/archive/historymakers-2026-medal.jpg',
+    caption: {
+      en: 'A presenter places an honoree\'s medallion on her, with Dr. Chang beside them. The podium sign reads "The 30th Annual Historymakers Awards Gala", which the Chinese American Museum held on September 26, 2026.',
+      zhHant:
+        '頒獎人為她佩掛受獎獎章，張勝雄醫師在旁。講台標示為「The 30th Annual Historymakers Awards Gala」，即華美博物館於2026年9月26日舉行的第30屆歷史締造者頒獎典禮。',
+    },
+  },
+  {
+    id: 'historymakers-2026-award',
+    kind: 'photo',
+    decade: 2020,
+    category: 'community',
+    en: 'The Dr. Dan S. Louie Jr. Lifetime Achievement Award',
+    zhHant: '獲頒呂國芳博士終身成就獎',
+    asset: '/archive/historymakers-2026-award.jpg',
+    caption: {
+      en: 'On stage with Dr. Chang, who holds the award engraved for "Dr. Sheng & Mrs. Min Mey Chang". They received it jointly from the Chinese American Museum at its 30th Annual Historymakers Awards Gala, September 26, 2026.',
+      zhHant:
+        '與張勝雄醫師同台，張醫師手持獎座，上刻「Dr. Sheng & Mrs. Min Mey Chang」。兩人於2026年9月26日華美博物館第30屆歷史締造者頒獎典禮共同獲此殊榮。',
+    },
+  },
+  {
+    id: 'historymakers-2026-podium',
+    kind: 'photo',
+    decade: 2020,
+    category: 'community',
+    en: 'Accepting the award at the podium',
+    zhHant: '於講台上受獎致詞',
+    asset: '/archive/historymakers-2026-podium.jpg',
+    caption: {
+      en: 'With Dr. Chang at the podium as they accept the Dr. Dan S. Louie Jr. Lifetime Achievement Award, their names on the screen behind them.',
+      zhHant: '與張勝雄醫師於講台上領受呂國芳博士終身成就獎，身後螢幕映出兩人姓名。',
+    },
+  },
+  {
+    id: 'historymakers-2026-family',
+    kind: 'photo',
+    decade: 2020,
+    category: 'community',
+    en: 'With family at the Historymakers gala',
+    zhHant: '與家人攝於歷史締造者頒獎典禮',
+    asset: '/archive/historymakers-2026-family.jpg',
+    caption: {
+      en: 'With Dr. Chang and family in front of the Chinese American Museum backdrop, beneath the California Ballroom sign, on the night they received the award.',
+      zhHant:
+        '與張勝雄醫師及家人攝於華美博物館背板前，上方為 California Ballroom 標示；攝於兩人受獎當晚。',
+    },
+  },
+  {
+    id: 'historymakers-2026-mahjong',
+    kind: 'photo',
+    decade: 2020,
+    category: 'community',
+    en: 'Mahjong at the Historymakers gala',
+    zhHant: '於頒獎典禮會場打麻將',
+    asset: '/archive/historymakers-2026-mahjong.jpg',
+    caption: {
+      en: 'Playing mahjong with Dr. Chang and family in the foyer outside the ballroom, both still wearing their honorees\' medallions.',
+      zhHant: '與張勝雄醫師及家人於會場前廳打麻將，兩人仍佩戴受獎獎章。',
+    },
+  },
   {
     id: 'dinner-with-monk-1993',
     kind: 'photo',

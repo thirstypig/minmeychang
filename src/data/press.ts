@@ -72,6 +72,28 @@ export const press: PressItem[] = [
     corroborates: 'blia',
   },
   {
+    id: 'singtao-historymakers-2026',
+    url: 'https://www.singtaousa.com/2026/09/12/news/usa/chinese-american-museum-honors/',
+    outlet: '星島日報 Sing Tao Daily',
+    title: '華美博物館「歷史締造者」 五傑出人士獲殊榮',
+    date: '2026-09-12',
+    en: 'Announces the Chinese American Museum\'s 2026 Historymakers honorees, naming her and Dr. Chang as joint recipients of the Dr. Dan S. Louie Jr. Lifetime Achievement Award, and her as founder of the Arcadia Chinese School.',
+    zhHant:
+      '報導華美博物館2026年歷史締造者得獎名單，載明她與張勝雄醫師共同獲頒呂國芳博士終身成就獎，並記述她創辦亞凱迪亞中文學校。',
+    corroborates: 'historymakers-lifetime-achievement',
+  },
+  {
+    id: 'worldjournal-historymakers-2026',
+    url: 'https://www.worldjournal.com/wj/story/121359/9757656',
+    outlet: '世界日報 World Journal',
+    title: '行醫從政、服務社區、推廣辣油... 6組華人締造歷史 華博表揚',
+    date: '2026-09-16',
+    en: 'Coverage of the honorees\' press conference. She was traveling and missed it; Dr. Chang told reporters she had done more than he had and deserved the award more.',
+    zhHant:
+      '報導得獎者記者會。她因旅行未能出席，張勝雄醫師笑言「她做得比我更多，更配得這個獎」。',
+    corroborates: 'historymakers-lifetime-achievement',
+  },
+  {
     id: 'fb-2016',
     url: 'https://www.facebook.com/1188554056/videos/10209164529568856/',
     outlet: 'Facebook — Arcadia Chinese School Alumni',
