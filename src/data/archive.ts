@@ -61,8 +61,17 @@ export type ArchiveItem = {
    *  told a reader only that we had nothing, which they could already see.
    *  The `decade` field is an inference and is not presented as fact. */
   caption?: { en: string; zhHant: string }
+  /** ISO date the item was added to the site, for the "Recently added" row.
+   *  Set it on new additions from 2026-09-28 onward; older items leave it
+   *  unset and simply never appear in that row. This is the date the SITE
+   *  gained the item, not the date of the photograph, which is `decade`'s job. */
+  added?: string
 }
 
+// NO COMMENTS BETWEEN ENTRIES in this array. The local admin editor
+// (scripts/admin/archive-io.mjs) keeps only the text inside each `{ … },`
+// block, so any save — even of an unrelated item — silently drops them.
+// Put context in the item's caption or in the backing fact's note.
 export const archive: ArchiveItem[] = [
 
   {
@@ -1325,12 +1334,6 @@ export const archive: ArchiveItem[] = [
       zhHant: '與一位友人攝於書畫展覽會場——是本檔案中年代較近的照片之一。',
     },
   },
-  // The five below are from one evening: the Chinese American Museum's 30th
-  // Annual Historymakers Awards Gala, September 26, 2026. The date is not an
-  // inference — the podium sign names the 30th gala, the museum's own page
-  // dates it, and the phone timestamps agree. See the fact
-  // historymakers-lifetime-achievement. Guests other than the two honorees are
-  // deliberately not named.
   {
     id: 'historymakers-2026-medal',
     kind: 'photo',
@@ -1339,6 +1342,7 @@ export const archive: ArchiveItem[] = [
     en: 'An honoree\'s medallion',
     zhHant: '佩掛受獎獎章',
     asset: '/archive/historymakers-2026-medal.jpg',
+    added: '2026-09-28',
     caption: {
       en: 'A presenter places an honoree\'s medallion on her, with Dr. Chang beside them. The podium sign reads "The 30th Annual Historymakers Awards Gala", which the Chinese American Museum held on September 26, 2026.',
       zhHant:
@@ -1353,6 +1357,7 @@ export const archive: ArchiveItem[] = [
     en: 'The Dr. Dan S. Louie Jr. Lifetime Achievement Award',
     zhHant: '獲頒呂國芳博士終身成就獎',
     asset: '/archive/historymakers-2026-award.jpg',
+    added: '2026-09-28',
     caption: {
       en: 'On stage with Dr. Chang, who holds the award engraved for "Dr. Sheng & Mrs. Min Mey Chang". They received it jointly from the Chinese American Museum at its 30th Annual Historymakers Awards Gala, September 26, 2026.',
       zhHant:
@@ -1367,6 +1372,7 @@ export const archive: ArchiveItem[] = [
     en: 'Accepting the award at the podium',
     zhHant: '於講台上受獎致詞',
     asset: '/archive/historymakers-2026-podium.jpg',
+    added: '2026-09-28',
     caption: {
       en: 'With Dr. Chang at the podium as they accept the Dr. Dan S. Louie Jr. Lifetime Achievement Award, their names on the screen behind them.',
       zhHant: '與張勝雄醫師於講台上領受呂國芳博士終身成就獎，身後螢幕映出兩人姓名。',
@@ -1380,6 +1386,7 @@ export const archive: ArchiveItem[] = [
     en: 'With family at the Historymakers gala',
     zhHant: '與家人攝於歷史締造者頒獎典禮',
     asset: '/archive/historymakers-2026-family.jpg',
+    added: '2026-09-28',
     caption: {
       en: 'With Dr. Chang and family in front of the Chinese American Museum backdrop, beneath the California Ballroom sign, on the night they received the award.',
       zhHant:
@@ -1394,6 +1401,7 @@ export const archive: ArchiveItem[] = [
     en: 'Mahjong at the Historymakers gala',
     zhHant: '於頒獎典禮會場打麻將',
     asset: '/archive/historymakers-2026-mahjong.jpg',
+    added: '2026-09-28',
     caption: {
       en: 'Playing mahjong with Dr. Chang and family in the foyer outside the ballroom, both still wearing their honorees\' medallions.',
       zhHant: '與張勝雄醫師及家人於會場前廳打麻將，兩人仍佩戴受獎獎章。',
@@ -1967,6 +1975,20 @@ export const archiveDecades = [...new Set(archive.map((i) => i.decade))].sort(
 
 export const suppliedItems = archive.filter((i) => i.asset)
 export const placeholderItems = archive.filter((i) => !i.asset)
+
+/** How many items the "Recently added" row shows at most. */
+export const RECENT_LIMIT = 8
+
+/** The newest additions to the site, newest first. Relative to the newest
+ *  `added` date in the data, never to the build date, so the row cannot empty
+ *  itself out on some later deploy just because time passed. Ties keep file
+ *  order, which is already the page's order. */
+export function recentlyAdded(items: ArchiveItem[] = archive): ArchiveItem[] {
+  return items
+    .filter((i) => i.asset && i.added)
+    .sort((a, b) => (b.added! < a.added! ? -1 : b.added! > a.added! ? 1 : 0))
+    .slice(0, RECENT_LIMIT)
+}
 
 export type ArchiveSection = {
   category: ArchiveCategory

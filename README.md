@@ -46,7 +46,8 @@ committed and can therefore drift from its source.
 | Command | What it does | Run it when |
 |---|---|---|
 | `npm run fonts` | Subsets Noto Serif TC to the glyphs actually used — 7.6MB → ~200KB | **Any time Chinese copy changes.** `tests/fonts/coverage.test.ts` fails until you do, naming the missing characters |
-| `npm run photos` | Ingests `src-photos/incoming/` → `public/archive/`: bakes in EXIF orientation, resizes, strips metadata, then **asserts** no exif/gps/xmp survived | New photographs arrive |
+| `npm run photos` | Ingests `src-photos/incoming/` → `public/archive/`: bakes in EXIF orientation, resizes, strips metadata, then **asserts** no exif/gps/xmp survived, then builds grid thumbnails. It processes **everything** in `incoming/`, so move the originals to a dated `src-photos/YYYY-MM-DD-processed/` folder afterwards | New photographs arrive |
+| `npm run thumbs` | Builds `public/archive/thumbs/` (480px wide) for the archive grid; skips thumbnails that are already current. `tests/data/archive-thumbs.test.ts` fails on a missing or stale one | A photo in `public/archive/` is replaced or re-cropped by hand |
 | `npm run awards` | Rebuilds the two award certificate scans, applying the address redactions | The redaction coordinates or source files change |
 
 `scripts/build-logos.mjs` normalizes the institutional marks to one height; it
