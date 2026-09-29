@@ -1335,6 +1335,20 @@ export const archive: ArchiveItem[] = [
     },
   },
   {
+    id: 'min-mey-chang-with-guests',
+    kind: 'photo',
+    decade: 2020,
+    category: 'community',
+    en: 'With two guests at a banquet',
+    zhHant: '與兩位賓客攝於晚宴',
+    asset: '/archive/min-mey-chang-with-guests.jpg',
+    added: '2026-09-29',
+    caption: {
+      en: 'With two guests at a banquet, in front of the same ornate wall panel, and in the same jacket, as the recent portrait with Dr. Chang.',
+      zhHant: '與兩位賓客攝於一場晚宴。身後的雕花牆板與她身上的外套，皆與她和張勝雄醫師的近年合影相同。',
+    },
+  },
+  {
     id: 'historymakers-2026-medal',
     kind: 'photo',
     decade: 2020,
