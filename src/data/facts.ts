@@ -156,6 +156,16 @@ export const confirmedFacts: Fact[] = [
     note: 'RESOLVED the founding year: 1994, and the ceremony was led by 星雲大師 himself. 督導 was the right guess for the supervisor title. The 2024 chapter election was held at their home.',
   },
   {
+    id: 'historymakers-lifetime-achievement',
+    en: 'With her husband, Dr. Sheng Chang, received the Dr. Dan S. Louie Jr. Lifetime Achievement Award from the Chinese American Museum in Los Angeles, at its 30th Annual Historymakers Awards Gala in 2026.',
+    zhHant:
+      '2026年與夫婿張勝雄醫師共同獲頒洛杉磯華美博物館「呂國芳博士終身成就獎」，於該館第30屆歷史締造者頒獎典禮受獎。',
+    status: 'confirmed',
+    source:
+      'Sing Tao Daily 星島日報, 2026-09-12: "張勝雄醫生與夫人張馬敏妹獲頒「呂國芳博士終身成就獎」" — https://www.singtaousa.com/2026/09/12/news/usa/chinese-american-museum-honors/ | World Journal 世界日報, 2026-09-16: "本屆「呂國芳博士終身成就獎」由醫師張勝雄與妻子張馬敏妹獲得" — https://www.worldjournal.com/wj/story/121359/9757656 | Date, venue and theme from the museum\'s own event page: Saturday, September 26, 2026, The Westin Bonaventure Hotel and Suites, "Vanguards, Voices, and Visionaries" — https://camla.org/30th-annual-historymakers-awards-gala/ | The award itself, engraved "Dr. Sheng & Mrs. Min Mey Chang", and the stage screen naming both of them under it — photographed at the gala, archive items historymakers-2026-*.',
+    note: 'The gala photographs were sent by the family on 2026-09-28, two days after the event. A JOINT award — the only one on this site she shares with her husband, which is why the copy leads with him. The Chinese name follows both 2026 articles (終身); the museum\'s own 2018 Chinese page writes it 呂國芳博士終生成就獎 (終生). Both are standard; the newer and doubly attested form wins. At the pre-gala press conference, which she missed because she was traveling, Dr. Chang said of her: 「她做得比我更多，更配得這個獎」 (World Journal). The same articles date his election as Arcadia\'s first Asian American council member to 1994 — see sheng-chang-mayor. Videos of the acceptance exist; they are waiting on a YouTube upload to her channel before they can be listed in videos.ts.',
+  },
+  {
     id: 'reflexology',
     en: 'A believer in reflexology, she publishes talks on the benefits, principles and application of massage, which have reached more than 830,000 viewers.',
     zhHant:

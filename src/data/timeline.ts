@@ -117,6 +117,13 @@ export const timeline: TimelineEvent[] = [
     en: 'Her lecture on 養生之道 — the way of nurturing life — reaches an audience of over 800,000.',
     zhHant: '「傳授養生之道」講座觀看次數突破八十萬。',
   },
+  {
+    id: 'historymakers-2026',
+    year: 2026,
+    en: 'With Dr. Sheng Chang, receives the Dr. Dan S. Louie Jr. Lifetime Achievement Award from the Chinese American Museum in Los Angeles.',
+    zhHant: '與夫婿張勝雄醫師共同獲頒洛杉磯華美博物館「呂國芳博士終身成就獎」。',
+    factId: 'historymakers-lifetime-achievement',
+  },
 ]
 
 export const timelineByYear = [...timeline].sort((a, b) => a.year - b.year)
