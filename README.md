@@ -237,7 +237,7 @@ deliberately breaking it:
 
 Re-run any of these before trusting the suite. See
 [`docs/solutions/build-errors/verification-that-verifies-nothing.md`](docs/solutions/build-errors/verification-that-verifies-nothing.md)
-for why: on this project, nine separate tools have reported success for work
+for why: on this project, eleven separate tools have reported success for work
 they never performed — including a CI typecheck that ran unverified for
 fourteen consecutive deploys, and a provenance test that was logically
 incapable of failing.

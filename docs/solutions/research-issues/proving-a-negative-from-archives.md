@@ -52,7 +52,7 @@ a genuine absence.
 ## The pattern
 
 Sibling document `build-errors/verification-that-verifies-nothing.md` records
-nine tools that reported success for work they never did. This is the research
+eleven tools that reported success for work they never did. This is the research
 counterpart, and the shape is one step nastier:
 
 > **A tool reported "nothing found" when what actually happened was
