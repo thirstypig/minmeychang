@@ -1,4 +1,4 @@
-// Selected talks, ordered by reach.
+// Selected talks, ordered by reach — except for a few pinned ahead of it.
 //
 // LINKS, NOT EMBEDS. A YouTube iframe adds roughly a megabyte of third-party
 // JavaScript and reports every visitor to Google. This site ships zero JS. If
@@ -24,6 +24,13 @@ export type Video = {
   ownChannel: boolean
   /** Channel title, when it is not hers. */
   hostChannel?: string
+  /**
+   * Pinned ahead of the reach order, lowest first. For videos whose place on
+   * the page should not depend on a view count: her most-watched talk, which
+   * she wants first, and the 2026 gala videos, which were uploaded with
+   * 1 view and would otherwise sort to the bottom.
+   */
+  pin?: number
   note?: string
 }
 
@@ -38,6 +45,7 @@ export const videos: Video[] = [
     viewsAsOf: '2026-08-05',
     ownChannel: false,
     hostChannel: '王勝鋒',
+    pin: 1,
     note: 'Her widest reach by a wide margin — over 800,000 views — and she is proud of it. Feature it first. Recorded 2023-09-22 and posted to 王勝鋒\'s channel (UChLb7u__Bsru4eJWvuBxFuA); the same talk is on her own channel as LsL4MZIKIaw with ~2.2K views. The host channel is named on the page as attribution, not as a disclaimer. One engineering consequence to keep in mind: because it is not her upload, the link dies if that channel removes it — worth re-checking periodically.',
   },
   {
@@ -118,7 +126,8 @@ export const videos: Video[] = [
     views: 1,
     viewsAsOf: '2026-10-15',
     ownChannel: true,
-    note: 'Footage from the 2026-09-26 gala where they jointly received the 呂國芳博士終身成就獎 (see fact historymakers-lifetime-achievement). 5:13. Uploaded to her channel 2026-10-15; channelId verified against HER_CHANNEL_ID the same day. The view count was taken hours after upload — re-check it, since sort-by-reach puts this near the bottom until it is refreshed.',
+    pin: 2,
+    note: 'Footage from the 2026-09-26 gala where they jointly received the 呂國芳博士終身成就獎 (see fact historymakers-lifetime-achievement). 5:13. Uploaded to her channel 2026-10-15; channelId verified against HER_CHANNEL_ID the same day. The view count was taken hours after upload; `pin` keeps it near the top regardless.',
   },
   {
     id: 'historymakers-2026-honoree-video',
@@ -127,12 +136,19 @@ export const videos: Video[] = [
     views: 1,
     viewsAsOf: '2026-10-15',
     ownChannel: true,
+    pin: 3,
     note: 'The honoree video shown at the same gala. 1:45. Uploaded to her channel 2026-10-15; channelId verified the same day. Same caveat on the view count.',
   },
 ]
 
-/** Ordered by reach, widest first. */
-export const videosByReach = [...videos].sort((a, b) => b.views - a.views)
+/** Pinned videos first (by `pin`), then the rest by reach, widest first. */
+export const videosByReach = [...videos].sort((a, b) => {
+  if (a.pin !== undefined || b.pin !== undefined) {
+    // A pinned video always precedes an unpinned one.
+    return (a.pin ?? Number.MAX_SAFE_INTEGER) - (b.pin ?? Number.MAX_SAFE_INTEGER)
+  }
+  return b.views - a.views
+})
 
 export const watchUrl = (v: Video) => `https://www.youtube.com/watch?v=${v.youtubeId}`
 
