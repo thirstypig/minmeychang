@@ -21,9 +21,30 @@ describe('videos', () => {
     }
   })
 
-  it('videosByReach is sorted widest first and loses nothing', () => {
-    const views = videosByReach.map((v) => v.views)
+  it('videosByReach puts pinned videos first, in pin order', () => {
+    const pinned = videos.filter((v) => v.pin !== undefined)
+    const head = videosByReach.slice(0, pinned.length)
+    expect(head.every((v) => v.pin !== undefined)).toBe(true)
+    const pins = head.map((v) => v.pin!)
+    expect(pins).toEqual([...pins].sort((a, b) => a - b))
+  })
+
+  it('pins are unique, so the pinned order is never a tie', () => {
+    const pins = videos.flatMap((v) => (v.pin === undefined ? [] : [v.pin]))
+    expect(new Set(pins).size).toBe(pins.length)
+  })
+
+  it('her most-watched talk stays first', () => {
+    // The family asked for it to lead; pinning the 2026 gala videos must not
+    // displace it.
+    expect(videosByReach[0]!.id).toBe('health-talk-2023-original')
+  })
+
+  it('after the pinned videos, the rest are sorted widest first and nothing is lost', () => {
+    const rest = videosByReach.filter((v) => v.pin === undefined)
+    const views = rest.map((v) => v.views)
     expect(views).toEqual([...views].sort((a, b) => b - a))
+    expect(rest.length).toBeGreaterThan(0)
     expect(videosByReach).toHaveLength(videos.length)
   })
 
