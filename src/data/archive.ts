@@ -68,10 +68,11 @@ export type ArchiveItem = {
   added?: string
 }
 
-// NO COMMENTS BETWEEN ENTRIES in this array. The local admin editor
-// (scripts/admin/archive-io.mjs) keeps only the text inside each `{ … },`
-// block, so any save — even of an unrelated item — silently drops them.
-// Put context in the item's caption or in the backing fact's note.
+// Comments between entries are safe: the local admin editor
+// (scripts/admin/archive-io.mjs) keeps a comment with the entry below it,
+// through edits and reorders. A comment INSIDE an entry is not safe to edit
+// around: the editor refuses to save a change to that entry until the comment
+// is moved above it. Context a reader needs belongs in the caption either way.
 export const archive: ArchiveItem[] = [
 
   {

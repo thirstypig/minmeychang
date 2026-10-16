@@ -89,12 +89,14 @@ copied through byte-for-byte, so a one-caption fix stays a one-entry diff.
 Deleting an entry never deletes its image file unless that's explicitly
 checked — they're separate actions.
 
-**It drops comments between entries.** A save keeps only the text inside each
-`{ … },` block, so any comment sitting between two entries disappears the next
-time *any* entry is saved. Found 2026-09-29, when a save of one gala photo
-deleted the comment above the one before it. Until the editor preserves them,
-`archive.ts` carries a warning above the array: put context in a caption or in
-the backing fact's `note`, never between entries.
+**Comments survive a save.** A comment between two entries stays attached to
+the entry below it, so it moves when that entry moves. If that entry is
+deleted, the comment drops down to the next one rather than disappearing, and
+shows up in the diff for you to keep or delete. A comment *inside* an entry is
+the one case the editor can't preserve, because an edited entry is rebuilt from
+its fields; it refuses that save and asks you to move the comment above the
+entry first. Until October 15, 2026, every save dropped every comment between
+entries (found September 29, 2026). Covered by `tests/admin/archive-io.test.ts`.
 
 It does not add new photos. A new photograph still needs `npm run photos`
 (EXIF/GPS strip) and a human looking for a home address, a phone number or an
@@ -176,7 +178,7 @@ before one — see `todos/001-pending-p2-ci-does-not-gate-the-pr.md`.
 | `tests/data/figures.test.ts` | every figure cites a renderable fact; no Western numerals on Chinese pages |
 | `tests/data/media.test.ts` | **the family video channel is not linked** |
 | `tests/data/affiliations.test.ts` | logo permission gate; AUSD never borrows another body's mark |
-| `tests/data/videos.test.ts` | third-party uploads keep their attribution |
+| `tests/data/videos.test.ts` | third-party uploads keep their attribution; pinned videos lead in pin order, and her most-watched talk stays first |
 | `tests/data/archive.test.ts` | placeholders say what is missing; no originals under `public/`; every item has a category from the defined set; every category has a bilingual label and at least one item |
 | `tests/data/archive-sections.test.ts` | the category/decade grouping shown on the archive page — category order, decade dedup and sort, no empty-category sections, every item lands in exactly one section |
 | `tests/data/archive-thumbs.test.ts` | every published photo has a thumbnail of the same shape (a stale one fails); the Recently added row is newest first, capped, and never shows a placeholder |
@@ -186,6 +188,7 @@ before one — see `todos/001-pending-p2-ci-does-not-gate-the-pr.md`.
 | `tests/data/chinese-copy.test.ts` | 正體字 only; full-width punctuation; no dangling anaphor; attested proper nouns |
 | `tests/docs/links.test.ts` | every relative link in README and `docs/` resolves |
 | `tests/data/english-copy.test.ts` | American spelling in every rendered English string |
+| `tests/admin/archive-io.test.ts` | the admin editor's save: a no-op save of the real `archive.ts` is byte-identical; comments between entries survive edits, reorders and deletions; a change to an entry with a comment inside it is refused; no test writes to the real file |
 
 The suite is verified to pass **with and without** the gitignored
 `src/data/facts.pending.ts`, which is absent in CI.
@@ -218,6 +221,13 @@ deliberately breaking it:
 | Chinese punctuation | use `,` instead of `，` beside a Chinese word | 1 test fails |
 | dangling anaphor | open a fact with 該院 | 1 test fails |
 | attested proper nouns | rename the hospital 衛理醫院 | 1 test fails |
+| video pinning | ignore `pin` in the sort | 1 test fails |
+| her talk first | pin a gala video at `0` | 1 test fails |
+| unique pins | give two videos the same pin | 1 test fails |
+| admin editor keeps comments | leave `notes` out of the saved output | 3 tests fail |
+| comment above a deleted entry | drop it instead of carrying it forward | 1 test fails |
+| comment inside an entry | remove the refusal | 1 test fails |
+| tests never touch the real archive | write to `ARCHIVE_PATH` instead of `path` | the run fails, naming the real file |
 | Chinese collector | point any reader at `.en`, or drop one entirely | 1 test fails, names the source |
 | testimony phrasing | promote either hospital fact to `confirmed` | 1-2 tests fail |
 | doc links | typo a path in README, or either form of a `related:` entry | 1 test fails, names the link |
