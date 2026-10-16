@@ -110,6 +110,25 @@ export const videos: Video[] = [
     viewsAsOf: '2026-08-05',
     ownChannel: true,
   },
+  {
+    id: 'historymakers-2026-gala',
+    youtubeId: 'HglaC8tWmCY',
+    title:
+      'Dr. Sheng Chang & Mrs. Min Mey Chang honored at the Chinese American Museum History Makers Gala 2026',
+    views: 1,
+    viewsAsOf: '2026-10-15',
+    ownChannel: true,
+    note: 'Footage from the 2026-09-26 gala where they jointly received the 呂國芳博士終身成就獎 (see fact historymakers-lifetime-achievement). 5:13. Uploaded to her channel 2026-10-15; channelId verified against HER_CHANNEL_ID the same day. The view count was taken hours after upload — re-check it, since sort-by-reach puts this near the bottom until it is refreshed.',
+  },
+  {
+    id: 'historymakers-2026-honoree-video',
+    youtubeId: 'xkZWHkp_KV4',
+    title: 'Dr Sheng & Mrs Min Mey Chang Honoree Video CAM History Makers Gala 2026',
+    views: 1,
+    viewsAsOf: '2026-10-15',
+    ownChannel: true,
+    note: 'The honoree video shown at the same gala. 1:45. Uploaded to her channel 2026-10-15; channelId verified the same day. Same caveat on the view count.',
+  },
 ]
 
 /** Ordered by reach, widest first. */
