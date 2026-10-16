@@ -18,6 +18,8 @@ symptoms:
   - 'grep -c reports 1 where the true count is 6'
   - 'a zsh glob aborts grep before it runs, and wc -l reports a clean 0'
   - 'a build emits CSS and passes its own guard with zero compiled utilities'
+  - 'a new test suite passes 3 tests while writing to the real file instead of its fixture'
+  - 'gh run list --commit <short sha> returns [] for a run that exists'
 stack:
   - Astro 7
   - Vitest 4
@@ -59,9 +61,12 @@ The unifying shape:
 This document exists because the individual fixes are cheap and the pattern is
 expensive. Recognizing the shape is what compounds.
 
+Two more turned up on 2026-10-15, long after the original nine (instances 10
+and 11). The pattern has not stopped recurring.
+
 ---
 
-## The nine instances
+## The instances
 
 ### 1. The CI typecheck that never ran (headline)
 
@@ -342,6 +347,58 @@ merely *exists* passes even when Tailwind never ran.
 
 ---
 
+### 10. The fixture test that tested the real file
+
+*2026-10-15, writing `tests/admin/archive-io.test.ts` (PR #44).*
+
+The tests wrote a fixture `archive.ts` to a temp directory and called
+`loadArchive(path)` / `saveArchive(items, path)`. Neither function accepted a
+path yet. JavaScript drops extra arguments without complaint, so both read and
+wrote the **real** `src/data/archive.ts` instead.
+
+The run reported 4 failed and **3 passed**. All three passes were vacuous: they
+asserted on the fixture file, which nothing had touched, so it still held
+exactly what the test wrote. Meanwhile the real file had changed on disk
+(`cmp` against a backup: `differ: char 3731, line 78`).
+
+It was caught only because the file had been backed up *before* the first
+run, and the backup was compared *after* it. It was restored with `cp`, not
+`git checkout` (see the uncommitted-work lesson elsewhere in this repo), and
+checked against `HEAD`.
+
+**Fix:** add the path parameter first, on its own, then re-run for honest RED
+(5 failed, for the right reasons). And a permanent guard: the suite snapshots
+the real file in `beforeAll` and asserts it unchanged in `afterAll`. Proven by
+sabotage: pointing `writeFileSync` back at `ARCHIVE_PATH` fails the run with
+*"a test wrote to the real archive.ts"*.
+
+**Lesson:** a test that passes on its first run, before the code exists, is
+reporting on something other than the code. Here it was reporting on its own
+setup.
+
+---
+
+### 11. `gh run list --commit` with a short SHA
+
+*2026-10-15, checking the Pages deploys for PRs #42–#44. gh 2.87.2.*
+
+```bash
+gh run list --commit e692e0e   --json headSha --jq length   # 0
+gh run list --commit e692e0e5  --json headSha --jq length   # 0
+gh run list --commit "$(git rev-parse e692e0e)" ...         # 1
+```
+
+`--commit` matches only the full 40-character SHA. A short one is not an
+error; it matches nothing and prints an empty list, which reads exactly like
+"this commit never triggered a deploy". Instance 7 already says to select runs
+by `headSha`. This is the same advice failing one level down, because the
+identifier was abbreviated. The same short-SHA command had been handed to a
+human twice that day as the way to check a deploy.
+
+**Fix:** always expand first: `--commit "$(git rev-parse <short>)"`.
+
+---
+
 ## Prevention
 
 ### 1. Negative-test every guard
@@ -398,7 +455,7 @@ dig -t TYPE65 HOST             # HTTPS/SVCB on old dig
 [ "$(git rev-parse HEAD)" = "$(gh api repos/O/R/commits/main --jq .sha)" ] \
   && echo in-sync || echo NOT PUSHED
 
-# Watch the right run
+# Watch the right run (FULL sha: `gh run list --commit <short>` silently matches nothing)
 SHA=$(git rev-parse HEAD)
 gh run list --limit 10 --json databaseId,headSha \
   --jq ".[] | select(.headSha==\"$SHA\") | .databaseId" | head -1
@@ -408,13 +465,16 @@ grep -o 'PATTERN' file | wc -l
 
 # A zero only counts if the same search can find something (zsh: quote globs)
 grep -rhoi 'KNOWN-PRESENT' dist --include='*.html' | wc -l   # must be > 0
+
+# A test touching real files: snapshot before, compare after
+cp REAL scratch/REAL.bak   # then run; then: cmp REAL scratch/REAL.bak
 ```
 
 ---
 
 ## Cost
 
-Nine instances. The typecheck alone ran unverified for **14 consecutive
+Nine instances in the first session, eleven to date. The typecheck alone ran unverified for **14 consecutive
 deploys**. Every one was green-on-green; not one produced a warning. The
 expensive part was never the fix — it was the interval during which work was
 built on top of a false green.
