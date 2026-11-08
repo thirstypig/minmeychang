@@ -21,6 +21,17 @@ import { ui } from '../../src/i18n/ui'
 // Sibling of chinese-copy.test.ts, same shape: rendered fields only. Comments
 // and notes are prose for maintainers and are swept separately by hand;
 // scripts/verify-no-notes.mjs (postbuild) keeps them out of the built site.
+//
+// NOT collected, on purpose, though rendered by Press.astro: `press[].title`
+// and `press[].outlet`. A title is a headline as published — a quotation —
+// and an outlet is a proper noun in its own language. Neither may be
+// Americanized, so "closing the gap" by collecting them would turn this guard
+// into one that demands altering a published headline. (Todo 010.)
+//
+// BRITISH below is a list of known British-only forms, not a rule: it catches
+// what a sweep found plus their inflections, and a word not on it passes. A
+// pattern arm (any -our / -ise word minus an allowlist) was considered and not
+// added; it would raise false positives on names for a prospective gain.
 
 type Str = { source: string; where: string; text: string }
 
@@ -115,6 +126,19 @@ const BRITISH: Record<string, string> = {
   storey: 'story', kerb: 'curb', tyre: 'tire', aluminium: 'aluminum',
   sceptical: 'skeptical', moustache: 'mustache', catalogue: 'catalog',
   speciality: 'specialty', orientated: 'oriented', ageing: 'aging',
+  // Added 2026-11-08 (todo 010): inflections of stems already listed, and
+  // whole classes the 2026-08 sweep never met. `towards` is deliberately
+  // absent — it is correct, common American usage, not a British form.
+  favoured: 'favored', honourable: 'honorable', colourful: 'colorful',
+  neighbouring: 'neighboring', neighbourhood: 'neighborhood',
+  organises: 'organizes', recognises: 'recognizes', realisation: 'realization',
+  theatres: 'theaters', metres: 'meters', licences: 'licenses',
+  storeys: 'stories', travellers: 'travelers', traveller: 'traveler',
+  counsellors: 'counselors', counselling: 'counseling',
+  analyse: 'analyze', analysed: 'analyzed', apologise: 'apologize',
+  emphasise: 'emphasize', emphasised: 'emphasized', criticise: 'criticize',
+  utilise: 'utilize', cheque: 'check', manoeuvre: 'maneuver',
+  draught: 'draft', paediatric: 'pediatric', paediatrician: 'pediatrician',
 }
 
 const PATTERN = new RegExp(`\\b(${Object.keys(BRITISH).join('|')})\\b`, 'gi')
@@ -161,6 +185,14 @@ describe('American English copy', () => {
         )
       }
     }
-    expect(found, found.join('\n  ')).toEqual([])
+    // The escape hatch, named in the failure itself so the guard never pushes
+    // an author into breaking the copy standard (todo 010, option A).
+    const hint =
+      '\n\nIf the flagged word is part of an OFFICIAL NAME ("… Theatre", "… Centre", ' +
+      'the surname Grey, an award "Honour") or inside a QUOTATION, it must NOT be ' +
+      'Americanized — see the writing-american-english-copy skill. There is no ' +
+      'exemption list yet (todo 010, option C): add one here, keyed by the ' +
+      '`where` label above, rather than changing the spelling.'
+    expect(found, found.join('\n  ') + (found.length ? hint : '')).toEqual([])
   })
 })

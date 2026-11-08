@@ -209,6 +209,7 @@ deliberately breaking it:
 | font coverage | drop a glyph from the manifest | 2 tests fail, names the glyph |
 | CI typecheck | remove `@astrojs/check` | step fails on missing `Result (` |
 | PR checks (`ci.yml`) | push a test asserting `1 === 2` to an open PR | PR check red at Test, Build skipped (PR #46, run 42505386952) |
+| British spelling (new words) | add "neighbourhood" to a UI string | 1 test fails, names the American form and the official-name/quotation escape hatch |
 | links: doc-relative | a repo-root path in `docs/superpowers/specs/` | 1 test fails, names the link |
 | links: letter case | link to `…-NOTHING.md` | 1 test fails (macOS included) |
 | media consent | set the family channel `confirmed: true` | 2 tests fail |
