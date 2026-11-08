@@ -209,6 +209,19 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
           <p class="lb-title" style="color: var(--text-strong)"></p>
           <p class="lb-caption mt-1 text-sm leading-relaxed" style="color: var(--text-soft)"></p>
           <p class="lb-count mt-2 text-xs tabular-nums" style="color: var(--text-soft)"></p>
+          {/* The viewer keeps #<id> in the address bar, so the shared
+              script in Base.astro shares this photo's own link. */}
+          <p class="mt-3">
+            <button
+              type="button"
+              class="share-button text-sm"
+              data-share
+              data-label-copied={t('linkCopied')}
+            >
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 8 5-5 5 5" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" /></svg>
+              <span data-share-label>{t('sharePhoto')}</span>
+            </button>
+          </p>
         </figcaption>
       </figure>
       <button type="button" class="lb-prev tap-target" aria-label={t('lightboxPrev')}>‹</button>
