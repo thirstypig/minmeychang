@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 priority: p2
 issue_id: 001
 tags: [code-review, ci, verification]
@@ -60,7 +60,7 @@ contributor who is not you. Effort: none. Risk: high.
 
 ## Recommended Action
 
-_(blank — for triage)_
+Option B, done 2026-11-08 in PR #46: `.github/workflows/ci.yml`.
 
 ## Technical Details
 
@@ -71,11 +71,11 @@ _(blank — for triage)_
 
 ## Acceptance Criteria
 
-- [ ] Opening a PR produces at least one check run.
-- [ ] The check runs typecheck, `npm test`, and `npm run build`.
-- [ ] The typecheck step still asserts on `astro check`'s own `Result (` line.
-- [ ] No deploy is attempted from a pull-request event.
-- [ ] Negative-tested: push a commit that breaks one test, confirm the PR check
+- [x] Opening a PR produces at least one check run.
+- [x] The check runs typecheck, `npm test`, and `npm run build`.
+- [x] The typecheck step still asserts on `astro check`'s own `Result (` line.
+- [x] No deploy is attempted from a pull-request event.
+- [x] Negative-tested: push a commit that breaks one test, confirm the PR check
       goes red **before** merge. Record the sabotage in the README table.
 
 ## Work Log
@@ -87,3 +87,7 @@ _(blank — for triage)_
 
 - PR: https://github.com/thirstypig/minmeychang/pull/18
 - `docs/solutions/build-errors/verification-that-verifies-nothing.md`
+- 2026-11-08 — Fixed in PR #46 (option B). Sabotage: a test asserting `1 === 2`
+  pushed to the PR; run 42505386952 failed at Test (1 failed | 143 passed),
+  Build skipped. Reverted in the same PR. Branch protection still requires
+  no check — that is a repo setting for the owner, not a code change.

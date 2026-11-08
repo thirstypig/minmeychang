@@ -162,12 +162,14 @@ version control, make the repo private first.
 
 ## Tests
 
-`npm test` — **117 tests across 16 files.** CI runs them, and the typecheck,
-before the build, so a regression blocks the deploy rather than shipping.
+`npm test` — **143 tests across 19 files.** CI runs them twice, with the
+typecheck and the build:
 
-**They do not yet run on a pull request.** `.github/workflows/deploy.yml`
-triggers only on push to `main`, so the suite executes after a merge, not
-before one — see `todos/001-pending-p2-ci-does-not-gate-the-pr.md`.
+- **on every pull request** (`.github/workflows/ci.yml`), so a regression shows
+  up on the PR that caused it. This workflow has no Pages permissions and no
+  deploy job, so a PR cannot publish anything.
+- **on push to `main`** (`.github/workflows/deploy.yml`), before the deploy, so
+  a regression blocks the deploy rather than shipping.
 
 | File | Guards |
 |---|---|
@@ -204,6 +206,7 @@ deliberately breaking it:
 | fact provenance | filter to `() => true` | 3 tests fail |
 | font coverage | drop a glyph from the manifest | 2 tests fail, names the glyph |
 | CI typecheck | remove `@astrojs/check` | step fails on missing `Result (` |
+| PR checks (`ci.yml`) | push a test asserting `1 === 2` to an open PR | PR check red at Test, Build skipped (PR #46, run 42505386952) |
 | media consent | set the family channel `confirmed: true` | 2 tests fail |
 | logo gating | give AUSD the City of Arcadia seal | 2 tests fail |
 | video attribution | drop `hostChannel` from the 833K video | 1 test fails |
