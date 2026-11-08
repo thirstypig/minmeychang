@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 priority: p2
 issue_id: 004
 tags: [code-review, provenance, privacy, decision]
@@ -74,7 +74,7 @@ exactly what to run first. Effort: none.
 
 ## Recommended Action
 
-_(blank — this one is the family's call, not a technical fix)_
+Option A, chosen by James Chang 2026-11-08.
 
 ## Technical Details
 
@@ -87,8 +87,8 @@ _(blank — this one is the family's call, not a technical fix)_
 
 ## Acceptance Criteria
 
-- [ ] A decision is recorded, even if the decision is "leave it".
-- [ ] If the wording changes, English and zh-Hant change together, and
+- [x] A decision is recorded, even if the decision is "leave it".
+- [x] If the wording changes, English and zh-Hant change together, and
       `tests/data/chinese-copy.test.ts` still passes.
 
 ## Work Log
@@ -100,3 +100,10 @@ _(blank — this one is the family's call, not a technical fix)_
 
 - PR: https://github.com/thirstypig/minmeychang/pull/18
 - `docs/solutions/research-issues/proving-a-negative-from-archives.md`
+- 2026-11-08 — Option A, at James's direction. EN: "By her own account, she
+  served on the Foundation Board of…"; ZH: 據她本人所述，曾任…. The sibling
+  committee fact is unchanged (nothing contradicts it). The fact's note now
+  opens with why the hedge exists and when to remove it. Verified in the build:
+  the claim renders once per locale (Service pages), hedged, and nowhere else,
+  including JSON-LD; the new note text does not render (verify-no-notes, 383
+  fragments).
