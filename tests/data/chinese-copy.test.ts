@@ -19,6 +19,8 @@ import { ui } from '../../src/i18n/ui'
 // internal prose and legitimately contain counter-examples — the note on
 // methodist-asian-outreach names 衛理醫院 precisely so nobody reintroduces it.
 // Scanning raw files would flag that note and teach the wrong lesson.
+// That they never reach the page is enforced, not assumed: the postbuild
+// scripts/verify-no-notes.mjs fails the build if any note fragment does.
 
 /** `standalone` is false when the component renders a title or heading directly
  *  above this string, which gives an opening anaphor something to refer to.

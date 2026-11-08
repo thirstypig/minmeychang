@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 priority: p2
 issue_id: 003
 tags: [code-review, privacy, verification]
@@ -73,7 +73,7 @@ the project's own documentation discipline.
 
 ## Recommended Action
 
-_(blank — for triage)_
+Option A, done 2026-11-08: `scripts/verify-no-notes.mjs`, run as `postbuild`, so it gates every local build and both CI workflows.
 
 ## Technical Details
 
@@ -84,9 +84,9 @@ _(blank — for triage)_
 
 ## Acceptance Criteria
 
-- [ ] Adding `{fact.note}` to a rendered component fails a test.
-- [ ] The test carries a positive control that fails if the reader is broken.
-- [ ] Negative-tested by doing exactly that and watching it go red; recorded in
+- [x] Adding `{fact.note}` to a rendered component fails a test.
+- [x] The test carries a positive control that fails if the reader is broken.
+- [x] Negative-tested by doing exactly that and watching it go red; recorded in
       the README sabotage table.
 
 ## Work Log
@@ -98,3 +98,10 @@ _(blank — for triage)_
 
 - PR: https://github.com/thirstypig/minmeychang/pull/18
 - `docs/solutions/security-issues/publishing-about-a-living-person.md`
+- 2026-11-08 — Fixed (option A) as a postbuild script rather than a vitest
+  test: it needs `dist/`, and a test that skips when `dist/` is missing would
+  pass vacuously. Covers facts, media and videos (and facts.pending when
+  present); URL sources are exempt because a public URL publishes nothing new.
+  Clean: 377 fragments from 114 fields absent from 13 pages. Sabotage 1: a
+  `<span title={fact.note}>` in FactList → 170 leaks, `npm run build` exit 1.
+  Sabotage 2: entity decoding disabled → positive control fails, exit 1.

@@ -42,7 +42,7 @@ built this way: [`docs/solutions/ui-bugs/published-but-unfindable-archive-photos
 ```bash
 npm install
 npm run dev        # http://localhost:3170
-npm run build      # postbuild runs scripts/verify-css.mjs
+npm run build      # postbuild runs scripts/verify-css.mjs and verify-no-notes.mjs
 npm test
 npm run typecheck  # astro check — 74 files
 ```
@@ -203,6 +203,8 @@ deliberately breaking it:
 | Guard | Sabotage | Result |
 |---|---|---|
 | `scripts/verify-css.mjs` | empty the compiled stylesheet | exit 1 |
+| `scripts/verify-no-notes.mjs` | render `<span title={fact.note}>` in `FactList.astro` | 170 leaks named, build exit 1 |
+| `verify-no-notes` positive control | skip HTML entity decoding | control fails, exit 1 |
 | fact provenance | filter to `() => true` | 3 tests fail |
 | font coverage | drop a glyph from the manifest | 2 tests fail, names the glyph |
 | CI typecheck | remove `@astrojs/check` | step fails on missing `Result (` |
@@ -266,6 +268,15 @@ produced no real output. A missing Tailwind plugin does not error — utility
 classes silently do nothing and the build stays green. This has actually
 happened on the sibling project. The guard is negative-tested: emptying the
 compiled stylesheet makes it exit 1.
+
+`scripts/verify-no-notes.mjs` runs after it and fails the build if any `note`,
+or any non-URL `source`, from `facts.ts`, `media.ts` or `videos.ts` appears in
+`dist/`. Those fields hold research logs and consent caveats; the copy suites
+skip them because they quote counter-examples on purpose, which is only safe
+while they stay off the page. It matches sentence by sentence on entity-decoded
+HTML, so a partial leak or an apostrophe escaped as `&#39;` cannot hide one, and
+it carries a positive control (a fact's rendered text must be found) so a broken
+reader fails instead of passing.
 
 ## Deployment
 
