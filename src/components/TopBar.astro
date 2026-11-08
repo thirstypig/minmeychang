@@ -20,42 +20,20 @@ const otherLocale: Locale = locale === 'en' ? 'zh-hant' : 'en'
 const otherPath = alternatePath(locale, Astro.url.pathname)
 ---
 
-{/* Everything on one row: page links left, controls right. The links scroll
-    horizontally when they run out of room; the controls are shrink-0 so they
-    stay reachable at any width rather than wrapping to a second line. */}
+{/* Two rows: a slim utility row (text size, theme, language), then every page
+    as a button. Until 2026-11 this was one row whose links scrolled sideways
+    behind a hidden scrollbar; on a phone only about three of six showed, and
+    nothing said the rest existed. Every page is now visible without a swipe
+    or a tap: one row of six from 640px up; below that, columns sized in em
+    (see .nav-grid in global.css), which gives 3×2 at normal text and 2×3
+    once the text-size control enlarges the type, so no label overflows. */}
 <nav
   class="no-print border-b"
   style="border-color: var(--rule)"
   aria-label={t('navLabel')}
 >
-  <div class="mx-auto flex max-w-[72ch] items-center gap-4 px-6 py-2">
-    <ul
-      class="flex min-w-0 flex-1 snap-x gap-4 overflow-x-auto text-base list-none p-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-    >
-      {
-        routes.map((route) => {
-          const active = route.id === current
-          return (
-            <li class="snap-start shrink-0">
-              <a
-                href={routePath(locale, route.id)}
-                aria-current={active ? 'page' : undefined}
-                class="tap-target whitespace-nowrap underline-offset-4 hover:underline"
-                style={
-                  active
-                    ? 'color: var(--brand); text-decoration: underline; text-underline-offset: 4px'
-                    : 'color: var(--text-soft)'
-                }
-              >
-                {t(route.navLabelKey)}
-              </a>
-            </li>
-          )
-        })
-      }
-    </ul>
-
-    <div class="flex shrink-0 items-center gap-1 text-sm">
+  <div class="mx-auto max-w-[72ch] px-6 pb-3">
+    <div class="flex items-center justify-end gap-1 py-1.5 text-sm">
       <button
         type="button"
         data-type-scale="down"
@@ -97,6 +75,22 @@ const otherPath = alternatePath(locale, Astro.url.pathname)
         {localeNames[otherLocale]}
       </a>
     </div>
+
+    <ul class="nav-grid list-none p-0">
+      {
+        routes.map((route) => (
+          <li>
+            <a
+              href={routePath(locale, route.id)}
+              aria-current={route.id === current ? 'page' : undefined}
+              class="nav-button"
+            >
+              {t(route.navLabelKey)}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </nav>
 
