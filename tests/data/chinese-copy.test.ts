@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { simplifiedToTraditional } from './simplified-only'
 import { renderableFacts } from '../../src/data/facts'
 import { affiliations } from '../../src/data/affiliations'
 import { archive } from '../../src/data/archive'
@@ -111,34 +112,32 @@ describe('Taiwan Mandarin copy', () => {
   })
 
   // Simplified characters that have a distinct 正體 form and are NOT themselves
-  // valid Traditional characters. Kept to unambiguous cases on purpose: 台 and
-  // 里 are legitimate in Taiwan and must never appear here.
+  // valid Traditional characters. 台 and 里 are legitimate in Taiwan and must
+  // never be flagged; nor may any character identical in both scripts. The
+  // first hand-written draft listed 敏 — unchanged in Traditional and sitting
+  // in 張馬敏妹 — so the test failed on her own name and called it 简体.
   //
-  // Nor may any character that is identical in both scripts. The first draft
-  // of this table listed 敏 — which is unchanged in Traditional and sits in
-  // 張馬敏妹 — so the test failed on her own name and told her it was 简体.
+  // Until 2026-11 this was 60 hand-picked pairs, which caught a paste only if
+  // that character happened to be listed: 32 characters in use on the site,
+  // including the awards vocabulary 獲 榮 譽 獎, had no simplified twin in it
+  // (todo 009). The table is now generated from OpenCC with Taiwan variants
+  // applied — see scripts/build-simplified-table.mjs for the rule that keeps
+  // 台, 里, 后, 几, 峰 and 敏 out of it.
   //
   // The regression: mainland sources get read during research. Three of the
   // sites consulted while sourcing the hospital facts were 简体.
   it('contains no simplified characters', () => {
-    const simplified: Record<string, string> = {
-      学: '學', 国: '國', 会: '會', 门: '門', 与: '與', 为: '為',
-      这: '這', 说: '說', 关: '關', 华: '華', 术: '術', 医: '醫',
-      团: '團', 员: '員', 长: '長', 时: '時', 实: '實', 传: '傳',
-      务: '務', 动: '動', 区: '區', 协: '協', 办: '辦', 类: '類',
-      语: '語', 亚: '亞', 张: '張', 马: '馬', 网: '網',
-      软: '軟', 视: '視', 频: '頻', 质: '質', 项: '項', 资: '資',
-      讯: '訊', 众: '眾', 义: '義', 举: '舉', 简: '簡', 电: '電',
-      话: '話', 记: '記', 认: '認', 证: '證', 单: '單', 图: '圖',
-      开: '開', 见: '見', 观: '觀', 览: '覽', 诗: '詩',
-      读: '讀', 书: '書', 爱: '愛', 乐: '樂', 岁: '歲', 万: '萬',
+    const simplified = simplifiedToTraditional
+    expect(simplified.size, 'simplified table failed to load').toBeGreaterThan(3000)
+    for (const valid of ['台', '里', '后', '几', '峰', '敏', '張', '馬', '妹']) {
+      expect(simplified.has(valid), `'${valid}' is valid Traditional and must not be flagged`).toBe(false)
     }
 
     const found: string[] = []
     for (const { where, text } of strings) {
       for (const ch of text) {
-        if (ch in simplified) {
-          found.push(`${where}: 简体 '${ch}' should be '${simplified[ch]}'`)
+        if (simplified.has(ch)) {
+          found.push(`${where}: 简体 '${ch}' should be '${simplified.get(ch)}'`)
         }
       }
     }

@@ -187,7 +187,7 @@ typecheck and the build:
 | `tests/data/press.test.ts` | every cited source names a fact that renders and is `confirmed`; the confirmed/family distinction holds |
 | `tests/data/family.test.ts` | **no Chinese name is invented for a family member**; no record carries an age |
 | `tests/fonts/coverage.test.ts` | every CJK character in source is in the committed subset |
-| `tests/data/chinese-copy.test.ts` | 正體字 only; full-width punctuation; no dangling anaphor; attested proper nouns |
+| `tests/data/chinese-copy.test.ts` | 正體字 only, against 3,805 simplified-only characters generated from OpenCC with Taiwan variants (`npm run simplified-table`); full-width punctuation; no dangling anaphor; attested proper nouns |
 | `tests/docs/links.test.ts` | every relative link in README and `docs/` resolves the way GitHub resolves it: a clickable link only from its own doc's directory, and every path with exact letter case (macOS would otherwise accept a case-only mismatch that 404s on GitHub) |
 | `tests/data/english-copy.test.ts` | American spelling in every rendered English string |
 | `tests/admin/archive-io.test.ts` | the admin editor's save: a no-op save of the real `archive.ts` is byte-identical; comments between entries survive edits, reorders and deletions; a change to an entry with a comment inside it is refused; no test writes to the real file |
@@ -211,6 +211,7 @@ deliberately breaking it:
 | PR checks (`ci.yml`) | push a test asserting `1 === 2` to an open PR | PR check red at Test, Build skipped (PR #46, run 42505386952) |
 | links: doc-relative | a repo-root path in `docs/superpowers/specs/` | 1 test fails, names the link |
 | links: letter case | link to `…-NOTHING.md` | 1 test fails (macOS included) |
+| simplified table | append 该 to a fact; swap 獎 for 奖 | 1 test fails each, naming the Taiwan form |
 | media consent | set the family channel `confirmed: true` | 2 tests fail |
 | logo gating | give AUSD the City of Arcadia seal | 2 tests fail |
 | video attribution | drop `hostChannel` from the 833K video | 1 test fails |
