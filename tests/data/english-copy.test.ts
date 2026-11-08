@@ -46,6 +46,29 @@ const SOURCES = [
   'ui',
 ] as const
 
+/** Every individual reader in the collector, by its `where` label minus the
+ *  id. Floored one by one, not per source: three sub-field readers
+ *  (affiliation role, archive needs, timeline year) shared a bucket with a
+ *  sibling, so deleting one or pointing it at the other language passed
+ *  (todo 013, item 2). A reader missing from this list fails too. */
+const READERS = [
+  'fact',
+  'affiliation name',
+  'affiliation role',
+  'archive',
+  'archive needs',
+  'archive caption',
+  'figure',
+  'media',
+  'press',
+  'timeline',
+  'timeline year',
+  'ui',
+] as const
+
+/** "archive 'x' needs" → "archive needs"; "fact 'x'" → "fact". */
+const readerOf = (where: string) => where.replace(/ '[^']*'/, '')
+
 function renderedEnglish(): Str[] {
   const out: Str[] = []
   const add = (source: string, where: string, text?: string) => {
@@ -166,6 +189,19 @@ describe('American English copy', () => {
       expect(
         english.length,
         `no English collected from '${source}' — that reader is pointed at the wrong field`
+      ).toBeGreaterThan(0)
+    }
+
+    // Per reader — the finer floor; see READERS.
+    const collected = new Set(strings.map((s) => readerOf(s.where)))
+    for (const reader of collected) {
+      expect(READERS as readonly string[], `reader '${reader}' is not in READERS — add it`).toContain(reader)
+    }
+    for (const reader of READERS) {
+      const hits = strings.filter((s) => readerOf(s.where) === reader && /[A-Za-z]/.test(s.text) && ![...s.text].some(isCjk))
+      expect(
+        hits.length,
+        `no English collected by the '${reader}' reader — it was dropped or points at the wrong field`
       ).toBeGreaterThan(0)
     }
     // Anchor: swapping ui.en for ui['zh-hant'] would leave the counts intact.
