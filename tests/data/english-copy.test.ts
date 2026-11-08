@@ -19,7 +19,8 @@ import { ui } from '../../src/i18n/ui'
 // American certificate.
 //
 // Sibling of chinese-copy.test.ts, same shape: rendered fields only. Comments
-// and notes are prose for maintainers and are swept separately by hand.
+// and notes are prose for maintainers and are swept separately by hand;
+// scripts/verify-no-notes.mjs (postbuild) keeps them out of the built site.
 
 type Str = { source: string; where: string; text: string }
 
