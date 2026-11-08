@@ -1,0 +1,50 @@
+name: CI
+
+# Runs the same checks as deploy.yml's build job, but on pull requests, so a
+# regression shows up on the PR that caused it instead of breaking the deploy
+# after merge. Deliberately a separate workflow: it has no Pages permissions
+# and no deploy job, so a PR can never publish anything.
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Copied from deploy.yml, assertion included. astro check has exited 0
+      # without running before; only its own "Result (" line proves it ran.
+      - name: Typecheck
+        run: |
+          set -o pipefail
+          npx astro check --minimumSeverity error 2>&1 | tee /tmp/astro-check.log
+          grep -q 'Result (' /tmp/astro-check.log || {
+            echo "::error::astro check did not run — see log above"
+            exit 1
+          }
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        env:
+          SITE_URL: https://minmeychang.com
+          ALLOW_INDEXING: 'true'
+        run: npm run build
