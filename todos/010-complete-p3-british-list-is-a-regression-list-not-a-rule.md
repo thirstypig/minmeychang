@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 priority: p3
 issue_id: 010
 tags: [code-review, copy, i18n]
@@ -67,7 +67,7 @@ Effort: trivial. Do this regardless.
 
 ## Recommended Action
 
-_(blank — for triage)_
+A + D done 2026-11-08, plus the listed missing words. B (pattern arm) and C (exemption set) deliberately not done — see Work Log.
 
 ## Acceptance Criteria
 
@@ -77,3 +77,11 @@ _(blank — for triage)_
 ## Work Log
 
 - 2026-08-20 — Found during `/ce:review` of PR #18.
+- 2026-11-08 — Done: A (the failure message now names the official-name /
+  quotation escape hatch, and says plainly that no exemption list exists yet),
+  D (header explains why press title/outlet are not collected), and 29 words
+  from the Problem Statement added. `towards` deliberately NOT added — it is
+  correct American usage, which would break the list's own rule. Not done: B,
+  a medium-risk rule for a prospective problem (no current string trips
+  anything), and C, which the todo itself defers until a real name needs it.
+  Sabotage: "neighbourhood" in a UI string → 1 failed, hint printed.

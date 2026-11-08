@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 priority: p3
 issue_id: 013
 tags: [code-review, verification]
@@ -56,14 +56,14 @@ the file's own comment prescribes. Effort: Medium.
 
 ## Recommended Action
 
-_(blank — for triage)_
+C for item 1 (with todo 002); A for item 2, 2026-11-08.
 
 ## Acceptance Criteria
 
-- [ ] Dropping or mispointing **any** individual reader fails, including the
+- [x] Dropping or mispointing **any** individual reader fails, including the
       three sub-field ones.
 - [x] A case-only link mismatch fails on macOS.
-- [ ] README rows corrected to match.
+- [x] README rows corrected to match.
 
 ## Work Log
 
@@ -73,3 +73,10 @@ _(blank — for triage)_
   `existsExactly()` compares each segment against `readdirSync`. Probe: a link
   to `…-NOTHING.md` → 1 failed on macOS. Item 2 (per-reader floors) still open,
   so this file stays pending.
+- 2026-11-08 — Item 2 closed (option A, floor per reader). Both copy suites
+  now list every reader in READERS and require each to collect at least one
+  string in its own language; a collected reader missing from the list also
+  fails. The review's three mutations, run against BOTH files (six runs), each
+  fail naming the reader: drop `timeline year`, point `archive needs` at the
+  other language, point `affiliation role` at the other language. README row
+  corrected — its "any reader" claim is now true.

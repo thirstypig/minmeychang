@@ -209,6 +209,7 @@ deliberately breaking it:
 | font coverage | drop a glyph from the manifest | 2 tests fail, names the glyph |
 | CI typecheck | remove `@astrojs/check` | step fails on missing `Result (` |
 | PR checks (`ci.yml`) | push a test asserting `1 === 2` to an open PR | PR check red at Test, Build skipped (PR #46, run 42505386952) |
+| British spelling (new words) | add "neighbourhood" to a UI string | 1 test fails, names the American form and the official-name/quotation escape hatch |
 | links: doc-relative | a repo-root path in `docs/superpowers/specs/` | 1 test fails, names the link |
 | links: letter case | link to `…-NOTHING.md` | 1 test fails (macOS included) |
 | simplified table | append 该 to a fact; swap 獎 for 奖 | 1 test fails each, naming the Taiwan form |
@@ -236,7 +237,7 @@ deliberately breaking it:
 | comment above a deleted entry | drop it instead of carrying it forward | 1 test fails |
 | comment inside an entry | remove the refusal | 1 test fails |
 | tests never touch the real archive | write to `ARCHIVE_PATH` instead of `path` | the run fails, naming the real file |
-| Chinese collector | point any reader at `.en`, or drop one entirely | 1 test fails, names the source |
+| Chinese and English collectors | point any reader at the other language, or drop one entirely — including the sub-field readers (affiliation role, archive needs, timeline year) | 1 test fails, names the reader |
 | testimony phrasing | promote either hospital fact to `confirmed` | 1-2 tests fail |
 | doc links | typo a path in README, or either form of a `related:` entry | 1 test fails, names the link |
 | American spelling | write "honoured" or "programmes" in a fact | 1 test fails, names the word |
