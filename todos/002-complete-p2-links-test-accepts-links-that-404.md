@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 priority: p2
 issue_id: 002
 tags: [code-review, verification, docs, false-negative]
@@ -68,7 +68,7 @@ cheap to actually close, unlike the case one. Effort: none.
 
 ## Recommended Action
 
-_(blank — for triage)_
+Option A, done 2026-11-08, with one correction found while doing it (see Work Log).
 
 ## Technical Details
 
@@ -81,10 +81,10 @@ _(blank — for triage)_
 
 ## Acceptance Criteria
 
-- [ ] A repo-root-style `[text](docs/...)` link inside a nested doc fails.
-- [ ] All existing links still pass.
-- [ ] `related:` frontmatter entries still resolve from the repo root.
-- [ ] Negative-tested by re-running the probe above; add it to the README
+- [x] A repo-root-style `[text](docs/...)` link inside a nested doc fails.
+- [x] All existing links still pass.
+- [x] `related:` frontmatter entries still resolve from the repo root.
+- [x] Negative-tested by re-running the probe above; add it to the README
       sabotage table.
 
 ## Work Log
@@ -96,3 +96,10 @@ _(blank — for triage)_
 
 - PR: https://github.com/thirstypig/minmeychang/pull/18
 - `docs/solutions/build-errors/verification-that-verifies-nothing.md`
+- 2026-11-08 — Fixed (option A). Correction to the finding above: `related:`
+  entries are NOT all repo-root; five use `../` doc-relative form. Both forms
+  are unambiguous to the person reading them, so `related:` accepts either;
+  clickable links accept only doc-relative. Probe from this file re-run:
+  repo-root link in `docs/superpowers/specs/zz-probe.md` → 1 failed, naming it;
+  the correct `../../` form → passes. Also closed todo 013 item 1 (letter case)
+  in the same change. Repo root now comes from `import.meta.url`, not cwd.

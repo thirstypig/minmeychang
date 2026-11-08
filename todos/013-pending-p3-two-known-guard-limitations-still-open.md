@@ -62,10 +62,14 @@ _(blank — for triage)_
 
 - [ ] Dropping or mispointing **any** individual reader fails, including the
       three sub-field ones.
-- [ ] A case-only link mismatch fails on macOS.
+- [x] A case-only link mismatch fails on macOS.
 - [ ] README rows corrected to match.
 
 ## Work Log
 
 - 2026-08-20 — Item 1 read from the source comment; item 2 found by review
   agent during `/ce:review` of PR #18.
+- 2026-11-08 — Item 1 (case-blind links) closed alongside todo 002:
+  `existsExactly()` compares each segment against `readdirSync`. Probe: a link
+  to `…-NOTHING.md` → 1 failed on macOS. Item 2 (per-reader floors) still open,
+  so this file stays pending.
