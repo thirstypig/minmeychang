@@ -20,7 +20,8 @@
     "favicon": "node scripts/build-favicon.mjs",
     "touch-icons": "node scripts/build-touch-icons.mjs",
     "clippings": "node scripts/build-clipping-scans.mjs",
-    "admin": "node scripts/admin-server.mjs"
+    "admin": "node scripts/admin-server.mjs",
+    "simplified-table": "node scripts/build-simplified-table.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
