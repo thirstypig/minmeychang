@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 priority: p3
 issue_id: 012
 tags: [code-review, privacy, docs]
@@ -13,10 +13,9 @@ dependencies: []
 `docs/solutions/research-issues/proving-a-negative-from-archives.md` reproduces
 material from archived hospital rosters in a public repository:
 
-- `:160-162` — a 2019 Foundation board roster verbatim: `Chair: Susan Woo`,
-  `Gang Ding · Kin Hui · Sherry Wang · Jerome Yuan`
-- `:201` — six surnames used as grep positive controls: `Segal Tolaney Quigley
-  Helms Beck Lucas`
+- `:160-162` — a 2019 Foundation board roster verbatim: `Chair: <name>`,
+  four more names
+- `:201` — six surnames used as grep positive controls: six surnames
 - `:227-228` — the `bio_<initial><surname>.aspx` slug pattern, and "39 board
   members"
 
@@ -50,13 +49,19 @@ costs nothing until someone objects.
 
 ## Recommended Action
 
-_(blank — for triage)_
+Option A, done 2026-11-08.
 
 ## Acceptance Criteria
 
-- [ ] Either the names are gone, or a decision to keep them is recorded.
-- [ ] Every methodological finding still reads correctly after any redaction.
+- [x] Either the names are gone, or a decision to keep them is recorded.
+- [x] Every methodological finding still reads correctly after any redaction.
 
 ## Work Log
 
 - 2026-08-20 — Found by review agent during `/ce:review` of PR #18.
+- 2026-11-08 — Option A. Roster names at :160-162 and the six control surnames
+  at :201 replaced with placeholders, with a line saying why; the slug pattern
+  and the count of 39 carry no names and stay. This file repeated the same
+  names and was redacted too. Note: git history still holds them (a force-push
+  does not remove commits from GitHub); rewriting history was judged
+  disproportionate for republished public-roster names.
