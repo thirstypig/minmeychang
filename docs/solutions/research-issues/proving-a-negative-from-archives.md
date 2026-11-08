@@ -157,10 +157,14 @@ The roster was there, starting at line 138, below the entire site chrome:
 
 ```
 2019 Foundation Board of Directors
-Chair: Susan Woo
+Chair: [name]
 ...
-Gang Ding · Kin Hui · Sherry Wang · Jerome Yuan
+[name] · [name] · [name] · [name]
 ```
+
+(Names redacted 2026-11-08. They are living people, several from her own
+community, and the finding does not depend on who they are — only that the
+roster was there.)
 
 Had this gone unchecked, the negative would have been **vacuous** — a true
 statement ("no Chang appears in the text I read") masquerading as a finding
@@ -198,7 +202,9 @@ One cheap habit defeats every instance above:
 On each roster, after finding no `Chang`, grep for a name the page must contain:
 
 ```bash
-for n in Segal Tolaney Quigley Helms Beck Lucas; do
+# Six surnames read off the page by eye first. Redacted here (2026-11-08):
+# the technique needs names you KNOW are on the page, not these ones.
+for n in SURNAME1 SURNAME2 SURNAME3 SURNAME4 SURNAME5 SURNAME6; do
   printf "%-12s %s\n" "$n" "$(grep -ci "$n" roster.html)"
 done
 ```
