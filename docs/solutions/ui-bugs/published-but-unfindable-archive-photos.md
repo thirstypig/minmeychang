@@ -69,6 +69,8 @@ entry points. So the fix adds a second entry point and leaves the order alone.
 - **A per-photo URL**, `/archive/#<entry id>`, which opens the lightbox on load.
   This is the link to text someone.
 - **A sticky section bar** with counts, and decade links under each section.
+  On phones it scrolled sideways with the scrollbar hidden, so it repeated
+  this bug one level up; see the follow-up below.
 - **480 px thumbnails** for the grid (`npm run thumbs`, also run by
   `npm run photos`): 32 MB becomes **5.2 MB**. The page is ~35% shorter, not
   the 4× first estimated, because the titles under each thumbnail take room.
@@ -91,6 +93,25 @@ entry points. So the fix adds a second entry point and leaves the order alone.
   the page, so the first screenshot after a CSS fix showed the old CSS and the
   previously open photo.
 
+## Follow-up: the section bar hid sections (PR #54, 2026-11-08)
+
+The bar added to make sections findable hid some of them on phones. It scrolled
+sideways with its scrollbar hidden. At 390 px, "Community & Civic Life" was cut
+mid-word, and the last sections showed no sign they existed. The top bar had the
+same fault, fixed in #47. A user reported that one, not a test.
+
+- **All six sections are now wrapping buttons.** Nothing sits off-screen.
+- **Pinned only from 40rem.** Wrapped at 360 px, the bar is **277 px** in
+  English: five rows, a third of the screen. That is too tall to pin over a
+  photo grid. Phones get a floating "Jump to a section" button instead, which
+  an IntersectionObserver hides while the bar is visible.
+- **The jump offset is measured, not fixed.** The pinned bar is 80 / 89 /
+  206 px at the text-size control's 0.9 / 1 / 1.6×. A fixed `7rem` left
+  headings **26 px under** the bar at 1.6×. A ResizeObserver now writes the
+  bar's height to `--archive-bar`, and headings clear it by 14–26 px at every
+  size. Forcing `--archive-bar: 0px` puts the heading 180 px under, which
+  proves the variable is doing the work.
+
 ## Prevention
 
 - **A deploy check for new content must include a reader path.** From the
@@ -98,6 +119,11 @@ entry points. So the fix adds a second entry point and leaves the order alone.
   "Served with a 200" is not that check.
 - **Give every image dimensions.** Without them, any in-page link to that image
   is unreliable, because the target moves while the page loads.
+- **A hidden scrollbar is a hidden item.** If a row of links can overflow,
+  wrap it, or show that more exists. At the largest text size, measure what
+  is off-screen rather than eyeballing the default size.
+- **An offset that clears a wrapping bar has to be measured.** Any fixed
+  `scroll-margin` is right at exactly one text size.
 - **When one ordering has to serve both "browse everything" and "what's new",
   add an entry point rather than reordering.**
 
