@@ -20,11 +20,13 @@ real errors were corrected on 2026-08-05 — including 加州眾議**會**議長
 is not a body — but that was self-review, not proofreading. It is the locale
 most of her community will actually read.
 
-The archive holds 145 entries — 124 photographs and 21 documents — organized
+The archive holds 144 entries — 124 photographs and 20 documents — organized
 into five categories (Family, The Arcadia Chinese School, Community & Civic
 Life, Buddha's Light International Association, Travel), each grouped by
-decade within it. One frame remains empty: a scan of the May 2001
-Acupuncture Board appointment letter, still to be found and redacted. Her
+decade within it. No frame is empty. The last one, awaiting the May 2001
+Acupuncture Board appointment letter, was removed on 2026-11-08 after the
+family found no letter. The appointment itself is still stated, sourced to
+the Board's own roster. Her
 calligraphy is no longer missing — several photographs of her brushwork are
 published, matching the site's 印泥 palette.
 
@@ -218,7 +220,7 @@ deliberately breaking it:
 | media consent | set the family channel `confirmed: true` | 2 tests fail |
 | logo gating | give AUSD the City of Arcadia seal | 2 tests fail |
 | video attribution | drop `hostChannel` from the 833K video | 1 test fails |
-| archive placeholders | remove an item's `needs` | 1 test fails |
+| archive placeholders | remove an item's `needs` | 1 test fails (none exist since 2026-11-08; add a placeholder without `needs` to re-prove) |
 | archive categories | assign an item an unknown category | 1 test fails |
 | archive section grouping | stop sorting decades in `buildArchiveSections` | 1 test fails |
 | archive thumbnails | delete one thumbnail | 2 tests fail |

@@ -1270,18 +1270,6 @@ export const archive: ArchiveItem[] = [
     },
   },
   {
-    id: 'appointment-letter',
-    kind: 'document',
-    decade: 2000,
-    category: 'community',
-    en: 'California Acupuncture Board appointment, May 2001',
-    zhHant: '2001年5月加州針灸委員會任命',
-    needs: {
-      en: 'Scan of the appointment letter. REDACT the home address and signature before this file enters public/.',
-      zhHant: '任命函掃描件。存入 public/ 前務必遮蔽住址與簽名。',
-    },
-  },
-  {
     id: 'sccs-certificate-2006',
     kind: 'document',
     decade: 2000,
