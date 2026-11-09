@@ -26,6 +26,9 @@ describe('archive', () => {
   // blank dashed rectangle. A visitor sees an apparently broken image; the
   // family sees nothing telling them what to go and find. The placeholder is
   // only useful because it states what is missing.
+  //
+  // Vacuous while there are no placeholders — there are none since the 2001
+  // appointment letter's frame was removed (2026-11-08). Kept for the next one.
   it('every item without an asset says what is needed', () => {
     for (const item of placeholderItems) {
       expect(

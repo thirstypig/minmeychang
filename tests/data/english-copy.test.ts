@@ -50,13 +50,17 @@ const SOURCES = [
  *  id. Floored one by one, not per source: three sub-field readers
  *  (affiliation role, archive needs, timeline year) shared a bucket with a
  *  sibling, so deleting one or pointing it at the other language passed
- *  (todo 013, item 2). A reader missing from this list fails too. */
+ *  (todo 013, item 2). A reader missing from this list fails too.
+ *
+ *  'archive needs' is deliberately absent: it reads the text of an empty
+ *  placeholder frame, and since the last one (the 2001 appointment letter)
+ *  was removed on 2026-11-08 there is none to read. If a placeholder with
+ *  `needs` returns, the "not in READERS" check below fails — add it back. */
 const READERS = [
   'fact',
   'affiliation name',
   'affiliation role',
   'archive',
-  'archive needs',
   'archive caption',
   'figure',
   'media',
