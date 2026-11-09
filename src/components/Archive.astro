@@ -49,28 +49,36 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
     JavaScript every thumbnail is still a plain link to the full photograph
     and every caption is still readable. */}
 <div data-archive>
-  <nav class="archive-nav sticky top-0 z-10 -mx-6 mt-8 px-6 py-3" aria-label={t('archiveJumpNav')}>
-    {/* Scrolls sideways on a phone, where a wrapped sticky bar would eat the
-        screen; wraps on wider screens, where a hidden scrollbar cut off the
-        last two sections with no sign they were there. */}
-    <ul class="flex gap-x-5 gap-y-1 overflow-x-auto whitespace-nowrap text-sm list-none p-0 sm:flex-wrap sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+  <nav id="archive-sections" class="archive-nav archive-anchor -mx-6 mt-8 px-6 py-3" aria-label={t('archiveJumpNav')}>
+    {/* Every section visible at once, as buttons that wrap. Until 2026-11 this
+        scrolled sideways on a phone with the scrollbar hidden, so "Community &
+        Civic Life" was cut mid-word and the last sections had no sign they
+        existed — the same fault the top bar had (PR #47).
+        Sticky only from 40rem: wrapped on a phone it is three rows, and a bar
+        that tall pinned over a photo grid eats a fifth of the screen. Phones
+        get the "Sections" button below instead. */}
+    <ul class="flex flex-wrap gap-2 text-sm list-none p-0">
       {recent.length > 0 && (
         <li>
-          <a href="#recent" class="underline underline-offset-4" style="color: var(--brand)">
-            {t('archiveRecent')}
-          </a>
+          <a href="#recent" class="section-chip">{t('archiveRecent')}</a>
         </li>
       )}
       {sections.map((s) => (
         <li>
-          <a href={`#${s.category}`} class="underline underline-offset-4" style="color: var(--brand)">
+          <a href={`#${s.category}`} class="section-chip">
             {pick(archiveCategoryLabels[s.category])}
+            <span class="tabular-nums" style="color: var(--text-soft)">{photoCount(s.items)}</span>
           </a>
-          <span class="tabular-nums" style="color: var(--text-soft)"> {photoCount(s.items)}</span>
         </li>
       ))}
     </ul>
   </nav>
+
+  {/* Phones only (the bar above is not sticky there). Hidden by script while
+      the bar itself is on screen; without JavaScript it simply stays visible. */}
+  <a href="#archive-sections" class="archive-back no-print share-button" data-archive-back>
+    <span aria-hidden="true">↑</span> {t('archiveJumpNav')}
+  </a>
 
   {
     recent.length > 0 && (
@@ -259,6 +267,45 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
     background: var(--surface);
     border-bottom: 1px solid var(--rule);
   }
+  @media (min-width: 40rem) {
+    .archive-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .archive-back {
+      display: none !important;
+    }
+    /* Clear the pinned bar. It wraps to two rows at 1x and three at 1.6x, so
+       no fixed offset fits: the script measures it into --archive-bar. 9rem
+       is the no-JavaScript fallback. */
+    .archive-anchor,
+    [data-archive] :target {
+      scroll-margin-top: calc(var(--archive-bar, 9rem) + 1rem);
+    }
+  }
+  /* Pinned with a mouse, the bar is two rows; at the 44px touch size that is
+     121px of every screen. A fine pointer does not need the touch size. */
+  @media (min-width: 40rem) and (pointer: fine) {
+    .archive-nav {
+      padding-block: 0.5rem;
+    }
+    .section-chip {
+      min-height: 2rem;
+      padding-block: 0.25rem;
+    }
+  }
+  .archive-back {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 10;
+    font-size: 0.875rem;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+  }
+  .archive-back[hidden] {
+    display: none;
+  }
   /* Keep headings and linked photos clear of the sticky bar when jumped to. */
   .archive-anchor {
     scroll-margin-top: 4rem;
@@ -356,6 +403,24 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
 </style>
 
 <script>
+  // The section bar: the phone-only "Sections" button hides while the bar is
+  // on screen, and the bar's height (it wraps, and grows with the text-size
+  // control) is published as --archive-bar so jumps land below it.
+  {
+    const bar = document.getElementById('archive-sections')
+    const back = document.querySelector<HTMLElement>('[data-archive-back]')
+    if (bar && back && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => {
+        back.hidden = e.isIntersecting
+      }).observe(bar)
+    }
+    if (bar && 'ResizeObserver' in window) {
+      new ResizeObserver(() => {
+        document.documentElement.style.setProperty('--archive-bar', `${bar.offsetHeight}px`)
+      }).observe(bar)
+    }
+  }
+
   // Progressive enhancement over plain links. Everything the page shows works
   // without this; it adds the in-page viewer, arrow/swipe navigation, and a
   // per-photo URL (#<item id>) that opens the viewer when shared.
