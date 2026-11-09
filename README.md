@@ -29,8 +29,10 @@ calligraphy is no longer missing — several photographs of her brushwork are
 published, matching the site's 印泥 palette.
 
 The archive page is a thumbnail gallery. A **Recently added** row comes first
-(driven by an optional `added` date on each entry), then a sticky bar to each
-section with its photo count, and decade links under each section heading.
+(driven by an optional `added` date on each entry), then a bar of buttons to each
+section with its photo count (all visible, wrapping; pinned on wider screens,
+with a floating "Jump to a section" button on phones instead), and decade
+links under each section heading.
 Tapping a photo opens a lightbox built on the browser's own `<dialog>`, with
 the full caption, arrows, swipe and Esc. Every photo has its own link:
 `/archive/#<entry id>` opens straight to it. Without JavaScript, each thumbnail
