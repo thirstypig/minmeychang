@@ -103,9 +103,9 @@ export const ui = {
       "Min Mey Chang at Hsi Lai Temple, where she is a member and a volunteer, and in Buddha's Light International Association, whose Arcadia chapter she founded in 1994.",
     descCalligraphy:
       'Min Mey Chang\'s Chinese calligraphy: each Lunar New Year she writes it for visitors at the Huntington Library, the Los Angeles County Arboretum and Hsi Lai Temple, and gives the pieces away.',
-    pressHeading: 'Coverage',
+    pressHeading: 'Coverage and records',
     pressIntro:
-      'Independent accounts of her work in Chinese-language community media. Each one below is also a source for a fact on this site.',
+      'Independent accounts of her work, in community media and in organizations\' own records. Many of them are also sources for facts on this site.',
     affiliationsHeading: 'Institutions',
     marksNotice:
       'Institutional names and marks belong to their respective owners and are shown to identify the organizations Min Mey Chang served. This site is published by her family and is not affiliated with, sponsored by, or endorsed by any of them.',
@@ -180,8 +180,8 @@ export const ui = {
       '張馬敏妹與西來寺及國際佛光會：她是西來寺信眾與志工，並於1994年創立國際佛光會亞凱迪亞分會。',
     descCalligraphy:
       '張馬敏妹的書法：每逢農曆新年，她皆於杭廷頓圖書館、洛杉磯郡植物園及西來寺為來訪民眾當場揮毫，並將作品贈送給他們。',
-    pressHeading: '媒體報導',
-    pressIntro: '華文社區媒體對她工作的獨立報導。以下每則同時也是本網站事實的出處。',
+    pressHeading: '報導與紀錄',
+    pressIntro: '社區媒體與相關機構自身紀錄中，對她工作的獨立記載。其中多則同時也是本網站事實的出處。',
     affiliationsHeading: '所屬機構',
     marksNotice:
       '各機構名稱與標誌均屬其所有者所有，此處僅用以識別張馬敏妹女士曾服務之組織。本網站由其家人建置，與上述任何機構均無隸屬、贊助或背書關係。',

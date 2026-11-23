@@ -34,7 +34,8 @@ export const press: PressItem[] = [
     url: 'https://www.lnanews.com/news/150416',
     outlet: '人間通訊社 Merit Times',
     title: '洛杉磯亞市前市長張勝雄　感念大師特來致意',
-    date: '2016',
+    // Was '2016'; the article itself is dated 2023-04-02 (checked 2026-11-23).
+    date: '2023-04-02',
     en: 'On meeting the abbot of Fo Guang Shan. Records her as founding president of the BLIA Arcadia chapter and former principal of the Arcadia Chinese School — and refers to her husband as a former mayor of Arcadia.',
     zhHant:
       '記述與佛光山住持會面。文中載明她為國際佛光會亞市分會創會會長、曾任亞凱迪亞中文學校校長，並稱夫婿為亞市前市長。',
@@ -92,6 +93,79 @@ export const press: PressItem[] = [
     zhHant:
       '報導得獎者記者會。她因旅行未能出席，張勝雄醫師笑言「她做得比我更多，更配得這個獎」。',
     corroborates: 'historymakers-lifetime-achievement',
+  },
+  // Found by a web search on 2026-11-23 (her names in English and Chinese),
+  // each page fetched and checked to name her. Descriptions say only what the
+  // page says. None of these added a fact to facts.ts; where a page goes
+  // beyond or against the family's account, it has no `corroborates`.
+  {
+    id: 'annnews-historymakers-2026',
+    url: 'https://www.annnewsnet.com/華美博物館舉辦第-30-屆頒獎典禮-致敬2026年度歷史締造/',
+    outlet: 'ANN NEWS 華聞在線',
+    title: '華美博物館舉辦第 30 屆頒獎典禮 致敬2026年度歷史締造者',
+    date: '2026-09-29',
+    en: 'Report on the gala itself, naming her and Dr. Chang as joint recipients of the Dr. Dan S. Louie Jr. Lifetime Achievement Award, and her as the founding principal of the Arcadia Chinese School.',
+    zhHant:
+      '報導頒獎典禮當晚實況，載明她與張勝雄醫師共同獲頒呂國芳博士終身成就獎，並稱她為亞凱迪亞中文學校創校校長。',
+    corroborates: 'historymakers-lifetime-achievement',
+  },
+  {
+    id: 'chinesedaily-historymakers-2026',
+    url: 'https://www.chinesedaily.com/article/detail-704582.html',
+    outlet: '華人今日網 Chinese Daily News',
+    title: '華美博物館公布「歷史締造者」名單',
+    date: '2026-09-10',
+    en: 'Announces the 2026 Historymakers honorees, naming her and Dr. Chang as joint recipients of the lifetime achievement award, and her as founder of the Arcadia Chinese School.',
+    zhHant:
+      '報導華美博物館公布2026年歷史締造者得獎名單，載明她與張勝雄醫師共同獲頒呂國芳博士終身成就獎，並記述她創辦亞凱迪亞中文學校。',
+    corroborates: 'historymakers-lifetime-achievement',
+  },
+  {
+    id: 'shih-chien-alumni-office',
+    url: 'https://career.usc.edu.tw/p/412-1064-345.php?Lang=zh-tw',
+    outlet: '實踐大學 Shih Chien University',
+    title: '校友會簡介',
+    // The page carries no date; this is the year it was found listing her.
+    date: '2026',
+    en: 'The university\'s own alumni office directory, listing her as president of the North America alumni association.',
+    zhHant: '實踐大學校友服務單位的校友會名錄，列她為北美校友總會會長。',
+    corroborates: 'shih-chien',
+  },
+  {
+    // Roster in the PDF's own columns: 84-85 副會長 and 財務; 85-86 會長.
+    // Years are Western (the roll runs to 13-14). facts.ts says president in
+    // 1986 for two years: not changed on the strength of this, see STATUS.md.
+    id: 'scccs-board-roster',
+    url: 'https://s3.amazonaws.com/scccs.net/Intro/38th/Board_List_38th.pdf',
+    outlet: '南加州中文學校聯合會 Southern California Council of Chinese Schools',
+    title: '南加州中文學校聯合會歷屆理事會目錄',
+    // PDF created 2014-08-27.
+    date: '2014',
+    en: 'The council\'s own roll of past boards, listing her as vice president and treasurer for 1984–85 and as president for 1985–86.',
+    zhHant: '該聯合會歷屆理事會名錄，載明她於1984至1985年度任副會長兼財務，1985至1986年度任會長。',
+  },
+  {
+    // The yearbook's own 1982 founding date, crediting Dr. Chang alone, is on
+    // another page; this essay is the one that names her.
+    id: 'aca-yearbook-2022',
+    url: 'https://arcadiachineseassociation.org/wp-content/uploads/2022/10/ACA_2022_final_LR.pdf#page=28',
+    outlet: '亞凱迪亞華人協會 Arcadia Chinese Association',
+    title: '華協 - 從故到今 ACA Now and Then',
+    date: '2022',
+    en: 'A former president\'s history of the association, reprinted in its 40th-anniversary yearbook. It says the association grew out of Chinese film evenings that Dr. Chang and she began at Baldwin Stocker School around 1984.',
+    zhHant:
+      '歷屆會長撰文，收錄於該會四十週年紀念特刊。文中記述華協約於1984年起源於張勝雄醫師與她在 Baldwin Stocker 小學舉辦的中國影片放映聚會。',
+  },
+  {
+    id: 'cal-heritage-profile',
+    url: 'https://webapp.cal.org/Heritage/ProfileDetails.aspx?id=312',
+    outlet: 'Center for Applied Linguistics',
+    title: 'Heritage Languages in America: Arcadia Chinese School',
+    // Undated; the page footer reads © 2013. It gives the founding as 1981,
+    // against the family's 1982, so it is not cited as a source for that fact.
+    date: '2013',
+    en: 'A national directory of heritage-language schools, listing her as principal of the Arcadia Chinese School.',
+    zhHant: '美國應用語言學中心（Center for Applied Linguistics）的傳承語言學校名錄，列她為亞凱迪亞中文學校校長。',
   },
   {
     id: 'fb-2016',
