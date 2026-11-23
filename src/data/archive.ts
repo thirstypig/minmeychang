@@ -720,6 +720,32 @@ export const archive: ArchiveItem[] = [
     },
   },
   {
+    id: 'parade-red-shirts-flags',
+    kind: 'photo',
+    decade: 1980,
+    category: 'chinese-school',
+    en: 'At an outdoor community festival',
+    zhHant: '社區戶外慶典',
+    asset: '/archive/parade-red-shirts-flags.jpg',
+    caption: {
+      en: 'With a group of boys in matching red shirts holding paper fans and flags, at an outdoor festival strung with bunting.',
+      zhHant: '與一群身穿紅色團服、手持紙扇與旗幟的男孩合影，攝於掛滿彩旗的戶外慶典。',
+    },
+  },
+  {
+    id: 'signing-ceremony-desk',
+    kind: 'photo',
+    decade: 1980,
+    category: 'chinese-school',
+    en: 'Signing papers at a desk',
+    zhHant: '伏案簽署文件',
+    asset: '/archive/signing-ceremony-desk.jpg',
+    caption: {
+      en: 'Seated at a desk signing papers with a colleague, a plum-blossom scroll painting on the wall behind.',
+      zhHant: '與一位同仁並坐簽署文件，身後牆上掛有一幅梅花水墨掛軸。',
+    },
+  },
+  {
     id: 'arcadia-chinese-school-group-banner',
     kind: 'photo',
     decade: 1990,
@@ -812,6 +838,32 @@ export const archive: ArchiveItem[] = [
     },
   },
   {
+    id: 'office-desk-mosaic-jacket',
+    kind: 'photo',
+    decade: 1990,
+    category: 'chinese-school',
+    en: 'At her desk',
+    zhHant: '伏案辦公',
+    asset: '/archive/office-desk-mosaic-jacket.jpg',
+    caption: {
+      en: 'Seated at an office desk, a plaque reading 平安富貴 — peace, prosperity and honor — on the shelf behind.',
+      zhHant: '坐於辦公桌前，身後架上擺有一方刻著「平安富貴」的木牌。',
+    },
+  },
+  {
+    id: 'alaska-museum-diorama',
+    kind: 'photo',
+    decade: 1990,
+    category: 'chinese-school',
+    en: 'At a museum in Alaska',
+    zhHant: '阿拉斯加博物館參觀',
+    asset: '/archive/alaska-museum-diorama.jpg',
+    caption: {
+      en: 'With Dr. Chang beside a museum diorama of an indigenous Alaskan dwelling, both wearing matching shirts printed with a peacock crest.',
+      zhHant: '與張勝雄醫師合影於博物館內一座阿拉斯加原住民居所模型旁，兩人身著印有孔雀紋樣的同款上衣。',
+    },
+  },
+  {
     id: 'world-journal-commendation',
     kind: 'document',
     decade: 2000,
@@ -884,32 +936,6 @@ export const archive: ArchiveItem[] = [
     en: "Arcadia Beautiful Award — the Mayor's Award, 1984",
     zhHant: '亞凱迪亞美化獎——市長獎，1984年',
     asset: '/archive/arcadia-beautiful-1984.jpg',
-  },
-  {
-    id: 'signing-ceremony-desk',
-    kind: 'photo',
-    decade: 1980,
-    category: 'community',
-    en: 'Signing papers at a desk',
-    zhHant: '伏案簽署文件',
-    asset: '/archive/signing-ceremony-desk.jpg',
-    caption: {
-      en: 'Seated at a desk signing papers with a colleague, a plum-blossom scroll painting on the wall behind.',
-      zhHant: '與一位同仁並坐簽署文件，身後牆上掛有一幅梅花水墨掛軸。',
-    },
-  },
-  {
-    id: 'parade-red-shirts-flags',
-    kind: 'photo',
-    decade: 1980,
-    category: 'community',
-    en: 'At an outdoor community festival',
-    zhHant: '社區戶外慶典',
-    asset: '/archive/parade-red-shirts-flags.jpg',
-    caption: {
-      en: 'With a group of boys in matching red shirts holding paper fans and flags, at an outdoor festival strung with bunting.',
-      zhHant: '與一群身穿紅色團服、手持紙扇與旗幟的男孩合影，攝於掛滿彩旗的戶外慶典。',
-    },
   },
   {
     id: 'capta-parent-training-session',
@@ -1164,19 +1190,6 @@ export const archive: ArchiveItem[] = [
     caption: {
       en: 'Holding an Arcadia pennant with a group of six, a Chinese landscape scroll on the wall behind — likely a visiting delegation hosted in Arcadia.',
       zhHant: '與六人合影，手持印有「Arcadia」字樣之錦旗，身後牆上掛有一幅中式山水掛軸，應為接待來訪代表團之留影。',
-    },
-  },
-  {
-    id: 'office-desk-mosaic-jacket',
-    kind: 'photo',
-    decade: 1990,
-    category: 'community',
-    en: 'At her desk',
-    zhHant: '伏案辦公',
-    asset: '/archive/office-desk-mosaic-jacket.jpg',
-    caption: {
-      en: 'Seated at an office desk, a plaque reading 平安富貴 — peace, prosperity and honor — on the shelf behind.',
-      zhHant: '坐於辦公桌前，身後架上擺有一方刻著「平安富貴」的木牌。',
     },
   },
   {
@@ -1552,19 +1565,6 @@ export const archive: ArchiveItem[] = [
     caption: {
       en: 'With Dr. Chang in front of a photo backdrop of a fishing harbor and snow-capped mountains, on a trip to Alaska.',
       zhHant: '與張勝雄醫師合影於阿拉斯加漁港及雪山背景前，攝於一次阿拉斯加之旅。',
-    },
-  },
-  {
-    id: 'alaska-museum-diorama',
-    kind: 'photo',
-    decade: 1990,
-    category: 'travel',
-    en: 'At a museum in Alaska',
-    zhHant: '阿拉斯加博物館參觀',
-    asset: '/archive/alaska-museum-diorama.jpg',
-    caption: {
-      en: 'With Dr. Chang beside a museum diorama of an indigenous Alaskan dwelling, both wearing matching shirts printed with a peacock crest.',
-      zhHant: '與張勝雄醫師合影於博物館內一座阿拉斯加原住民居所模型旁，兩人身著印有孔雀紋樣的同款上衣。',
     },
   },
   {
@@ -2061,6 +2061,8 @@ export function itemsForCategory(category: ArchiveCategory): ArchiveItem[] {
 export const alsoShownOn: Partial<Record<ArchiveCategory, string[]>> = {
   // James, 2026-11-23: holding calligraphy at Chinese New Year 2025.
   calligraphy: ['chinese-new-year-2025'],
+  // James, 2026-11-23: the Lunar New Year 福 photo belongs with the school too.
+  'chinese-school': ['calligraphy'],
 }
 
 /** Everything a category's page shows: its own items, then any extras. */

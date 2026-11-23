@@ -1,10 +1,12 @@
 import { describe, expect, it } from 'vitest'
 import {
+  alsoShownOn,
   archive,
   archivePageCategories,
   buildArchiveSections,
   categoryPages,
   itemsForCategory,
+  itemsForPage,
   recentlyAdded,
 } from '../../src/data/archive'
 
@@ -14,10 +16,25 @@ import {
 describe('the Arcadia Chinese School page data', () => {
   const school = itemsForCategory('chinese-school')
 
-  it('holds all 19 items of the former archive section', () => {
-    expect(school).toHaveLength(19)
-    expect(school.filter((i) => i.kind === 'photo')).toHaveLength(12)
+  it('holds the 19 items of the former archive section and the four James added', () => {
+    expect(school).toHaveLength(23)
+    expect(school.filter((i) => i.kind === 'photo')).toHaveLength(16)
     expect(school.filter((i) => i.kind === 'document')).toHaveLength(7)
+    // Moved from the archive to the school on 2026-11-23 (James).
+    for (const id of ['parade-red-shirts-flags', 'signing-ceremony-desk', 'office-desk-mosaic-jacket', 'alaska-museum-diorama']) {
+      expect(school.map((i) => i.id), id).toContain(id)
+    }
+  })
+
+  it('also shows the Lunar New Year 福 photo, which stays on the Calligraphy page', () => {
+    expect(alsoShownOn['chinese-school']).toEqual(['calligraphy'])
+    expect(itemsForPage('chinese-school').map((i) => i.id)).toContain('calligraphy')
+    expect(itemsForPage('calligraphy').map((i) => i.id)).toContain('calligraphy')
+  })
+
+  it('keeps the archive array grouped: every school entry sits in one contiguous block', () => {
+    const idx = archive.map((i, n) => (i.category === 'chinese-school' ? n : -1)).filter((n) => n >= 0)
+    expect(idx[idx.length - 1]! - idx[0]! + 1).toBe(idx.length)
   })
 
   it('maps the school category to its route', () => {

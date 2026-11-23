@@ -9,7 +9,7 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - Nine pages per locale: home, story, timeline, service, talks, school, Hsi Lai, calligraphy, archive. English and Traditional Chinese at full parity.
 - Chinese held to Taiwan usage (正體字, formal written register).
 - Every fact must come from a family-provided source, never from memory; unconfirmed facts stay in a gitignored pending file.
-- Archive: 144 entries in `archive.ts`. The archive page shows 112 (99 photos, 13 documents) in three categories, grouped by decade. The Arcadia Chinese School (19 items), Hsi Lai Temple & Buddha's Light (10 photos) and Calligraphy (3 photos) have their own pages instead.
+- Archive: 144 entries in `archive.ts`. The archive page shows 108 (95 photos, 13 documents) in three categories, grouped by decade. The Arcadia Chinese School (23 items, plus the Lunar New Year 福 photo shown there too), Hsi Lai Temple & Buddha's Light (10 photos) and Calligraphy (3 photos) have their own pages instead.
 
 ## Stack & hosting
 - Astro 7 + Tailwind v4, `@astrojs/sitemap` (en / zh-hant i18n); TypeScript; Vitest.
@@ -22,6 +22,7 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - https://minmeychang.com
 
 ## Shipped (last 60 days)
+- **More school photos (2026-11-23):** James moved four archive photos to the School page (outdoor festival, signing papers, at her desk, Alaska museum) and added the Lunar New Year 福 photo there as a second appearance (it stays on Calligraphy). School page: 24 items; archive: 108. Old links to the four redirect.
 - **Photo on two pages (2026-11-23):** the Chinese New Year 2025 photo (holding calligraphy with BLIA members) now also appears on the Calligraphy page; it stays filed under Hsi Lai. `alsoShownOn` in `archive.ts` lists such extras.
 - **Hsi Lai Temple & Buddha's Light page (2026-11-23):** ninth page, /hsi-lai, 西來寺與國際佛光會. Intro: her Hsi Lai membership and volunteering (new, family tier), the BLIA Arcadia chapter she founded in 1994, and her Lunar New Year calligraphy. Then all 10 former archive Buddha's Light photos, grouped by decade. Old links redirect. Menu 3+3+3 on phones, 5+4 wider.
 - **Arcadia Chinese School page (2026-11-23):** eighth page, "The Arcadia Chinese School" / 亞凱迪亞中文學校. Its intro is the school's eight existing facts as a list; below that are all 19 former archive items (12 photos, 7 clippings and letters), grouped by decade, each with its own share button. Old archive links (items, the section and its decades) redirect. Menu is 3+3+2 on phones, 4+4 wider.

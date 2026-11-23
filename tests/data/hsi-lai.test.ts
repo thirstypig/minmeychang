@@ -19,9 +19,9 @@ describe('the Hsi Lai Temple & Buddha\'s Light page data', () => {
     expect(categoryPages.buddhist).toBe('temple')
   })
 
-  it('leaves the archive page with three sections and 112 items', () => {
+  it('leaves the archive page with three sections and 108 items', () => {
     expect(archivePageCategories).toEqual(['family', 'community', 'travel'])
-    expect(buildArchiveSections().flatMap((s) => s.items)).toHaveLength(112)
+    expect(buildArchiveSections().flatMap((s) => s.items)).toHaveLength(108)
   })
 
   it("the archive's recently-added row never shows one of them", () => {
