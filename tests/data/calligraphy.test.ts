@@ -7,22 +7,20 @@ import {
 } from '../../src/data/archive'
 import { confirmedFacts } from '../../src/data/facts'
 
-// The five photographs James moved from the archive to the Calligraphy page on
+// The photographs James moved from the archive to the Calligraphy page on
 // 2026-11-22. They stay in archive.ts (so the local admin editor still edits
 // them) under the 'calligraphy' category, which the archive page leaves out.
-const MOVED = [
-  'calligraphy-red-blazer',
-  'calligraphy-costume-party',
-  'calligraphy',
-  'calligraphy-exhibition',
-  'art-exhibition-with-friend',
-]
+const MOVED = ['calligraphy-red-blazer', 'calligraphy-costume-party', 'calligraphy']
+
+// Exhibition photos, not her calligraphy sessions (James, 2026-11-22): they
+// were briefly moved and belong back in the archive.
+const STAY_IN_ARCHIVE = ['calligraphy-exhibition', 'art-exhibition-with-friend']
 
 const APPROVED_EN =
   'Each Lunar New Year she volunteers her calligraphy. At the invitation of the Huntington Library in San Marino, the Los Angeles County Arboretum in Arcadia and Hsi Lai Temple in Hacienda Heights, she goes and writes calligraphy in front of visitors and gives the pieces to them.'
 
 describe('calligraphy page data', () => {
-  it('holds exactly the five moved photographs', () => {
+  it('holds exactly the moved photographs', () => {
     expect(new Set(calligraphyItems.map((i) => i.id))).toEqual(new Set(MOVED))
     expect(calligraphyItems).toHaveLength(MOVED.length)
   })
@@ -33,6 +31,12 @@ describe('calligraphy page data', () => {
       expect(item.caption?.en, item.id).toBeTruthy()
       expect(item.caption?.zhHant, item.id).toBeTruthy()
     }
+  })
+
+  it('the exhibition photographs stay in the archive, under Community', () => {
+    const community = buildArchiveSections().find((s) => s.category === 'community')
+    const ids = community?.items.map((i) => i.id) ?? []
+    for (const id of STAY_IN_ARCHIVE) expect(ids, id).toContain(id)
   })
 
   it('no archive section shows a moved photograph', () => {

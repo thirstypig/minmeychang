@@ -182,7 +182,7 @@ export const confirmedFacts: Fact[] = [
     status: 'family',
     source:
       'confirmed by James Chang (son), 2026-08-05; volunteering, the invitations, the yearly cadence and giving the pieces away stated by James Chang, 2026-11-22',
-    note: 'Five photographs of her writing and exhibiting calligraphy are on the Calligraphy page (archive.ts, category calligraphy). The zh-Hant places go in parentheses rather than stacked in front of each name, which would read as part of it.',
+    note: 'Three photographs of her writing calligraphy are on the Calligraphy page (archive.ts, category calligraphy); the two exhibition photos stay in the archive. The zh-Hant places go in parentheses rather than stacked in front of each name, which would read as part of it.',
   },
   {
     id: 'sheng-chang-mayor',

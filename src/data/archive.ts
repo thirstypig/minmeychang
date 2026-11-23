@@ -1273,6 +1273,33 @@ export const archive: ArchiveItem[] = [
     },
   },
   {
+    id: 'calligraphy-exhibition',
+    kind: 'photo',
+    decade: 2020,
+    category: 'community',
+    en: 'A calligraphy and painting exhibition',
+    zhHant: '書畫花藝聯展',
+    asset: '/archive/calligraphy-exhibition.jpg',
+    caption: {
+      en: 'At a joint exhibition of calligraphy, painting and floral art held for an alumni association Parents\' Day, with framed work behind.',
+      zhHant:
+        '攝於大專校友雙親節書畫花藝聯展會場，身後為展出之裱框作品。',
+    },
+  },
+  {
+    id: 'art-exhibition-with-friend',
+    kind: 'photo',
+    decade: 2020,
+    category: 'community',
+    en: 'At an art exhibition',
+    zhHant: '書畫展覽',
+    asset: '/archive/art-exhibition-with-friend.jpg',
+    caption: {
+      en: 'With a friend at a calligraphy and painting exhibition — one of the most recent photographs in this archive.',
+      zhHant: '與一位友人攝於書畫展覽會場——是本檔案中年代較近的照片之一。',
+    },
+  },
+  {
     id: 'min-mey-chang-with-guests',
     kind: 'photo',
     decade: 2020,
@@ -1959,33 +1986,6 @@ export const archive: ArchiveItem[] = [
       en: 'Holding up 福 — good fortune — written in gold on red, at an outdoor Lunar New Year event, with 愛 and 馬到成功 beside it.',
       zhHant:
         '手持親書「福」字，金墨紅箋，攝於戶外農曆新年活動；旁另有「愛」與「馬到成功」。',
-    },
-  },
-  {
-    id: 'calligraphy-exhibition',
-    kind: 'photo',
-    decade: 2020,
-    category: 'calligraphy',
-    en: 'A calligraphy and painting exhibition',
-    zhHant: '書畫花藝聯展',
-    asset: '/archive/calligraphy-exhibition.jpg',
-    caption: {
-      en: 'At a joint exhibition of calligraphy, painting and floral art held for an alumni association Parents\' Day, with framed work behind.',
-      zhHant:
-        '攝於大專校友雙親節書畫花藝聯展會場，身後為展出之裱框作品。',
-    },
-  },
-  {
-    id: 'art-exhibition-with-friend',
-    kind: 'photo',
-    decade: 2020,
-    category: 'calligraphy',
-    en: 'At an art exhibition',
-    zhHant: '書畫展覽',
-    asset: '/archive/art-exhibition-with-friend.jpg',
-    caption: {
-      en: 'With a friend at a calligraphy and painting exhibition — one of the most recent photographs in this archive.',
-      zhHant: '與一位友人攝於書畫展覽會場——是本檔案中年代較近的照片之一。',
     },
   },
 ]
