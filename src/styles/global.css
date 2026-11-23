@@ -216,9 +216,12 @@ html[lang^='zh'] .prose-story blockquote {
 .nav-button {
   height: 100%;
   padding-inline: 0.375rem;
-  /* Only "Calligraphy" ever needs this: at 1.6x on a 360px phone its cell in
-   * the 2-column layout is narrower than the word, and a hyphenated break
-   * reads better than a one-column menu or a clipped label. */
+  /* A safety margin for the longest label, "Calligraphy": at 1.6x on a 360px
+   * phone its 2-column cell is within a few px of the word (it fit unbroken
+   * in Chromium, but fonts differ by device). If it does not fit, a
+   * hyphenated break reads better than a bare one or a one-column menu.
+   * Where hyphenation is unsupported (the build drops a -webkit- prefix),
+   * html's overflow-wrap still breaks the word, so the label never clips. */
   hyphens: auto;
 }
 /* Column width in em, not a fixed count, so the grid follows the text-size
