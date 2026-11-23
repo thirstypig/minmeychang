@@ -1,6 +1,6 @@
 ---
 import sharp from 'sharp'
-import { type ArchiveItem } from '../data/archive'
+import { captionRepeatsTitle, type ArchiveItem } from '../data/archive'
 import { renderableFacts } from '../data/facts'
 import { getTranslation, photoShareText, type Locale } from '../i18n/ui'
 
@@ -16,9 +16,12 @@ interface Props {
   groupByDecade?: boolean
   /** id for the page's top, so an old /archive#<category> link lands here. */
   anchorId?: string
+  /** A last intro line that links to another page, e.g. Hsi Lai → Calligraphy.
+   *  Its claim must already be sourced by a fact shown there. */
+  seeAlso?: { text: string; href: string }
 }
 
-const { locale, items, factIds, groupByDecade = false, anchorId } = Astro.props
+const { locale, items, factIds, groupByDecade = false, anchorId, seeAlso } = Astro.props
 const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
 const pick = (v: { en: string; zhHant: string }) => (locale === 'en' ? v.en : v.zhHant)
 
@@ -59,8 +62,8 @@ const first = items.find((i) => i.asset)?.id
     Service page's list does rather than as a run of fragments posing as
     prose. */}
 <div id={anchorId}>
-  {facts.length === 1 ? (
-    <p class="text-lg leading-relaxed">{pick(facts[0]!)}</p>
+  {facts.length === 1 && !seeAlso ? (
+    <p class="border-t py-4 text-lg leading-relaxed" style="border-color: var(--rule)">{pick(facts[0]!)}</p>
   ) : (
     <ul class="list-none p-0">
       {facts.map((fact) => (
@@ -68,9 +71,27 @@ const first = items.find((i) => i.asset)?.id
           {pick(fact)}
         </li>
       ))}
+      {seeAlso && (
+        <li class="border-t py-4 text-lg leading-relaxed" style="border-color: var(--rule)">
+          <a href={seeAlso.href} class="underline underline-offset-4 decoration-1" style="color: var(--brand)">
+            {seeAlso.text}
+          </a>
+        </li>
+      )}
     </ul>
   )}
 </div>
+
+{/* Long pages (School: 24 items, about 18 phone screens) get a row of
+    decade buttons under the intro and a way back up after each decade
+    (design review, 2026-11-23). */}
+{groups.length > 1 && (
+  <nav class="no-print mt-8 flex flex-wrap gap-2" aria-label={t('decadeJump')}>
+    {groups.map((group) => (
+      <a href={`#${group.anchor}`} class="section-chip tabular-nums">{group.decade}s</a>
+    ))}
+  </nav>
+)}
 
 {/* Each item shown whole with its caption and its own share button — no
     thumbnails or full-screen viewer to open first. The button shares this
@@ -112,7 +133,11 @@ const first = items.find((i) => i.asset)?.id
               </div>
             )}
             <figcaption class="mt-3">
-              <p style="color: var(--text-strong)">{pick({ en: item.en, zhHant: item.zhHant })}</p>
+              {/* A caption that opens by restating its title is shown alone,
+                  not after the same words (captionRepeatsTitle, archive.ts). */}
+              {!(item.caption && captionRepeatsTitle(pick({ en: item.en, zhHant: item.zhHant }), pick(item.caption))) && (
+                <p style="color: var(--text-strong)">{pick({ en: item.en, zhHant: item.zhHant })}</p>
+              )}
               {item.caption && (
                 <p class="mt-1 text-sm leading-relaxed" style="color: var(--text-soft)">
                   {pick(item.caption)}
@@ -138,6 +163,13 @@ const first = items.find((i) => i.asset)?.id
           </figure>
         ))}
       </div>
+      {groups.length > 1 && (
+        <p class="no-print mt-8">
+          <a href="#top" class="tap-target underline-offset-4 hover:underline" style="color: var(--text-soft)">
+            <span aria-hidden="true">↑</span>&nbsp;{t('backToTop')}
+          </a>
+        </p>
+      )}
     </section>
   ))
 }

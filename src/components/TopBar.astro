@@ -43,10 +43,13 @@ const otherPath = alternatePath(locale, Astro.url.pathname)
           WeChat…) where the browser supports it; elsewhere it copies the
           link. One button rather than a row of brand icons: the sheet lists
           the apps this reader actually uses, and no third-party widget is
-          loaded. Script: Base.astro. */}
+          loaded. Script: Base.astro. It says "Share this page" because the
+          photos have their own "Share this photo", and it is borderless so
+          the page title and the current menu button lead (design review,
+          2026-11-23). */}
       <button
         type="button"
-        class="share-button text-sm"
+        class="share-button share-button--quiet text-sm"
         data-share
         data-label-copied={t('linkCopied')}
       >
@@ -54,22 +57,23 @@ const otherPath = alternatePath(locale, Astro.url.pathname)
         <span data-share-label>{t('share')}</span>
       </button>
 
-      <div class="ml-auto flex items-center gap-1">
+      {/* Bordered buttons, at least 40×44, labeled A− / A+: the review
+          (2026-11-23) measured the old bare letters at about 20px, too small
+          for the readers who most need them. */}
+      <div class="ml-auto flex items-center gap-1.5">
       <button
         type="button"
         data-type-scale="down"
-        class="tap-target px-1.5 leading-none"
-        style="color: var(--text-soft)"
+        class="control-button"
         aria-label={t('textSmaller')}
-        title={t('textSmaller')}>A</button
+        title={t('textSmaller')}>A−</button
       >
       <button
         type="button"
         data-type-scale="up"
-        class="tap-target px-1.5 text-lg leading-none"
-        style="color: var(--text-soft)"
+        class="control-button"
         aria-label={t('textLarger')}
-        title={t('textLarger')}>A</button
+        title={t('textLarger')}>A+</button
       >
 
       {/* One button, not three. The previous light/dark/system trio spent a
@@ -80,8 +84,7 @@ const otherPath = alternatePath(locale, Astro.url.pathname)
       <button
         type="button"
         data-theme-toggle
-        class="tap-target px-1.5"
-        style="color: var(--text-soft)"
+        class="control-button"
         aria-label={t('themeToggle')}
         title={t('themeToggle')}><span data-theme-icon>☾</span></button
       >
@@ -90,7 +93,7 @@ const otherPath = alternatePath(locale, Astro.url.pathname)
         href={otherPath}
         hreflang={htmlLang[otherLocale]}
         lang={htmlLang[otherLocale]}
-        class="tap-target whitespace-nowrap pl-1 underline underline-offset-4 decoration-1"
+        class="control-button whitespace-nowrap"
         style="color: var(--brand)"
       >
         {localeNames[otherLocale]}

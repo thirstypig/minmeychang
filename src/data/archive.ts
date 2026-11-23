@@ -2078,3 +2078,12 @@ export function itemsForPage(category: ArchiveCategory): ArchiveItem[] {
 /** The photographs filed under calligraphy, in file order. The page itself
  *  shows itemsForPage('calligraphy'), which adds alsoShownOn extras. */
 export const calligraphyItems: ArchiveItem[] = itemsForCategory('calligraphy')
+
+/** True when a caption opens by restating its own title ("Crab fishing" /
+ *  "Crab fishing, with a landing net…"). The page then shows the caption
+ *  alone rather than the same words twice. Captions are not edited to fix
+ *  this, because share text is the caption and must make sense on its own. */
+export function captionRepeatsTitle(title: string, caption: string): boolean {
+  const t = title.trim().toLowerCase()
+  return t.length > 0 && caption.trim().toLowerCase().startsWith(t)
+}
