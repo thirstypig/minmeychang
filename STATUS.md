@@ -22,6 +22,14 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - https://minmeychang.com
 
 ## Shipped (last 60 days)
+- **More coverage links (2026-11-23):** a web search of her English and Chinese names found 6 new pages that name her, now linked under Talks → "Coverage and records":
+  - ANN NEWS and 華人今日網 on the 2026 Historymakers award;
+  - Shih Chien University's alumni directory;
+  - the Southern California Council of Chinese Schools' board roster;
+  - the Arcadia Chinese Association's 2022 yearbook;
+  - a Center for Applied Linguistics school directory.
+
+  The Merit Times entry's date was corrected (2016 → 2023-04-02). No facts changed; see open issues.
 - **Photo share previews (2026-11-23):** "Share this photo" now sends `/photo/<id>/` instead of `/<page>#<id>`. Messaging apps drop the `#` part, so every shared photo used to preview as the same site card. Each of the 144 items now has a page in each language carrying its own preview image and caption, which forwards the reader to the photo on its page. These pages are noindex and kept out of the sitemap. WeChat largely ignores preview tags.
 - **Design-review fixes (2026-11-23):**
   - Smaller phone menu. At double text size on a 390px phone, the page now starts at y=324 instead of y=880, so it's no longer pushed off the first screen.
@@ -46,6 +54,11 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - None recorded. All 13 files in `todos/` are complete.
 
 ## Open bugs / known issues
+- **For James, from the 2026-11-23 search:**
+  - The council roster lists her as president for 1985–86 only (vice president and treasurer 1984–85). facts.ts says president in 1986 for two years.
+  - A language-center directory dates the school to 1981; the site says 1982.
+  - The Arcadia Chinese Association yearbook credits her and Dr. Chang with starting the association around 1984. That isn't on the site as a fact.
+  - Unread: the Arcadia library's local-history index (arcadiahistory.andornot.net) has 6 Pasadena Star-News records from April 1995 that appear to cover her run for the Arcadia school board. Automated fetching is blocked, so they need a person in a normal browser.
 - The Chinese copy has never been read end-to-end by a native speaker (README). It is the locale most of her community will read.
 - Six questions still open in the gitignored pending-facts file: mostly years, plus one consent question.
 - She is hard to find in web search; all sources came from the family (README warns not to read empty search results as a thin record).
