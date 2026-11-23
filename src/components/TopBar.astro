@@ -20,20 +20,24 @@ const otherLocale: Locale = locale === 'en' ? 'zh-hant' : 'en'
 const otherPath = alternatePath(locale, Astro.url.pathname)
 ---
 
-{/* Two rows: a slim utility row (text size, theme, language), then every page
-    as a button. Until 2026-11 this was one row whose links scrolled sideways
-    behind a hidden scrollbar; on a phone only about three of six showed, and
-    nothing said the rest existed. Every page is now visible without a swipe
-    or a tap: one row of six from 640px up; below that, columns sized in em
-    (see .nav-grid in global.css), which gives 3×2 at normal text and 2×3
-    once the text-size control enlarges the type, so no label overflows. */}
+{/* Two rows: a utility row (Share on the left; text size, theme, language on
+    the right), then every page as a button. Until 2026-11 the pages were one
+    row whose links scrolled sideways behind a hidden scrollbar; on a phone
+    only about three showed, and nothing said the rest existed. Every page is
+    now visible without a swipe or a tap: columns sized in em (see .nav-grid
+    in global.css) give 3+3+1 on a phone at normal text, 2+2+2+1 once the
+    text-size control enlarges the type, and 4+3 from 640px. */}
 <nav
   class="no-print border-b"
   style="border-color: var(--rule)"
   aria-label={t('navLabel')}
 >
   <div class="mx-auto max-w-[72ch] px-6 pb-3">
-    <div class="flex items-center justify-between gap-2 py-1.5 text-sm">
+    {/* flex-wrap + ml-auto on the controls: at enlarged text on a narrow phone
+        (360px at 1.6x) Share and the controls do not fit one line, and without
+        wrapping the language link was pushed off-screen. They wrap instead,
+        controls staying right-aligned. */}
+    <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 py-1.5 text-sm">
       {/* Share sits here, at the top of every page, so a reader on a phone
           finds it without scrolling (it was in the footer until 2026-11). It
           opens the phone's own share sheet (Messages, LINE, WhatsApp,
@@ -51,7 +55,7 @@ const otherPath = alternatePath(locale, Astro.url.pathname)
         <span data-share-label>{t('share')}</span>
       </button>
 
-      <div class="flex items-center gap-1">
+      <div class="ml-auto flex items-center gap-1">
       <button
         type="button"
         data-type-scale="down"
