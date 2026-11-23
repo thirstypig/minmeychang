@@ -33,7 +33,25 @@ const otherPath = alternatePath(locale, Astro.url.pathname)
   aria-label={t('navLabel')}
 >
   <div class="mx-auto max-w-[72ch] px-6 pb-3">
-    <div class="flex items-center justify-end gap-1 py-1.5 text-sm">
+    <div class="flex items-center justify-between gap-2 py-1.5 text-sm">
+      {/* Share sits here, at the top of every page, so a reader on a phone
+          finds it without scrolling (it was in the footer until 2026-11). It
+          opens the phone's own share sheet (Messages, LINE, WhatsApp,
+          WeChat…) where the browser supports it; elsewhere it copies the
+          link. One button rather than a row of brand icons: the sheet lists
+          the apps this reader actually uses, and no third-party widget is
+          loaded. Script: Base.astro. */}
+      <button
+        type="button"
+        class="share-button text-sm"
+        data-share
+        data-label-copied={t('linkCopied')}
+      >
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 8 5-5 5 5" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" /></svg>
+        <span data-share-label>{t('share')}</span>
+      </button>
+
+      <div class="flex items-center gap-1">
       <button
         type="button"
         data-type-scale="down"
@@ -74,6 +92,7 @@ const otherPath = alternatePath(locale, Astro.url.pathname)
       >
         {localeNames[otherLocale]}
       </a>
+      </div>
     </div>
 
     <ul class="nav-grid list-none p-0">

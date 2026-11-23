@@ -3,12 +3,14 @@ import sharp from 'sharp'
 import {
   archiveCategoryLabels,
   buildArchiveSections,
+  calligraphyItems,
   recentlyAdded,
   suppliedItems,
   type ArchiveItem,
 } from '../data/archive'
 import { linkableAccounts } from '../data/media'
 import { getTranslation, type Locale } from '../i18n/ui'
+import { routePath } from '../i18n/routes'
 
 interface Props {
   locale: Locale
@@ -20,6 +22,11 @@ const pick = (v: { en: string; zhHant: string }) =>
   locale === 'en' ? v.en : v.zhHant
 
 const sections = buildArchiveSections()
+
+// Photos moved to the Calligraphy page on 2026-11-22. A link shared before the
+// move (/archive#<id>) would otherwise open on an archive with no such photo.
+const movedIds = calligraphyItems.map((i) => i.id)
+const movedTo = routePath(locale, 'calligraphy')
 const recent = recentlyAdded()
 
 // Every image gets explicit width/height. Without them the grid reflows as each
@@ -49,6 +56,16 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
     JavaScript every thumbnail is still a plain link to the full photograph
     and every caption is still readable. */}
 <div data-archive>
+  {/* Inline and first, so an old link is sent on before the viewer script or
+      any image loads. location.replace keeps the dead URL out of history. */}
+  <script is:inline data-moved-ids={JSON.stringify(movedIds)} data-moved-to={movedTo}>
+    ;(function (el) {
+      var id = decodeURIComponent(location.hash.slice(1))
+      if (id && JSON.parse(el.dataset.movedIds).indexOf(id) !== -1) {
+        location.replace(el.dataset.movedTo + '#' + id)
+      }
+    })(document.currentScript)
+  </script>
   <nav id="archive-sections" class="archive-nav archive-anchor -mx-6 mt-8 px-6 py-3" aria-label={t('archiveJumpNav')}>
     {/* Every section visible at once, as buttons that wrap. Until 2026-11 this
         scrolled sideways on a phone with the scrollbar hidden, so "Community &
@@ -218,7 +235,8 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
           <p class="lb-caption mt-1 text-sm leading-relaxed" style="color: var(--text-soft)"></p>
           <p class="lb-count mt-2 text-xs tabular-nums" style="color: var(--text-soft)"></p>
           {/* The viewer keeps #<id> in the address bar, so the shared
-              script in Base.astro shares this photo's own link. */}
+              script in Base.astro shares this photo's own link; show() sets
+              data-share-text to the open photo's caption. */}
           <p class="mt-3">
             <button
               type="button"
@@ -434,6 +452,7 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
     const title = dialog.querySelector<HTMLElement>('.lb-title')!
     const caption = dialog.querySelector<HTMLElement>('.lb-caption')!
     const count = dialog.querySelector<HTMLElement>('.lb-count')!
+    const share = dialog.querySelector<HTMLElement>('[data-share]')!
 
     // Navigation follows the page's own order. Only tiles inside an item with
     // an id count — the "Recently added" row repeats items and must not
@@ -457,6 +476,9 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
       img.alt = item.querySelector('.archive-title')?.textContent?.trim() ?? ''
       title.textContent = img.alt
       caption.textContent = item.querySelector('.archive-caption')?.textContent?.trim() ?? ''
+      // The share sheet's message text: this photo's caption, when it has one.
+      if (caption.textContent) share.dataset.shareText = caption.textContent
+      else delete share.dataset.shareText
       count.textContent = `${index + 1} / ${tiles.length}`
       history.replaceState(null, '', `#${ids[index]}`)
       preload(index + 1)
