@@ -24,14 +24,17 @@ is not a body — but that was self-review, not proofreading. It is the locale
 most of her community will actually read.
 
 `archive.ts` holds 144 entries. Three categories have pages of their own
-(`categoryPages` in `archive.ts`, rendered by `ArchivePage.astro`): the 19
-items of **The Arcadia Chinese School** (12 photographs, 7 documents), the 10
+(`categoryPages` in `archive.ts`, rendered by `ArchivePage.astro`): the 23
+items of **The Arcadia Chinese School** (16 photographs, 7 documents), the 10
 photographs of **Hsi Lai Temple & Buddha's Light** (`/hsi-lai`), each grouped
 by decade under that subject's facts, and three photographs on the
-**Calligraphy** page. There each item is shown whole with its caption and its
+**Calligraphy** page. A page can also show an entry filed elsewhere
+(`alsoShownOn`): the Lunar New Year 福 photo appears on both Calligraphy and
+the School page, and the Chinese New Year 2025 photo on both Hsi Lai and
+Calligraphy. There each item is shown whole with its caption and its
 own share button, and an old `/archive#<id>` link — or a section or decade
 anchor such as `#chinese-school-1990s` — is redirected there. The archive page
-shows the other 112 — 99 photographs and 13 documents — organized into three
+shows the other 108 — 95 photographs and 13 documents — organized into three
 categories (Family, Community & Civic Life, Travel), each grouped by decade
 within it. No frame is empty. The last one, awaiting the May 2001
 Acupuncture Board appointment letter, was removed on 2026-11-08 after the
