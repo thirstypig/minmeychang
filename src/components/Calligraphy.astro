@@ -2,7 +2,7 @@
 import sharp from 'sharp'
 import { calligraphyItems } from '../data/archive'
 import { renderableFacts } from '../data/facts'
-import { getTranslation, type Locale } from '../i18n/ui'
+import { getTranslation, photoShareText, type Locale } from '../i18n/ui'
 
 interface Props {
   locale: Locale
@@ -33,11 +33,14 @@ const dims = new Map(
 
 {/* Each photograph shown whole with its caption and its own share
     button — no thumbnails or full-screen viewer to open first. The button
-    shares this photo's own #<id> link and passes the caption as the message
-    text (see the share script in Base.astro). */}
+    shares this photo's own #<id> link and passes her name and the caption as
+    the message text (see the share script in Base.astro). The first photo is
+    above the fold, so it loads eagerly; the rest wait until scrolled to. Each
+    button's aria-label names its photo: three identical "Share this photo"
+    buttons are indistinguishable to a screen reader out of context. */}
 <div class="mt-10 space-y-12">
   {
-    calligraphyItems.map((item) => (
+    calligraphyItems.map((item, index) => (
       <figure id={item.id} class="calligraphy-photo">
         <img
           src={item.asset}
@@ -45,7 +48,7 @@ const dims = new Map(
           height={dims.get(item.id)!.h}
           alt={pick({ en: item.en, zhHant: item.zhHant })}
           class="h-auto w-full rounded"
-          loading="lazy"
+          loading={index === 0 ? 'eager' : 'lazy'}
           decoding="async"
         />
         <figcaption class="mt-3">
@@ -61,8 +64,9 @@ const dims = new Map(
               class="share-button text-sm"
               data-share
               data-share-url={`#${item.id}`}
-              data-share-text={item.caption ? pick(item.caption) : undefined}
+              data-share-text={photoShareText(locale, item.caption ? pick(item.caption) : '')}
               data-label-copied={t('linkCopied')}
+              aria-label={`${t('sharePhoto')}${locale === 'en' ? ': ' : '：'}${pick({ en: item.en, zhHant: item.zhHant })}`}
             >
               <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 8 5-5 5 5" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" /></svg>
               <span data-share-label>{t('sharePhoto')}</span>

@@ -184,3 +184,16 @@ export function alternatePath(locale: Locale, path: string): string {
   const clean = path.replace(/^\/zh-hant/, '') || '/'
   return locale === 'en' ? `/zh-hant${clean === '/' ? '' : clean}` : clean
 }
+
+/** What goes between her name and a caption in a shared message. */
+export function photoSharePrefix(locale: Locale): string {
+  return getTranslation(locale, 'siteName') + (locale === 'en' ? ': ' : '：')
+}
+
+/** Message text for sharing a photo: her name, then the caption. Messages and
+ *  LINE often drop the share sheet's title, so without the name a recipient
+ *  gets a description of nobody in particular. */
+export function photoShareText(locale: Locale, caption: string): string {
+  const text = caption.trim()
+  return text ? photoSharePrefix(locale) + text : getTranslation(locale, 'siteName')
+}

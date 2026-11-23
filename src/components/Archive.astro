@@ -9,7 +9,7 @@ import {
   type ArchiveItem,
 } from '../data/archive'
 import { linkableAccounts } from '../data/media'
-import { getTranslation, type Locale } from '../i18n/ui'
+import { getTranslation, photoSharePrefix, type Locale } from '../i18n/ui'
 import { routePath } from '../i18n/routes'
 
 interface Props {
@@ -60,7 +60,8 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
       any image loads. location.replace keeps the dead URL out of history. */}
   <script is:inline data-moved-ids={JSON.stringify(movedIds)} data-moved-to={movedTo}>
     ;(function (el) {
-      var id = decodeURIComponent(location.hash.slice(1))
+      var id
+      try { id = decodeURIComponent(location.hash.slice(1)) } catch (e) { return }
       if (id && JSON.parse(el.dataset.movedIds).indexOf(id) !== -1) {
         location.replace(el.dataset.movedTo + '#' + id)
       }
@@ -236,12 +237,14 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
           <p class="lb-count mt-2 text-xs tabular-nums" style="color: var(--text-soft)"></p>
           {/* The viewer keeps #<id> in the address bar, so the shared
               script in Base.astro shares this photo's own link; show() sets
-              data-share-text to the open photo's caption. */}
+              data-share-text to her name and the open photo's caption. */}
           <p class="mt-3">
             <button
               type="button"
               class="share-button text-sm"
               data-share
+              data-share-prefix={photoSharePrefix(locale)}
+              data-share-name={t('siteName')}
               data-label-copied={t('linkCopied')}
             >
               <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 8 5-5 5 5" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" /></svg>
@@ -476,9 +479,12 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
       img.alt = item.querySelector('.archive-title')?.textContent?.trim() ?? ''
       title.textContent = img.alt
       caption.textContent = item.querySelector('.archive-caption')?.textContent?.trim() ?? ''
-      // The share sheet's message text: this photo's caption, when it has one.
-      if (caption.textContent) share.dataset.shareText = caption.textContent
-      else delete share.dataset.shareText
+      // The share sheet's message text: her name, then this photo's caption.
+      // Same format as photoShareText() in ui.ts, which can't run here; the
+      // two pieces come from it as data attributes.
+      share.dataset.shareText = caption.textContent
+        ? share.dataset.sharePrefix + caption.textContent
+        : share.dataset.shareName!
       count.textContent = `${index + 1} / ${tiles.length}`
       history.replaceState(null, '', `#${ids[index]}`)
       preload(index + 1)
@@ -538,6 +544,12 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
       tiles[index]?.scrollIntoView({ block: 'nearest' })
     })
 
-    if (location.hash) open(decodeURIComponent(location.hash.slice(1)))
+    // A malformed fragment (#%E0) makes decodeURIComponent throw; ignore it
+    // rather than stop the rest of this script.
+    if (location.hash) {
+      try {
+        open(decodeURIComponent(location.hash.slice(1)))
+      } catch {}
+    }
   }
 </script>
