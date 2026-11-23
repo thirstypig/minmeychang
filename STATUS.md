@@ -22,6 +22,7 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - https://minmeychang.com
 
 ## Shipped (last 60 days)
+- **Photo on two pages (2026-11-23):** the Chinese New Year 2025 photo (holding calligraphy with BLIA members) now also appears on the Calligraphy page; it stays filed under Hsi Lai. `alsoShownOn` in `archive.ts` lists such extras.
 - **Hsi Lai Temple & Buddha's Light page (2026-11-23):** ninth page, /hsi-lai, 西來寺與國際佛光會. Intro: her Hsi Lai membership and volunteering (new, family tier), the BLIA Arcadia chapter she founded in 1994, and her Lunar New Year calligraphy. Then all 10 former archive Buddha's Light photos, grouped by decade. Old links redirect. Menu 3+3+3 on phones, 5+4 wider.
 - **Arcadia Chinese School page (2026-11-23):** eighth page, "The Arcadia Chinese School" / 亞凱迪亞中文學校. Its intro is the school's eight existing facts as a list; below that are all 19 former archive items (12 photos, 7 clippings and letters), grouped by decade, each with its own share button. Old archive links (items, the section and its decades) redirect. Menu is 3+3+2 on phones, 4+4 wider.
 - **No sideways scroll at large text (2026-11-22):** at the largest text size on 320–360px phones, the archive ("multigenerational") and service ("International") pages scrolled sideways. Long words now break or hyphenate, and the institution rows put the logo above the name when the column gets narrow. Checked on all 14 pages at 4 widths and 3 text sizes.

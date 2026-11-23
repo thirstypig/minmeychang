@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import {
+  alsoShownOn,
   archive,
   buildArchiveSections,
   calligraphyItems,
+  itemsForPage,
   recentlyAdded,
 } from '../../src/data/archive'
 import { confirmedFacts } from '../../src/data/facts'
@@ -57,5 +59,31 @@ describe('calligraphy page data', () => {
     expect(fact?.en).toBe(APPROVED_EN)
     expect(fact?.status).toBe('family')
     expect(fact?.note ?? '').not.toMatch(/no photograph/i)
+  })
+})
+
+// James, 2026-11-23: the Chinese New Year 2025 photo (filed under Buddha's
+// Light, shown on the Hsi Lai page) also appears on the Calligraphy page. One
+// entry in archive.ts, shown on two pages; its home stays Hsi Lai.
+describe('a photo shown on a second page', () => {
+  it('the Calligraphy page also shows the Chinese New Year 2025 photo, last', () => {
+    const ids = itemsForPage('calligraphy').map((i) => i.id)
+    expect(ids).toEqual([...calligraphyItems.map((i) => i.id), 'chinese-new-year-2025'])
+  })
+
+  it('it stays on the Hsi Lai page and out of the archive', () => {
+    expect(itemsForPage('buddhist').map((i) => i.id)).toContain('chinese-new-year-2025')
+    const shown = buildArchiveSections().flatMap((s) => s.items.map((i) => i.id))
+    expect(shown).not.toContain('chinese-new-year-2025')
+  })
+
+  it('every extra id names a real entry, shown on a page other than its own', () => {
+    for (const [page, ids] of Object.entries(alsoShownOn)) {
+      for (const id of ids!) {
+        const item = archive.find((i) => i.id === id)
+        expect(item, id).toBeDefined()
+        expect(item!.category, id).not.toBe(page)
+      }
+    }
   })
 })

@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro'
 import ArchivePage from '../components/ArchivePage.astro'
-import { calligraphyItems } from '../data/archive'
+import { itemsForPage } from '../data/archive'
 import { getTranslation } from '../i18n/ui'
 
 const locale = 'en' as const
@@ -9,5 +9,5 @@ const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, 
 ---
 
 <Page locale={locale} current="calligraphy" heading={t('calligraphyHeading')}>
-  <ArchivePage locale={locale} items={calligraphyItems} factIds={['calligraphy']} />
+  <ArchivePage locale={locale} items={itemsForPage('calligraphy')} factIds={['calligraphy']} />
 </Page>
