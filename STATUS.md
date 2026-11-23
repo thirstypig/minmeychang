@@ -61,12 +61,16 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 ## Open bugs / known issues
 - The Chinese copy has never been read end-to-end by a native speaker (README). It is the locale most of her community will read.
 - Six questions still open in the gitignored pending-facts file: mostly years, plus one consent question.
-- She is hard to find in web search; all sources came from the family (README warns not to read empty search results as a thin record).
+- She is hard to find in web search. A full search of her English and Chinese names (2026-11-23) found 9 new pages, all now linked under Talks; the Arcadia Public Library's newspaper index is the richest remaining source, and only a real browser can read it.
+- The 1995 school board line states the run, not the result (she was not elected). Saying so is the family's call.
 
 ## Next phases (in order)
-- Unknown — not documented in repo. The open items above are the only recorded follow-ups.
+- The design-review suggestions in the 2026-11-23 handoff. James picks; the leading candidates are a labeled Close button in the photo viewer and capping "Share this page" at 16px like the other header buttons.
+- A native speaker's read of the Chinese copy (declined for now by James, 2026-11-23).
 
 ## Decisions changed recently
+- 2026-11-23: the Arcadia Chinese School's founding year is 1981, not 1982 (James, after a language-center directory gave 1981). Council of Chinese Schools: VP/treasurer 1984–85, president 1985–86, from its own roster, replacing "1986, two years".
+- 2026-11-23: the 16px cap on the phone menu and header buttons stays (James).
 - 2026-11-23: on phones the menu and header controls no longer grow past 16px text (page content still does), so the menu can't fill the first screen. James asked for smaller phone menu buttons.
 - 2026-11-23: Story pages (EN + zh) now say supervisor for the Los Angeles association (洛杉磯協會督導), matching the sourced blia fact, not "the Greater Los Angeles area".
 - 2026-11-23: the archive's Buddha's Light section became the Hsi Lai Temple & Buddha's Light page (all 10 photos, James). "Temple Supporters" confirmed by James to mean BLIA's Arcadia chapter.

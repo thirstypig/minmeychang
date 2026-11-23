@@ -291,6 +291,14 @@ Record which one you have.
 WebFetch and `curl` are blocked by different systems. A `403`, `429` or `302` is
 a statement about the request, not about the data.
 
+A real browser is the third fetcher. On 2026-11-23 the Arcadia Public Library's
+newspaper index (arcadiahistory.andornot.net) answered both WebFetch and `curl`
+with a Cloudflare `403`. The Playwright browser loaded it normally: 6 records for
+"Min Mey Chang", including a 1993 profile and her 1995 school board run, which
+no other search surfaced. Most English-language press about her from before 2000
+exists only as entries in this index. Search it there before concluding that
+something is missing.
+
 ### 6. Never let a negative search silently become a positive claim
 Absence of evidence for a *published roster* is not evidence of absence from an
 *unpublished committee*. Say which one you have.
