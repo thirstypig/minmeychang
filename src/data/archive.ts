@@ -2053,5 +2053,26 @@ export function itemsForCategory(category: ArchiveCategory): ArchiveItem[] {
   return archive.filter((i) => i.category === category)
 }
 
-/** The photographs shown on the Calligraphy page, in file order. */
+/** Entries also shown on another category's page, after that page's own
+ *  items. The entry keeps its one category (its home page, and where old
+ *  /archive#<id> links redirect); this only adds a second appearance. Kept
+ *  here rather than as a field on the entry because the local admin editor
+ *  writes back only the fields it knows, and would drop one. */
+export const alsoShownOn: Partial<Record<ArchiveCategory, string[]>> = {
+  // James, 2026-11-23: holding calligraphy at Chinese New Year 2025.
+  calligraphy: ['chinese-new-year-2025'],
+}
+
+/** Everything a category's page shows: its own items, then any extras. */
+export function itemsForPage(category: ArchiveCategory): ArchiveItem[] {
+  const extras = (alsoShownOn[category] ?? []).map((id) => {
+    const item = archive.find((i) => i.id === id)
+    if (!item) throw new Error(`alsoShownOn.${category}: no archive entry '${id}'`)
+    return item
+  })
+  return [...itemsForCategory(category), ...extras]
+}
+
+/** The photographs filed under calligraphy, in file order. The page itself
+ *  shows itemsForPage('calligraphy'), which adds alsoShownOn extras. */
 export const calligraphyItems: ArchiveItem[] = itemsForCategory('calligraphy')

@@ -1,7 +1,7 @@
 ---
 import Page from '../../layouts/Page.astro'
 import ArchivePage from '../../components/ArchivePage.astro'
-import { itemsForCategory } from '../../data/archive'
+import { itemsForPage } from '../../data/archive'
 import { getTranslation } from '../../i18n/ui'
 
 const locale = 'zh-hant' as const
@@ -26,7 +26,7 @@ const factIds = [
 <Page locale={locale} current="school" heading={t('schoolHeading')}>
   <ArchivePage
     locale={locale}
-    items={itemsForCategory('chinese-school')}
+    items={itemsForPage('chinese-school')}
     factIds={factIds}
     groupByDecade
     anchorId="chinese-school"
