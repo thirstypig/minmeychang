@@ -22,6 +22,13 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - https://minmeychang.com
 
 ## Shipped (last 60 days)
+- **Design-review fixes (2026-11-23):**
+  - Smaller phone menu. At double text size on a 390px phone, the page now starts at y=324 instead of y=880, so it's no longer pushed off the first screen.
+  - Bordered A− / A+ / theme / language buttons, 40×44.
+  - "Share this page" (quiet), and previous/next page shown as two buttons.
+  - Decade buttons and "Back to top" links on School and Hsi Lai.
+  - The Hsi Lai intro links to Calligraphy instead of repeating it; Calligraphy's intro has the rule under its title.
+  - In the lightbox: no title repeated by its caption, labeled previous/next on phones, and "Link copied" shown for 3s.
 - **More school photos (2026-11-23):** James moved four archive photos to the School page (outdoor festival, signing papers, at her desk, Alaska museum) and added the Lunar New Year 福 photo there as a second appearance (it stays on Calligraphy). School page: 24 items; archive: 108. Old links to the four redirect.
 - **Photo on two pages (2026-11-23):** the Chinese New Year 2025 photo (holding calligraphy with BLIA members) now also appears on the Calligraphy page; it stays filed under Hsi Lai. `alsoShownOn` in `archive.ts` lists such extras.
 - **Hsi Lai Temple & Buddha's Light page (2026-11-23):** ninth page, /hsi-lai, 西來寺與國際佛光會. Intro: her Hsi Lai membership and volunteering (new, family tier), the BLIA Arcadia chapter she founded in 1994, and her Lunar New Year calligraphy. Then all 10 former archive Buddha's Light photos, grouped by decade. Old links redirect. Menu 3+3+3 on phones, 5+4 wider.
@@ -46,6 +53,7 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - Unknown — not documented in repo. The open items above are the only recorded follow-ups.
 
 ## Decisions changed recently
+- 2026-11-23: on phones the menu and header controls no longer grow past 16px text (page content still does), so the menu can't fill the first screen. James asked for smaller phone menu buttons.
 - 2026-11-23: Story pages (EN + zh) now say supervisor for the Los Angeles association (洛杉磯協會督導), matching the sourced blia fact, not "the Greater Los Angeles area".
 - 2026-11-23: the archive's Buddha's Light section became the Hsi Lai Temple & Buddha's Light page (all 10 photos, James). "Temple Supporters" confirmed by James to mean BLIA's Arcadia chapter.
 - 2026-11-23: the archive's Arcadia Chinese School section became its own page (all 19 items, James). Menu order: … talks, school, calligraphy, archive.

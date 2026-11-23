@@ -3,6 +3,7 @@ import Page from '../layouts/Page.astro'
 import ArchivePage from '../components/ArchivePage.astro'
 import { itemsForPage } from '../data/archive'
 import { getTranslation } from '../i18n/ui'
+import { routePath } from '../i18n/routes'
 
 const locale = 'en' as const
 const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
@@ -10,8 +11,9 @@ const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, 
 // Her temple membership and volunteering (James, 2026-11-23), the Arcadia
 // chapter of Buddha's Light International Association she founded (two
 // published sources), and her Lunar New Year calligraphy, which includes
-// Hsi Lai. No claim here that is not already sourced in facts.ts.
-const factIds = ['hsi-lai-member', 'blia', 'calligraphy']
+// Hsi Lai, as one line linking to the Calligraphy page (the full
+// paragraph is there; design review 2026-11-23). No claim here that is not already sourced in facts.ts.
+const factIds = ['hsi-lai-member', 'blia']
 ---
 
 <Page locale={locale} current="temple" heading={t('templeHeading')}>
@@ -21,5 +23,6 @@ const factIds = ['hsi-lai-member', 'blia', 'calligraphy']
     factIds={factIds}
     groupByDecade
     anchorId="buddhist"
+    seeAlso={{ text: t('templeCalligraphyLine'), href: routePath(locale, 'calligraphy') }}
   />
 </Page>
