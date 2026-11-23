@@ -96,8 +96,8 @@ export const press: PressItem[] = [
   },
   // Found by a web search on 2026-11-23 (her names in English and Chinese),
   // each page fetched and checked to name her. Descriptions say only what the
-  // page says. None of these added a fact to facts.ts; where a page goes
-  // beyond or against the family's account, it has no `corroborates`.
+  // page says. James ruled the same day on the three that differed from
+  // facts.ts (council years, the school's 1981 founding, the ACA founders).
   {
     id: 'annnews-historymakers-2026',
     url: 'https://www.annnewsnet.com/華美博物館舉辦第-30-屆頒獎典禮-致敬2026年度歷史締造/',
@@ -133,8 +133,7 @@ export const press: PressItem[] = [
   },
   {
     // Roster in the PDF's own columns: 84-85 副會長 and 財務; 85-86 會長.
-    // Years are Western (the roll runs to 13-14). facts.ts says president in
-    // 1986 for two years: not changed on the strength of this, see STATUS.md.
+    // Years are Western (the roll runs to 13-14).
     id: 'scccs-board-roster',
     url: 'https://s3.amazonaws.com/scccs.net/Intro/38th/Board_List_38th.pdf',
     outlet: '南加州中文學校聯合會 Southern California Council of Chinese Schools',
@@ -143,6 +142,7 @@ export const press: PressItem[] = [
     date: '2014',
     en: 'The council\'s own roll of past boards, listing her as vice president and treasurer for 1984–85 and as president for 1985–86.',
     zhHant: '該聯合會歷屆理事會名錄，載明她於1984至1985年度任副會長兼財務，1985至1986年度任會長。',
+    corroborates: 'teachers-association',
   },
   {
     // The yearbook's own 1982 founding date, crediting Dr. Chang alone, is on
@@ -155,17 +155,50 @@ export const press: PressItem[] = [
     en: 'A former president\'s history of the association, reprinted in its 40th-anniversary yearbook. It says the association grew out of Chinese film evenings that Dr. Chang and she began at Baldwin Stocker School around 1984.',
     zhHant:
       '歷屆會長撰文，收錄於該會四十週年紀念特刊。文中記述華協約於1984年起源於張勝雄醫師與她在 Baldwin Stocker 小學舉辦的中國影片放映聚會。',
+    corroborates: 'aca-founded',
   },
   {
     id: 'cal-heritage-profile',
     url: 'https://webapp.cal.org/Heritage/ProfileDetails.aspx?id=312',
     outlet: 'Center for Applied Linguistics',
     title: 'Heritage Languages in America: Arcadia Chinese School',
-    // Undated; the page footer reads © 2013. It gives the founding as 1981,
-    // against the family's 1982, so it is not cited as a source for that fact.
+    // Undated; the page footer reads © 2013. Its 1981 founding year is the
+    // one the site uses since 2026-11-23.
     date: '2013',
-    en: 'A national directory of heritage-language schools, listing her as principal of the Arcadia Chinese School.',
-    zhHant: '美國應用語言學中心（Center for Applied Linguistics）的傳承語言學校名錄，列她為亞凱迪亞中文學校校長。',
+    en: 'A national directory of heritage-language schools, listing her as principal of the Arcadia Chinese School and giving its founding year as 1981.',
+    zhHant: '美國應用語言學中心（Center for Applied Linguistics）的傳承語言學校名錄，列她為亞凱迪亞中文學校校長，並載明該校創立於1981年。',
+    corroborates: 'chinese-school-founded',
+  },
+  // Arcadia Public Library's newspaper index. The articles themselves are not
+  // online; the title is the library's own one-line summary of each, verbatim.
+  {
+    id: 'psn-1993-profile',
+    url: 'https://arcadiahistory.andornot.net/en/permalink/newspaper224',
+    outlet: 'Pasadena Star-News (Arcadia Public Library index)',
+    title: 'Min Mey Chang, founder and principal of the Arcadia Chinese School is profiled.',
+    date: '1993-03-17',
+    en: 'The Arcadia library\'s index entry for a Pasadena Star-News profile of her as the school\'s founder and principal, with a photograph.',
+    zhHant: '亞凱迪亞公共圖書館報刊索引條目：《帕沙迪納星報》（Pasadena Star-News）以她為該校創辦人兼校長所作的人物專訪，附照片。',
+  },
+  {
+    id: 'psn-1995-candidate-profile',
+    url: 'https://arcadiahistory.andornot.net/en/permalink/newspaper4531',
+    outlet: 'Pasadena Star-News (Arcadia Public Library index)',
+    title: 'First time school board candidate Min Mey Chang is profiled.',
+    date: '1995-04-13',
+    en: 'The library\'s index entry for a Pasadena Star-News profile of her as a first-time candidate for the Arcadia school board.',
+    zhHant: '亞凱迪亞公共圖書館報刊索引條目：《帕沙迪納星報》對她首度參選亞凱迪亞學區教育委員的專訪。',
+    corroborates: 'school-board-1995',
+  },
+  {
+    id: 'smn-1995-candidates',
+    url: 'https://arcadiahistory.andornot.net/en/permalink/newspaper4510',
+    outlet: 'Sierra Madre News (Arcadia Public Library index)',
+    title: 'Five candidates are running for three Arcadia School Board seats: Maryann Gibson; Mike Lamb; Min Mey Chang; John Wuo; and John McLain. They are profiled.',
+    date: '1995-03-23',
+    en: 'The library\'s index entry for a Sierra Madre News profile of the five candidates for three Arcadia school board seats, her among them.',
+    zhHant: '亞凱迪亞公共圖書館報刊索引條目：《馬德雷山新聞》（Sierra Madre News）介紹角逐亞凱迪亞學區教育委員三席的五名候選人，她為其中之一。',
+    corroborates: 'school-board-1995',
   },
   {
     id: 'fb-2016',

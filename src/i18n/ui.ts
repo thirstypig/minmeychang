@@ -90,7 +90,7 @@ export const ui = {
     descStory:
       'From her arrival in the United States in the late 1960s to the schools and associations she founded in Arcadia, California, and the health talks she still gives today.',
     descTimeline:
-      'A timeline of Min Mey Chang: arrival in the late 1960s, founding the Arcadia Chinese Association and Arcadia Chinese School in 1982, the I-20 approval, and her 2001 appointment to the California Acupuncture Board.',
+      'A timeline of Min Mey Chang: arrival in the late 1960s, founding the Arcadia Chinese School in 1981 and the Arcadia Chinese Association in 1982, the I-20 approval, and her 2001 appointment to the California Acupuncture Board.',
     descService:
       'The institutions Min Mey Chang founded, led and served — the Arcadia Chinese Association, the Arcadia Chinese School, the Southern California Council of Chinese Schools, the Chinese American Parents and Teachers Association of Southern California, Shih Chien University Alumni Association, Buddha\'s Light International Association, and the California Acupuncture Board.',
     descTalks:
@@ -98,7 +98,7 @@ export const ui = {
     descArchive:
       'Photographs and documents from six decades of Min Mey Chang\'s work in Arcadia, California.',
     descSchool:
-      'The Arcadia Chinese School, which Min Mey Chang founded in 1982 and led as principal for more than thirty years: its programs, its students, and its work with the Arcadia Unified School District.',
+      'The Arcadia Chinese School, which Min Mey Chang founded in 1981 and led as principal for more than thirty years: its programs, its students, and its work with the Arcadia Unified School District.',
     descTemple:
       "Min Mey Chang at Hsi Lai Temple, where she is a member and a volunteer, and in Buddha's Light International Association, whose Arcadia chapter she founded in 1994.",
     descCalligraphy:
@@ -168,14 +168,14 @@ export const ui = {
     descStory:
       '從1960年代後期來到美國，到在加州亞凱迪亞創辦學校與協會，以及她至今仍在主講的養生講座。',
     descTimeline:
-      '張馬敏妹年表：1960年代後期來美、1982年創辦亞凱迪亞華人協會與中文學校、說服學區核准 I-20，以及2001年獲任命為加州針灸委員會公眾委員。',
+      '張馬敏妹年表：1960年代後期來美、1981年創辦亞凱迪亞中文學校、1982年共同創辦亞凱迪亞華人協會、說服學區核准 I-20，以及2001年獲任命為加州針灸委員會公眾委員。',
     descService:
       '張馬敏妹創辦、領導與服務過的機構——亞凱迪亞華人協會、亞凱迪亞中文學校、南加州中文學校聯合會、南加州華裔家長教師協會、實踐大學校友會、國際佛光會，以及加州針灸委員會。',
     descTalks:
       '張馬敏妹——張校長——主講養生之道：按摩與足部反射療法的功效、原理與應用。講座觀看人次已逾八十三萬。',
     descArchive: '橫跨六十年，張馬敏妹在加州亞凱迪亞的照片與文件紀錄。',
     descSchool:
-      '張馬敏妹於1982年創辦並擔任校長逾三十年的亞凱迪亞中文學校：課程、學生，以及與亞凱迪亞聯合學區的合作。',
+      '張馬敏妹於1981年創辦並擔任校長逾三十年的亞凱迪亞中文學校：課程、學生，以及與亞凱迪亞聯合學區的合作。',
     descTemple:
       '張馬敏妹與西來寺及國際佛光會：她是西來寺信眾與志工，並於1994年創立國際佛光會亞凱迪亞分會。',
     descCalligraphy:

@@ -914,9 +914,9 @@ export const archive: ArchiveItem[] = [
     zhHant: '中文學校簡介',
     asset: '/archive/school-profile-clipping.jpg',
     caption: {
-      en: 'A newspaper profile of the Arcadia Chinese School describing its daily and after-school classes across three campuses, its Saturday classes, and a summer program teaching Chinese, English, Spanish and mathematics alongside kung fu, dance, handicrafts and diabolo, with teachers invited from Taiwan. The school was in its twenty-sixth year, which places this around 2008. The article names her 張馬盈宇; her name is 張馬敏妹, as her own seal reads.',
+      en: 'A newspaper profile of the Arcadia Chinese School describing its daily and after-school classes across three campuses, its Saturday classes, and a summer program teaching Chinese, English, Spanish and mathematics alongside kung fu, dance, handicrafts and diabolo, with teachers invited from Taiwan. The school was in its twenty-sixth year, which places this around 2007. The article names her 張馬盈宇; her name is 張馬敏妹, as her own seal reads.',
       zhHant:
-        '報紙刊載的亞凱迪亞中文學校簡介，記述該校於三處校區開設的每日班與課後班、週六班，以及暑期班——除中文、英文、西班牙文與數學外，另設功夫、舞蹈、手工藝等才藝課，並自臺灣聘請教師教授扯鈴。文中稱該校已創辦二十六年，可推定約為2008年。文中稱她為「張馬盈宇」；她的名字是張馬敏妹，一如其印章所刻。',
+        '報紙刊載的亞凱迪亞中文學校簡介，記述該校於三處校區開設的每日班與課後班、週六班，以及暑期班——除中文、英文、西班牙文與數學外，另設功夫、舞蹈、手工藝等才藝課，並自臺灣聘請教師教授扯鈴。文中稱該校已創辦二十六年，可推定約為2007年。文中稱她為「張馬盈宇」；她的名字是張馬敏妹，一如其印章所刻。',
     },
   },
   {
