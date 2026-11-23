@@ -18,6 +18,7 @@ export type RouteId =
   | 'service'
   | 'talks'
   | 'archive'
+  | 'school'
   | 'calligraphy'
 
 export type Route = {
@@ -77,11 +78,11 @@ export const routes: Route[] = [
     inReadingOrder: true,
   },
   {
-    id: 'archive',
-    descKey: 'descArchive',
-    segment: '/archive',
-    labelKey: 'archiveTitle',
-    navLabelKey: 'navArchive',
+    id: 'school',
+    descKey: 'descSchool',
+    segment: '/school',
+    labelKey: 'schoolHeading',
+    navLabelKey: 'navSchool',
     inReadingOrder: true,
   },
   {
@@ -90,6 +91,14 @@ export const routes: Route[] = [
     segment: '/calligraphy',
     labelKey: 'calligraphyHeading',
     navLabelKey: 'navCalligraphy',
+    inReadingOrder: true,
+  },
+  {
+    id: 'archive',
+    descKey: 'descArchive',
+    segment: '/archive',
+    labelKey: 'archiveTitle',
+    navLabelKey: 'navArchive',
     inReadingOrder: true,
   },
 ]

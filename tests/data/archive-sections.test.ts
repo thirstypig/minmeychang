@@ -83,10 +83,11 @@ describe('buildArchiveSections', () => {
     expect(seen.size).toBe(pageItems.length)
   })
 
-  it('keeps calligraphy in archiveCategoryOrder, so the local admin editor still lists it', () => {
-    expect(archiveCategoryOrder).toContain('calligraphy')
-    expect(archivePageCategories).not.toContain('calligraphy')
-    expect(archivePageCategories).toEqual(archiveCategoryOrder.filter((c) => c !== 'calligraphy'))
+  it('keeps page categories in archiveCategoryOrder, so the local admin editor still lists them', () => {
+    for (const c of ['calligraphy', 'chinese-school'] as const) {
+      expect(archiveCategoryOrder).toContain(c)
+      expect(archivePageCategories).not.toContain(c)
+    }
   })
 
   it('leaves calligraphy items out of every section: they live on their own page', () => {

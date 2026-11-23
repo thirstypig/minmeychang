@@ -66,6 +66,8 @@ export const ui = {
     navService: 'Service',
     navTalks: 'Talks',
     navArchive: 'Archive',
+    navSchool: 'School',
+    schoolHeading: 'The Arcadia Chinese School',
     navCalligraphy: 'Calligraphy',
     calligraphyHeading: 'Calligraphy',
     themeToggle: 'Switch between light and dark',
@@ -87,6 +89,8 @@ export const ui = {
       'Min Mey Chang — Principal Chang — on 養生之道: the benefits, principles and application of massage and reflexology. Her talks have reached more than 830,000 viewers.',
     descArchive:
       'Photographs and documents from six decades of Min Mey Chang\'s work in Arcadia, California.',
+    descSchool:
+      'The Arcadia Chinese School, which Min Mey Chang founded in 1982 and led as principal for more than thirty years: its programs, its students, and its work with the Arcadia Unified School District.',
     descCalligraphy:
       'Min Mey Chang\'s Chinese calligraphy: each Lunar New Year she writes it for visitors at the Huntington Library, the Los Angeles County Arboretum and Hsi Lai Temple, and gives the pieces away.',
     pressHeading: 'Coverage',
@@ -132,6 +136,8 @@ export const ui = {
     navService: '榮譽',
     navTalks: '講座',
     navArchive: '檔案',
+    navSchool: '中文學校',
+    schoolHeading: '亞凱迪亞中文學校',
     navCalligraphy: '書法',
     calligraphyHeading: '書法',
     themeToggle: '切換深淺色',
@@ -151,6 +157,8 @@ export const ui = {
     descTalks:
       '張馬敏妹——張校長——主講養生之道：按摩與足部反射療法的功效、原理與應用。講座觀看人次已逾八十三萬。',
     descArchive: '橫跨六十年，張馬敏妹在加州亞凱迪亞的照片與文件紀錄。',
+    descSchool:
+      '張馬敏妹於1982年創辦並擔任校長逾三十年的亞凱迪亞中文學校：課程、學生，以及與亞凱迪亞聯合學區的合作。',
     descCalligraphy:
       '張馬敏妹的書法：每逢農曆新年，她皆於杭廷頓圖書館、洛杉磯郡植物園及西來寺為來訪民眾當場揮毫，並將作品贈送給他們。',
     pressHeading: '媒體報導',

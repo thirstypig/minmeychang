@@ -31,15 +31,25 @@ export const archiveCategoryOrder: ArchiveCategory[] = [
   'community',
   'buddhist',
   'travel',
-  // Last, and not an archive-page section: these render on the Calligraphy
-  // page instead. It stays in this list so the local admin editor (which reads
-  // archiveCategoryOrder) still lists and edits them.
+  // Not an archive-page section: these render on the Calligraphy page instead
+  // (see categoryPages). Listed so the local admin editor, which reads
+  // archiveCategoryOrder, still lists and edits them.
   'calligraphy',
 ]
 
-/** The categories the archive page shows, in order. Everything but calligraphy. */
+/** Categories shown on a page of their own instead of in the archive, and the
+ *  route of that page. Moving a whole category is one line here: the archive
+ *  drops the section, the recently-added row skips its items, and old
+ *  /archive#<id> links redirect (Archive.astro). Calligraphy moved 2026-11-22,
+ *  the Arcadia Chinese School 2026-11-23, both at James's request. */
+export const categoryPages: Partial<Record<ArchiveCategory, 'calligraphy' | 'school'>> = {
+  calligraphy: 'calligraphy',
+  'chinese-school': 'school',
+}
+
+/** The categories the archive page shows, in order. */
 export const archivePageCategories: ArchiveCategory[] = archiveCategoryOrder.filter(
-  (c) => c !== 'calligraphy',
+  (c) => !(c in categoryPages),
 )
 
 export const archiveCategoryLabels: Record<ArchiveCategory, { en: string; zhHant: string }> = {
@@ -2036,5 +2046,10 @@ export function buildArchiveSections(items: ArchiveItem[] = archive): ArchiveSec
     .filter((s) => s.items.length > 0)
 }
 
+/** One category's items, in file order (which is already decade order). */
+export function itemsForCategory(category: ArchiveCategory): ArchiveItem[] {
+  return archive.filter((i) => i.category === category)
+}
+
 /** The photographs shown on the Calligraphy page, in file order. */
-export const calligraphyItems: ArchiveItem[] = archive.filter((i) => i.category === 'calligraphy')
+export const calligraphyItems: ArchiveItem[] = itemsForCategory('calligraphy')
