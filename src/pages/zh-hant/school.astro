@@ -1,0 +1,34 @@
+---
+import Page from '../../layouts/Page.astro'
+import ArchivePage from '../../components/ArchivePage.astro'
+import { itemsForCategory } from '../../data/archive'
+import { getTranslation } from '../../i18n/ui'
+
+const locale = 'zh-hant' as const
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+
+// The school's existing, sourced facts in reading order: founding, programs,
+// students, the district (relationship, I-20, delegations), the council
+// presidency, and what became of the school. No claim here that is not
+// already on the Service page.
+const factIds = [
+  'chinese-school-founded',
+  'afternoon-classes',
+  'students-taught',
+  'ausd-relationship',
+  'i20',
+  'ausd-delegations',
+  'teachers-association',
+  'chinese-school-outcome',
+]
+---
+
+<Page locale={locale} current="school" heading={t('schoolHeading')}>
+  <ArchivePage
+    locale={locale}
+    items={itemsForCategory('chinese-school')}
+    factIds={factIds}
+    groupByDecade
+    anchorId="chinese-school"
+  />
+</Page>
