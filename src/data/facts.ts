@@ -156,6 +156,14 @@ export const confirmedFacts: Fact[] = [
     note: 'RESOLVED the founding year: 1994, and the ceremony was led by 星雲大師 himself. 督導 was the right guess for the supervisor title. The 2024 chapter election was held at their home.',
   },
   {
+    id: 'hsi-lai-member',
+    en: 'A member of Hsi Lai Temple in Hacienda Heights, where she volunteers.',
+    zhHant: '她是位於哈仙達崗的西來寺信眾，並在寺中擔任志工。',
+    status: 'family',
+    source: 'stated by James Chang (son), 2026-11-23',
+    note: '信眾 rather than 會員: a member of the temple community, not a club membership. The chapter she founded is the blia fact.',
+  },
+  {
     id: 'historymakers-lifetime-achievement',
     en: 'With her husband, Dr. Sheng Chang, received the Dr. Dan S. Louie Jr. Lifetime Achievement Award from the Chinese American Museum in Los Angeles, at its 30th Annual Historymakers Awards Gala in 2026.',
     zhHant:

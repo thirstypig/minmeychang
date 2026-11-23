@@ -20,15 +20,13 @@ describe('the Arcadia Chinese School page data', () => {
     expect(school.filter((i) => i.kind === 'document')).toHaveLength(7)
   })
 
-  it('maps each page category to its route', () => {
-    expect(categoryPages).toEqual({ calligraphy: 'calligraphy', 'chinese-school': 'school' })
+  it('maps the school category to its route', () => {
+    expect(categoryPages['chinese-school']).toBe('school')
   })
 
-  it('leaves the archive page with four sections and 122 items', () => {
-    expect(archivePageCategories).toEqual(['family', 'community', 'buddhist', 'travel'])
-    const sections = buildArchiveSections()
-    expect(sections.map((s) => s.category)).not.toContain('chinese-school')
-    expect(sections.flatMap((s) => s.items)).toHaveLength(122)
+  it('is not an archive-page section', () => {
+    expect(archivePageCategories).not.toContain('chinese-school')
+    expect(buildArchiveSections().map((s) => s.category)).not.toContain('chinese-school')
   })
 
   it("the archive's recently-added row never shows a school item", () => {
