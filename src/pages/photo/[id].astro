@@ -1,0 +1,12 @@
+---
+import PhotoForward from '../../components/PhotoForward.astro'
+import { sharedItems } from '../../data/photo-links'
+
+export function getStaticPaths() {
+  return sharedItems.map((item) => ({ params: { id: item.id }, props: { item } }))
+}
+
+const { item } = Astro.props
+---
+
+<PhotoForward locale="en" item={item} />

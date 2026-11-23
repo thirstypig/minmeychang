@@ -287,7 +287,7 @@ const indexable = allowIndexing && reviewed[locale]
         document.addEventListener('click', function (event) {
           var button = event.target.closest && event.target.closest('[data-share]')
           if (!button) return
-          // data-share-url: a link relative to this page (a photo's #<id>);
+          // data-share-url: a link relative to this page (a photo's /photo/<id>);
           // the address bar otherwise. data-share-text: message text for the
           // share sheet only. The copy fallback copies the link alone, since a
           // caption pasted ahead of a link reads worse than the link.
