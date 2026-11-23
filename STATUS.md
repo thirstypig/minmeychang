@@ -1,15 +1,15 @@
 # STATUS — minmeychang
 
-**Last updated:** 2026-11-11
+**Last updated:** 2026-11-22
 
 ## One-line description
 Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an educator, community leader and cultural advocate in Arcadia, California, published by her family.
 
 ## Scope / positioning
-- Six pages per locale: home, story, timeline, service, talks, archive. English and Traditional Chinese at full parity.
+- Seven pages per locale: home, story, timeline, service, talks, archive, calligraphy. English and Traditional Chinese at full parity.
 - Chinese held to Taiwan usage (正體字, formal written register).
 - Every fact must come from a family-provided source, never from memory; unconfirmed facts stay in a gitignored pending file.
-- Archive: 144 entries (124 photos, 20 documents) in five categories, grouped by decade.
+- Archive: 144 entries in `archive.ts`. The archive page shows 141 (121 photos, 20 documents) in five categories, grouped by decade; 3 calligraphy photos are on the Calligraphy page instead.
 
 ## Stack & hosting
 - Astro 7 + Tailwind v4, `@astrojs/sitemap` (en / zh-hant i18n); TypeScript; Vitest.
@@ -22,6 +22,7 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - https://minmeychang.com
 
 ## Shipped (last 60 days)
+- **Calligraphy page and top share button (2026-11-22):** new seventh page, Calligraphy / 書法, with her yearly Lunar New Year volunteering at the Huntington Library, the LA County Arboretum and Hsi Lai Temple, and three photos moved from the archive (old archive links redirect). Share button moved from the footer to the top of every page; photo shares include the caption.
 - **Archive gallery (2026-09-29):** thumbnail gallery, `<dialog>` lightbox, per-photo links, "Recently added" row; more photos added.
 - **Archive navigation (2026-11-08):** section bar now wrapping buttons instead of sideways scroll; floating "jump to section" and share button on phones.
 - **Content:** her council and CAPTA presidencies and 1987–88 culture festivals (2026-09-12); 2026 Historymakers gala and joint lifetime achievement award (2026-09-28), plus two gala videos (2026-10-15); civic record corrected (2026-09-28); empty appointment-letter frame removed (2026-11-08).
@@ -40,6 +41,8 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - Unknown — not documented in repo. The open items above are the only recorded follow-ups.
 
 ## Decisions changed recently
+- 2026-11-22: share button moved from the footer to the top bar; a seventh page (Calligraphy) added; the menu is 3+3+1 on phones, 4+3 on wider screens.
+- 2026-11-22: the two calligraphy *exhibition* photos stay in the archive — James: they are not from her calligraphy sessions.
 - 2026-11-08: CI gates every pull request, not just the deploy.
 - 2026-11-08: archive section bar changed from a hidden sideways scroll to wrapping buttons.
 - 2026-11-08: the empty appointment-letter archive frame was dropped; the appointment is still stated, sourced to the board's roster.

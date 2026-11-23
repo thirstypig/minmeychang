@@ -2,6 +2,12 @@
 
 Date: 2026-11-22 · Size: small change (short design)
 
+> **Changed during the build (James, 2026-11-22):** `calligraphy-exhibition` and
+> `art-exhibition-with-friend` are exhibition photos, not her calligraphy
+> sessions, so they stay in the archive. The page has three photographs; the
+> archive page shows 141. On phones the menu is 3+3+1, not 4+3: "Calligraphy"
+> does not fit a quarter-width button.
+
 ## Intent
 
 Family and friends mostly read the site on phones and want to pass a page or a
