@@ -1,0 +1,25 @@
+---
+import Page from '../layouts/Page.astro'
+import ArchivePage from '../components/ArchivePage.astro'
+import { itemsForCategory } from '../data/archive'
+import { getTranslation } from '../i18n/ui'
+
+const locale = 'en' as const
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+
+// Her temple membership and volunteering (James, 2026-11-23), the Arcadia
+// chapter of Buddha's Light International Association she founded (two
+// published sources), and her Lunar New Year calligraphy, which includes
+// Hsi Lai. No claim here that is not already sourced in facts.ts.
+const factIds = ['hsi-lai-member', 'blia', 'calligraphy']
+---
+
+<Page locale={locale} current="temple" heading={t('templeHeading')}>
+  <ArchivePage
+    locale={locale}
+    items={itemsForCategory('buddhist')}
+    factIds={factIds}
+    groupByDecade
+    anchorId="buddhist"
+  />
+</Page>

@@ -41,10 +41,12 @@ export const archiveCategoryOrder: ArchiveCategory[] = [
  *  route of that page. Moving a whole category is one line here: the archive
  *  drops the section, the recently-added row skips its items, and old
  *  /archive#<id> links redirect (Archive.astro). Calligraphy moved 2026-11-22,
- *  the Arcadia Chinese School 2026-11-23, both at James's request. */
-export const categoryPages: Partial<Record<ArchiveCategory, 'calligraphy' | 'school'>> = {
+ *  the Arcadia Chinese School and Buddha's Light (as Hsi Lai Temple &
+ *  Buddha's Light) 2026-11-23, all at James's request. */
+export const categoryPages: Partial<Record<ArchiveCategory, 'calligraphy' | 'school' | 'temple'>> = {
   calligraphy: 'calligraphy',
   'chinese-school': 'school',
+  buddhist: 'temple',
 }
 
 /** The categories the archive page shows, in order. */
