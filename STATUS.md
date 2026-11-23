@@ -1,15 +1,15 @@
 # STATUS — minmeychang
 
-**Last updated:** 2026-11-22
+**Last updated:** 2026-11-23
 
 ## One-line description
 Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an educator, community leader and cultural advocate in Arcadia, California, published by her family.
 
 ## Scope / positioning
-- Seven pages per locale: home, story, timeline, service, talks, archive, calligraphy. English and Traditional Chinese at full parity.
+- Eight pages per locale: home, story, timeline, service, talks, school, calligraphy, archive. English and Traditional Chinese at full parity.
 - Chinese held to Taiwan usage (正體字, formal written register).
 - Every fact must come from a family-provided source, never from memory; unconfirmed facts stay in a gitignored pending file.
-- Archive: 144 entries in `archive.ts`. The archive page shows 141 (121 photos, 20 documents) in five categories, grouped by decade; 3 calligraphy photos are on the Calligraphy page instead.
+- Archive: 144 entries in `archive.ts`. The archive page shows 122 (109 photos, 13 documents) in four categories, grouped by decade. The Arcadia Chinese School (19 items) and Calligraphy (3 photos) have their own pages instead.
 
 ## Stack & hosting
 - Astro 7 + Tailwind v4, `@astrojs/sitemap` (en / zh-hant i18n); TypeScript; Vitest.
@@ -22,6 +22,7 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - https://minmeychang.com
 
 ## Shipped (last 60 days)
+- **Arcadia Chinese School page (2026-11-23):** eighth page, "The Arcadia Chinese School" / 亞凱迪亞中文學校. Its intro is the school's eight existing facts as a list; below that are all 19 former archive items (12 photos, 7 clippings and letters), grouped by decade, each with its own share button. Old archive links (items, the section and its decades) redirect. Menu is 3+3+2 on phones, 4+4 wider.
 - **No sideways scroll at large text (2026-11-22):** at the largest text size on 320–360px phones, the archive ("multigenerational") and service ("International") pages scrolled sideways. Long words now break or hyphenate, and the institution rows put the logo above the name when the column gets narrow. Checked on all 14 pages at 4 widths and 3 text sizes.
 - **Calligraphy page and top share button (2026-11-22):** new seventh page, Calligraphy / 書法, with her yearly Lunar New Year volunteering at the Huntington Library, the LA County Arboretum and Hsi Lai Temple, and three photos moved from the archive (old archive links redirect). Share button moved from the footer to the top of every page; photo shares send her name and the caption ("Min Mey Chang: …" / 「張馬敏妹：…」).
 - **Archive gallery (2026-09-29):** thumbnail gallery, `<dialog>` lightbox, per-photo links, "Recently added" row; more photos added.
@@ -42,6 +43,7 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - Unknown — not documented in repo. The open items above are the only recorded follow-ups.
 
 ## Decisions changed recently
+- 2026-11-23: the archive's Arcadia Chinese School section became its own page (all 19 items, James). Menu order: … talks, school, calligraphy, archive.
 - 2026-11-22: share button moved from the footer to the top bar; a seventh page (Calligraphy) added; the menu is 3+3+1 on phones, 4+3 on wider screens.
 - 2026-11-22: the two calligraphy *exhibition* photos stay in the archive — James: they are not from her calligraphy sessions.
 - 2026-11-08: CI gates every pull request, not just the deploy.

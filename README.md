@@ -8,8 +8,8 @@ to GitHub Pages at **minmeychang.com**.
 
 ## Status
 
-Live and indexed. Seven pages per locale — home, story, timeline, service,
-talks, archive, calligraphy — in English and Traditional Chinese. A **Share**
+Live and indexed. Eight pages per locale — home, story, timeline, service,
+talks, school, calligraphy, archive — in English and Traditional Chinese. A **Share**
 button at the top of every page opens the phone's own share sheet (Messages,
 LINE, WhatsApp…) or, where there is none, copies the link.
 
@@ -22,14 +22,16 @@ real errors were corrected on 2026-08-05 — including 加州眾議**會**議長
 is not a body — but that was self-review, not proofreading. It is the locale
 most of her community will actually read.
 
-`archive.ts` holds 144 entries. Three photographs of her writing calligraphy
-(category `calligraphy`) render on the **Calligraphy** page, not the archive
-page: each is shown whole with its caption and its own share button, and an
-old `/archive#<id>` link to one is redirected there. The archive page shows
-the other 141 — 121 photographs and 20 documents — organized into five
-categories (Family, The Arcadia Chinese School, Community & Civic
-Life, Buddha's Light International Association, Travel), each grouped by
-decade within it. No frame is empty. The last one, awaiting the May 2001
+`archive.ts` holds 144 entries. Two categories have pages of their own
+(`categoryPages` in `archive.ts`, rendered by `ArchivePage.astro`): the 19
+items of **The Arcadia Chinese School** (12 photographs, 7 documents, grouped
+by decade under the school's facts) and three photographs on the
+**Calligraphy** page. There each item is shown whole with its caption and its
+own share button, and an old `/archive#<id>` link — or a section or decade
+anchor such as `#chinese-school-1990s` — is redirected there. The archive page
+shows the other 122 — 109 photographs and 13 documents — organized into four
+categories (Family, Community & Civic Life, Buddha's Light International
+Association, Travel), each grouped by decade within it. No frame is empty. The last one, awaiting the May 2001
 Acupuncture Board appointment letter, was removed on 2026-11-08 after the
 family found no letter. The appointment itself is still stated, sourced to
 the Board's own roster. Her

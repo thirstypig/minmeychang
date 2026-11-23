@@ -3,7 +3,8 @@ import sharp from 'sharp'
 import {
   archiveCategoryLabels,
   buildArchiveSections,
-  calligraphyItems,
+  categoryPages,
+  itemsForCategory,
   recentlyAdded,
   suppliedItems,
   type ArchiveItem,
@@ -23,10 +24,22 @@ const pick = (v: { en: string; zhHant: string }) =>
 
 const sections = buildArchiveSections()
 
-// Photos moved to the Calligraphy page on 2026-11-22. A link shared before the
-// move (/archive#<id>) would otherwise open on an archive with no such photo.
-const movedIds = calligraphyItems.map((i) => i.id)
-const movedTo = routePath(locale, 'calligraphy')
+// Items whose category now has its own page (categoryPages): Calligraphy
+// 2026-11-22, the Arcadia Chinese School 2026-11-23. A link shared before the
+// move (/archive#<id>, or a section/decade anchor like #chinese-school-1990s)
+// would otherwise open on an archive with no such element. Each maps to its
+// new page, which keeps the same ids.
+const decadeAnchor = (category: string, decade: number) => `${category}-${decade}s`
+const moved: Record<string, string> = {}
+for (const [category, route] of Object.entries(categoryPages)) {
+  const to = routePath(locale, route!)
+  const items = itemsForCategory(category as keyof typeof categoryPages)
+  moved[category] = to
+  for (const item of items) {
+    moved[item.id] = to
+    moved[decadeAnchor(category, item.decade)] = to
+  }
+}
 const recent = recentlyAdded()
 
 // Every image gets explicit width/height. Without them the grid reflows as each
@@ -48,7 +61,6 @@ const dims = new Map<string, Dims>(
 )
 
 const photoCount = (items: ArchiveItem[]) => items.filter((i) => i.asset).length
-const decadeAnchor = (category: string, decade: number) => `${category}-${decade}s`
 ---
 
 {/* `data-archive` scopes the lightbox script. Captions render in the page and
@@ -58,13 +70,12 @@ const decadeAnchor = (category: string, decade: number) => `${category}-${decade
 <div data-archive>
   {/* Inline and first, so an old link is sent on before the viewer script or
       any image loads. location.replace keeps the dead URL out of history. */}
-  <script is:inline data-moved-ids={JSON.stringify(movedIds)} data-moved-to={movedTo}>
+  <script is:inline data-moved={JSON.stringify(moved)}>
     ;(function (el) {
       var id
       try { id = decodeURIComponent(location.hash.slice(1)) } catch (e) { return }
-      if (id && JSON.parse(el.dataset.movedIds).indexOf(id) !== -1) {
-        location.replace(el.dataset.movedTo + '#' + id)
-      }
+      var to = id && JSON.parse(el.dataset.moved)[id]
+      if (to) location.replace(to + '#' + id)
     })(document.currentScript)
   </script>
   <nav id="archive-sections" class="archive-nav archive-anchor -mx-6 mt-8 px-6 py-3" aria-label={t('archiveJumpNav')}>
