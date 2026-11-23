@@ -28,7 +28,7 @@ const { previous, next } = neighbors(current)
     >
       <div>
         {previous && (
-          <a href={routePath(locale, previous.id)} rel="prev" class="page-nav-button justify-start text-left">
+          <a href={routePath(locale, previous.id)} rel="prev" class="page-nav-button">
             <span aria-hidden="true">←</span>
             <span>{t(previous.labelKey)}</span>
           </a>
@@ -36,7 +36,7 @@ const { previous, next } = neighbors(current)
       </div>
       <div>
         {next && (
-          <a href={routePath(locale, next.id)} rel="next" class="page-nav-button justify-end text-right">
+          <a href={routePath(locale, next.id)} rel="next" class="page-nav-button">
             <span>{t(next.labelKey)}</span>
             <span aria-hidden="true">→</span>
           </a>
