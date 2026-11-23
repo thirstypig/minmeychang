@@ -41,8 +41,8 @@ Library and Gardens in 1988.
 She served as President of the local chapter of the Shih Chien University
 Alumni Association, and is today President of the national association. She
 founded the Arcadia chapter of Buddha's Light International Association as its
-founding President, and went on to become supervisor for the Greater Los
-Angeles area. In May 2001 the Speaker of the California State Assembly,
+founding President, and went on to become supervisor for the Los Angeles
+association. In May 2001 the Speaker of the California State Assembly,
 Robert M. Hertzberg, appointed her a community member of the California
 Acupuncture Board, where she served a term expiring in July 2004.
 

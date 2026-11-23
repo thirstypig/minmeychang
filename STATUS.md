@@ -46,6 +46,7 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - Unknown — not documented in repo. The open items above are the only recorded follow-ups.
 
 ## Decisions changed recently
+- 2026-11-23: Story pages (EN + zh) now say supervisor for the Los Angeles association (洛杉磯協會督導), matching the sourced blia fact, not "the Greater Los Angeles area".
 - 2026-11-23: the archive's Buddha's Light section became the Hsi Lai Temple & Buddha's Light page (all 10 photos, James). "Temple Supporters" confirmed by James to mean BLIA's Arcadia chapter.
 - 2026-11-23: the archive's Arcadia Chinese School section became its own page (all 19 items, James). Menu order: … talks, school, calligraphy, archive.
 - 2026-11-22: share button moved from the footer to the top bar; a seventh page (Calligraphy) added; the menu is 3+3+1 on phones, 4+3 on wider screens.
