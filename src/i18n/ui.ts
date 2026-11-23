@@ -50,7 +50,7 @@ export const ui = {
     lightboxClose: 'Close',
     lightboxPrev: 'Previous photo',
     lightboxNext: 'Next photo',
-    sharePage: 'Share this page',
+    share: 'Share',
     sharePhoto: 'Share this photo',
     linkCopied: 'Link copied',
     mediaHeading: 'Elsewhere',
@@ -66,6 +66,8 @@ export const ui = {
     navService: 'Service',
     navTalks: 'Talks',
     navArchive: 'Archive',
+    navCalligraphy: 'Calligraphy',
+    calligraphyHeading: 'Calligraphy',
     themeToggle: 'Switch between light and dark',
     homeIntro:
       'Educator, community leader and cultural advocate in Arcadia, California. Published by her family.',
@@ -85,6 +87,8 @@ export const ui = {
       'Min Mey Chang — Principal Chang — on 養生之道: the benefits, principles and application of massage and reflexology. Her talks have reached more than 830,000 viewers.',
     descArchive:
       'Photographs and documents from six decades of Min Mey Chang\'s work in Arcadia, California.',
+    descCalligraphy:
+      'Min Mey Chang\'s Chinese calligraphy: each Lunar New Year she writes it for visitors at the Huntington Library, the Los Angeles County Arboretum and Hsi Lai Temple, and gives the pieces away.',
     pressHeading: 'Coverage',
     pressIntro:
       'Independent accounts of her work in Chinese-language community media. Each one below is also a source for a fact on this site.',
@@ -115,7 +119,7 @@ export const ui = {
     lightboxClose: '關閉',
     lightboxPrev: '上一張',
     lightboxNext: '下一張',
-    sharePage: '分享此頁',
+    share: '分享',
     sharePhoto: '分享這張照片',
     linkCopied: '已複製連結',
     mediaHeading: '其他平台',
@@ -128,6 +132,8 @@ export const ui = {
     navService: '榮譽',
     navTalks: '講座',
     navArchive: '檔案',
+    navCalligraphy: '書法',
+    calligraphyHeading: '書法',
     themeToggle: '切換深淺色',
     homeIntro: '加州亞凱迪亞的教育家、社區領袖與文化推廣者。本網站由家人建置。',
     husbandLead: '夫婿',
@@ -145,6 +151,8 @@ export const ui = {
     descTalks:
       '張馬敏妹——張校長——主講養生之道：按摩與足部反射療法的功效、原理與應用。講座觀看人次已逾八十三萬。',
     descArchive: '橫跨六十年，張馬敏妹在加州亞凱迪亞的照片與文件紀錄。',
+    descCalligraphy:
+      '張馬敏妹的書法：每逢農曆新年，她皆於杭廷頓圖書館、洛杉磯郡植物園及西來寺為來訪民眾當場揮毫，並將作品贈送給他們。',
     pressHeading: '媒體報導',
     pressIntro: '華文社區媒體對她工作的獨立報導。以下每則同時也是本網站事實的出處。',
     affiliationsHeading: '所屬機構',

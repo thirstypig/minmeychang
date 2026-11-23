@@ -1,0 +1,12 @@
+---
+import Page from '../layouts/Page.astro'
+import Calligraphy from '../components/Calligraphy.astro'
+import { getTranslation } from '../i18n/ui'
+
+const locale = 'en' as const
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+---
+
+<Page locale={locale} current="calligraphy" heading={t('calligraphyHeading')}>
+  <Calligraphy locale={locale} />
+</Page>

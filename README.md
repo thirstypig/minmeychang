@@ -8,8 +8,10 @@ to GitHub Pages at **minmeychang.com**.
 
 ## Status
 
-Live and indexed. Six pages per locale — home, story, timeline, service,
-talks, archive — in English and Traditional Chinese.
+Live and indexed. Seven pages per locale — home, story, timeline, service,
+talks, archive, calligraphy — in English and Traditional Chinese. A **Share**
+button at the top of every page opens the phone's own share sheet (Messages,
+LINE, WhatsApp…) or, where there is none, copies the link.
 
 **Indexing is ON.** `ALLOW_INDEXING: 'true'` in the deploy workflow; set it to
 `'false'` to pull the site back out of the index. `robots.txt` is generated
@@ -20,15 +22,19 @@ real errors were corrected on 2026-08-05 — including 加州眾議**會**議長
 is not a body — but that was self-review, not proofreading. It is the locale
 most of her community will actually read.
 
-The archive holds 144 entries — 124 photographs and 20 documents — organized
-into five categories (Family, The Arcadia Chinese School, Community & Civic
+`archive.ts` holds 144 entries. Three photographs of her writing calligraphy
+(category `calligraphy`) render on the **Calligraphy** page, not the archive
+page: each is shown whole with its caption and its own share button, and an
+old `/archive#<id>` link to one is redirected there. The archive page shows
+the other 141 — 121 photographs and 20 documents — organized into five
+categories (Family, The Arcadia Chinese School, Community & Civic
 Life, Buddha's Light International Association, Travel), each grouped by
 decade within it. No frame is empty. The last one, awaiting the May 2001
 Acupuncture Board appointment letter, was removed on 2026-11-08 after the
 family found no letter. The appointment itself is still stated, sourced to
 the Board's own roster. Her
-calligraphy is no longer missing — several photographs of her brushwork are
-published, matching the site's 印泥 palette.
+calligraphy is no longer missing: it has its own page, matching the site's
+印泥 palette.
 
 The archive page is a thumbnail gallery. A **Recently added** row comes first
 (driven by an optional `added` date on each entry), then a bar of buttons to each

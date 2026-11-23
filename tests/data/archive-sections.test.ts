@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   archive,
   archiveCategoryOrder,
+  archivePageCategories,
   buildArchiveSections,
   type ArchiveItem,
 } from '../../src/data/archive'
@@ -43,15 +44,15 @@ describe('buildArchiveSections', () => {
     expect(categoriesPresent).not.toContain('buddhist')
   })
 
-  it('orders sections by archiveCategoryOrder, not by input or insertion order', () => {
+  it('orders sections by archivePageCategories, not by input or insertion order', () => {
     // Deliberately fed in reverse-of-canonical order.
-    const reversed = [...archiveCategoryOrder].reverse()
+    const reversed = [...archivePageCategories].reverse()
     const items = reversed.map((category, i) => item({ id: `i${i}`, category }))
 
     const sections = buildArchiveSections(items)
 
     expect(sections.map((s) => s.category)).toEqual(
-      archiveCategoryOrder.filter((c) => reversed.includes(c))
+      archivePageCategories.filter((c) => reversed.includes(c))
     )
   })
 
@@ -66,7 +67,7 @@ describe('buildArchiveSections', () => {
     expect(sections[0].decades).toEqual([1970, 1990, 2000])
   })
 
-  it('every item in the real archive appears in exactly one section, under its own category', () => {
+  it('every archive-page item appears in exactly one section, under its own category', () => {
     const sections = buildArchiveSections()
     const seen = new Map<string, string>()
 
@@ -78,7 +79,22 @@ describe('buildArchiveSections', () => {
       }
     }
 
-    expect(seen.size).toBe(archive.length)
+    const pageItems = archive.filter((i) => archivePageCategories.includes(i.category))
+    expect(seen.size).toBe(pageItems.length)
+  })
+
+  it('keeps calligraphy in archiveCategoryOrder, so the local admin editor still lists it', () => {
+    expect(archiveCategoryOrder).toContain('calligraphy')
+    expect(archivePageCategories).not.toContain('calligraphy')
+    expect(archivePageCategories).toEqual(archiveCategoryOrder.filter((c) => c !== 'calligraphy'))
+  })
+
+  it('leaves calligraphy items out of every section: they live on their own page', () => {
+    const sections = buildArchiveSections([
+      item({ id: 'a', category: 'family' }),
+      item({ id: 'b', category: 'calligraphy' }),
+    ])
+    expect(sections.map((s) => s.category)).toEqual(['family'])
   })
 
   it('defaults to the real archive when called with no argument', () => {

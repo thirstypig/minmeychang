@@ -172,22 +172,6 @@ const indexable = allowIndexing && reviewed[locale]
             calligraphy. Small here — the home page carries the large one. */}
         <NameSeal size={40} class="mb-5" />
 
-        {/* Opens the phone's own share sheet (LINE, WhatsApp, Messages,
-            WeChat…) where the browser supports it; elsewhere it copies the
-            link. One button rather than a row of brand icons: the sheet lists
-            the apps this reader actually uses, and no third-party widget is
-            loaded. */}
-        <p class="no-print mb-6">
-          <button
-            type="button"
-            class="share-button"
-            data-share
-            data-label-copied={t('linkCopied')}
-          >
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 8 5-5 5 5" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" /></svg>
-            <span data-share-label>{t('sharePage')}</span>
-          </button>
-        </p>
 
         {
           spouse && (
@@ -303,8 +287,15 @@ const indexable = allowIndexing && reviewed[locale]
         document.addEventListener('click', function (event) {
           var button = event.target.closest && event.target.closest('[data-share]')
           if (!button) return
-          var url = location.href
+          // data-share-url: a link relative to this page (a photo's #<id>);
+          // the address bar otherwise. data-share-text: message text for the
+          // share sheet only. The copy fallback copies the link alone, since a
+          // caption pasted ahead of a link reads worse than the link.
+          var target = button.getAttribute('data-share-url')
+          var url = target ? new URL(target, location.href).href : location.href
           var data = { title: document.title, url: url }
+          var text = button.getAttribute('data-share-text')
+          if (text) data.text = text
           if (navigator.share && (!navigator.canShare || navigator.canShare(data))) {
             navigator.share(data).catch(function (error) {
               if (error && error.name === 'AbortError') return

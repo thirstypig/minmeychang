@@ -1,0 +1,75 @@
+---
+import sharp from 'sharp'
+import { calligraphyItems } from '../data/archive'
+import { renderableFacts } from '../data/facts'
+import { getTranslation, type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(locale, key)
+const pick = (v: { en: string; zhHant: string }) => (locale === 'en' ? v.en : v.zhHant)
+
+// The intro IS the calligraphy fact, read through the same renderable filter as
+// Figures.astro: if the fact ever stops being renderable, the claim leaves this
+// page too rather than outliving its source.
+const fact = renderableFacts.find((f) => f.id === 'calligraphy')
+
+// Explicit width/height so a shared /calligraphy#<id> link lands on its photo
+// instead of where the photo was before the images above it loaded.
+const dims = new Map(
+  await Promise.all(
+    calligraphyItems.map(async (i) => {
+      const meta = await sharp(`public${i.asset}`).metadata()
+      return [i.id, { w: meta.width!, h: meta.height! }] as const
+    }),
+  ),
+)
+---
+
+{fact && <p class="text-lg leading-relaxed">{pick(fact)}</p>}
+
+{/* Each photograph shown whole with its caption and its own share
+    button — no thumbnails or full-screen viewer to open first. The button
+    shares this photo's own #<id> link and passes the caption as the message
+    text (see the share script in Base.astro). */}
+<div class="mt-10 space-y-12">
+  {
+    calligraphyItems.map((item) => (
+      <figure id={item.id} class="calligraphy-photo">
+        <img
+          src={item.asset}
+          width={dims.get(item.id)!.w}
+          height={dims.get(item.id)!.h}
+          alt={pick({ en: item.en, zhHant: item.zhHant })}
+          class="h-auto w-full rounded"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption class="mt-3">
+          <p style="color: var(--text-strong)">{pick({ en: item.en, zhHant: item.zhHant })}</p>
+          {item.caption && (
+            <p class="mt-1 text-sm leading-relaxed" style="color: var(--text-soft)">
+              {pick(item.caption)}
+            </p>
+          )}
+          <p class="no-print mt-3">
+            <button
+              type="button"
+              class="share-button text-sm"
+              data-share
+              data-share-url={`#${item.id}`}
+              data-share-text={item.caption ? pick(item.caption) : undefined}
+              data-label-copied={t('linkCopied')}
+            >
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" /><path d="m7 8 5-5 5 5" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" /></svg>
+              <span data-share-label>{t('sharePhoto')}</span>
+            </button>
+          </p>
+        </figcaption>
+      </figure>
+    ))
+  }
+</div>
