@@ -26,11 +26,13 @@ export type Figure = {
 export const figures: Figure[] = [
   {
     id: 'founded',
-    value: '1982',
-    valueZhHant: '1982',
-    en: 'Two institutions founded, in one year',
-    zhHant: '一年之內創辦兩個機構',
-    factId: 'aca-founded',
+    // Was "1982 — two institutions founded, in one year" until the school's
+    // founding moved to 1981 (James, 2026-11-23).
+    value: '1981',
+    valueZhHant: '1981',
+    en: 'Founded the Arcadia Chinese School',
+    zhHant: '創辦亞凱迪亞中文學校',
+    factId: 'chinese-school-founded',
   },
   {
     id: 'principal',

@@ -62,8 +62,8 @@ export const affiliations: Affiliation[] = [
     id: 'cta',
     en: 'Southern California Council of Chinese Schools',
     zhHant: '南加州中文學校聯合會',
-    roleEn: 'President, 1986; two years',
-    roleZhHant: '1986年任會長，任期兩年',
+    roleEn: 'President, 1985–86',
+    roleZhHant: '1985至1986年度任會長',
     factId: 'teachers-association',
     logoPermitted: false,
     permissionNote:

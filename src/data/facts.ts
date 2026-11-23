@@ -49,17 +49,18 @@ export const confirmedFacts: Fact[] = [
     id: 'aca-founded',
     en: 'Co-founded the Arcadia Chinese Association with Dr. Sheng Chang in 1982.',
     zhHant: '1982年與夫婿張勝雄醫師共同創辦亞凱迪亞華人協會。',
-    status: 'family',
-    source: 'confirmed by James Chang (son), 2026-08-05',
+    status: 'confirmed',
+    source: 'The association\'s own 40th-anniversary yearbook (2022) gives 1982 ("回想四十年前是1982年") and, in a former president\'s history, names both: "由張勝雄醫師及夫人張馬敏妹女士在 Baldwin Stocker 小學，由放演一些……中國影片開始" — https://arcadiachineseassociation.org/wp-content/uploads/2022/10/ACA_2022_final_LR.pdf#page=28. Agrees with the family\'s account (2026-08-05; reaffirmed 2026-11-23).',
     note: 'The ACA site advertised a "38th Annual Gala" in Feb 2021, which would imply 1983. The family says 1982; gala counts commonly lag founding by a year. Going with 1982.',
   },
   {
     id: 'chinese-school-founded',
-    en: 'Founded the Arcadia Chinese School in 1982 and served as its principal for more than thirty years.',
-    zhHant: '1982年創辦亞凱迪亞中文學校，擔任校長逾三十年。',
+    en: 'Founded the Arcadia Chinese School in 1981 and served as its principal for more than thirty years.',
+    zhHant: '1981年創辦亞凱迪亞中文學校，擔任校長逾三十年。',
     status: 'confirmed',
+    note: 'The year was 1982 until 2026-11-23, when James Chang ruled for 1981, the year the Center for Applied Linguistics directory gives ("Arcadia Chinese School was established in 1981"). The Arcadia Chinese Association stays 1982, so the school came first.',
     source:
-      'Family, 2026-08-05, for the founding year and tenure. The principalship is independently attested by Merit Times 人間通訊社: "並曾任亞凱迪亞市中華學校校長" — https://www.lnanews.com/news/150416',
+      'Founding year 1981 and the principalship: the Center for Applied Linguistics heritage-language directory, "Arcadia Chinese School was established in 1981" and "Name: Min Mey Chang, Title: Principal" — https://webapp.cal.org/Heritage/ProfileDetails.aspx?id=312 (the family adopted 1981, 2026-11-23). Tenure from the family, 2026-08-05. The principalship is independently attested by Merit Times 人間通訊社: "並曾任亞凱迪亞市中華學校校長" — https://www.lnanews.com/news/150416',
   },
   {
     id: 'afternoon-classes',
@@ -95,11 +96,11 @@ export const confirmedFacts: Fact[] = [
     // id kept from when this was "the Chinese Teacher Association": the
     // Institutions row and the delegations figure's history both point here.
     id: 'teachers-association',
-    en: 'President of the Southern California Council of Chinese Schools in 1986, a post she held for two years.',
-    zhHant: '1986年任南加州中文學校聯合會會長，任期兩年。',
-    status: 'family',
-    source: 'Two-year presidency confirmed by James Chang (son), 2026-08-05, and in the family\'s written biography, 2026-08-20. The year 1986 stated by Min Mey Chang, relayed by James Chang, 2026-09-12. The organization\'s name, in both languages, is printed on its own Certificate of Appreciation to her dated April 30, 2006: "南加州中文學校聯合會 / SOUTHERN CALIFORNIA COUNCIL OF CHINESE SCHOOLS" — archive item sccs-certificate-2006.',
-    note: 'NAME RESOLVED 2026-09-12. First supplied as "the Chinese Teacher Association", then as "the Southern California Chinese school association" (2026-08-20), with the registered name left open. The 2006 certificate prints the registered name in English and Chinese, and a 1990s AAUW clipping (archive item aauw-features-chinese-leader-clipping) uses the same English name. That clipping calls her the council\'s ADVISOR, not president — consistent with a 1986 presidency followed by an advisory role, not a conflict. The two years are family testimony; whether they were 1985–86 or 1986–87 is not known, which is why the copy says "in 1986" rather than giving a range. The three educational delegations used to be recorded in this fact; they moved to their own fact, ausd-delegations, on 2026-09-12, when the family placed them with the Arcadia Unified School District rather than the council.',
+    en: 'President of the Southern California Council of Chinese Schools in 1985–86, after serving as its vice president and treasurer in 1984–85.',
+    zhHant: '1985至1986年度任南加州中文學校聯合會會長；此前於1984至1985年度任該會副會長兼財務。',
+    status: 'confirmed',
+    source: 'The council\'s own roll of past boards (PDF, 2014): "84-85 九 符慕美枝 張馬敏妹 顏昌智 (兼) 張馬敏妹" under 年度/屆次/會長/副會長/秘書/財務, and "85-86 十 張馬敏妹 …" — https://s3.amazonaws.com/scccs.net/Intro/38th/Board_List_38th.pdf. The organization\'s name, in both languages, is printed on its own Certificate of Appreciation to her dated April 30, 2006: "南加州中文學校聯合會 / SOUTHERN CALIFORNIA COUNCIL OF CHINESE SCHOOLS" — archive item sccs-certificate-2006.',
+    note: 'YEARS RESOLVED 2026-11-23 from the roster, which the family adopted that day. Until then the copy read "president in 1986, a post she held for two years", from family testimony (James Chang 2026-08-05, the written biography 2026-08-20, and the year 1986 from Min Mey Chang via James 2026-09-12). The roster shows one presidential term, 1985–86, after a year as vice president and treasurer, so the two remembered years were most likely those two board years. NAME RESOLVED 2026-09-12: first supplied as "the Chinese Teacher Association", then as "the Southern California Chinese school association"; the 2006 certificate prints the registered name, and a 1990s AAUW clipping (archive item aauw-features-chinese-leader-clipping) uses the same English name and calls her the council\'s ADVISOR, consistent with an advisory role after her presidency. The three educational delegations moved to their own fact, ausd-delegations, on 2026-09-12.',
   },
   {
     id: 'ausd-delegations',
@@ -134,6 +135,14 @@ export const confirmedFacts: Fact[] = [
     status: 'confirmed',
     source: 'Two clippings in the archive, both naming the award and dating it to 1988: the AAUW clipping, "Awarded the Arcadia Unified School District\'s Golden Apple award in 1988 for her \'tireless energy, ability to involve others, organizational efforts and material donations which have had a major impact on the quality of schools and community\'" — archive item aauw-features-chinese-leader-clipping; and Sierra Madre News, March 2, 1989, "Arcadia Unified School District presented Chang with the Golden Apple Award last year" — archive item pta-prexy-clipping-1989.',
     note: 'First recorded 2026-08-05 on the family\'s word, with no year. YEAR RESOLVED 2026-09-12. It had been open since 2026-08-05, while both clippings that settle it were already sitting in the archive — they were captioned, but never read back against this fact. The certificate itself is still not scanned. The AAUW clipping\'s citation is the only published description of why she received it.',
+  },
+  {
+    id: 'school-board-1995',
+    en: 'Ran for the Arcadia Unified School District Board of Education in April 1995, one of five candidates for three seats.',
+    zhHant: '1995年4月參選亞凱迪亞聯合學區教育委員，為五名候選人角逐三席之一。',
+    status: 'confirmed',
+    source: 'Arcadia Public Library newspaper index (Arcadia History Collection): Sierra Madre News, 1995-03-23, "Five candidates are running for three Arcadia School Board seats: Maryann Gibson; Mike Lamb; Min Mey Chang; John Wuo; and John McLain" — https://arcadiahistory.andornot.net/en/permalink/newspaper4510; Pasadena Star-News, 1995-04-13, "First time school board candidate Min Mey Chang is profiled" — https://arcadiahistory.andornot.net/en/permalink/newspaper4531. The family agreed to its inclusion, 2026-11-23.',
+    note: 'She was not elected (Pasadena Star-News, 1995-04-20 — https://arcadiahistory.andornot.net/en/permalink/newspaper4517). The copy states the run and the field, not the result; James can add it if the family wants it said.',
   },
   {
     id: 'shih-chien',

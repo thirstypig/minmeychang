@@ -22,6 +22,11 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - https://minmeychang.com
 
 ## Shipped (last 60 days)
+- **James's rulings on the search findings (2026-11-23):**
+  - Council: per its own roster, vice president and treasurer 1984–85, president 1985–86 (was "1986, two years").
+  - The Arcadia Chinese School was founded in **1981** (was 1982). The home figure now reads "1981 — Founded the Arcadia Chinese School".
+  - Arcadia Chinese Association co-founding (1982) confirmed by its yearbook.
+  - New fact and timeline entry: ran for the Arcadia school board in April 1995. Three Arcadia library index links added.
 - **More coverage links (2026-11-23):** a web search of her English and Chinese names found 6 new pages that name her, now linked under Talks → "Coverage and records":
   - ANN NEWS and 華人今日網 on the 2026 Historymakers award;
   - Shih Chien University's alumni directory;
@@ -54,11 +59,6 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - None recorded. All 13 files in `todos/` are complete.
 
 ## Open bugs / known issues
-- **For James, from the 2026-11-23 search:**
-  - The council roster lists her as president for 1985–86 only (vice president and treasurer 1984–85). facts.ts says president in 1986 for two years.
-  - A language-center directory dates the school to 1981; the site says 1982.
-  - The Arcadia Chinese Association yearbook credits her and Dr. Chang with starting the association around 1984. That isn't on the site as a fact.
-  - Unread: the Arcadia library's local-history index (arcadiahistory.andornot.net) has 6 Pasadena Star-News records from April 1995 that appear to cover her run for the Arcadia school board. Automated fetching is blocked, so they need a person in a normal browser.
 - The Chinese copy has never been read end-to-end by a native speaker (README). It is the locale most of her community will read.
 - Six questions still open in the gitignored pending-facts file: mostly years, plus one consent question.
 - She is hard to find in web search; all sources came from the family (README warns not to read empty search results as a thin record).

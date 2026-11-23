@@ -30,18 +30,18 @@ export const timeline: TimelineEvent[] = [
     factId: 'immigration-arrival',
   },
   {
+    id: 'school-founded',
+    year: 1981,
+    en: 'Founds the Arcadia Chinese School, and becomes its principal for the next thirty years.',
+    zhHant: '創辦亞凱迪亞中文學校，並於其後三十年擔任校長。',
+    factId: 'chinese-school-founded',
+  },
+  {
     id: 'aca-founded',
     year: 1982,
     en: 'Co-founds the Arcadia Chinese Association with Dr. Sheng Chang.',
     zhHant: '與張勝雄醫師共同創辦亞凱迪亞華人協會。',
     factId: 'aca-founded',
-  },
-  {
-    id: 'school-founded',
-    year: 1982,
-    en: 'Founds the Arcadia Chinese School, and becomes its principal for the next thirty years.',
-    zhHant: '創辦亞凱迪亞中文學校，並於其後三十年擔任校長。',
-    factId: 'chinese-school-founded',
   },
   {
     id: 'i20',
@@ -56,9 +56,10 @@ export const timeline: TimelineEvent[] = [
   },
   {
     id: 'sccs-president',
-    year: 1986,
-    en: 'President of the Southern California Council of Chinese Schools, a post she holds for two years.',
-    zhHant: '任南加州中文學校聯合會會長，任期兩年。',
+    year: 1985,
+    yearDisplay: { en: '1985–86', zhHant: '1985–86' },
+    en: 'President of the Southern California Council of Chinese Schools, after a year as its vice president and treasurer.',
+    zhHant: '任南加州中文學校聯合會會長；此前一年任該會副會長兼財務。',
     factId: 'teachers-association',
   },
   {
@@ -95,6 +96,13 @@ export const timeline: TimelineEvent[] = [
     en: "Founds the Arcadia chapter of Buddha's Light International Association, inaugurated by Venerable Master Hsing Yun.",
     zhHant: '創辦國際佛光會亞凱迪亞分會，由星雲大師親臨主持成立。',
     factId: 'blia',
+  },
+  {
+    id: 'school-board-1995',
+    year: 1995,
+    en: 'Runs for the Arcadia Unified School District Board of Education, one of five candidates for three seats.',
+    zhHant: '參選亞凱迪亞聯合學區教育委員，為五名候選人角逐三席之一。',
+    factId: 'school-board-1995',
   },
   {
     id: 'acupuncture-board',

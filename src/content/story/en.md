@@ -6,10 +6,10 @@ locale: en
 Min Mey Chang came to the United States in the late 1960s with her husband,
 Dr. Sheng Chang.
 
-In 1982 the two of them co-founded the Arcadia Chinese Association, to help
-newly arrived immigrants and to open a line between the Chinese American
-community, the city, and the schools. That same year she founded the Arcadia
-Chinese School, and served as its principal for more than thirty years.
+In 1981 she founded the Arcadia Chinese School, and served as its principal
+for more than thirty years. The next year the two of them co-founded the
+Arcadia Chinese Association, to help newly arrived immigrants and to open a
+line between the Chinese American community, the city, and the schools.
 
 She built the school into something larger than a language class. A trailblazer
 among Chinese schools, she established its afternoon classes and its
@@ -31,8 +31,8 @@ China.
 > So that the people teaching Chinese American children would understand where
 > those children came from.
 
-In 1986 she became President of the Southern California Council of Chinese
-Schools, and held the post for two years. In 1989 she was installed as President
+In 1985 she became President of the Southern California Council of Chinese
+Schools, after a year as its vice president and treasurer. In 1989 she was installed as President
 of the Chinese American Parents and Teachers Association of Southern California.
 With the Arcadia Chinese Association she organized two-day Chinese cultural
 festivals, at the Los Angeles County Arboretum in 1987 and at the Huntington
