@@ -228,26 +228,36 @@ html[lang^='zh'] .prose-story blockquote {
  * control. Below 40rem: "Timeline" is the longest label that must fit a cell
  * there (3.93em; ~4.7em with padding and border), so 5em is the floor; two-word
  * labels ("School" aside, the Chinese ones are two to four characters) wrap.
- * Eight pages (2026-11-23): 3+3+2 on a phone at 0.9-1x, 2+2+2+2 once the text
- * is enlarged; 4+4 from 40rem. */
+ * Nine pages (2026-11-23): 3+3+3 on a phone at 0.9-1x, 2 across once the text
+ * is enlarged; 5+4 from 40rem. */
 .nav-grid {
   display: grid;
   gap: 0.5rem;
   /* The max() floor is also a third of the row (less the two gaps, less 1px
-   * for rounding), so a wide phone or small text never makes 4 + 4 here. */
+   * for rounding), so a wide phone or small text never makes 4 across here. */
   grid-template-columns: repeat(
     auto-fill,
     minmax(max(5em, calc((100% - 1rem) / 3 - 1px)), 1fr)
   );
 }
 /* From 40rem "Calligraphy" (5.08em, ~6em with padding and border) sits whole
- * in its cell, so 6em is the floor here: 4 + 4, or 3 + 3 + 2 when enlarged
- * text at a narrow width needs it. */
+ * in its cell, so 6em is the floor here. The other term is a fifth of the row
+ * (less four gaps): nine buttons as 5 + 4, so none sits alone; fewer columns
+ * when enlarged text at a narrow width needs it. */
 @media (min-width: 40rem) {
   .nav-grid {
     grid-template-columns: repeat(
       auto-fill,
-      minmax(max(6em, calc((100% - 1.5rem) / 4 - 1px)), 1fr)
+      minmax(max(6em, calc((100% - 2rem) / 5 - 1px)), 1fr)
+    );
+  }
+  /* Chinese labels are two to four characters (中文學校, ~4.9em with padding),
+   * and the Chinese top bar is narrower (72ch in a CJK font is ~490px), so the
+   * 6em English floor would leave 4 + 4 + 1 there. 5em gives 5 + 4. */
+  :lang(zh-Hant) .nav-grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(max(5em, calc((100% - 2rem) / 5 - 1px)), 1fr)
     );
   }
 }

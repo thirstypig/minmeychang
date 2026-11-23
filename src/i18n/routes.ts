@@ -19,6 +19,7 @@ export type RouteId =
   | 'talks'
   | 'archive'
   | 'school'
+  | 'temple'
   | 'calligraphy'
 
 export type Route = {
@@ -83,6 +84,14 @@ export const routes: Route[] = [
     segment: '/school',
     labelKey: 'schoolHeading',
     navLabelKey: 'navSchool',
+    inReadingOrder: true,
+  },
+  {
+    id: 'temple',
+    descKey: 'descTemple',
+    segment: '/hsi-lai',
+    labelKey: 'templeHeading',
+    navLabelKey: 'navTemple',
     inReadingOrder: true,
   },
   {

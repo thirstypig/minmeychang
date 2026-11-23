@@ -39,6 +39,7 @@ describe('route coverage', () => {
       archive: 'archive.astro',
       calligraphy: 'calligraphy.astro',
       school: 'school.astro',
+      temple: 'hsi-lai.astro',
     }
     for (const route of routes) {
       const file = files[route.id]
