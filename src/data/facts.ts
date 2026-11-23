@@ -176,12 +176,13 @@ export const confirmedFacts: Fact[] = [
   },
   {
     id: 'calligraphy',
-    en: 'For several years she has performed Chinese calligraphy at Lunar New Year celebrations at the Huntington Library and Gardens, the Los Angeles County Arboretum in Arcadia, and Hsi Lai Temple.',
+    en: 'Each Lunar New Year she volunteers her calligraphy. At the invitation of the Huntington Library in San Marino, the Los Angeles County Arboretum in Arcadia and Hsi Lai Temple in Hacienda Heights, she goes and writes calligraphy in front of visitors and gives the pieces to them.',
     zhHant:
-      '連續多年於農曆新年期間，在杭廷頓圖書館與花園、位於亞凱迪亞的洛杉磯郡植物園及西來寺揮毫展演。',
+      '每逢農曆新年，她皆應杭廷頓圖書館（聖瑪利諾）、洛杉磯郡植物園（亞凱迪亞）及西來寺（哈仙達崗）之邀擔任志工，當場揮毫，並將作品贈送給來訪民眾。',
     status: 'family',
-    source: 'confirmed by James Chang (son), 2026-08-05',
-    note: 'Still no photograph of her calligraphy. It remains the most visually distinctive thing in her record and the archive has an empty frame waiting for it.',
+    source:
+      'confirmed by James Chang (son), 2026-08-05; volunteering, the invitations, the yearly cadence and giving the pieces away stated by James Chang, 2026-11-22',
+    note: 'Five photographs of her writing and exhibiting calligraphy are on the Calligraphy page (archive.ts, category calligraphy). The zh-Hant places go in parentheses rather than stacked in front of each name, which would read as part of it.',
   },
   {
     id: 'sheng-chang-mayor',

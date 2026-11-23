@@ -17,7 +17,13 @@
 
 export type ArchiveKind = 'photo' | 'document'
 
-export type ArchiveCategory = 'family' | 'chinese-school' | 'community' | 'buddhist' | 'travel'
+export type ArchiveCategory =
+  | 'family'
+  | 'chinese-school'
+  | 'community'
+  | 'buddhist'
+  | 'travel'
+  | 'calligraphy'
 
 export const archiveCategoryOrder: ArchiveCategory[] = [
   'family',
@@ -25,7 +31,16 @@ export const archiveCategoryOrder: ArchiveCategory[] = [
   'community',
   'buddhist',
   'travel',
+  // Last, and not an archive-page section: these render on the Calligraphy
+  // page instead. It stays in this list so the local admin editor (which reads
+  // archiveCategoryOrder) still lists and edits them.
+  'calligraphy',
 ]
+
+/** The categories the archive page shows, in order. Everything but calligraphy. */
+export const archivePageCategories: ArchiveCategory[] = archiveCategoryOrder.filter(
+  (c) => c !== 'calligraphy',
+)
 
 export const archiveCategoryLabels: Record<ArchiveCategory, { en: string; zhHant: string }> = {
   family: { en: 'Family', zhHant: '家庭' },
@@ -33,6 +48,7 @@ export const archiveCategoryLabels: Record<ArchiveCategory, { en: string; zhHant
   community: { en: 'Community & Civic Life', zhHant: '社區與公共生活' },
   buddhist: { en: "Buddha's Light International Association", zhHant: '國際佛光會' },
   travel: { en: 'Travel', zhHant: '旅行' },
+  calligraphy: { en: 'Calligraphy', zhHant: '書法' },
 }
 
 export type ArchiveItem = {
@@ -1165,32 +1181,6 @@ export const archive: ArchiveItem[] = [
     },
   },
   {
-    id: 'calligraphy-red-blazer',
-    kind: 'photo',
-    decade: 1990,
-    category: 'community',
-    en: 'Writing calligraphy',
-    zhHant: '揮毫',
-    asset: '/archive/calligraphy-red-blazer.jpg',
-    caption: {
-      en: 'Seated at a red-draped table writing calligraphy in a red blazer, brushes and an ink stone in front of her.',
-      zhHant: '身著紅色外套，坐於鋪有紅布的桌前揮毫，桌上置有毛筆與硯台。',
-    },
-  },
-  {
-    id: 'calligraphy-costume-party',
-    kind: 'photo',
-    decade: 1990,
-    category: 'community',
-    en: 'Writing calligraphy at a costume party',
-    zhHant: '化妝派對中揮毫',
-    asset: '/archive/calligraphy-costume-party.jpg',
-    caption: {
-      en: 'Writing calligraphy at a table with Dr. Chang, dancers in costume visible in the background.',
-      zhHant: '與張勝雄醫師同坐揮毫，身後可見著裝表演的舞者。',
-    },
-  },
-  {
     id: 'aauw-features-chinese-leader-clipping',
     kind: 'document',
     decade: 1990,
@@ -1280,47 +1270,6 @@ export const archive: ArchiveItem[] = [
     caption: {
       en: 'A Certificate of Appreciation from the Southern California Council of Chinese Schools, dated April 30, 2006, recognizing her as a volunteer judge in that year\'s regional Chinese speech and drama contests.',
       zhHant: '南加州中文學校聯合會頒發之感謝狀，日期2006年4月30日，表揚她擔任該年區域國語演講暨詩詞朗誦比賽評審志工。',
-    },
-  },
-  {
-    id: 'calligraphy',
-    kind: 'photo',
-    decade: 2020,
-    category: 'community',
-    en: 'Writing at a Lunar New Year event',
-    zhHant: '農曆新年揮毫',
-    asset: '/archive/calligraphy-lunar-new-year.jpg',
-    caption: {
-      en: 'Holding up 福 — good fortune — written in gold on red, at an outdoor Lunar New Year event, with 愛 and 馬到成功 beside it.',
-      zhHant:
-        '手持親書「福」字，金墨紅箋，攝於戶外農曆新年活動；旁另有「愛」與「馬到成功」。',
-    },
-  },
-  {
-    id: 'calligraphy-exhibition',
-    kind: 'photo',
-    decade: 2020,
-    category: 'community',
-    en: 'A calligraphy and painting exhibition',
-    zhHant: '書畫花藝聯展',
-    asset: '/archive/calligraphy-exhibition.jpg',
-    caption: {
-      en: 'At a joint exhibition of calligraphy, painting and floral art held for an alumni association Parents\' Day, with framed work behind.',
-      zhHant:
-        '攝於大專校友雙親節書畫花藝聯展會場，身後為展出之裱框作品。',
-    },
-  },
-  {
-    id: 'art-exhibition-with-friend',
-    kind: 'photo',
-    decade: 2020,
-    category: 'community',
-    en: 'At an art exhibition',
-    zhHant: '書畫展覽',
-    asset: '/archive/art-exhibition-with-friend.jpg',
-    caption: {
-      en: 'With a friend at a calligraphy and painting exhibition — one of the most recent photographs in this archive.',
-      zhHant: '與一位友人攝於書畫展覽會場——是本檔案中年代較近的照片之一。',
     },
   },
   {
@@ -1970,6 +1919,75 @@ export const archive: ArchiveItem[] = [
     },
   },
 
+  // ── Calligraphy ── shown on the Calligraphy page, not the archive page
+  // (moved there at James's request, 2026-11-22). See calligraphyItems.
+  {
+    id: 'calligraphy-red-blazer',
+    kind: 'photo',
+    decade: 1990,
+    category: 'calligraphy',
+    en: 'Writing calligraphy',
+    zhHant: '揮毫',
+    asset: '/archive/calligraphy-red-blazer.jpg',
+    caption: {
+      en: 'Seated at a red-draped table writing calligraphy in a red blazer, brushes and an ink stone in front of her.',
+      zhHant: '身著紅色外套，坐於鋪有紅布的桌前揮毫，桌上置有毛筆與硯台。',
+    },
+  },
+  {
+    id: 'calligraphy-costume-party',
+    kind: 'photo',
+    decade: 1990,
+    category: 'calligraphy',
+    en: 'Writing calligraphy at a costume party',
+    zhHant: '化妝派對中揮毫',
+    asset: '/archive/calligraphy-costume-party.jpg',
+    caption: {
+      en: 'Writing calligraphy at a table with Dr. Chang, dancers in costume visible in the background.',
+      zhHant: '與張勝雄醫師同坐揮毫，身後可見著裝表演的舞者。',
+    },
+  },
+  {
+    id: 'calligraphy',
+    kind: 'photo',
+    decade: 2020,
+    category: 'calligraphy',
+    en: 'Writing at a Lunar New Year event',
+    zhHant: '農曆新年揮毫',
+    asset: '/archive/calligraphy-lunar-new-year.jpg',
+    caption: {
+      en: 'Holding up 福 — good fortune — written in gold on red, at an outdoor Lunar New Year event, with 愛 and 馬到成功 beside it.',
+      zhHant:
+        '手持親書「福」字，金墨紅箋，攝於戶外農曆新年活動；旁另有「愛」與「馬到成功」。',
+    },
+  },
+  {
+    id: 'calligraphy-exhibition',
+    kind: 'photo',
+    decade: 2020,
+    category: 'calligraphy',
+    en: 'A calligraphy and painting exhibition',
+    zhHant: '書畫花藝聯展',
+    asset: '/archive/calligraphy-exhibition.jpg',
+    caption: {
+      en: 'At a joint exhibition of calligraphy, painting and floral art held for an alumni association Parents\' Day, with framed work behind.',
+      zhHant:
+        '攝於大專校友雙親節書畫花藝聯展會場，身後為展出之裱框作品。',
+    },
+  },
+  {
+    id: 'art-exhibition-with-friend',
+    kind: 'photo',
+    decade: 2020,
+    category: 'calligraphy',
+    en: 'At an art exhibition',
+    zhHant: '書畫展覽',
+    asset: '/archive/art-exhibition-with-friend.jpg',
+    caption: {
+      en: 'With a friend at a calligraphy and painting exhibition — one of the most recent photographs in this archive.',
+      zhHant: '與一位友人攝於書畫展覽會場——是本檔案中年代較近的照片之一。',
+    },
+  },
 ]
 
 export const archiveDecades = [...new Set(archive.map((i) => i.decade))].sort(
@@ -1985,10 +2003,11 @@ export const RECENT_LIMIT = 8
 /** The newest additions to the site, newest first. Relative to the newest
  *  `added` date in the data, never to the build date, so the row cannot empty
  *  itself out on some later deploy just because time passed. Ties keep file
- *  order, which is already the page's order. */
+ *  order, which is already the page's order. Archive-page items only: a
+ *  calligraphy photo here would open a viewer for a tile the page lacks. */
 export function recentlyAdded(items: ArchiveItem[] = archive): ArchiveItem[] {
   return items
-    .filter((i) => i.asset && i.added)
+    .filter((i) => i.asset && i.added && archivePageCategories.includes(i.category))
     .sort((a, b) => (b.added! < a.added! ? -1 : b.added! > a.added! ? 1 : 0))
     .slice(0, RECENT_LIMIT)
 }
@@ -2008,7 +2027,7 @@ export type ArchiveSection = {
  *  decade dedup/sort, empty-category exclusion — is unit-testable without a
  *  component-rendering harness this project doesn't otherwise use. */
 export function buildArchiveSections(items: ArchiveItem[] = archive): ArchiveSection[] {
-  return archiveCategoryOrder
+  return archivePageCategories
     .map((category) => {
       const categoryItems = items.filter((item) => item.category === category)
       const decades = [...new Set(categoryItems.map((i) => i.decade))].sort((a, b) => a - b)
@@ -2016,3 +2035,6 @@ export function buildArchiveSections(items: ArchiveItem[] = archive): ArchiveSec
     })
     .filter((s) => s.items.length > 0)
 }
+
+/** The photographs shown on the Calligraphy page, in file order. */
+export const calligraphyItems: ArchiveItem[] = archive.filter((i) => i.category === 'calligraphy')
