@@ -103,6 +103,11 @@
 
 html {
   font-size: calc(100% * var(--type-scale));
+  /* At 1.6x on a 320–360px phone a single long word ("multigenerational",
+   * "International") is wider than a narrow column and pushed the page
+   * sideways. break-word breaks a word only when it cannot fit on a line of
+   * its own, so ordinary text is untouched. Narrow labels also hyphenate. */
+  overflow-wrap: break-word;
   background: var(--surface);
   color: var(--text-strong);
   font-family: var(--font-serif-en);
