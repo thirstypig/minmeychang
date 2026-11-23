@@ -22,6 +22,7 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - https://minmeychang.com
 
 ## Shipped (last 60 days)
+- **No sideways scroll at large text (2026-11-22):** at the largest text size on 320–360px phones, the archive ("multigenerational") and service ("International") pages scrolled sideways. Long words now break or hyphenate, and the institution rows put the logo above the name when the column gets narrow. Checked on all 14 pages at 4 widths and 3 text sizes.
 - **Calligraphy page and top share button (2026-11-22):** new seventh page, Calligraphy / 書法, with her yearly Lunar New Year volunteering at the Huntington Library, the LA County Arboretum and Hsi Lai Temple, and three photos moved from the archive (old archive links redirect). Share button moved from the footer to the top of every page; photo shares send her name and the caption ("Min Mey Chang: …" / 「張馬敏妹：…」).
 - **Archive gallery (2026-09-29):** thumbnail gallery, `<dialog>` lightbox, per-photo links, "Recently added" row; more photos added.
 - **Archive navigation (2026-11-08):** section bar now wrapping buttons instead of sideways scroll; floating "jump to section" and share button on phones.

@@ -27,7 +27,7 @@ const anyLogos = shown.some((a) => a.logoPermitted && a.logo)
       <dl class="mt-7 list-none p-0">
         {shown.map((affiliation) => (
           <div
-            class="flex items-center gap-5 border-t py-5"
+            class="flex flex-wrap items-center gap-x-5 gap-y-3 border-t py-5"
             style="border-color: var(--rule)"
           >
             {/* Fixed-width column whether or not a mark exists, so every row
@@ -52,8 +52,12 @@ const anyLogos = shown.some((a) => a.logoPermitted && a.logo)
               )}
             </div>
 
-            <div class="min-w-0">
-              <dt class="text-lg leading-snug" style="color: var(--text-strong)">
+            {/* basis 11em + flex-wrap: at enlarged text on a narrow phone the
+                name column would shrink to ~123px and split "International"
+                mid-word, so the name drops below the mark instead. At normal
+                size on a phone it stays beside it. */}
+            <div class="min-w-0 flex-1 basis-[11em]">
+              <dt class="text-lg leading-snug hyphens-auto" style="color: var(--text-strong)">
                 {locale === 'en' ? affiliation.en : affiliation.zhHant}
               </dt>
               <dd class="mt-1 text-base" style="color: var(--brand)">
