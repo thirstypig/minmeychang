@@ -1,0 +1,57 @@
+---
+// A door, not a page: the address a "Share this photo" button sends. Messaging
+// apps read these tags to draw the preview (this photo, not the generic site
+// card), and a person who taps the link is sent straight on to the photo on
+// its own page. See src/data/photo-links.ts.
+import sharp from 'sharp'
+import type { ArchiveItem } from '../data/archive'
+import { photoHomePath } from '../data/photo-links'
+import { getTranslation, htmlLang, photoShareText, type Locale } from '../i18n/ui'
+
+interface Props {
+  locale: Locale
+  item: ArchiveItem
+}
+
+const { locale, item } = Astro.props
+const pick = (v: { en: string; zhHant: string }) => (locale === 'en' ? v.en : v.zhHant)
+
+const label = pick(item)
+const caption = item.caption ? pick(item.caption) : ''
+const target = `${photoHomePath(locale, item)}#${item.id}`
+const home = new URL(photoHomePath(locale, item), Astro.site)
+const image = new URL(item.asset!, Astro.site)
+const meta = await sharp(`public${item.asset}`).metadata()
+const title = `${label} — ${getTranslation(locale, 'siteName')}`
+const description = caption ? photoShareText(locale, caption) : title
+---
+
+<!doctype html>
+<html lang={htmlLang[locale]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={home.href} />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Min Mey Chang 張馬敏妹" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:image" content={image.href} />
+    <meta property="og:image:width" content={String(meta.width)} />
+    <meta property="og:image:height" content={String(meta.height)} />
+    <meta property="og:image:alt" content={label} />
+    <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'zh_TW'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image.href} />
+    <script is:inline define:vars={{ target }}>location.replace(target)</script>
+  </head>
+  <body>
+    <p><a href={target}>{label}</a></p>
+  </body>
+</html>

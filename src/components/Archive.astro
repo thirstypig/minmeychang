@@ -12,6 +12,7 @@ import {
 import { linkableAccounts } from '../data/media'
 import { getTranslation, photoSharePrefix, type Locale } from '../i18n/ui'
 import { routePath } from '../i18n/routes'
+import { photoShareBase } from '../data/photo-links'
 
 interface Props {
   locale: Locale
@@ -246,14 +247,15 @@ const photoCount = (items: ArchiveItem[]) => items.filter((i) => i.asset).length
           <p class="lb-title" style="color: var(--text-strong)"></p>
           <p class="lb-caption mt-1 text-sm leading-relaxed" style="color: var(--text-soft)"></p>
           <p class="lb-count mt-2 text-xs tabular-nums" style="color: var(--text-soft)"></p>
-          {/* The viewer keeps #<id> in the address bar, so the shared
-              script in Base.astro shares this photo's own link; show() sets
-              data-share-text to her name and the open photo's caption. */}
+          {/* show() sets data-share-url to the open photo's /photo/<id> page
+              (its preview shows this photo; see src/data/photo-links.ts) and
+              data-share-text to her name and the photo's caption. */}
           <p class="mt-3">
             <button
               type="button"
               class="share-button text-sm"
               data-share
+              data-share-base={photoShareBase(locale)}
               data-share-prefix={photoSharePrefix(locale)}
               data-share-name={t('siteName')}
               data-label-copied={t('linkCopied')}
@@ -537,6 +539,7 @@ const photoCount = (items: ArchiveItem[]) => items.filter((i) => i.asset).length
       share.dataset.shareText = caption.textContent
         ? share.dataset.sharePrefix + caption.textContent
         : share.dataset.shareName!
+      share.dataset.shareUrl = share.dataset.shareBase + ids[index] + '/'
       count.textContent = `${index + 1} / ${tiles.length}`
       history.replaceState(null, '', `#${ids[index]}`)
       preload(index + 1)

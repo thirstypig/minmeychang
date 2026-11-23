@@ -22,6 +22,7 @@ Static bilingual (English / Traditional Chinese) site honoring Min Mey Chang, an
 - https://minmeychang.com
 
 ## Shipped (last 60 days)
+- **Photo share previews (2026-11-23):** "Share this photo" now sends `/photo/<id>/` instead of `/<page>#<id>`. Messaging apps drop the `#` part, so every shared photo used to preview as the same site card. Each of the 144 items now has a page in each language carrying its own preview image and caption, which forwards the reader to the photo on its page. These pages are noindex and kept out of the sitemap. WeChat largely ignores preview tags.
 - **Design-review fixes (2026-11-23):**
   - Smaller phone menu. At double text size on a 390px phone, the page now starts at y=324 instead of y=880, so it's no longer pushed off the first screen.
   - Bordered A− / A+ / theme / language buttons, 40×44.

@@ -16,9 +16,10 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      // og-card exists only as the source for public/og.png. It is not a page
-      // anyone should land on, and a sitemap entry would invite exactly that.
-      filter: (page) => !page.includes('/og-card'),
+      // og-card exists only as the source for public/og.png, and /photo/<id>
+      // pages only forward a shared link on (src/data/photo-links.ts). Neither
+      // is a page anyone should land on from search.
+      filter: (page) => !page.includes('/og-card') && !page.includes('/photo/'),
 
       // Tells search engines the two locales are translations of one another
       // rather than duplicate content competing for the same queries.

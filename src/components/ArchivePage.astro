@@ -2,6 +2,7 @@
 import sharp from 'sharp'
 import { captionRepeatsTitle, type ArchiveItem } from '../data/archive'
 import { renderableFacts } from '../data/facts'
+import { photoSharePath } from '../data/photo-links'
 import { getTranslation, photoShareText, type Locale } from '../i18n/ui'
 
 // A page made from one archive category (see categoryPages in archive.ts):
@@ -149,7 +150,7 @@ const first = items.find((i) => i.asset)?.id
                   type="button"
                   class="share-button text-sm"
                   data-share
-                  data-share-url={`#${item.id}`}
+                  data-share-url={photoSharePath(locale, item.id)}
                   data-share-text={photoShareText(locale, item.caption ? pick(item.caption) : '')}
                   data-label-copied={t('linkCopied')}
                   aria-label={`${t('sharePhoto')}${locale === 'en' ? ': ' : '：'}${pick({ en: item.en, zhHant: item.zhHant })}`}
